@@ -7,11 +7,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="Global Business Group">
-    <meta name="description" content="Nos Projets - Global Business Group">
+    <meta name="author" content="GBG">
+    <meta name="description" content="Restaurant Assiette Durable - Global Business Group">
     <!-- ======== Page title ============ -->
-    <title>Nos Projets - Global Business Group</title>
-    <!--<< Favcion >>-->
+    <title>Restaurant Assiette Durable - Global Business Group</title>
+    <!--<< Favicon >>-->
     <link rel="shortcut icon" href="assets/img/logo/favcion.png">
     <!--<< Bootstrap min.css >>-->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -65,9 +65,9 @@
                     <div class="mobile-menu fix mb-3"></div>
                     <div class="offcanvas__contact">
                         <p class="p800-clr mb-xxl-5 mb-3">
-                            GBG — Global Business Group, un groupe engagé pour une agriculture durable, équitable et créatrice de valeur en Côte d'Ivoire et en Afrique.
+                            Global Business Group accompagne la transformation des filières agricoles à travers le conseil, la certification, la commercialisation durable et la transformation du cacao.
                         </p>
-                        <h4>Informations de Contact</h4>
+                        <h4>Contact Info</h4>
                         <ul>
                             <li class="d-flex align-items-center">
                                 <div class="offcanvas__contact-icon">
@@ -87,18 +87,10 @@
                             </li>
                             <li class="d-flex align-items-center">
                                 <div class="offcanvas__contact-icon mr-15">
-                                    <i class="fal fa-clock"></i>
-                                </div>
-                                <div class="offcanvas__contact-text">
-                                    <a target="_blank" href="#">Lundi - Vendredi, 08h - 17h</a>
-                                </div>
-                            </li>
-                            <li class="d-flex align-items-center">
-                                <div class="offcanvas__contact-icon mr-15">
                                     <i class="far fa-phone"></i>
                                 </div>
                                 <div class="offcanvas__contact-text">
-                                    <a href="tel:+2250700000000">+225 07 00 00 00 00</a>
+                                    <a href="tel:+22507000000000">+225 07 00 00 00 00</a>
                                 </div>
                             </li>
                         </ul>
@@ -181,7 +173,7 @@
                                                 <li>
                                                     <a href="about.html">À propos</a>
                                                 </li>
-                                                <li class="has-dropdown">
+                                                <li class="has-dropdown active">
                                                     <a href="#">
                                                         Nos Entités
                                                         <i class="fas fa-angle-down"></i>
@@ -190,14 +182,14 @@
                                                         <li><a href="gbcc.html">GBCC</a></li>
                                                         <li><a href="scmc.html">SCMC</a></li>
                                                         <li><a href="kic.html">KIC</a></li>
-                                                        <li><a href="assiette-durable.html">Restaurant Assiette Durable</a></li>
+                                                        <li><a href="assiette-durable.html" class="active">Restaurant Assiette Durable</a></li>
                                                         <li><a href="scmc-chocolaterie.html">SCMC Chocolaterie</a></li>
                                                     </ul>
                                                 </li>
                                                 <li>
                                                     <a href="expertises.html">Nos Expertises</a>
                                                 </li>
-                                                <li class="active">
+                                                <li>
                                                     <a href="projets.html">Nos Projets</a>
                                                 </li>
                                                 <li>
@@ -252,7 +244,7 @@
             <div class="breadcrumnd-wrapp">
                 <div class="bread-content">
                     <h1 class="wow fadeInDown" data-wow-delay=".4s">
-                        Nos Projets
+                        Restaurant Assiette Durable
                     </h1>
                     <ul class="bread-listing">
                         <li>
@@ -264,7 +256,13 @@
                             <i class="fa-solid fa-angle-right"></i>
                         </li>
                         <li>
-                            Nos Projets
+                            <a href="#">Nos Entités</a>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-angle-right"></i>
+                        </li>
+                        <li>
+                            Restaurant Assiette Durable
                         </li>
                     </ul>
                 </div>
@@ -275,163 +273,125 @@
         </div>
     </section>
 
-    <!-- Gallery section -->
-    <section class="gallery-section overflow-hidden section-padding white-bg">
+    <!-- Entity Details Section -->
+    <section class="servicevm-details-section overflow-hidden section-padding white-bg">
         <div class="container">
-            <!-- Section Title -->
-            <div class="row justify-content-center mb-5">
-                <div class="col-lg-8 text-center">
-                    <div class="section-title">
-                        <h5 class="p1-clr wow fadeInLeft" data-wow-delay="0.4s">NOS PROJETS</h5>
-                        <h2 class="wow fadeInUp" data-wow-delay="0.5s">Des projets concrets pour un impact durable</h2>
-                    </div>
-                </div>
-            </div>
-            <!-- Filter Buttons -->
-            <div class="row justify-content-center mb-4">
-                <div class="col-12 text-center">
-                    <div class="gallery-filter-btn d-flex flex-wrap justify-content-center gap-3 mb-4" id="mix-filter">
-                        <button class="cmn-btn active" data-filter="all">Tous</button>
-                        <button class="cmn-btn" data-filter=".certification">Certification</button>
-                        <button class="cmn-btn" data-filter=".transformation">Transformation</button>
-                        <button class="cmn-btn" data-filter=".commercialisation">Commercialisation</button>
-                    </div>
-                </div>
-            </div>
-            <!-- Gallery Items -->
-            <div class="row g-xl-4 g-3 justify-content-center mix-container" id="mix-container">
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mix certification wow fadeInUp" data-wow-delay=".3s">
-                    <div class="gallery-static-item">
-                        <img src="assets/img/gallery/mg1.jpg" alt="Certification Cacao Durable" class="w-100 mimg">
-                        <div class="content">
-                            <span>
-                                Programme GBCC
+            <div class="row g-xl-4 g-3 justify-content-center">
+                <!-- Sidebar -->
+                <div class="col-lg-4">
+                    <div class="service-details-left">
+                        <div class="tab-faq faq mb-40 wow fadeInUp" data-wow-delay=".3s">
+                            <div class="accordion-section d-grid gap-xxl-4 gap-lg-3 gap-2">
+                                <div class="accordion-single">
+                                    <h5 class="header-area">
+                                        <button
+                                            class="accordion-btn d-flex align-items-center d-flex position-relative w-100"
+                                            type="button">
+                                            <a href="gbcc.html" style="color:inherit;text-decoration:none;width:100%;">GBCC</a>
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div class="accordion-single">
+                                    <h5 class="header-area">
+                                        <button
+                                            class="accordion-btn d-flex align-items-center d-flex position-relative w-100"
+                                            type="button">
+                                            <a href="scmc.html" style="color:inherit;text-decoration:none;width:100%;">SCMC</a>
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div class="accordion-single">
+                                    <h5 class="header-area">
+                                        <button
+                                            class="accordion-btn d-flex align-items-center d-flex position-relative w-100"
+                                            type="button">
+                                            <a href="kic.html" style="color:inherit;text-decoration:none;width:100%;">KIC</a>
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div class="accordion-single active">
+                                    <h5 class="header-area">
+                                        <button
+                                            class="accordion-btn d-flex align-items-center d-flex position-relative w-100 p1-clr"
+                                            type="button" style="font-weight:700;">
+                                            Restaurant Assiette Durable
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div class="accordion-single">
+                                    <h5 class="header-area">
+                                        <button
+                                            class="accordion-btn d-flex align-items-center d-flex position-relative w-100"
+                                            type="button">
+                                            <a href="scmc-chocolaterie.html" style="color:inherit;text-decoration:none;width:100%;">SCMC Chocolaterie</a>
+                                        </button>
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-bambo-box wow fadeInUp" data-wow-delay=".4s">
+                            <h3 class="text-uppercase">
+                                Nous Contacter
+                            </h3>
+                            <span class="fast">
+                                Pour toute demande
                             </span>
-                            <a href="projets.html" class="title">Certification Cacao Durable</a>
+                            <a href="tel:+22507000000000" class="call">
+                                <span class="call-icon">
+                                    <i class="fa-solid fa-phone"></i>
+                                </span>
+                                +225 07 00 00 00 00
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mix commercialisation wow fadeInUp" data-wow-delay=".3s">
-                    <div class="gallery-static-item">
-                        <img src="assets/img/gallery/mg2.jpg" alt="Diversification Package" class="w-100 mimg">
-                        <div class="content">
-                            <span>
-                                Initiative Assiette Durable
-                            </span>
-                            <a href="projets.html" class="title">Diversification Package</a>
+                <!-- Main Content -->
+                <div class="col-lg-8">
+                    <div class="service-wrapper-right ps-xl-2">
+                        <div class="cont-box wow fadeInUp" data-wow-delay=".3s">
+                            <h3>
+                                Restaurant Assiette Durable
+                            </h3>
+                            <p>
+                                Restaurant Assiette Durable est l'entité ou initiative liée à l'alimentation durable, à la diversification agricole et à la valorisation des produits locaux. Elle permet de connecter les producteurs, les marchés urbains et les consommateurs autour d'une offre alimentaire responsable.
+                            </p>
                         </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mix transformation wow fadeInUp" data-wow-delay=".3s">
-                    <div class="gallery-static-item">
-                        <img src="assets/img/gallery/mg3.jpg" alt="Transformation Locale du Cacao" class="w-100 mimg">
-                        <div class="content">
-                            <span>
-                                Projet KIC
-                            </span>
-                            <a href="projets.html" class="title">Transformation Locale du Cacao</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mix commercialisation wow fadeInUp" data-wow-delay=".3s">
-                    <div class="gallery-static-item">
-                        <img src="assets/img/gallery/mg4.jpg" alt="Valorisation Commerciale" class="w-100 mimg">
-                        <div class="content">
-                            <span>
-                                Projet SCMC
-                            </span>
-                            <a href="projets.html" class="title">Valorisation Commerciale</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mix transformation wow fadeInUp" data-wow-delay=".3s">
-                    <div class="gallery-static-item">
-                        <img src="assets/img/gallery/mg5.jpg" alt="Chocolat Premium Durable" class="w-100 mimg">
-                        <div class="content">
-                            <span>
-                                Projet SCMC Chocolaterie
-                            </span>
-                            <a href="projets.html" class="title">Chocolat Premium Durable</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mix certification wow fadeInUp" data-wow-delay=".3s">
-                    <div class="gallery-static-item">
-                        <img src="assets/img/gallery/mg6.jpg" alt="Certification Cacao Durable" class="w-100 mimg">
-                        <div class="content">
-                            <span>
-                                Programme GBCC
-                            </span>
-                            <a href="projets.html" class="title">Certification Cacao Durable</a>
+                        <div class="cont-box mb-40 wow fadeInUp" data-wow-delay=".4s">
+                            <h3>
+                                Nos Services
+                            </h3>
+                            <ul class="list-area" style="padding-left:0;list-style:none;">
+                                <li class="d-flex align-items-center gap-2 mb-3">
+                                    <i class="fa-solid fa-circle-check p1-clr"></i>
+                                    <span>Promotion d'une alimentation durable</span>
+                                </li>
+                                <li class="d-flex align-items-center gap-2 mb-3">
+                                    <i class="fa-solid fa-circle-check p1-clr"></i>
+                                    <span>Valorisation des produits locaux</span>
+                                </li>
+                                <li class="d-flex align-items-center gap-2 mb-3">
+                                    <i class="fa-solid fa-circle-check p1-clr"></i>
+                                    <span>Création de débouchés pour les producteurs</span>
+                                </li>
+                                <li class="d-flex align-items-center gap-2 mb-3">
+                                    <i class="fa-solid fa-circle-check p1-clr"></i>
+                                    <span>Soutien à la diversification agricole</span>
+                                </li>
+                                <li class="d-flex align-items-center gap-2 mb-3">
+                                    <i class="fa-solid fa-circle-check p1-clr"></i>
+                                    <span>Sécurité alimentaire</span>
+                                </li>
+                                <li class="d-flex align-items-center gap-2 mb-3">
+                                    <i class="fa-solid fa-circle-check p1-clr"></i>
+                                    <span>Sensibilisation à la consommation responsable</span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!--<< Subscribe Start >>-->
-    <div class="subscrbie-section subscrbie-stylev03">
-        <div class="container">
-            <div class="subscribe-wrapper-v03">
-                <div class="container position-relative">
-                    <div class="row g-4 align-items-end justify-content-between">
-                        <div class="col-lg-6 col-md-6 mb-xl-5 pb-xl-4">
-                            <div class="get-element">
-                                <img src="assets/img/element/get-element.png" alt="img" class="d-md-block d-none">
-                            </div>
-                            <div class="subs-contentv3">
-                                <h2>
-                                    Restez informé <span>Abonnez-vous</span> <br> à notre Newsletter
-                                </h2>
-                                <form action="#" class="subscribe-form03 flex-xl-nowrap flex-wrap">
-                                    <input type="text" placeholder="Votre adresse e-mail">
-                                    <button type="submit" class="cmn-btn text-capitalize">
-                                        S'abonner
-                                        <i class="fa-solid fa-arrow-right"></i>
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <div class="conatact-box common-contact-inner position-relative">
-                                <div class="section-title mb-40">
-                                    <h5 class="p1-clr wow fadeInLeft" data-wow-delay="0.4s">
-                                        Contact
-                                    </h5>
-                                    <h2>
-                                        Prenez contact avec nous
-                                    </h2>
-                                </div>
-                                <form action="#" class="row g-xl-4 g-3">
-                                    <div class="col-lg-6">
-                                        <input type="text" placeholder="Nom">
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <input type="email" placeholder="E-mail">
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <input type="text" placeholder="Sujet / Entité concernée">
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <textarea name="message" placeholder="Message"></textarea>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <button type="submit" class="cmn-btn text-capitalize">
-                                            Envoyer
-                                        </button>
-                                    </div>
-                                </form>
-                                <!-- Element -->
-                                <img src="assets/img/element/sun-element.png" alt="img"
-                                    class="sun-element d-xl-block d-none">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!--<< Footer Section Start >>-->
     <footer class="footer-section overflow-hidden position-relative footer-style3">
@@ -447,7 +407,7 @@
                             </div>
                             <div class="footer-content">
                                 <p class="pre-pragraph">
-                                    Global Business Group — Un groupe engagé pour une agriculture durable, équitable et créatrice de valeur.
+                                    Global Business Group - Un groupe engagé pour une agriculture durable, équitable et créatrice de valeur.
                                 </p>
                                 <div class="social-wrapper social-empact d-flex align-items-center">
                                     <a href="#" class="white-clr"><i class="white-clr fab fa-facebook-f"></i></a>
@@ -471,9 +431,6 @@
                                 <h3 class="white-clr">Navigation</h3>
                             </div>
                             <ul class="list-area">
-                                <li>
-                                    <a href="index.html">Accueil</a>
-                                </li>
                                 <li>
                                     <a href="about.html">À propos</a>
                                 </li>
@@ -508,7 +465,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="tel:+2250700000000" class="link">
+                                    <a href="tel:+22507000000000" class="link">
                                         <i class="fa-solid fa-phone"></i>
                                         +225 07 00 00 00 00
                                     </a>
@@ -538,7 +495,7 @@
                 <div
                     class="footer-wrapper footer-wrapperv01 d-md-flex d-grid gap-md-0 gap-2 align-items-center justify-content-md-between justify-content-center text-md-start text-center">
                     <p class="wow fadeInLeft color-2" data-wow-delay=".3s">
-                        &copy; Global Business Group 2024 | Tous droits réservés
+                        &copy; Global Business Group 2024. Tous droits réservés.
                     </p>
                     <ul class="footer-menu wow fadeInRight" data-wow-delay=".5s">
                         <li>
@@ -552,6 +509,7 @@
             </div>
         </div>
     </footer>
+
     <!--<< All JS Plugins >>-->
     <script src="assets/js/jquery-3.7.1.min.js"></script>
     <!--<< Viewport Js >>-->
