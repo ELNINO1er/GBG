@@ -474,4 +474,36 @@ CSS TABLE OF CONTENTS
 	});
 
 	loader();
+
+	// ============================================================
+	// GBG Scroll-Triggered Reveal Animations (IntersectionObserver)
+	// ============================================================
+	(function() {
+		if (!('IntersectionObserver' in window)) return;
+
+		var revealClasses = ['.gbg-reveal', '.gbg-reveal-left', '.gbg-reveal-right', '.gbg-reveal-scale'];
+		var io = new IntersectionObserver(function(entries) {
+			entries.forEach(function(entry) {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('is-visible');
+					io.unobserve(entry.target);
+				}
+			});
+		}, { threshold: 0.12 });
+
+		function initReveals() {
+			revealClasses.forEach(function(cls) {
+				document.querySelectorAll(cls).forEach(function(el) {
+					io.observe(el);
+				});
+			});
+		}
+
+		if (document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded', initReveals);
+		} else {
+			initReveals();
+		}
+	})();
+
 })(jQuery); // End jQuery

@@ -8772,4 +8772,303 @@ input.main-search-input::placeholder {
 .wow {
   visibility: visible !important;
 }
+
+/* ============================================================
+   GBG ANIMATIONS — Professional motion design
+   ============================================================ */
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --- 1. Scroll-triggered reveals --- */
+.gbg-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.gbg-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.gbg-reveal-left {
+  opacity: 0;
+  transform: translateX(-36px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.gbg-reveal-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.gbg-reveal-right {
+  opacity: 0;
+  transform: translateX(36px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.gbg-reveal-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.gbg-reveal-scale {
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.gbg-reveal-scale.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* --- 2. Card hover — lift + shadow --- */
+.service-itemsv02 {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s ease;
+}
+.service-itemsv02:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.1);
+}
+.service-itemsv02 .thumb .mimg {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.service-itemsv02:hover .thumb .mimg {
+  transform: scale(1.06);
+}
+
+/* --- 3. Hero text stagger animation --- */
+@keyframes gbg-hero-fade-up {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes gbg-hero-glow {
+  0%, 100% { text-shadow: 0 0 0 transparent; }
+  50%      { text-shadow: 0 0 20px rgba(46, 125, 50, 0.15); }
+}
+.hero-contentv03 .sun-star {
+  animation: gbg-hero-fade-up 0.6s 0.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.hero-contentv03 h1 {
+  animation: gbg-hero-fade-up 0.7s 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.hero-contentv03 h1 span {
+  animation: gbg-hero-glow 3s 1.5s ease-in-out infinite;
+}
+.hero-contentv03 p {
+  animation: gbg-hero-fade-up 0.7s 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.hero-contentv03 .adjust-video {
+  animation: gbg-hero-fade-up 0.7s 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* --- 4. Navigation & CTA button hover --- */
+.main-menu ul li a {
+  position: relative;
+  transition: color 0.25s ease;
+}
+.main-menu ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--p1-clr, #2e7d32);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              left 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.main-menu ul li a:hover::after,
+.main-menu ul li.active a::after {
+  width: 100%;
+  left: 0;
+}
+
+.cmn-btn {
+  transition: transform 0.2s ease,
+              box-shadow 0.3s ease,
+              background-color 0.3s ease !important;
+  position: relative;
+  overflow: hidden;
+}
+.cmn-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(46, 125, 50, 0.25);
+}
+.cmn-btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(46, 125, 50, 0.2);
+}
+@keyframes gbg-btn-shine {
+  from { transform: translateX(-100%) skewX(-15deg); }
+  to   { transform: translateX(300%) skewX(-15deg); }
+}
+.cmn-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transform: translateX(-100%) skewX(-15deg);
+}
+.cmn-btn:hover::before {
+  animation: gbg-btn-shine 0.6s 0.1s ease-out;
+}
+
+/* --- 5. Counter pulse --- */
+@keyframes gbg-counter-pulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+.counter-items .con-box h2 {
+  transition: color 0.3s ease;
+}
+.counter-items:hover .con-box h2 {
+  animation: gbg-counter-pulse 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  color: var(--p1-clr, #2e7d32);
+}
+
+/* --- 6. Footer link hover --- */
+.footer-list li a,
+.footer-menu li a {
+  transition: transform 0.25s ease, color 0.25s ease;
+  display: inline-block;
+}
+.footer-list li a:hover,
+.footer-menu li a:hover {
+  transform: translateX(6px);
+  color: var(--p1-clr, #2e7d32) !important;
+}
+.footer-social a {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.25s ease;
+}
+.footer-social a:hover {
+  transform: translateY(-4px) scale(1.1);
+}
+
+/* --- 7. Gallery / project card image zoom --- */
+.gallery-static-item {
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s ease;
+}
+.gallery-static-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+}
+.gallery-static-item img.mimg,
+.gallery-static-item > img {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.gallery-static-item:hover img.mimg,
+.gallery-static-item:hover > img {
+  transform: scale(1.08);
+}
+.gallery-static-item .content {
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- 8. Floating decorative elements --- */
+@keyframes gbg-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+@keyframes gbg-float-slow {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-8px) rotate(2deg); }
+}
+.faq-element,
+.pricing-element,
+.who-element {
+  animation: gbg-float 4s ease-in-out infinite;
+}
+.sun-element,
+.get-element img,
+.step-shape {
+  animation: gbg-float-slow 5s ease-in-out infinite;
+}
+.count-flower-left,
+.count-flower-right,
+img[class*="element"] {
+  animation: gbg-float-slow 6s ease-in-out infinite;
+}
+
+/* --- 9. Section title entrance --- */
+.section-title h5 {
+  transition: letter-spacing 0.4s ease;
+}
+.section-title:hover h5 {
+  letter-spacing: 2px;
+}
+
+/* --- 10. Accordion smooth open/close --- */
+.accordion-single .content-area {
+  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.accordion-single .accordion-btn {
+  transition: color 0.25s ease, padding-left 0.3s ease;
+}
+.accordion-single.active .accordion-btn {
+  padding-left: 8px;
+  color: var(--p1-clr, #2e7d32);
+}
+
+/* --- 11. Smooth page scroll --- */
+html {
+  scroll-behavior: smooth;
+}
+
+/* --- 12. Blog card hover --- */
+.blog-itemsv1,
+.blog-details-leftitem {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s ease;
+}
+.blog-itemsv1:hover,
+.blog-details-leftitem:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.08);
+}
+.blog-itemsv1 .thumb img,
+.blog-details-leftitem .thumb img {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.blog-itemsv1:hover .thumb img,
+.blog-details-leftitem:hover .thumb img {
+  transform: scale(1.05);
+}
+
+/* --- 13. Video play button pulse --- */
+@keyframes gbg-play-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(46, 125, 50, 0.4); }
+  70%  { box-shadow: 0 0 0 18px rgba(46, 125, 50, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(46, 125, 50, 0); }
+}
+.video-cmn {
+  animation: gbg-play-pulse 2s ease-in-out infinite;
+}
+
+/* --- 14. Breadcrumb page title entrance --- */
+@keyframes gbg-breadcrumb-in {
+  from { opacity: 0; transform: translateY(-18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.breadcrumnd-banner h1 {
+  animation: gbg-breadcrumb-in 0.6s 0.15s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.bread-listing {
+  animation: gbg-breadcrumb-in 0.6s 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
 /*# sourceMappingURL=main.css.map */
