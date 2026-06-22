@@ -8766,4 +8766,10 @@ input.main-search-input::placeholder {
   .testimonial-thumbv3 .testimonial-count P {
     font-size: 14px;
   }
-}/*# sourceMappingURL=main.css.map */
+}
+
+/* GBG Fix: Force WOW.js elements visible after animation delay */
+.wow {
+  visibility: visible !important;
+}
+/*# sourceMappingURL=main.css.map */

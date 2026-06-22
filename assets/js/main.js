@@ -142,7 +142,22 @@ CSS TABLE OF CONTENTS
 		});
 
 		//>> Wow Animation Start <<//
-		new WOW().init();
+		new WOW({
+			boxClass: 'wow',
+			animateClass: 'animated',
+			offset: 0,
+			mobile: true,
+			live: true
+		}).init();
+
+		// Fallback: force visibility on all wow elements after 1.5s
+		setTimeout(function() {
+			$('.wow').each(function() {
+				if ($(this).css('visibility') === 'hidden') {
+					$(this).css('visibility', 'visible').addClass('animated fadeInUp');
+				}
+			});
+		}, 1500);
 
 		//>> Mixtup Filter Start <<//
 		if ($(".all-catagorys").length > 0) {
