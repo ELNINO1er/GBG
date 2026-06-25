@@ -29,7 +29,125 @@
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <!--<< Main.css >>-->
     <link rel="stylesheet" href="assets/css/main.css">
-    <style>.wow { visibility: visible !important; }</style>
+    <style>
+        .wow { visibility: visible !important; }
+        .gbcc-fact-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin:24px 0; }
+        .gbcc-fact { border:1px solid rgba(31,76,58,.14); border-radius:8px; padding:14px 16px; background:#fff; min-height:86px; }
+        .gbcc-fact span { display:block; color:#5b6b63; font-size:13px; margin-bottom:4px; }
+        .gbcc-fact strong { color:#173f2d; font-size:18px; line-height:1.25; }
+        .gbcc-service-text { color:#5b6b63; font-size:14px; line-height:1.55; margin-top:10px; }
+        .gbcc-mini-list { margin:12px 0 0; padding:0; list-style:none; display:grid; gap:7px; }
+        .gbcc-mini-list li { color:#173f2d; font-size:13px; line-height:1.35; }
+        .gbcc-mini-list i { color:#f4b400; margin-right:7px; }
+        .gbcc-project-card { height:100%; border:1px solid rgba(255,255,255,.18); border-radius:8px; padding:18px; background:rgba(255,255,255,.08); }
+        .gbcc-project-card span { display:block; color:#fdd61f; font-weight:700; margin-bottom:8px; }
+        .gbcc-project-card h5 { color:#fff; margin-bottom:10px; }
+        .gbcc-project-card p { color:rgba(255,255,255,.82); font-size:14px; line-height:1.55; margin:0; }
+        .gbcc-team-card .thumb img { height:280px; object-fit:cover; object-position:center top; }
+        .gbcc-redesign-page ~ section,
+        .gbcc-redesign-page ~ .subscrbie-section,
+        .gbcc-redesign-page ~ footer { display:none; }
+        .gbcc-redesign-page { background:#f6f7f3; color:#173f2d; }
+        .gbcc-redesign-page .container { max-width:1200px; }
+        .gbcc-kicker { color:#8f6b10; font-size:13px; font-weight:800; text-transform:uppercase; letter-spacing:1.4px; margin-bottom:12px; display:block; }
+        .gbcc-r-hero { position:relative; overflow:hidden; background:#123826; padding:96px 0 72px; }
+        .gbcc-r-hero:before { content:""; position:absolute; inset:0; background:linear-gradient(90deg,rgba(18,56,38,.96),rgba(18,56,38,.72),rgba(18,56,38,.18)), url("assets/img/gbcc/two-trucks-on-plant-field-scaled.jpg") center/cover no-repeat; }
+        .gbcc-r-hero .container { position:relative; z-index:1; }
+        .gbcc-r-hero h2 { color:#fff; font-size:58px; line-height:1.02; margin-bottom:22px; max-width:760px; }
+        .gbcc-r-hero p { color:rgba(255,255,255,.86); font-size:18px; line-height:1.7; max-width:680px; }
+        .gbcc-r-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:30px; }
+        .gbcc-r-btn { display:inline-flex; align-items:center; gap:9px; min-height:48px; padding:13px 20px; border-radius:6px; font-weight:800; background:#fdd61f; color:#173f2d; text-decoration:none; }
+        .gbcc-r-btn.secondary { background:transparent; color:#fff; border:1px solid rgba(255,255,255,.45); }
+        .gbcc-hero-panel { background:rgba(255,255,255,.94); border-radius:8px; padding:18px; box-shadow:0 28px 70px rgba(0,0,0,.25); }
+        .gbcc-hero-panel img { width:100%; height:360px; object-fit:cover; object-position:center top; border-radius:6px; margin-bottom:16px; }
+        .gbcc-panel-row { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+        .gbcc-panel-row div { border:1px solid #e5e9df; border-radius:6px; padding:12px; }
+        .gbcc-panel-row span { display:block; color:#657268; font-size:12px; margin-bottom:4px; }
+        .gbcc-panel-row strong { color:#173f2d; font-size:18px; }
+        .gbcc-section { padding:88px 0; }
+        .gbcc-section.white { background:#fff; }
+        .gbcc-section h2 { font-size:40px; line-height:1.14; margin-bottom:18px; }
+        .gbcc-lead { color:#5a6a60; font-size:17px; line-height:1.75; max-width:780px; }
+        .gbcc-identity-grid { display:grid; grid-template-columns:1.1fr .9fr; gap:28px; align-items:start; }
+        .gbcc-identity-card { background:#fff; border:1px solid #e3e8de; border-radius:8px; padding:28px; height:100%; }
+        .gbcc-identity-list { display:grid; gap:12px; margin-top:24px; }
+        .gbcc-identity-list div { display:flex; justify-content:space-between; gap:18px; padding-bottom:12px; border-bottom:1px solid #edf0ea; }
+        .gbcc-identity-list span { color:#667268; }
+        .gbcc-identity-list strong { text-align:right; color:#173f2d; }
+        .gbcc-photo-stack { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+        .gbcc-photo-stack img { width:100%; height:190px; object-fit:cover; border-radius:6px; }
+        .gbcc-photo-stack img:first-child { grid-column:1 / -1; height:260px; }
+        .gbcc-stat-strip { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:1px; background:#dfe5d7; border-radius:8px; overflow:hidden; margin-top:36px; }
+        .gbcc-stat { background:#fff; padding:24px; }
+        .gbcc-stat strong { display:block; font-size:34px; color:#173f2d; line-height:1; margin-bottom:8px; }
+        .gbcc-stat span { color:#667268; font-size:14px; }
+        .gbcc-service-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:18px; margin-top:34px; }
+        .gbcc-r-service { background:#fff; border:1px solid #e3e8de; border-radius:8px; overflow:hidden; }
+        .gbcc-r-service { transition:transform .25s ease, box-shadow .25s ease; }
+        .gbcc-r-service:hover { transform:translateY(-6px); box-shadow:0 18px 42px rgba(29,54,38,.12); }
+        .gbcc-r-service img { width:100%; height:180px; object-fit:cover; }
+        .gbcc-r-service div { padding:20px; }
+        .gbcc-r-service h3 { font-size:20px; line-height:1.25; margin-bottom:10px; color:#173f2d; }
+        .gbcc-r-service p { color:#5b6b63; font-size:14px; line-height:1.6; }
+        .gbcc-method-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; margin-top:34px; }
+        .gbcc-method-card { background:#173f2d; color:#fff; border-radius:8px; padding:26px; min-height:245px; position:relative; overflow:hidden; }
+        .gbcc-method-card:after { content:""; position:absolute; width:110px; height:110px; right:-34px; bottom:-34px; border:1px solid rgba(253,214,31,.34); border-radius:50%; }
+        .gbcc-method-card span { display:inline-flex; width:38px; height:38px; align-items:center; justify-content:center; background:#fdd61f; color:#173f2d; border-radius:50%; font-weight:900; margin-bottom:18px; }
+        .gbcc-method-card h3 { color:#fff; font-size:21px; margin-bottom:12px; }
+        .gbcc-method-card p { color:rgba(255,255,255,.82); font-size:14px; line-height:1.65; margin:0; }
+        .gbcc-founder { background:#123826; color:#fff; }
+        .gbcc-founder h2, .gbcc-founder h3 { color:#fff; }
+        .gbcc-founder p, .gbcc-founder li { color:rgba(255,255,255,.84); }
+        .gbcc-founder img { width:100%; height:520px; object-fit:cover; object-position:center top; border-radius:8px; }
+        .gbcc-checks { list-style:none; padding:0; margin:24px 0 0; display:grid; gap:10px; }
+        .gbcc-checks i { color:#fdd61f; margin-right:8px; }
+        .gbcc-projects { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; margin-top:34px; }
+        .gbcc-r-project { border-left:4px solid #fdd61f; background:#fff; border-radius:0 8px 8px 0; padding:24px; box-shadow:0 10px 28px rgba(29,54,38,.06); }
+        .gbcc-r-project span { color:#8f6b10; font-weight:800; font-size:13px; display:block; margin-bottom:8px; }
+        .gbcc-r-project h3 { color:#173f2d; font-size:22px; margin-bottom:10px; }
+        .gbcc-r-project p { color:#5b6b63; line-height:1.65; margin:0; }
+        .gbcc-gallery-grid { display:grid; grid-template-columns:1.25fr .75fr .75fr; gap:14px; margin-top:34px; }
+        .gbcc-gallery-grid a { display:block; position:relative; overflow:hidden; border-radius:8px; min-height:220px; background:#173f2d; }
+        .gbcc-gallery-grid a:first-child { grid-row:span 2; min-height:454px; }
+        .gbcc-gallery-grid img { width:100%; height:100%; object-fit:cover; position:absolute; inset:0; transition:transform .35s ease; }
+        .gbcc-gallery-grid a:hover img { transform:scale(1.06); }
+        .gbcc-gallery-grid span { position:absolute; left:16px; bottom:16px; right:16px; color:#fff; font-weight:800; z-index:1; text-shadow:0 2px 12px rgba(0,0,0,.45); }
+        .gbcc-gallery-grid a:after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.56)); }
+        .gbcc-team-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:18px; margin-top:34px; }
+        .gbcc-r-person { background:#fff; border:1px solid #e3e8de; border-radius:8px; overflow:hidden; }
+        .gbcc-r-person img { width:100%; height:270px; object-fit:cover; object-position:center top; }
+        .gbcc-r-person div { padding:18px; }
+        .gbcc-r-person h3 { font-size:19px; margin-bottom:5px; color:#173f2d; }
+        .gbcc-r-person p { color:#667268; font-size:14px; margin:0; }
+        .gbcc-contact-band { background:#173f2d; color:#fff; padding:44px 0; }
+        .gbcc-contact-band h2 { color:#fff; margin:0; }
+        .gbcc-contact-list { display:grid; gap:10px; color:rgba(255,255,255,.88); }
+        .gbcc-contact-list a { color:#fff; text-decoration:none; }
+        .gbcc-r-footer { background:#0f2b1e; color:#fff; padding:64px 0 26px; }
+        .gbcc-footer-grid { display:grid; grid-template-columns:1.2fr .8fr .8fr .8fr; gap:28px; }
+        .gbcc-footer-logo { width:82px; height:auto; margin-bottom:18px; background:#fff; border-radius:6px; padding:8px; }
+        .gbcc-r-footer p { color:rgba(255,255,255,.74); line-height:1.7; margin:0; }
+        .gbcc-r-footer h3 { color:#fff; font-size:19px; margin-bottom:16px; }
+        .gbcc-r-footer ul { list-style:none; margin:0; padding:0; display:grid; gap:10px; }
+        .gbcc-r-footer a, .gbcc-r-footer li { color:rgba(255,255,255,.78); text-decoration:none; }
+        .gbcc-r-footer a:hover { color:#fdd61f; }
+        .gbcc-footer-bottom { border-top:1px solid rgba(255,255,255,.12); margin-top:36px; padding-top:22px; display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; color:rgba(255,255,255,.62); font-size:14px; }
+        @media (max-width:991px){
+            .gbcc-r-hero h2 { font-size:42px; }
+            .gbcc-identity-grid, .gbcc-service-grid, .gbcc-team-grid, .gbcc-method-grid, .gbcc-footer-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+            .gbcc-stat-strip { grid-template-columns:repeat(2,minmax(0,1fr)); }
+            .gbcc-gallery-grid { grid-template-columns:1fr 1fr; }
+            .gbcc-gallery-grid a:first-child { grid-row:auto; grid-column:span 2; min-height:360px; }
+        }
+        @media (max-width:575px){
+            .gbcc-r-hero { padding:72px 0 48px; }
+            .gbcc-r-hero h2, .gbcc-section h2 { font-size:32px; }
+            .gbcc-identity-grid, .gbcc-service-grid, .gbcc-projects, .gbcc-team-grid, .gbcc-panel-row, .gbcc-method-grid, .gbcc-gallery-grid, .gbcc-footer-grid { grid-template-columns:1fr; }
+            .gbcc-gallery-grid a:first-child { grid-column:auto; min-height:260px; }
+            .gbcc-stat-strip { grid-template-columns:1fr; }
+        }
+        @media (max-width:575px){ .gbcc-fact-grid { grid-template-columns:1fr; } }
+    </style>
 </head>
 
 <body>
@@ -66,7 +184,7 @@
                     <div class="mobile-menu fix mb-3"></div>
                     <div class="offcanvas__contact">
                         <p class="p800-clr mb-xxl-5 mb-3">
-                            Global Business Group accompagne la transformation des filières agricoles à travers le conseil, la certification, la commercialisation durable et la transformation du cacao.
+                            GBCC est une soci&eacute;t&eacute; anonyme ivoirienne sp&eacute;cialis&eacute;e dans le conseil, la certification, la tra&ccedil;abilit&eacute; et l'accompagnement durable des fili&egrave;res agricoles.
                         </p>
                         <h4>Contact Info</h4>
                         <ul>
@@ -75,7 +193,7 @@
                                     <i class="fal fa-map-marker-alt"></i>
                                 </div>
                                 <div class="offcanvas__contact-text">
-                                    <a target="_blank" href="#">Abidjan, Côte d'Ivoire</a>
+                                    <a target="_blank" href="#">II Plateaux, Carrefour Macaci, Abidjan</a>
                                 </div>
                             </li>
                             <li class="d-flex align-items-center">
@@ -83,7 +201,7 @@
                                     <i class="fal fa-envelope"></i>
                                 </div>
                                 <div class="offcanvas__contact-text">
-                                    <a href="mailto:contact@gbg-group.com"><span>contact@gbg-group.com</span></a>
+                                    <a href="mailto:infogbcc@gbg-ci.com"><span>infogbcc@gbg-ci.com</span></a>
                                 </div>
                             </li>
                             <li class="d-flex align-items-center">
@@ -91,7 +209,7 @@
                                     <i class="far fa-phone"></i>
                                 </div>
                                 <div class="offcanvas__contact-text">
-                                    <a href="tel:+22507000000000">+225 07 00 00 00 00</a>
+                                    <a href="tel:+2250544831313">+225 05 44 83 13 13</a>
                                 </div>
                             </li>
                         </ul>
@@ -127,11 +245,11 @@
                     <div class="header-top-wrapper">
                         <ul class="contact-list">
                             <li>
-                                <a href="mailto:contact@gbg-group.com"><i class="fa-solid fa-envelope p1-clr"></i>
-                                    contact@gbg-group.com</a>
+                                <a href="mailto:infogbcc@gbg-ci.com"><i class="fa-solid fa-envelope p1-clr"></i>
+                                    infogbcc@gbg-ci.com</a>
                             </li>
                             <li>
-                                <a href="#" class="link"><i class="fa-solid fa-location-dot p1-clr"></i> Abidjan, Côte d'Ivoire</a>
+                                <a href="#" class="link"><i class="fa-solid fa-location-dot p1-clr"></i> II Plateaux, Carrefour Macaci, Abidjan</a>
                             </li>
                         </ul>
                         <div class="social-wrapper d-flex align-items-center">
@@ -274,124 +392,1174 @@
         </div>
     </section>
 
-    <!-- Service Details Section -->
-    <section class="servicevm-details-section overflow-hidden section-padding white-bg">
-        <div class="container">
-            <div class="row g-xl-4 g-3 justify-content-center">
-                <!-- Sidebar -->
-                <div class="col-lg-4">
-                    <div class="service-details-left">
-                        <div class="tab-faq faq mb-40 wow fadeInUp" data-wow-delay=".3s">
-                            <div class="accordion-section d-grid gap-xxl-4 gap-lg-3 gap-2">
-                                <div class="accordion-single active">
-                                    <h5 class="header-area">
-                                        <button
-                                            class="accordion-btn d-flex align-items-center d-flex position-relative w-100"
-                                            type="button">
-                                            <a href="gbcc.html" style="color:inherit;text-decoration:none;">GBCC</a>
-                                        </button>
-                                    </h5>
+    <main class="gbcc-redesign-page">
+        <section class="gbcc-r-hero">
+            <div class="container">
+                <div class="row g-4 align-items-center">
+                    <div class="col-lg-7">
+                        <span class="gbcc-kicker">Global Business Consulting Company</span>
+                        <h2>Le cabinet ivoirien de r&eacute;f&eacute;rence pour un cacao tra&ccedil;able et durable</h2>
+                        <p>
+                            Depuis 2007, GBCC accompagne les producteurs, coop&eacute;ratives, institutions et partenaires priv&eacute;s dans la certification, la tra&ccedil;abilit&eacute;, la formation et la structuration durable des fili&egrave;res agricoles. Le cabinet intervient comme un partenaire technique complet : analyse terrain, mise en conformit&eacute;, suivi des organisations et ouverture vers les financements et les march&eacute;s.
+                        </p>
+                        <div class="gbcc-r-actions">
+                            <a href="#gbcc-redesign-services" class="gbcc-r-btn">Voir les expertises <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="mailto:infogbcc@gbg-ci.com" class="gbcc-r-btn secondary">Contacter GBCC</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="gbcc-hero-panel">
+                            <img src="assets/img/gbcc/DG-01.jpg" alt="M. Edmond Konan, fondateur de GBCC">
+                            <div class="gbcc-panel-row">
+                                <div>
+                                    <span>Fondateur</span>
+                                    <strong>M. Edmond Konan</strong>
                                 </div>
-                                <div class="accordion-single">
-                                    <h5 class="header-area">
-                                        <button
-                                            class="accordion-btn d-flex align-items-center d-flex position-relative w-100"
-                                            type="button">
-                                            <a href="scmc.html" style="color:inherit;text-decoration:none;">SCMC</a>
-                                        </button>
-                                    </h5>
+                                <div>
+                                    <span>Si&egrave;ge</span>
+                                    <strong>Abidjan</strong>
                                 </div>
-                                <div class="accordion-single">
-                                    <h5 class="header-area">
-                                        <button
-                                            class="accordion-btn d-flex align-items-center d-flex position-relative w-100"
-                                            type="button">
-                                            <a href="kic.html" style="color:inherit;text-decoration:none;">KIC</a>
-                                        </button>
-                                    </h5>
+                                <div>
+                                    <span>Statut</span>
+                                    <strong>SA ivoirienne</strong>
                                 </div>
-                                <div class="accordion-single">
-                                    <h5 class="header-area">
-                                        <button
-                                            class="accordion-btn d-flex align-items-center d-flex position-relative w-100"
-                                            type="button">
-                                            <a href="assiette-durable.html" style="color:inherit;text-decoration:none;">Restaurant Assiette Durable</a>
-                                        </button>
-                                    </h5>
-                                </div>
-                                <div class="accordion-single">
-                                    <h5 class="header-area">
-                                        <button
-                                            class="accordion-btn d-flex align-items-center d-flex position-relative w-100"
-                                            type="button">
-                                            <a href="scmc-chocolaterie.html" style="color:inherit;text-decoration:none;">SCMC Chocolaterie</a>
-                                        </button>
-                                    </h5>
+                                <div>
+                                    <span>Exp&eacute;rience cacao</span>
+                                    <strong>30 ans</strong>
                                 </div>
                             </div>
                         </div>
-                        <div class="service-bambo-box wow fadeInUp" data-wow-delay=".4s">
-                            <h3 class="text-uppercase">
-                                NOUS CONTACTER
-                            </h3>
-                            <span class="fast">
-                                Pour un service rapide
-                            </span>
-                            <a href="tel:+22507000000000" class="call">
-                                <span class="call-icon">
-                                    <i class="fa-solid fa-phone"></i>
-                                </span>
-                                +225 07 00 00 00 00
-                            </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gbcc-section white">
+            <div class="container">
+                <div class="gbcc-identity-grid">
+                    <div class="gbcc-identity-card">
+                        <span class="gbcc-kicker">Fiche d'identit&eacute;</span>
+                        <h2>Une soci&eacute;t&eacute; autonome au service de la fili&egrave;re cacao</h2>
+                        <p class="gbcc-lead">
+                            GBCC est n&eacute;e de la rencontre de femmes et d'hommes passionn&eacute;s, d&eacute;sireux d'&eacute;crire une nouvelle page de l'histoire du cacao ivoirien. Sa mission est d'aider &agrave; l'am&eacute;lioration des conditions de vie des producteurs &agrave; travers des programmes concrets de certification, d'appui technique, de diversification et d'acc&egrave;s aux march&eacute;s. L'entreprise agit &agrave; la fois comme cabinet de conseil, centre d'expertise terrain et interface entre les coop&eacute;ratives, les industriels, les bailleurs et les institutions.
+                        </p>
+                        <div class="gbcc-identity-list">
+                            <div><span>Nom complet</span><strong>Global Business Consulting Company</strong></div>
+                            <div><span>Groupe</span><strong>Global Business Group SA</strong></div>
+                            <div><span>Cr&eacute;ation</span><strong>2007</strong></div>
+                            <div><span>Adresse</span><strong>II Plateaux, Carrefour Macaci</strong></div>
+                            <div><span>Secteurs</span><strong>Agriculture, finance, coop&eacute;ratives, formation</strong></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="gbcc-photo-stack">
+                            <img src="assets/img/gbcc/DG%20sur%20terrain.jpeg" alt="GBCC sur le terrain">
+                            <img src="assets/img/gbcc/le%20logo%20de%20la%20certification%20.jpg" alt="Certification GBCC">
+                            <img src="assets/img/gbcc/equipe.jpg" alt="Equipe GBCC">
                         </div>
                     </div>
                 </div>
-                <!-- Main Content -->
-                <div class="col-lg-8">
-                    <div class="service-wrapper-right ps-xl-2">
-                        <div class="thumb mb-30 wow fadeInUp" data-wow-delay=".3s">
-                            <img src="assets/img/service/service-single2.jpg" alt="img">
+                <div class="gbcc-stat-strip">
+                    <div class="gbcc-stat"><strong>12 900</strong><span>Producteurs approuv&eacute;s</span></div>
+                    <div class="gbcc-stat"><strong>1 600+</strong><span>Organisations partenaires</span></div>
+                    <div class="gbcc-stat"><strong>1,6M+</strong><span>Producteurs et travailleurs repr&eacute;sent&eacute;s</span></div>
+                    <div class="gbcc-stat"><strong>2004</strong><span>Premiers programmes de certification cacao</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gbcc-redesign-services" class="gbcc-section">
+            <div class="container">
+                <span class="gbcc-kicker">Domaines d'intervention</span>
+                <h2>Des expertises structur&eacute;es pour professionnaliser la cha&icirc;ne de valeur</h2>
+                <p class="gbcc-lead">
+                    GBCC intervient aupr&egrave;s des acteurs priv&eacute;s, publics et institutionnels avec une approche terrain : diagnostic, certification, formation, suivi qualit&eacute;, acc&egrave;s aux financements et ouverture des march&eacute;s.
+                </p>
+                <div class="gbcc-service-grid">
+                    <article class="gbcc-r-service">
+                        <img src="assets/img/gbcc/exemplaire.jpg" alt="Gestion de label">
+                        <div>
+                            <h3>Label &amp; propri&eacute;t&eacute; intellectuelle</h3>
+                            <p>Gestion d'outils de durabilit&eacute;, SGI, tra&ccedil;abilit&eacute; et stabilisation des interactions entre acteurs cacao. Ce service aide les organisations &agrave; documenter leur production, s&eacute;curiser leur conformit&eacute; et valoriser leur origine sur les march&eacute;s exigeants.</p>
                         </div>
-                        <div class="cont-box wow fadeInUp" data-wow-delay=".4s">
-                            <h3>Global Business Consulting Company</h3>
-                            <p>
-                                GBCC est l'entité spécialisée dans le conseil stratégique, la certification, l'accompagnement technique et la structuration des acteurs agricoles. Elle accompagne les producteurs, coopératives, institutions et partenaires privés dans la construction d'une filière agricole plus durable, traçable et inclusive.
-                            </p>
+                    </article>
+                    <article class="gbcc-r-service">
+                        <img src="assets/img/gbcc/DG%20sortie.jpg" alt="Appui technique">
+                        <div>
+                            <h3>Appui technique</h3>
+                            <p>Formation aux outils de certification, diversification, business skills et renforcement des capacit&eacute;s producteur. GBCC accompagne les coop&eacute;ratives dans la mise en place de pratiques durables, de registres fiables et de routines de contr&ocirc;le terrain.</p>
                         </div>
-                        <div class="cont-box mb-40 wow fadeInUp" data-wow-delay=".5s">
-                            <h3>Nos Services</h3>
-                            <ul class="list-area" style="padding-left:0; list-style:none;">
-                                <li style="padding: 10px 0; border-bottom: 1px solid #eee; display:flex; align-items:center; gap:10px;">
-                                    <i class="fa-solid fa-check p1-clr"></i>
-                                    Certification agricole et gestion de labels
-                                </li>
-                                <li style="padding: 10px 0; border-bottom: 1px solid #eee; display:flex; align-items:center; gap:10px;">
-                                    <i class="fa-solid fa-check p1-clr"></i>
-                                    Appui technique et formation des producteurs
-                                </li>
-                                <li style="padding: 10px 0; border-bottom: 1px solid #eee; display:flex; align-items:center; gap:10px;">
-                                    <i class="fa-solid fa-check p1-clr"></i>
-                                    Études et conseils stratégiques
-                                </li>
-                                <li style="padding: 10px 0; border-bottom: 1px solid #eee; display:flex; align-items:center; gap:10px;">
-                                    <i class="fa-solid fa-check p1-clr"></i>
-                                    Vente et distribution d'intrants
-                                </li>
-                                <li style="padding: 10px 0; border-bottom: 1px solid #eee; display:flex; align-items:center; gap:10px;">
-                                    <i class="fa-solid fa-check p1-clr"></i>
-                                    Accès aux financements
-                                </li>
-                                <li style="padding: 10px 0; display:flex; align-items:center; gap:10px;">
-                                    <i class="fa-solid fa-check p1-clr"></i>
-                                    Accès aux marchés nationaux et internationaux
-                                </li>
-                            </ul>
+                    </article>
+                    <article class="gbcc-r-service">
+                        <img src="assets/img/gbcc/3.jpeg" alt="Intrants agricoles">
+                        <div>
+                            <h3>Intrants agricoles</h3>
+                            <p>Distribution de solutions comme BRANDT MANNI-PLEX pour soutenir floraison, croissance, rendement et qualit&eacute;. L'objectif est d'am&eacute;liorer la productivit&eacute; sans d&eacute;connecter les intrants des exigences environnementales et de durabilit&eacute;.</p>
+                        </div>
+                    </article>
+                    <article class="gbcc-r-service">
+                        <img src="assets/img/gbcc/4.jpeg" alt="Etudes et conseils">
+                        <div>
+                            <h3>&Eacute;tudes &amp; conseils</h3>
+                            <p>Recherche, publications, conseil agricole et accompagnement strat&eacute;gique des organisations et institutions. GBCC produit des analyses sur l'&eacute;conomie cacaoy&egrave;re, la certification et les mod&egrave;les de revenu durable.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="gbcc-section gbcc-founder">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-5">
+                        <img src="assets/img/gbcc/DG.webp" alt="M. Edmond Konan">
+                    </div>
+                    <div class="col-lg-7">
+                        <span class="gbcc-kicker">Fondateur &amp; dirigeant</span>
+                        <h2>M. Edmond Konan, expert de r&eacute;f&eacute;rence en cacao durable</h2>
+                        <p>
+                            Dipl&ocirc;m&eacute; de l'&Eacute;cole Sup&eacute;rieure de Gestion et Commerce International de Paris, form&eacute; aupr&egrave;s d'institutions comme Harvard et le MIT, M. Edmond Konan participe aux grands d&eacute;bats internationaux sur l'avenir du cacao.
+                        </p>
+                        <ul class="gbcc-checks">
+                            <li><i class="fa-solid fa-check"></i>Cr&eacute;ateur de la Th&eacute;orie du Maxima : rendement minimum/maximum durable et prix minimum/maximum durable.</li>
+                            <li><i class="fa-solid fa-check"></i>Auteur de publications sur l'&eacute;conomie cacaoy&egrave;re mondiale durable et le cadre r&eacute;glementaire.</li>
+                            <li><i class="fa-solid fa-check"></i>Acteur de la premi&egrave;re f&egrave;ve certifi&eacute;e de C&ocirc;te d'Ivoire.</li>
+                        </ul>
+                        <div class="gbcc-r-actions">
+                            <a href="https://edmondkonan.gbg-ci.com/" target="_blank" class="gbcc-r-btn">Voir son parcours <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gbcc-section">
+            <div class="container">
+                <span class="gbcc-kicker">Notre m&eacute;thode</span>
+                <h2>Une intervention compl&egrave;te, du diagnostic &agrave; la valorisation commerciale</h2>
+                <p class="gbcc-lead">
+                    GBCC ne se limite pas &agrave; produire des recommandations. Le cabinet construit des dispositifs applicables sur le terrain : cartographie des acteurs, formation, syst&egrave;me documentaire, contr&ocirc;le interne, pr&eacute;paration &agrave; l'audit, suivi post-certification et accompagnement vers les acheteurs ou financeurs.
+                </p>
+                <div class="gbcc-method-grid">
+                    <article class="gbcc-method-card">
+                        <span>1</span>
+                        <h3>Comprendre la fili&egrave;re</h3>
+                        <p>Analyse des organisations, des producteurs, des pratiques agricoles, des risques sociaux et environnementaux, puis d&eacute;finition d'un plan d'action adapt&eacute; &agrave; la r&eacute;alit&eacute; locale.</p>
+                    </article>
+                    <article class="gbcc-method-card">
+                        <span>2</span>
+                        <h3>Structurer et former</h3>
+                        <p>Mise en place du SGI, formation des &eacute;quipes, documentation des parcelles, sensibilisation &agrave; la tra&ccedil;abilit&eacute; et renforcement des capacit&eacute;s de gestion.</p>
+                    </article>
+                    <article class="gbcc-method-card">
+                        <span>3</span>
+                        <h3>Certifier et connecter</h3>
+                        <p>Pr&eacute;paration aux audits, suivi des exigences des standards, acc&egrave;s &agrave; des financements comp&eacute;titifs et connexion aux march&eacute;s nationaux et internationaux.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="gbcc-section white">
+            <div class="container">
+                <span class="gbcc-kicker">Projets majeurs</span>
+                <h2>Des r&eacute;alisations qui ont marqu&eacute; la certification cacao</h2>
+                <div class="gbcc-projects">
+                    <article class="gbcc-r-project">
+                        <span>Janvier 2004 - Fairtrade International</span>
+                        <h3>Premier programme de certification cacao</h3>
+                        <p>Programme initi&eacute; en C&ocirc;te d'Ivoire face aux exigences internationales, avec la premi&egrave;re f&egrave;ve certifi&eacute;e vendue par Edmond Konan.</p>
+                    </article>
+                    <article class="gbcc-r-project">
+                        <span>Septembre 2005 - Fairtrade US</span>
+                        <h3>Qualit&eacute; et rendement</h3>
+                        <p>Projet STCP avec les premi&egrave;res coop&eacute;ratives certifi&eacute;es Kavokiva et Copaga.</p>
+                    </article>
+                    <article class="gbcc-r-project">
+                        <span>Mars 2008 - MARS</span>
+                        <h3>Certification mainstream</h3>
+                        <p>Innovation SGI permettant aux producteurs non organis&eacute;s d'acc&eacute;der &agrave; la certification.</p>
+                    </article>
+                    <article class="gbcc-r-project">
+                        <span>Mai 2022 - GIZ / Rainforest</span>
+                        <h3>Production durable certifi&eacute;e</h3>
+                        <p>Programme Rainforest impliquant six coop&eacute;ratives et soutenu par un consortium USAID-GTZ.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="gbcc-section">
+            <div class="container">
+                <span class="gbcc-kicker">Images terrain</span>
+                <h2>La preuve par le terrain, les &eacute;quipes et les partenaires</h2>
+                <p class="gbcc-lead">
+                    Les interventions de GBCC s'appuient sur une pr&eacute;sence de proximit&eacute; : visites de plantations, formation des producteurs, rencontres institutionnelles, suivi des coop&eacute;ratives et promotion d'une agriculture plus diversifi&eacute;e.
+                </p>
+                <div class="gbcc-gallery-grid">
+                    <a href="assets/img/gbcc/DG%20sur%20terrain.jpeg" class="img-popup">
+                        <img src="assets/img/gbcc/DG%20sur%20terrain.jpeg" alt="Accompagnement terrain GBCC">
+                        <span>Accompagnement terrain</span>
+                    </a>
+                    <a href="assets/img/gbcc/DG-partenaire.jpg" class="img-popup">
+                        <img src="assets/img/gbcc/DG-partenaire.jpg" alt="Rencontre partenaire GBCC">
+                        <span>Relations partenaires</span>
+                    </a>
+                    <a href="assets/img/gbcc/DG-004.jpg" class="img-popup">
+                        <img src="assets/img/gbcc/DG-004.jpg" alt="Reconnaissance GBCC">
+                        <span>Reconnaissance institutionnelle</span>
+                    </a>
+                    <a href="assets/img/gbcc/2.jpeg" class="img-popup">
+                        <img src="assets/img/gbcc/2.jpeg" alt="Cultures diversifi&eacute;es">
+                        <span>Diversification agricole</span>
+                    </a>
+                    <a href="assets/img/gbcc/Screenshot-2024-12-07-at-15.22.59.png" class="img-popup">
+                        <img src="assets/img/gbcc/Screenshot-2024-12-07-at-15.22.59.png" alt="Activit&eacute; GBCC">
+                        <span>Activit&eacute;s et communication</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="gbcc-section">
+            <div class="container">
+                <span class="gbcc-kicker">Equipe dirigeante</span>
+                <h2>Une &eacute;quipe pluridisciplinaire</h2>
+                <div class="gbcc-team-grid">
+                    <article class="gbcc-r-person">
+                        <img src="assets/img/gbcc/DG.webp" alt="M. Edmond Konan">
+                        <div><h3>M. Edmond Konan</h3><p>Fondateur &amp; Dirigeant</p></div>
+                    </article>
+                    <article class="gbcc-r-person">
+                        <img src="assets/img/gbcc/M%20Sylvain%20KONAN%20(%20responsable%20durabilit%C3%A9).jpg" alt="M. Sylvain Konan">
+                        <div><h3>M. Sylvain Konan</h3><p>Responsable Durabilit&eacute; &amp; Marketing</p></div>
+                    </article>
+                    <article class="gbcc-r-person">
+                        <img src="assets/img/gbcc/Mle%20SONG%20YU%20gr%C3%A2ce(assistante%20et%20responsable%20commerciale).jpg" alt="Mlle Song Yu Gr&acirc;ce">
+                        <div><h3>Mlle Song Yu Gr&acirc;ce</h3><p>Assistante &amp; Responsable Commerciale</p></div>
+                    </article>
+                    <article class="gbcc-r-person">
+                        <img src="assets/img/gbcc/Madame%20Marina%20kouam%C3%A9(responsable%20audiovisuel).jpg" alt="Mme Marina Kouam&eacute;">
+                        <div><h3>Mme Marina Kouam&eacute;</h3><p>Responsable Audiovisuel</p></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="gbcc-contact-band">
+            <div class="container">
+                <div class="row g-4 align-items-center">
+                    <div class="col-lg-7">
+                        <span class="gbcc-kicker">Contact GBCC</span>
+                        <h2>Vous souhaitez structurer, certifier ou financer une fili&egrave;re agricole ?</h2>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="gbcc-contact-list">
+                            <span><i class="fa-solid fa-location-dot"></i> II Plateaux, Carrefour Macaci, Abidjan</span>
+                            <a href="tel:+2250544831313"><i class="fa-solid fa-phone"></i> +225 05 44 83 13 13</a>
+                            <a href="tel:+2250708565625"><i class="fa-solid fa-phone"></i> +225 07 08 56 56 25</a>
+                            <a href="mailto:infogbcc@gbg-ci.com"><i class="fa-solid fa-envelope"></i> infogbcc@gbg-ci.com</a>
+                            <span><i class="fa-solid fa-clock"></i> Lundi - Samedi, 8h00 - 16h30</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="gbcc-r-footer">
+            <div class="container">
+                <div class="gbcc-footer-grid">
+                    <div>
+                        <img src="assets/img/gbcc/GBCC-logo.webp" alt="GBCC" class="gbcc-footer-logo">
+                        <p>
+                            Global Business Consulting Company accompagne la professionnalisation des fili&egrave;res agricoles ivoiriennes par le conseil, la certification, la tra&ccedil;abilit&eacute;, la formation et l'acc&egrave;s aux march&eacute;s.
+                        </p>
+                    </div>
+                    <div>
+                        <h3>GBCC</h3>
+                        <ul>
+                            <li><a href="#gbcc-redesign-services">Expertises</a></li>
+                            <li><a href="https://edmondkonan.gbg-ci.com/" target="_blank">Fondateur</a></li>
+                            <li><a href="projets.html">Projets</a></li>
+                            <li><a href="contact.html">Contact groupe</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Coordonn&eacute;es</h3>
+                        <ul>
+                            <li>II Plateaux, Carrefour Macaci</li>
+                            <li><a href="tel:+2250544831313">+225 05 44 83 13 13</a></li>
+                            <li><a href="tel:+2250708565625">+225 07 08 56 56 25</a></li>
+                            <li><a href="mailto:infogbcc@gbg-ci.com">infogbcc@gbg-ci.com</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Groupe GBG</h3>
+                        <ul>
+                            <li><a href="scmc.html">SCMC</a></li>
+                            <li><a href="kic.html">KIC</a></li>
+                            <li><a href="assiette-durable.html">Assiette Durable</a></li>
+                            <li><a href="scmc-chocolaterie.html">SCMC Chocolaterie</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="gbcc-footer-bottom">
+                    <span>&copy; 2023 Global Business Consulting Company. Tous droits r&eacute;serv&eacute;s.</span>
+                    <span>De la graine &agrave; la tablette, GBCC s'engage pour un cacao tra&ccedil;able et durable.</span>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- About GBCC Section -->
+    <section class="about-section style-v01 white-bg">
+        <div class="container">
+            <div class="about-wrapperv3">
+                <div class="row g-4 align-items-center justify-content-center">
+                    <div class="col-lg-6 col-md-6 col-sm-8 order-md-0 order-1">
+                        <div class="about-thumv03 position-relative pe-xl-4 wow fadeInDown" data-wow-delay=".3s">
+                            <img src="assets/img/gbcc/DG-01.jpg" alt="M. Edmond Konan - Fondateur GBCC" class="mimg" style="object-fit:cover;object-position:center 15%;">
+                            <div class="avarage-counting">
+                                <div class="avarag">
+                                    <img src="assets/img/gbcc/GBCC-logo.webp" alt="GBCC" style="width:40px;">
+                                </div>
+                                <div class="cont">
+                                    <h5>Certification Durable</h5>
+                                    <span>Depuis 2004</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="about-contentv1">
+                            <div class="section-title mb-40">
+                                <h5 class="p1-clr text-uppercase wow fadeInLeft" data-wow-delay="0.4s">
+                                    QUI SOMMES-NOUS
+                                </h5>
+                                <h2 class="wow fadeInDown" data-wow-delay=".3s">
+                                    Global Business Consulting Company
+                                </h2>
+                                <p class="wow fadeInUp" data-wow-delay=".4s">
+                                    Soci&eacute;t&eacute; anonyme de droit ivoirien cr&eacute;&eacute;e depuis 2007, GBCC poss&egrave;de une grande exp&eacute;rience dans la fili&egrave;re caf&eacute;-cacao &agrave; travers ses diff&eacute;rentes interventions aupr&egrave;s des acteurs priv&eacute;s, publics et institutionnels.
+                                </p>
+                                <p class="wow fadeInUp" data-wow-delay=".5s">
+                                    Le Cabinet int&egrave;gre une &eacute;quipe dynamique et professionnelle de sp&eacute;cialistes pluridisciplinaires : &eacute;conomistes, statisticiens, informaticiens, sociologues, agronomes, agro&eacute;conomistes, experts agroalimentaires, phytopathologistes, forestiers et environnementalistes.
+                                </p>
+                                <div class="gbcc-fact-grid wow fadeInUp" data-wow-delay=".55s">
+                                    <div class="gbcc-fact">
+                                        <span>Forme juridique</span>
+                                        <strong>SA de droit ivoirien</strong>
+                                    </div>
+                                    <div class="gbcc-fact">
+                                        <span>Ann&eacute;e de cr&eacute;ation</span>
+                                        <strong>2007</strong>
+                                    </div>
+                                    <div class="gbcc-fact">
+                                        <span>Exp&eacute;rience revendiqu&eacute;e</span>
+                                        <strong>30 ans dans le cacao</strong>
+                                    </div>
+                                    <div class="gbcc-fact">
+                                        <span>Mission</span>
+                                        <strong>Am&eacute;liorer la vie des producteurs</strong>
+                                    </div>
+                                </div>
+                                <p class="wow fadeInUp" data-wow-delay=".6s">
+                                    <strong>De la graine &agrave; la tablette, GBCC s'engage pour un cacao tra&ccedil;able et durable.</strong>
+                                </p>
+                                <div class="progress_bar d-grid gap-xxl-4 gap-4">
+                                    <div class="progress_bar_item">
+                                        <div class="per-title d-flex align-items-center justify-content-between">
+                                            <div class="item_label p900-clr">Certification &amp; Conseil</div>
+                                        </div>
+                                        <div class="item_bar">
+                                            <div class="progress" data-progress="95"></div>
+                                        </div>
+                                    </div>
+                                    <div class="progress_bar_item">
+                                        <div class="per-title d-flex align-items-center justify-content-between">
+                                            <div class="item_label p900-clr">Appui Technique &amp; Formation</div>
+                                        </div>
+                                        <div class="item_bar">
+                                            <div class="progress" data-progress="90"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="#gbcc-services" class="cmn-btn">
+                                    Nos Services
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Services GBCC -->
+    <section id="gbcc-services" class="servicev3-section overflow-hidden section-padding white-bg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xxl-6 col-xl-7 col-md-8 col-sm-11">
+                    <div class="section-title mb-60 text-center">
+                        <h5 class="p1-clr wow fadeInLeft text-uppercase" data-wow-delay="0.4s">
+                            NOS SERVICES
+                        </h5>
+                        <h2 class="wow fadeInDown" data-wow-delay=".3s">
+                            Quatre domaines d'expertise
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-xl-4 g-3 justify-content-center mb-xl-4 mb-3">
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 wow fadeInUp" data-wow-delay=".3s">
+                    <div class="service-itemsv02 service-style03">
+                        <div class="thumb w-100">
+                            <img src="assets/img/gbcc/le%20logo%20de%20la%20certification%20.jpg" alt="Label et Certification" class="w-100 mimg">
+                        </div>
+                        <div class="content">
+                            <a href="#gbcc-services" class="title">Gestion du Label et Propri&eacute;t&eacute; Intellectuelle</a>
+                            <p class="gbcc-service-text">Pilotage des labels de durabilit&eacute;, structuration de la tra&ccedil;abilit&eacute; et protection des actifs immat&eacute;riels li&eacute;s aux fili&egrave;res agricoles.</p>
+                            <ul class="gbcc-mini-list">
+                                <li><i class="fa-solid fa-check"></i>Syst&egrave;me de Gestion Interne (SGI)</li>
+                                <li><i class="fa-solid fa-check"></i>Outil de stabilisation de la cha&icirc;ne de valeur cacao</li>
+                            </ul>
+                            <img src="assets/img/icon/water-hose.svg" alt="icon">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 wow fadeInUp" data-wow-delay=".5s">
+                    <div class="service-itemsv02 service-style03">
+                        <div class="thumb w-100">
+                            <img src="assets/img/gbcc/DG%20sur%20terrain.jpeg" alt="Appui Technique" class="w-100 mimg">
+                        </div>
+                        <div class="content">
+                            <a href="#gbcc-services" class="title">Appui Technique &amp; Formation</a>
+                            <p class="gbcc-service-text">Transfert de connaissances aux producteurs, coop&eacute;ratives et acteurs institutionnels pour renforcer la certification, la diversification et les comp&eacute;tences business.</p>
+                            <ul class="gbcc-mini-list">
+                                <li><i class="fa-solid fa-check"></i>Formation aux outils de certification</li>
+                                <li><i class="fa-solid fa-check"></i>Acc&egrave;s aux financements et aux march&eacute;s</li>
+                            </ul>
+                            <img src="assets/img/icon/ser-flower.svg" alt="icon">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 wow fadeInUp" data-wow-delay=".7s">
+                    <div class="service-itemsv02 service-style03">
+                        <div class="thumb w-100">
+                            <img src="assets/img/gbcc/3.jpeg" alt="Intrants BRANDT" class="w-100 mimg">
+                        </div>
+                        <div class="content">
+                            <a href="#gbcc-services" class="title">Vente et Distribution d'Intrants</a>
+                            <p class="gbcc-service-text">Distribution d'intrants agricoles et accompagnement technique pour am&eacute;liorer la floraison, la croissance, la productivit&eacute; et la qualit&eacute; des cultures.</p>
+                            <ul class="gbcc-mini-list">
+                                <li><i class="fa-solid fa-check"></i>BRANDT MANNI-PLEX</li>
+                                <li><i class="fa-solid fa-check"></i>Semences et solutions agricoles adapt&eacute;es</li>
+                            </ul>
+                            <img src="assets/img/icon/map-plant.svg" alt="icon">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-xl-4 g-3 justify-content-center">
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 wow fadeInUp" data-wow-delay=".3s">
+                    <div class="service-itemsv02 service-style03">
+                        <div class="thumb w-100">
+                            <img src="assets/img/gbcc/4.jpeg" alt="&Eacute;tudes et Conseils" class="w-100 mimg">
+                        </div>
+                        <div class="content">
+                            <a href="#gbcc-services" class="title">&Eacute;tudes et Conseils Strat&eacute;giques</a>
+                            <p class="gbcc-service-text">Recherches, publications et accompagnement strat&eacute;gique sur l'&eacute;conomie cacaoy&egrave;re, les fili&egrave;res agricoles et les mod&egrave;les &eacute;conomiques durables.</p>
+                            <ul class="gbcc-mini-list">
+                                <li><i class="fa-solid fa-check"></i>&Eacute;tudes agricoles et institutionnelles</li>
+                                <li><i class="fa-solid fa-check"></i>Conseil aux acteurs publics et priv&eacute;s</li>
+                            </ul>
+                            <img src="assets/img/icon/water-hose.svg" alt="icon">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery GBCC -->
+    <section class="gallery-sectionv02 overflow-hidden white-bg space-top">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xxl-5 col-xl-7 col-md-8 col-sm-11">
+                    <div class="section-title mb-60 text-center">
+                        <h5 class="p1-clr text-uppercase wow fadeInLeft" data-wow-delay="0.4s">
+                            NOS ACTIVIT&Eacute;S
+                        </h5>
+                        <h2 class="wow fadeInDown" data-wow-delay=".3s">
+                            GBCC en images
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex flex-md-nowrap flex-wrap gap-lg-4 gap-3">
+                <div class="gallery-itemsv02 gallery-itemshover wow fadeInUp" data-wow-delay=".3s">
+                    <div class="thumb w-100">
+                        <img src="assets/img/gbcc/Screenshot-2024-12-07-at-15.22.59.png" alt="Diversification Package" class="w-100">
+                    </div>
+                    <a href="#gbcc-services" class="arrow">
+                        <i class="fa-solid fa-angle-right"></i>
+                    </a>
+                    <div class="content">
+                        <a href="#gbcc-services" class="title">Diversification Package</a>
+                        <p>Business model innovant</p>
+                    </div>
+                </div>
+                <div class="gallery-itemsv02 white-bg wow fadeInUp" data-wow-delay=".5s">
+                    <div class="thumb w-100">
+                        <img src="assets/img/gbcc/equipe.jpg" alt="&Eacute;quipe GBCC" class="w-100">
+                    </div>
+                    <a href="#gbcc-services" class="arrow">
+                        <i class="fa-solid fa-angle-right"></i>
+                    </a>
+                    <div class="content">
+                        <a href="#gbcc-services" class="title">Notre &Eacute;quipe</a>
+                        <p>Sp&eacute;cialistes pluridisciplinaires</p>
+                    </div>
+                </div>
+                <div class="gallery-itemsv02 gallery-itemshover wow fadeInUp" data-wow-delay=".7s">
+                    <div class="thumb w-100">
+                        <img src="assets/img/gbcc/2.jpeg" alt="Cultures diversifi&eacute;es" class="w-100">
+                    </div>
+                    <a href="#gbcc-services" class="arrow">
+                        <i class="fa-solid fa-angle-right"></i>
+                    </a>
+                    <div class="content">
+                        <a href="#gbcc-services" class="title">Cultures Diversifi&eacute;es</a>
+                        <p>Au-del&agrave; du cacao</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Counter Section -->
+    <section class="counter-sectionv03 position-relative">
+        <div class="container">
+            <div class="counter-version-wrapv1 d-flex align-items-center justify-content-between gap-4">
+                <div class="counter-items style02">
+                    <div class="con-box">
+                        <h2><span class="count">12900</span></h2>
+                        <p>Producteurs approuv&eacute;s</p>
+                    </div>
+                </div>
+                <div class="count-animal d-lg-block d-none">
+                    <img src="assets/img/icon/count-animal.svg" alt="img">
+                </div>
+                <div class="counter-items style02">
+                    <div class="con-box">
+                        <h2><span class="count">1600</span>+</h2>
+                        <p>Organisations partenaires, soit plus de 1,6M de producteurs et travailleurs</p>
+                    </div>
+                </div>
+                <div class="count-animal d-lg-block d-none">
+                    <img src="assets/img/icon/count-animal.svg" alt="img">
+                </div>
+                <div class="counter-items style02">
+                    <div class="con-box">
+                        <h2><span class="count">2007</span></h2>
+                        <p>Ann&eacute;e de cr&eacute;ation</p>
+                    </div>
+                </div>
+                <div class="count-animal d-lg-block d-none">
+                    <img src="assets/img/icon/count-animal.svg" alt="img">
+                </div>
+                <div class="counter-items style02">
+                    <div class="con-box">
+                        <h2><span class="count">30</span></h2>
+                        <p>Ans d'exp&eacute;rience dans le cacao</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fondateur Section -->
+    <section class="feature-sectionv02 p900-bg space-top">
+        <div class="container">
+            <div class="row g-4 align-items-lg-start align-items-center justify-content-center">
+                <div class="col-xxl-5 col-xl-5 col-lg-6 col-md-6 col-sm-10">
+                    <div class="about-contentv1">
+                        <div class="section-title mb-40">
+                            <h5 class="p1-clr text-uppercase wow fadeInLeft" data-wow-delay="0.4s">
+                                NOTRE FONDATEUR
+                            </h5>
+                            <h2 class="text-white mb-24 wow fadeInDown" data-wow-delay=".3s">
+                                M. Edmond Konan
+                            </h2>
+                            <p class="text-white wow fadeInUp mb-lg-4 mb-3" data-wow-delay=".4s">
+                                Expert de r&eacute;f&eacute;rence en cacao durable, dipl&ocirc;m&eacute; de l'&Eacute;cole Sup&eacute;rieure de Gestion et Commerce International de Paris. Formations certifiantes aupr&egrave;s de Harvard et du MIT.
+                            </p>
+                            <ul class="about-list2 mb-40 gap-2">
+                                <li class="text-white"><i class="fa-solid fa-check"></i> Cr&eacute;ateur de la &laquo; Th&eacute;orie du Maxima &raquo;</li>
+                                <li class="text-white"><i class="fa-solid fa-check"></i> Conf&eacute;rencier international reconnu</li>
+                                <li class="text-white"><i class="fa-solid fa-check"></i> 1&egrave;re f&egrave;ve certifi&eacute;e en C&ocirc;te d'Ivoire (2004)</li>
+                                <li class="text-white"><i class="fa-solid fa-check"></i> Auteur de publications sur l'&eacute;conomie cacaoy&egrave;re mondiale durable</li>
+                                <li class="text-white"><i class="fa-solid fa-check"></i> Travaux sur l'&eacute;valuation de la certification et le cadre r&eacute;glementaire</li>
+                            </ul>
+                            <a href="https://edmondkonan.gbg-ci.com/" target="_blank" class="cmn-btn text-white primary-border">
+                                D&eacute;couvrir son parcours
+                                <i class="fa-solid fa-arrow-right p1-clr"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xxl-7 col-xl-7 col-lg-6 col-md-6 col-sm-8 ps-lg-5">
+                    <div class="feature-thumv02 position-relative w-100 wow fadeInDown" data-wow-delay=".3s">
+                        <img src="assets/img/gbcc/DG.webp" alt="M. Edmond Konan" class="w-100">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vid&eacute;o 1 : Pr&eacute;sentation GBCC -->
+    <section class="section-padding overflow-hidden white-bg">
+        <div class="container">
+            <div class="row g-4 align-items-center justify-content-center">
+                <div class="col-lg-6 col-md-6">
+                    <div class="position-relative rounded overflow-hidden wow fadeInLeft" data-wow-delay=".3s">
+                        <img src="assets/img/gbcc/DG-02.jpg" alt="Pr&eacute;sentation GBCC" class="w-100" style="height:400px;object-fit:cover;object-position:center 20%;">
+                        <a href="assets/img/gbcc/DG-02.jpg" class="video-cmn d-center img-popup" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
+                            <i class="fa-solid fa-play"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="about-contentv1">
+                        <div class="section-title mb-40">
+                            <h5 class="p1-clr text-uppercase wow fadeInLeft" data-wow-delay="0.4s">
+                                VID&Eacute;O
+                            </h5>
+                            <h2 class="wow fadeInDown" data-wow-delay=".3s">
+                                D&eacute;couvrez GBCC en images
+                            </h2>
+                            <p class="wow fadeInUp" data-wow-delay=".4s">
+                                Plongez au c&oelig;ur de nos activit&eacute;s de certification, d'appui technique et de diversification agricole. GBCC accompagne les producteurs ivoiriens vers un cacao durable et tra&ccedil;able.
+                            </p>
+                            <div class="faq-watch">
+                                <a href="assets/img/gbcc/DG-02.jpg" class="video-cmn d-center img-popup">
+                                    <i class="fa-solid fa-play"></i>
+                                </a>
+                                <h5>Voir l'image</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- &Eacute;quipe Section -->
+    <section class="overflow-hidden section-padding white-bg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xxl-6 col-xl-7 col-md-8 col-sm-11">
+                    <div class="section-title mb-60 text-center">
+                        <h5 class="p1-clr text-uppercase wow fadeInLeft" data-wow-delay="0.4s">
+                            NOTRE &Eacute;QUIPE
+                        </h5>
+                        <h2 class="wow fadeInDown" data-wow-delay=".3s">
+                            Des sp&eacute;cialistes pluridisciplinaires
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-xl-4 g-3 justify-content-center">
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 wow fadeInUp" data-wow-delay=".3s">
+                    <div class="service-itemsv02 service-style03">
+                        <div class="thumb w-100">
+                            <img src="assets/img/gbcc/DG.webp" alt="M. Edmond Konan" class="w-100 mimg">
+                        </div>
+                        <div class="content text-center">
+                            <a href="https://edmondkonan.gbg-ci.com/" class="title">M. Edmond Konan</a>
+                            <p>Fondateur &amp; Dirigeant</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 wow fadeInUp" data-wow-delay=".5s">
+                    <div class="service-itemsv02 service-style03 gbcc-team-card">
+                        <div class="thumb w-100">
+                            <img src="assets/img/gbcc/M%20Sylvain%20KONAN%20(%20responsable%20durabilit%C3%A9).jpg" alt="M. Sylvain Konan" class="w-100 mimg">
+                        </div>
+                        <div class="content text-center">
+                            <a href="#gbcc-services" class="title">M. Sylvain Konan</a>
+                            <p>Responsable Durabilit&eacute; &amp; Marketing</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 wow fadeInUp" data-wow-delay=".7s">
+                    <div class="service-itemsv02 service-style03 gbcc-team-card">
+                        <div class="thumb w-100">
+                            <img src="assets/img/gbcc/Mle%20SONG%20YU%20gr%C3%A2ce(assistante%20et%20responsable%20commerciale).jpg" alt="Mlle Song Yu Gr&acirc;ce" class="w-100 mimg">
+                        </div>
+                        <div class="content text-center">
+                            <a href="#gbcc-services" class="title">Mlle Song Yu Gr&acirc;ce</a>
+                            <p>Assistante &amp; Responsable Commerciale</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 wow fadeInUp" data-wow-delay=".9s">
+                    <div class="service-itemsv02 service-style03 gbcc-team-card">
+                        <div class="thumb w-100">
+                            <img src="assets/img/gbcc/Madame%20Marina%20kouam%C3%A9(responsable%20audiovisuel).jpg" alt="Mme Marina Kouam&eacute;" class="w-100 mimg">
+                        </div>
+                        <div class="content text-center">
+                            <a href="#gbcc-services" class="title">Mme Marina Kouam&eacute;</a>
+                            <p>Responsable Audiovisuel</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Th&eacute;matiques / Valeurs -->
+    <section class="pricing-section overflow-hidden white-bg section-padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xxl-6 col-xl-7 col-md-8 col-sm-11">
+                    <div class="section-title mb-60 text-center">
+                        <h5 class="p1-clr wow fadeInLeft" data-wow-delay="0.4s">
+                            NOS TH&Eacute;MATIQUES
+                        </h5>
+                        <h2 class="wow fadeInDown" data-wow-delay=".3s">
+                            Les enjeux qui guident notre action
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-xl-4 g-3 justify-content-center">
+                <div class="col-lg-4 col-md-6 col-sm-6 wow fadeInUp" data-wow-delay=".3s">
+                    <div class="pricing-itemsv1">
+                        <h5>&Eacute;conomie Cacaoy&egrave;re</h5>
+                        <ul class="pricing-list">
+                            <li><i class="fa-solid fa-circle-check"></i>Revenu des producteurs (0,50$/jour)</li>
+                            <li><i class="fa-solid fa-circle-check"></i>Concept de durabilit&eacute;</li>
+                            <li><i class="fa-solid fa-circle-check"></i>Th&eacute;orie du Maxima</li>
+                            <li><i class="fa-solid fa-circle-check"></i>Prix et rendements durables</li>
+                        </ul>
+                        <a href="#gbcc-services" class="cmn-btn primary-border">En savoir plus</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 wow fadeInUp" data-wow-delay=".5s">
+                    <div class="pricing-itemsv1 active">
+                        <h5>Diversification Package</h5>
+                        <ul class="pricing-list">
+                            <li><i class="fa-solid fa-circle-check"></i>Cultures associ&eacute;es au cacao</li>
+                            <li><i class="fa-solid fa-circle-check"></i>S&eacute;curisation industrielle</li>
+                            <li><i class="fa-solid fa-circle-check"></i>Au-del&agrave; du cacao</li>
+                            <li><i class="fa-solid fa-circle-check"></i>Revenus compl&eacute;mentaires</li>
+                        </ul>
+                        <a href="#gbcc-services" class="cmn-btn primary-border">En savoir plus</a>
+                        <span class="price-badge">Innovation</span>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 wow fadeInUp" data-wow-delay=".7s">
+                    <div class="pricing-itemsv1">
+                        <h5>Durabilit&eacute; Alimentaire</h5>
+                        <ul class="pricing-list">
+                            <li><i class="fa-solid fa-circle-check"></i>Pilier &eacute;cologique</li>
+                            <li><i class="fa-solid fa-circle-check"></i>Pilier &eacute;conomique</li>
+                            <li><i class="fa-solid fa-circle-check"></i>Pilier social</li>
+                            <li><i class="fa-solid fa-circle-check"></i>Respect de l'environnement</li>
+                        </ul>
+                        <a href="#gbcc-services" class="cmn-btn primary-border">En savoir plus</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projets Majeurs -->
+    <section class="feature-sectionv02 p900-bg space-top">
+        <div class="container">
+            <div class="row g-4 align-items-lg-start align-items-center justify-content-center">
+                <div class="col-xxl-5 col-xl-5 col-lg-6 col-md-6 col-sm-10">
+                    <div class="about-contentv1">
+                        <div class="section-title mb-40">
+                            <h5 class="p1-clr text-uppercase wow fadeInLeft" data-wow-delay="0.4s">
+                                NOS PROJETS
+                            </h5>
+                            <h2 class="text-white mb-24 wow fadeInDown" data-wow-delay=".3s">
+                                Des r&eacute;alisations qui ont marqu&eacute; la fili&egrave;re
+                            </h2>
+                            <div class="row g-3 mb-40">
+                                <div class="col-12">
+                                    <div class="gbcc-project-card">
+                                        <span>Janvier 2004 - Fairtrade International</span>
+                                        <h5>Premier programme de certification cacao en C&ocirc;te d'Ivoire</h5>
+                                        <p>Initiative lanc&eacute;e face aux exigences internationales sur le travail des enfants. GBCC a contribu&eacute; &agrave; faire entrer le cacao ivoirien dans les standards de certification durable.</p>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="gbcc-project-card">
+                                        <span>Septembre 2005 - Fairtrade US</span>
+                                        <h5>Qualit&eacute;, rendement et coop&eacute;ratives certifi&eacute;es</h5>
+                                        <p>Projet d'am&eacute;lioration de la qualit&eacute; avec les premi&egrave;res coop&eacute;ratives certifi&eacute;es Kavokiva et Copaga dans le cadre de l'initiative STCP.</p>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="gbcc-project-card">
+                                        <span>Mars 2008 - MARS</span>
+                                        <h5>Certification mainstream et innovation SGI</h5>
+                                        <p>D&eacute;ploiement du Syst&egrave;me de Gestion Interne pour permettre aux producteurs non organis&eacute;s d'acc&eacute;der &agrave; la certification et &agrave; de meilleurs d&eacute;bouch&eacute;s.</p>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="gbcc-project-card">
+                                        <span>Mai 2022 - GIZ / Rainforest</span>
+                                        <h5>Production durable et cacao certifi&eacute;</h5>
+                                        <p>Programme Rainforest financ&eacute; par un consortium USAID-GTZ, impliquant six coop&eacute;ratives et la premi&egrave;re f&egrave;ve certifi&eacute;e Rainforest en Afrique.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="projets.html" class="cmn-btn text-white primary-border">
+                                Voir tous les projets
+                                <i class="fa-solid fa-arrow-right p1-clr"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xxl-7 col-xl-7 col-lg-6 col-md-6 col-sm-8 ps-lg-5">
+                    <div class="feature-thumv02 position-relative w-100 wow fadeInDown" data-wow-delay=".3s">
+                        <img src="assets/img/gbcc/DG-004.jpg" alt="C&eacute;r&eacute;monie de d&eacute;coration" class="w-100">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vid&eacute;o 2 : Sur le terrain -->
+    <section class="faq-section section-padding p100-bg">
+        <div class="container">
+            <div class="row g-md-4 g-2 align-items-center justify-content-between">
+                <div class="col-lg-5 col-md-6">
+                    <div class="faq-content-left">
+                        <div class="section-title mb-40">
+                            <h5 class="p1-clr wow fadeInLeft text-uppercase" data-wow-delay="0.4s">
+                                SUR LE TERRAIN
+                            </h5>
+                            <h2 class="wow fadeInDown" data-wow-delay=".3s">
+                                Au c&oelig;ur des plantations
+                            </h2>
+                            <p>
+                                Retrouvez nos &eacute;quipes sur le terrain aux c&ocirc;t&eacute;s des producteurs. Formation, certification, diversification : un accompagnement de proximit&eacute;.
+                            </p>
+                            <div class="faq-watch">
+                                <a href="assets/img/gbcc/DG%20sortie.jpg" class="video-cmn d-center img-popup">
+                                    <i class="fa-solid fa-play"></i>
+                                </a>
+                                <h5>Voir l'image</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 order-md-0 order-1">
+                    <div class="position-relative rounded overflow-hidden wow fadeInRight" data-wow-delay=".3s">
+                        <img src="assets/img/gbcc/DG%20sortie.jpg" alt="GBCC sur le terrain" class="w-100" style="height:400px;object-fit:cover;object-position:center 20%;">
+                        <a href="assets/img/gbcc/DG%20sortie.jpg" class="video-cmn d-center img-popup" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
+                            <i class="fa-solid fa-play"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Acc&egrave;s Financements &amp; March&eacute;s -->
+    <section class="about-section style-v01 white-bg section-padding">
+        <div class="container">
+            <div class="row g-4 align-items-start justify-content-center">
+                <div class="col-lg-6 col-md-6 wow fadeInLeft" data-wow-delay=".3s">
+                    <div class="section-title mb-40">
+                        <h5 class="p1-clr text-uppercase">FINANCEMENTS</h5>
+                        <h2 class="wow fadeInDown" data-wow-delay=".3s">Acc&egrave;s aux financements</h2>
+                        <p>
+                            Faciliter l'acc&egrave;s des coop&eacute;ratives certifi&eacute;es au financement d'exportation &agrave; des taux comp&eacute;titifs (7-8% vs 14-16% des banques ivoiriennes).
+                        </p>
+                    </div>
+                    <ul class="about-list2 gap-2">
+                        <li><i class="fa-solid fa-check"></i> RABOBANK &mdash; Hollande</li>
+                        <li><i class="fa-solid fa-check"></i> ROOTS CAPITAL &mdash; &Eacute;tats-Unis</li>
+                        <li><i class="fa-solid fa-check"></i> SHARED INTEREST &mdash; Grande-Bretagne</li>
+                        <li><i class="fa-solid fa-check"></i> ETIMOS &mdash; Italie</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 col-md-6 wow fadeInRight" data-wow-delay=".3s">
+                    <div class="section-title mb-40">
+                        <h5 class="p1-clr text-uppercase">MARCH&Eacute;S</h5>
+                        <h2 class="wow fadeInDown" data-wow-delay=".3s">Acc&egrave;s aux march&eacute;s</h2>
+                    </div>
+                    <h6 class="mb-3">Chocolatiers am&eacute;ricains</h6>
+                    <ul class="about-list2 mb-40 gap-2">
+                        <li><i class="fa-solid fa-check"></i> Blommer, Guittard, Mars Inc.</li>
+                        <li><i class="fa-solid fa-check"></i> Ben &amp; Jerry's, Ghirardelli</li>
+                        <li><i class="fa-solid fa-check"></i> Hershey, Scharffen Berger</li>
+                    </ul>
+                    <h6 class="mb-3">Chocolatiers europ&eacute;ens</h6>
+                    <ul class="about-list2 gap-2">
+                        <li><i class="fa-solid fa-check"></i> Ferrero, Kraft, Cadbury</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partenaires -->
+    <section class="sponsor-branding-section section-padding white-bg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xxl-6 col-xl-7 col-md-8 col-sm-11">
+                    <div class="section-title mb-60 text-center">
+                        <h5 class="p1-clr text-uppercase wow fadeInLeft" data-wow-delay="0.4s">
+                            NOS PARTENAIRES
+                        </h5>
+                        <h2 class="wow fadeInDown" data-wow-delay=".3s">
+                            Ils nous accompagnent
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper brand-slider">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="brand-image">
+                            <img src="assets/img/gbcc/partenaire-1.png" alt="Partenaire">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="brand-image">
+                            <img src="assets/img/gbcc/partenaire2.jpg" alt="Partenaire">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="brand-image">
+                            <img src="assets/img/gbcc/partenaire3.png" alt="Partenaire">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="brand-image">
+                            <img src="assets/img/gbcc/partenaire4.webp" alt="Partenaire">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section section-padding p100-bg">
+        <div class="container">
+            <div class="row g-md-4 g-2 align-items-center justify-content-between">
+                <div class="col-lg-5 col-md-6">
+                    <div class="faq-content-left">
+                        <div class="section-title mb-40">
+                            <h5 class="p1-clr wow fadeInLeft text-uppercase" data-wow-delay="0.4s">
+                                FAQ
+                            </h5>
+                            <h2 class="wow fadeInDown" data-wow-delay=".3s">
+                                Questions fr&eacute;quentes sur GBCC
+                            </h2>
+                            <p>
+                                Retrouvez les r&eacute;ponses aux questions les plus pos&eacute;es sur les services et l'accompagnement de GBCC.
+                            </p>
+                            <div class="faq-watch">
+                                <a href="assets/img/gbcc/exemplaire.jpg" class="video-cmn d-center img-popup">
+                                    <i class="fa-solid fa-play"></i>
+                                </a>
+                                <h5>Voir un exemple</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 order-md-0 order-1">
+                    <div class="tab-faq faq">
+                        <div class="accordion-section d-grid gap-xxl-4 gap-lg-3 gap-2">
+                            <div class="accordion-single">
+                                <h5 class="header-area">
+                                    <button class="accordion-btn d-flex align-items-center d-flex position-relative w-100" type="button">
+                                        Quels types de certifications proposez-vous ?
+                                    </button>
+                                </h5>
+                                <div class="content-area">
+                                    <div class="content-body">
+                                        <p>Rainforest Alliance, Fairtrade, UTZ, Bio. Depuis 2004, nous avons initi&eacute; le tout premier programme de certification en C&ocirc;te d'Ivoire.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-single">
+                                <h5 class="header-area">
+                                    <button class="accordion-btn d-flex align-items-center d-flex position-relative w-100" type="button">
+                                        Comment fonctionne le SGI ?
+                                    </button>
+                                </h5>
+                                <div class="content-area">
+                                    <div class="content-body">
+                                        <p>Le Syst&egrave;me de Gestion Interne permet aux coop&eacute;ratives et producteurs non organis&eacute;s d'acc&eacute;der &agrave; la certification. Il structure les processus de tra&ccedil;abilit&eacute; et de conformit&eacute;.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-single">
+                                <h5 class="header-area">
+                                    <button class="accordion-btn d-flex align-items-center d-flex position-relative w-100" type="button">
+                                        Quelle est la Th&eacute;orie du Maxima ?
+                                    </button>
+                                </h5>
+                                <div class="content-area">
+                                    <div class="content-body">
+                                        <p>D&eacute;velopp&eacute;e par M. Edmond Konan, cette th&eacute;orie d&eacute;finit les limites de rendement et de prix durables pour garantir la p&eacute;rennit&eacute; de la fili&egrave;re cacao.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-single">
+                                <h5 class="header-area">
+                                    <button class="accordion-btn d-flex align-items-center d-flex position-relative w-100" type="button">
+                                        Comment contacter GBCC ?
+                                    </button>
+                                </h5>
+                                <div class="content-area">
+                                    <div class="content-body">
+                                        <p>Par email &agrave; <a href="mailto:infogbcc@gbg-ci.com">infogbcc@gbg-ci.com</a> ou t&eacute;l&eacute;phone au <a href="tel:+2250544831313">+225 05 44 83 13 13</a>. Si&egrave;ge : II Plateaux, Carrefour Macaci, Abidjan.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- &Eacute;cosyst&egrave;me GBG -->
+    <section class="servicev3-section overflow-hidden section-padding white-bg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xxl-6 col-xl-7 col-md-8 col-sm-11">
+                    <div class="section-title mb-60 text-center">
+                        <h5 class="p1-clr wow fadeInLeft text-uppercase" data-wow-delay="0.4s">
+                            NOTRE &Eacute;COSYST&Egrave;ME
+                        </h5>
+                        <h2 class="wow fadeInDown" data-wow-delay=".3s">
+                            GBCC au c&oelig;ur du groupe GBG
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-xl-4 g-3 justify-content-center">
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 wow fadeInUp" data-wow-delay=".3s">
+                    <div class="service-itemsv02 service-style03">
+                        <div class="thumb w-100">
+                            <img src="assets/img/service/servicev3-2.jpg" alt="SCMC" class="w-100 mimg">
+                        </div>
+                        <div class="content">
+                            <a href="scmc.html" class="title">SCMC</a>
+                            <img src="assets/img/icon/ser-flower.svg" alt="icon">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 wow fadeInUp" data-wow-delay=".5s">
+                    <div class="service-itemsv02 service-style03">
+                        <div class="thumb w-100">
+                            <img src="assets/img/service/servicev3-3.jpg" alt="KIC" class="w-100 mimg">
+                        </div>
+                        <div class="content">
+                            <a href="kic.html" class="title">KIC</a>
+                            <img src="assets/img/icon/map-plant.svg" alt="icon">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 wow fadeInUp" data-wow-delay=".7s">
+                    <div class="service-itemsv02 service-style03">
+                        <div class="thumb w-100">
+                            <img src="assets/img/service/servicev3-1.jpg" alt="Assiette Durable" class="w-100 mimg">
+                        </div>
+                        <div class="content">
+                            <a href="assiette-durable.html" class="title">Assiette Durable</a>
+                            <img src="assets/img/icon/water-hose.svg" alt="icon">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 wow fadeInUp" data-wow-delay=".9s">
+                    <div class="service-itemsv02 service-style03">
+                        <div class="thumb w-100">
+                            <img src="assets/img/service/servicev3-2.jpg" alt="SCMC Chocolaterie" class="w-100 mimg">
+                        </div>
+                        <div class="content">
+                            <a href="scmc-chocolaterie.html" class="title">SCMC Chocolaterie</a>
+                            <img src="assets/img/icon/ser-flower.svg" alt="icon">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Contact -->
+    <div class="subscrbie-section subscrbie-stylev03">
+        <div class="container">
+            <div class="subscribe-wrapper-v03">
+                <div class="container position-relative">
+                    <div class="row g-4 align-items-end justify-content-between">
+                        <div class="col-lg-6 col-md-6 mb-xl-5 pb-xl-4">
+                            <div class="subs-contentv3">
+                                <h2>
+                                    Contactez <span>GBCC</span> d&egrave;s maintenant
+                                </h2>
+                                <p class="text-white mb-3">
+                                    II Plateaux, Carrefour Macaci, Abidjan<br>
+                                    T&eacute;l : <a href="tel:+2250544831313" class="text-white">+225 05 44 83 13 13</a><br>
+                                    T&eacute;l 2 : <a href="tel:+2250708565625" class="text-white">+225 07 08 56 56 25</a><br>
+                                    Email : <a href="mailto:infogbcc@gbg-ci.com" class="text-white">infogbcc@gbg-ci.com</a>
+                                    <br>Email 2 : <a href="mailto:infogbg@gbg-ci.com" class="text-white">infogbg@gbg-ci.com</a>
+                                    <br>Horaires : Lundi - Samedi, 8h00 - 16h30
+                                </p>
+                                <a href="contact.html" class="cmn-btn text-capitalize">
+                                    Nous Contacter
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="conatact-box common-contact-inner position-relative">
+                                <div class="section-title mb-40">
+                                    <h5 class="p1-clr wow fadeInLeft" data-wow-delay="0.4s">
+                                        Contact
+                                    </h5>
+                                    <h2>&Eacute;crivez-nous</h2>
+                                </div>
+                                <form action="mailto:infogbcc@gbg-ci.com" method="post" enctype="text/plain" class="row g-xl-4 g-3">
+                                    <div class="col-lg-6">
+                                        <input type="text" name="nom" placeholder="Nom">
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <input type="email" name="email" placeholder="E-mail">
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <input type="text" name="sujet" placeholder="Sujet">
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <textarea name="message" placeholder="Message"></textarea>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <button type="submit" class="cmn-btn text-capitalize">
+                                            Envoyer
+                                            <i class="fa-solid fa-arrow-right"></i>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!--<< Footer Section Start >>-->
     <footer class="footer-section overflow-hidden position-relative footer-style3">
@@ -446,21 +1614,27 @@
                             </div>
                             <ul class="list-area list-contact">
                                 <li>
-                                    <a href="mailto:contact@gbg-group.com">
+                                    <a href="mailto:infogbcc@gbg-ci.com">
                                         <i class="fa-solid fa-envelope"></i>
-                                        contact@gbg-group.com
+                                        infogbcc@gbg-ci.com
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#" class="link">
                                         <i class="fa-solid fa-location-dot"></i>
-                                        Abidjan, Côte d'Ivoire
+                                        II Plateaux, Carrefour Macaci, Abidjan
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="tel:+22507000000000" class="link">
+                                    <a href="tel:+2250544831313" class="link">
                                         <i class="fa-solid fa-phone"></i>
-                                        +225 07 00 00 00 00
+                                        +225 05 44 83 13 13
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="tel:+2250708565625" class="link">
+                                        <i class="fa-solid fa-phone"></i>
+                                        +225 07 08 56 56 25
                                     </a>
                                 </li>
                             </ul>
