@@ -93,20 +93,52 @@
         .gbcc-clarity-card i { color:#173f2d; font-size:28px; margin-bottom:16px; }
         .gbcc-clarity-card h3 { color:#173f2d; font-size:21px; margin-bottom:10px; }
         .gbcc-clarity-card p { color:#5b6b63; line-height:1.65; margin:0; }
-        .gbcc-service-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:18px; margin-top:34px; }
-        .gbcc-r-service { background:#fff; border:1px solid #e3e8de; border-radius:8px; overflow:hidden; }
-        .gbcc-r-service { transition:transform .25s ease, box-shadow .25s ease; }
-        .gbcc-r-service:hover { transform:translateY(-6px); box-shadow:0 18px 42px rgba(29,54,38,.12); }
-        .gbcc-r-service img { width:100%; height:180px; object-fit:cover; }
-        .gbcc-r-service div { padding:20px; }
-        .gbcc-r-service h3 { font-size:20px; line-height:1.25; margin-bottom:10px; color:#173f2d; }
-        .gbcc-r-service p { color:#5b6b63; font-size:14px; line-height:1.6; }
+        .gbcc-ecosystem { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:12px; margin-top:34px; }
+        .gbcc-ecosystem-item { background:#fff; border:1px solid #e3e8de; border-radius:8px; padding:18px; position:relative; min-height:150px; }
+        .gbcc-ecosystem-item:after { content:"\f061"; font-family:"Font Awesome 6 Free"; font-weight:900; position:absolute; right:-16px; top:50%; transform:translateY(-50%); width:30px; height:30px; border-radius:50%; background:#fdd61f; color:#173f2d; display:flex; align-items:center; justify-content:center; z-index:2; font-size:12px; }
+        .gbcc-ecosystem-item:last-child:after { display:none; }
+        .gbcc-ecosystem-item strong { display:block; color:#173f2d; font-size:19px; margin-bottom:8px; }
+        .gbcc-ecosystem-item span { color:#5b6b63; font-size:13px; line-height:1.45; display:block; }
+        .gbcc-mvv-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; margin-top:34px; }
+        .gbcc-mvv-card { background:#173f2d; color:#fff; border-radius:8px; padding:26px; min-height:250px; position:relative; overflow:hidden; }
+        .gbcc-mvv-card:before { content:""; position:absolute; width:160px; height:160px; right:-60px; top:-60px; border-radius:50%; background:rgba(253,214,31,.12); }
+        .gbcc-mvv-card h3 { color:#fff; font-size:24px; margin-bottom:12px; }
+        .gbcc-mvv-card p { color:rgba(255,255,255,.84); line-height:1.68; margin:0; }
+        .gbcc-value-cloud { display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; }
+        .gbcc-value-cloud span { display:inline-flex; align-items:center; min-height:34px; padding:7px 12px; border-radius:999px; background:#fff7c8; color:#173f2d; font-weight:800; font-size:13px; }
+        .gbcc-sector-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin-top:34px; }
+        .gbcc-sector { background:#fff; border:1px solid #e3e8de; border-radius:8px; padding:18px; display:flex; align-items:center; gap:12px; color:#173f2d; font-weight:800; transition:transform .25s ease, box-shadow .25s ease; }
+        .gbcc-sector:hover { transform:translateY(-4px); box-shadow:0 14px 34px rgba(29,54,38,.1); }
+        .gbcc-sector i { width:38px; height:38px; border-radius:50%; background:#fdd61f; color:#173f2d; display:flex; align-items:center; justify-content:center; flex:0 0 auto; }
+        .gbcc-service-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:28px; margin-top:52px; align-items:start; }
+        .gbcc-r-service { position:relative; min-height:520px; border-radius:8px; overflow:visible; background:transparent; }
+        .gbcc-r-service .gbcc-service-thumb { height:292px; border-radius:8px; overflow:hidden; position:relative; background:#173f2d; }
+        .gbcc-r-service .gbcc-service-thumb img { width:100%; height:100%; object-fit:cover; transition:transform .45s ease; }
+        .gbcc-r-service:hover .gbcc-service-thumb img { transform:scale(1.07); }
+        .gbcc-r-service .gbcc-service-badge { position:absolute; top:14px; left:14px; background:#f6f7f3; color:#173f2d; min-height:42px; padding:9px 14px; border-radius:4px; font-family:Georgia,serif; font-size:18px; line-height:1; z-index:2; box-shadow:0 10px 24px rgba(0,0,0,.12); }
+        .gbcc-r-service .gbcc-service-body { position:relative; width:88%; margin:-58px auto 0; background:#fff; border-radius:0 0 8px 8px; padding:28px 28px 30px; box-shadow:0 24px 56px rgba(29,54,38,.10); min-height:315px; z-index:3; transition:transform .3s ease, box-shadow .3s ease; }
+        .gbcc-r-service:hover .gbcc-service-body { transform:translateY(-8px); box-shadow:0 30px 70px rgba(29,54,38,.16); }
+        .gbcc-service-meta { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:16px; color:#6d7a72; font-size:13px; }
+        .gbcc-service-meta span { display:inline-flex; align-items:center; gap:6px; }
+        .gbcc-service-meta i { color:#315943; }
+        .gbcc-r-service h3 { font-size:28px; line-height:1.18; margin-bottom:14px; color:#315943; font-family:Georgia,serif; }
+        .gbcc-r-service p { color:#6d746f; font-size:15px; line-height:1.62; margin-bottom:22px; }
+        .gbcc-service-link { display:inline-flex; align-items:center; gap:10px; color:#315943; text-decoration:none; font-weight:700; letter-spacing:4px; font-size:13px; }
+        .gbcc-service-link i { letter-spacing:0; transition:transform .25s ease; }
+        .gbcc-service-link:hover { color:#5dbb43; }
+        .gbcc-service-link:hover i { transform:translateX(5px); }
         .gbcc-method-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; margin-top:34px; }
         .gbcc-method-card { background:#173f2d; color:#fff; border-radius:8px; padding:26px; min-height:245px; position:relative; overflow:hidden; }
         .gbcc-method-card:after { content:""; position:absolute; width:110px; height:110px; right:-34px; bottom:-34px; border:1px solid rgba(253,214,31,.34); border-radius:50%; }
         .gbcc-method-card span { display:inline-flex; width:38px; height:38px; align-items:center; justify-content:center; background:#fdd61f; color:#173f2d; border-radius:50%; font-weight:900; margin-bottom:18px; }
         .gbcc-method-card h3 { color:#fff; font-size:21px; margin-bottom:12px; }
         .gbcc-method-card p { color:rgba(255,255,255,.82); font-size:14px; line-height:1.65; margin:0; }
+        .gbcc-theme-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; margin-top:34px; }
+        .gbcc-theme-card { border-radius:8px; overflow:hidden; background:#fff; border:1px solid #e3e8de; }
+        .gbcc-theme-card img { width:100%; height:220px; object-fit:cover; }
+        .gbcc-theme-card div { padding:22px; }
+        .gbcc-theme-card h3 { color:#173f2d; font-size:23px; margin-bottom:10px; }
+        .gbcc-theme-card p { color:#5b6b63; line-height:1.65; margin:0; }
         .gbcc-video-section { background:#fff; }
         .gbcc-video-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; margin-top:34px; }
         .gbcc-video-card { position:relative; min-height:360px; border-radius:8px; overflow:hidden; background:#173f2d; box-shadow:0 20px 48px rgba(29,54,38,.14); }
@@ -168,6 +200,11 @@
         .gbcc-contact-band h2 { color:#fff; margin:0; }
         .gbcc-contact-list { display:grid; gap:10px; color:rgba(255,255,255,.88); }
         .gbcc-contact-list a { color:#fff; text-decoration:none; }
+        .gbcc-contact-form { background:#fff; border-radius:8px; padding:24px; box-shadow:0 18px 42px rgba(0,0,0,.18); }
+        .gbcc-contact-form .row { --bs-gutter-y:14px; }
+        .gbcc-contact-form input, .gbcc-contact-form textarea { width:100%; border:1px solid #dfe5d7; border-radius:6px; min-height:48px; padding:11px 13px; color:#173f2d; }
+        .gbcc-contact-form textarea { min-height:118px; resize:vertical; }
+        .gbcc-contact-form button { border:0; }
         .gbcc-r-footer { background:#0f2b1e; color:#fff; padding:64px 0 26px; }
         .gbcc-footer-grid { display:grid; grid-template-columns:1.2fr .8fr .8fr .8fr; gap:28px; }
         .gbcc-footer-logo { width:82px; height:auto; margin-bottom:18px; background:#fff; border-radius:6px; padding:8px; }
@@ -177,9 +214,13 @@
         .gbcc-r-footer a, .gbcc-r-footer li { color:rgba(255,255,255,.78); text-decoration:none; }
         .gbcc-r-footer a:hover { color:#fdd61f; }
         .gbcc-footer-bottom { border-top:1px solid rgba(255,255,255,.12); margin-top:36px; padding-top:22px; display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; color:rgba(255,255,255,.62); font-size:14px; }
+        .gbcc-scroll-reveal { opacity:0; transform:translateY(28px); transition:opacity .75s ease, transform .75s ease; }
+        .gbcc-scroll-reveal.is-visible { opacity:1; transform:translateY(0); }
         @media (max-width:991px){
             .gbcc-r-hero h2 { font-size:42px; }
-            .gbcc-identity-grid, .gbcc-service-grid, .gbcc-team-grid, .gbcc-method-grid, .gbcc-footer-grid, .gbcc-clarity-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+            .gbcc-identity-grid, .gbcc-service-grid, .gbcc-team-grid, .gbcc-method-grid, .gbcc-footer-grid, .gbcc-clarity-grid, .gbcc-sector-grid, .gbcc-theme-grid, .gbcc-mvv-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+            .gbcc-ecosystem { grid-template-columns:repeat(3,minmax(0,1fr)); }
+            .gbcc-ecosystem-item:after { display:none; }
             .gbcc-stat-strip { grid-template-columns:repeat(2,minmax(0,1fr)); }
             .gbcc-gallery-grid, .gbcc-impact-grid { grid-template-columns:1fr 1fr; }
             .gbcc-testimonial-grid { grid-template-columns:1fr; }
@@ -188,7 +229,7 @@
         @media (max-width:575px){
             .gbcc-r-hero { padding:72px 0 48px; }
             .gbcc-r-hero h2, .gbcc-section h2 { font-size:32px; }
-            .gbcc-identity-grid, .gbcc-service-grid, .gbcc-projects, .gbcc-team-grid, .gbcc-panel-row, .gbcc-method-grid, .gbcc-gallery-grid, .gbcc-footer-grid, .gbcc-clarity-grid, .gbcc-video-grid, .gbcc-impact-grid, .gbcc-testimonial-grid { grid-template-columns:1fr; }
+            .gbcc-identity-grid, .gbcc-service-grid, .gbcc-projects, .gbcc-team-grid, .gbcc-panel-row, .gbcc-method-grid, .gbcc-gallery-grid, .gbcc-footer-grid, .gbcc-clarity-grid, .gbcc-video-grid, .gbcc-impact-grid, .gbcc-testimonial-grid, .gbcc-sector-grid, .gbcc-theme-grid, .gbcc-mvv-grid, .gbcc-ecosystem { grid-template-columns:1fr; }
             .gbcc-video-card { min-height:300px; }
             .gbcc-gallery-grid a:first-child { grid-column:auto; min-height:260px; }
             .gbcc-stat-strip { grid-template-columns:1fr; }
@@ -510,7 +551,27 @@
                     <div class="gbcc-stat"><strong>12 900</strong><span>Producteurs approuv&eacute;s</span></div>
                     <div class="gbcc-stat"><strong>1 600+</strong><span>Organisations partenaires</span></div>
                     <div class="gbcc-stat"><strong>1,6M+</strong><span>Producteurs et travailleurs repr&eacute;sent&eacute;s</span></div>
-                    <div class="gbcc-stat"><strong>2004</strong><span>Premiers programmes de certification cacao</span></div>
+                    <div class="gbcc-stat"><strong>20+ ans</strong><span>D'exp&eacute;rience dans l'agriculture</span></div>
+                    <div class="gbcc-stat"><strong>30 ans</strong><span>D'expertise dans le cacao</span></div>
+                    <div class="gbcc-stat"><strong>2007</strong><span>Ann&eacute;e de cr&eacute;ation</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gbcc-section">
+            <div class="container">
+                <span class="gbcc-kicker">R&ocirc;le dans le groupe GBG</span>
+                <h2>GBCC est le pilier conseil, certification et accompagnement technique du groupe</h2>
+                <p class="gbcc-lead">
+                    Au sein de Global Business Group, GBCC intervient en amont de la cha&icirc;ne de valeur. Elle structure, accompagne, forme, certifie et pr&eacute;pare les producteurs et coop&eacute;ratives &agrave; acc&eacute;der &agrave; des opportunit&eacute;s commerciales plus solides. Elle alimente ensuite l'&eacute;cosyst&egrave;me du groupe en mati&egrave;res premi&egrave;res mieux suivies, mieux document&eacute;es et plus responsables.
+                </p>
+                <div class="gbcc-ecosystem">
+                    <div class="gbcc-ecosystem-item gbcc-scroll-reveal"><strong>GBG</strong><span>Vision strat&eacute;gique et coordination du groupe</span></div>
+                    <div class="gbcc-ecosystem-item gbcc-scroll-reveal"><strong>GBCC</strong><span>Conseil, certification, formation, financement et acc&egrave;s march&eacute;s</span></div>
+                    <div class="gbcc-ecosystem-item gbcc-scroll-reveal"><strong>SCMC</strong><span>Commercialisation et valorisation des produits durables</span></div>
+                    <div class="gbcc-ecosystem-item gbcc-scroll-reveal"><strong>KIC</strong><span>Transformation industrielle du cacao</span></div>
+                    <div class="gbcc-ecosystem-item gbcc-scroll-reveal"><strong>Chocolaterie</strong><span>Produits chocolat&eacute;s et marque commerciale</span></div>
+                    <div class="gbcc-ecosystem-item gbcc-scroll-reveal"><strong>Assiette Durable</strong><span>Alimentation responsable et d&eacute;bouch&eacute;s locaux</span></div>
                 </div>
             </div>
         </section>
@@ -542,6 +603,51 @@
             </div>
         </section>
 
+        <section class="gbcc-section white">
+            <div class="container">
+                <span class="gbcc-kicker">Mission, vision et valeurs</span>
+                <h2>Une approche durable, mesurable et orient&eacute;e producteurs</h2>
+                <div class="gbcc-mvv-grid">
+                    <article class="gbcc-mvv-card gbcc-scroll-reveal">
+                        <h3>Mission</h3>
+                        <p>Aider &agrave; l'am&eacute;lioration des conditions de vie des producteurs de cacao &agrave; travers des programmes d'accompagnement, de certification, de formation, d'acc&egrave;s au financement et d'acc&egrave;s aux march&eacute;s.</p>
+                    </article>
+                    <article class="gbcc-mvv-card gbcc-scroll-reveal">
+                        <h3>Vision</h3>
+                        <p>Contribuer &agrave; b&acirc;tir une &eacute;conomie cacaoy&egrave;re plus durable, plus &eacute;quitable et plus performante, au b&eacute;n&eacute;fice des producteurs, coop&eacute;ratives, industriels et consommateurs.</p>
+                    </article>
+                    <article class="gbcc-mvv-card gbcc-scroll-reveal">
+                        <h3>Valeurs</h3>
+                        <p>Une culture d'expertise terrain, de responsabilit&eacute; sociale et de valorisation durable des producteurs.</p>
+                        <div class="gbcc-value-cloud">
+                            <span>Durabilit&eacute;</span><span>Tra&ccedil;abilit&eacute;</span><span>&Eacute;quit&eacute;</span><span>Innovation</span><span>Performance</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="gbcc-section">
+            <div class="container">
+                <span class="gbcc-kicker">Secteurs d'intervention</span>
+                <h2>Des passerelles entre production, certification, financement et march&eacute;s</h2>
+                <p class="gbcc-lead">
+                    GBCC intervient dans plusieurs secteurs compl&eacute;mentaires afin de renforcer la performance des fili&egrave;res agricoles et de cr&eacute;er des connexions concr&egrave;tes entre terrain, institutions, financeurs et acheteurs.
+                </p>
+                <div class="gbcc-sector-grid">
+                    <div class="gbcc-sector gbcc-scroll-reveal"><i class="fa-solid fa-seedling"></i>Agriculture</div>
+                    <div class="gbcc-sector gbcc-scroll-reveal"><i class="fa-solid fa-industry"></i>Micro-industrie</div>
+                    <div class="gbcc-sector gbcc-scroll-reveal"><i class="fa-solid fa-coins"></i>Finance &amp; microfinance</div>
+                    <div class="gbcc-sector gbcc-scroll-reveal"><i class="fa-solid fa-scale-balanced"></i>N&eacute;goce</div>
+                    <div class="gbcc-sector gbcc-scroll-reveal"><i class="fa-solid fa-people-group"></i>Coop&eacute;ratives</div>
+                    <div class="gbcc-sector gbcc-scroll-reveal"><i class="fa-solid fa-chalkboard-user"></i>Formation</div>
+                    <div class="gbcc-sector gbcc-scroll-reveal"><i class="fa-solid fa-certificate"></i>Certification</div>
+                    <div class="gbcc-sector gbcc-scroll-reveal"><i class="fa-solid fa-building-columns"></i>Financements</div>
+                    <div class="gbcc-sector gbcc-scroll-reveal"><i class="fa-solid fa-globe"></i>Acc&egrave;s aux march&eacute;s</div>
+                </div>
+            </div>
+        </section>
+
         <section id="gbcc-redesign-services" class="gbcc-section">
             <div class="container">
                 <span class="gbcc-kicker">Domaines d'intervention</span>
@@ -551,31 +657,63 @@
                 </p>
                 <div class="gbcc-service-grid">
                     <article class="gbcc-r-service gbcc-fade-up">
-                        <img src="assets/img/gbcc/exemplaire.jpg" alt="Gestion de label">
-                        <div>
+                        <div class="gbcc-service-thumb">
+                            <img src="assets/img/gbcc/exemplaire.jpg" alt="Gestion de label">
+                            <span class="gbcc-service-badge">01</span>
+                        </div>
+                        <div class="gbcc-service-body">
+                            <div class="gbcc-service-meta">
+                                <span><i class="fa-regular fa-circle-check"></i> Certification</span>
+                                <span><i class="fa-regular fa-user"></i> GBCC</span>
+                            </div>
                             <h3>Label &amp; propri&eacute;t&eacute; intellectuelle</h3>
                             <p>Gestion d'outils de durabilit&eacute;, SGI, tra&ccedil;abilit&eacute; et stabilisation des interactions entre acteurs cacao. Ce service aide les organisations &agrave; documenter leur production, s&eacute;curiser leur conformit&eacute; et valoriser leur origine sur les march&eacute;s exigeants.</p>
+                            <a href="#gbcc-redesign-services" class="gbcc-service-link">D&eacute;couvrir <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </article>
                     <article class="gbcc-r-service gbcc-fade-up gbcc-delay-1">
-                        <img src="assets/img/gbcc/download.jpg" alt="Appui technique">
-                        <div>
+                        <div class="gbcc-service-thumb">
+                            <img src="assets/img/gbcc/download.jpg" alt="Appui technique">
+                            <span class="gbcc-service-badge">02</span>
+                        </div>
+                        <div class="gbcc-service-body">
+                            <div class="gbcc-service-meta">
+                                <span><i class="fa-regular fa-circle-check"></i> Formation</span>
+                                <span><i class="fa-regular fa-user"></i> Terrain</span>
+                            </div>
                             <h3>Appui technique</h3>
                             <p>Formation aux outils de certification, diversification, business skills et renforcement des capacit&eacute;s producteur. GBCC accompagne les coop&eacute;ratives dans la mise en place de pratiques durables, de registres fiables et de routines de contr&ocirc;le terrain.</p>
+                            <a href="#gbcc-redesign-services" class="gbcc-service-link">D&eacute;couvrir <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </article>
                     <article class="gbcc-r-service gbcc-fade-up gbcc-delay-2">
-                        <img src="assets/img/gbcc/3.jpeg" alt="Intrants agricoles">
-                        <div>
+                        <div class="gbcc-service-thumb">
+                            <img src="assets/img/gbcc/3.jpeg" alt="Intrants agricoles">
+                            <span class="gbcc-service-badge">03</span>
+                        </div>
+                        <div class="gbcc-service-body">
+                            <div class="gbcc-service-meta">
+                                <span><i class="fa-regular fa-circle-check"></i> Intrants</span>
+                                <span><i class="fa-regular fa-user"></i> Productivit&eacute;</span>
+                            </div>
                             <h3>Intrants agricoles</h3>
                             <p>Distribution de solutions comme BRANDT MANNI-PLEX pour soutenir floraison, croissance, rendement et qualit&eacute;. L'objectif est d'am&eacute;liorer la productivit&eacute; sans d&eacute;connecter les intrants des exigences environnementales et de durabilit&eacute;.</p>
+                            <a href="#gbcc-redesign-services" class="gbcc-service-link">D&eacute;couvrir <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </article>
                     <article class="gbcc-r-service gbcc-fade-up gbcc-delay-3">
-                        <img src="assets/img/gbcc/4.jpeg" alt="Etudes et conseils">
-                        <div>
+                        <div class="gbcc-service-thumb">
+                            <img src="assets/img/gbcc/4.jpeg" alt="Etudes et conseils">
+                            <span class="gbcc-service-badge">04</span>
+                        </div>
+                        <div class="gbcc-service-body">
+                            <div class="gbcc-service-meta">
+                                <span><i class="fa-regular fa-circle-check"></i> Conseil</span>
+                                <span><i class="fa-regular fa-user"></i> Strat&eacute;gie</span>
+                            </div>
                             <h3>&Eacute;tudes &amp; conseils</h3>
                             <p>Recherche, publications, conseil agricole et accompagnement strat&eacute;gique des organisations et institutions. GBCC produit des analyses sur l'&eacute;conomie cacaoy&egrave;re, la certification et les mod&egrave;les de revenu durable.</p>
+                            <a href="#gbcc-redesign-services" class="gbcc-service-link">D&eacute;couvrir <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </article>
                 </div>
@@ -598,6 +736,7 @@
                             <li><i class="fa-solid fa-check"></i>Cr&eacute;ateur de la Th&eacute;orie du Maxima : rendement minimum/maximum durable et prix minimum/maximum durable.</li>
                             <li><i class="fa-solid fa-check"></i>Auteur de publications sur l'&eacute;conomie cacaoy&egrave;re mondiale durable et le cadre r&eacute;glementaire.</li>
                             <li><i class="fa-solid fa-check"></i>Acteur de la premi&egrave;re f&egrave;ve certifi&eacute;e de C&ocirc;te d'Ivoire.</li>
+                            <li><i class="fa-solid fa-book"></i>Publications : Les D&eacute;fis d'une &eacute;conomie cacaoy&egrave;re mondiale durable ; De l'&eacute;valuation de la certification au cadre r&eacute;glementaire ; Les d&eacute;fis d'une &eacute;conomie mondiale.</li>
                         </ul>
                         <div class="gbcc-r-actions">
                             <a href="https://edmondkonan.gbg-ci.com/" target="_blank" class="gbcc-r-btn">Voir son parcours <i class="fa-solid fa-arrow-right"></i></a>
@@ -668,6 +807,39 @@
             </div>
         </section>
 
+        <section class="gbcc-section">
+            <div class="container">
+                <span class="gbcc-kicker">Th&eacute;matiques strat&eacute;giques</span>
+                <h2>GBCC, un acteur de terrain et de r&eacute;flexion sur l'avenir du cacao</h2>
+                <p class="gbcc-lead">
+                    Les interventions de GBCC s'appuient sur une vision strat&eacute;gique de la fili&egrave;re : revenu des producteurs, diversification, durabilit&eacute; alimentaire, performance agricole et partage de la valeur.
+                </p>
+                <div class="gbcc-theme-grid">
+                    <article class="gbcc-theme-card gbcc-scroll-reveal">
+                        <img src="assets/img/gbcc/two-trucks-on-plant-field-scaled.jpg" alt="Economie cacaoy&egrave;re">
+                        <div>
+                            <h3>&Eacute;conomie cacaoy&egrave;re mondiale</h3>
+                            <p>GBCC d&eacute;veloppe une r&eacute;flexion sur le revenu des producteurs, les prix, les rendements et les mod&egrave;les &eacute;conomiques durables de la fili&egrave;re cacao.</p>
+                        </div>
+                    </article>
+                    <article class="gbcc-theme-card gbcc-scroll-reveal">
+                        <img src="assets/img/gbcc/2.jpeg" alt="Diversification agricole">
+                        <div>
+                            <h3>Diversification Package</h3>
+                            <p>Un panier de cultures associ&eacute;es au cacao pour renforcer les revenus, s&eacute;curiser l'approvisionnement industriel et b&acirc;tir des exploitations plus r&eacute;silientes.</p>
+                        </div>
+                    </article>
+                    <article class="gbcc-theme-card gbcc-scroll-reveal">
+                        <img src="assets/img/gbcc/4.jpeg" alt="Durabilit&eacute; alimentaire">
+                        <div>
+                            <h3>Durabilit&eacute; alimentaire</h3>
+                            <p>Une approche qui combine &eacute;conomie, &eacute;cologie et social afin de promouvoir une agriculture responsable, productive et utile aux communaut&eacute;s.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
         <section class="gbcc-section white">
             <div class="container">
                 <span class="gbcc-kicker">Financement &amp; march&eacute;s</span>
@@ -681,6 +853,7 @@
                         <div>
                             <h3>Acc&egrave;s aux financements</h3>
                             <p>GBCC facilite les connexions avec RABOBANK, ROOTS CAPITAL, SHARED INTEREST et ETIMOS pour viser des taux plus comp&eacute;titifs que les conditions bancaires locales classiques.</p>
+                            <p class="mt-3"><strong>7 &agrave; 8%</strong> aupr&egrave;s du r&eacute;seau partenaire vs <strong>14 &agrave; 16%</strong> aupr&egrave;s de certaines banques ivoiriennes.</p>
                         </div>
                     </article>
                     <article class="gbcc-impact-card gbcc-fade-up gbcc-delay-1">
@@ -688,6 +861,7 @@
                         <div>
                             <h3>Acc&egrave;s aux march&eacute;s</h3>
                             <p>Le cabinet accompagne les fili&egrave;res vers les chocolatiers et acheteurs internationaux : Mars, Guittard, Blommer, Ferrero, Kraft, Cadbury et autres partenaires engag&eacute;s.</p>
+                            <p class="mt-3">March&eacute;s am&eacute;ricains et europ&eacute;ens : Blommer, Guittard Chocolate Company, Mars Inc., Ben &amp; Jerry's, Ghirardelli, Hershey, Scharffen Berger, Ferrero, Kraft et Cadbury.</p>
                         </div>
                     </article>
                 </div>
@@ -837,18 +1011,34 @@
         <section class="gbcc-contact-band">
             <div class="container">
                 <div class="row g-4 align-items-center">
-                    <div class="col-lg-7">
+                    <div class="col-lg-6">
                         <span class="gbcc-kicker">Contact GBCC</span>
-                        <h2>Vous souhaitez structurer, certifier ou financer une fili&egrave;re agricole ?</h2>
-                    </div>
-                    <div class="col-lg-5">
-                        <div class="gbcc-contact-list">
-                            <span><i class="fa-solid fa-location-dot"></i> II Plateaux, Carrefour Macaci, Abidjan</span>
+                        <h2>Vous souhaitez collaborer avec GBCC ?</h2>
+                        <p class="text-white mt-3" style="opacity:.84;line-height:1.7;">
+                            Contactez notre &eacute;quipe pour b&eacute;n&eacute;ficier d'un accompagnement adapt&eacute; &agrave; vos besoins dans les domaines de la certification, de la durabilit&eacute;, de l'acc&egrave;s aux march&eacute;s, du financement et du d&eacute;veloppement agricole.
+                        </p>
+                        <div class="gbcc-contact-list mt-4">
+                            <span><i class="fa-solid fa-location-dot"></i> II Plateaux, Carrefour Macaci, Abidjan, C&ocirc;te d'Ivoire</span>
                             <a href="tel:+2250544831313"><i class="fa-solid fa-phone"></i> +225 05 44 83 13 13</a>
                             <a href="tel:+2250708565625"><i class="fa-solid fa-phone"></i> +225 07 08 56 56 25</a>
                             <a href="mailto:infogbcc@gbg-ci.com"><i class="fa-solid fa-envelope"></i> infogbcc@gbg-ci.com</a>
-                            <span><i class="fa-solid fa-clock"></i> Lundi - Samedi, 8h00 - 16h30</span>
+                            <a href="mailto:infogbg@gbg-ci.com"><i class="fa-solid fa-envelope"></i> infogbg@gbg-ci.com</a>
+                            <span><i class="fa-solid fa-clock"></i> Lundi - Samedi, 8h00 - 16h30 | Dimanche ferm&eacute;</span>
                         </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <form action="mailto:infogbcc@gbg-ci.com" method="post" enctype="text/plain" class="gbcc-contact-form">
+                            <div class="row">
+                                <div class="col-md-6"><input type="text" name="nom" placeholder="Nom"></div>
+                                <div class="col-md-6"><input type="text" name="prenom" placeholder="Pr&eacute;nom"></div>
+                                <div class="col-md-6"><input type="text" name="organisation" placeholder="Organisation"></div>
+                                <div class="col-md-6"><input type="email" name="email" placeholder="Email"></div>
+                                <div class="col-md-6"><input type="tel" name="telephone" placeholder="T&eacute;l&eacute;phone"></div>
+                                <div class="col-md-6"><input type="text" name="sujet" placeholder="Sujet"></div>
+                                <div class="col-12"><textarea name="message" placeholder="Message"></textarea></div>
+                                <div class="col-12"><button type="submit" class="gbcc-r-btn">Envoyer la demande <i class="fa-solid fa-arrow-right"></i></button></div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -1886,6 +2076,27 @@
     <script src="assets/js/wow.min.js"></script>
     <!--<< Main.js >>-->
     <script src="assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var revealItems = document.querySelectorAll('.gbcc-scroll-reveal, .gbcc-r-service, .gbcc-r-project, .gbcc-testimonial, .gbcc-theme-card');
+            if (!('IntersectionObserver' in window)) {
+                revealItems.forEach(function (item) { item.classList.add('is-visible'); });
+                return;
+            }
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.16 });
+            revealItems.forEach(function (item) {
+                item.classList.add('gbcc-scroll-reveal');
+                observer.observe(item);
+            });
+        });
+    </script>
 </body>
 
 </html>
