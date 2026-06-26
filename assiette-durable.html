@@ -7,12 +7,74 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=yes">
     <meta name="author" content="GBG">
-    <meta name="description" content="Restaurant Assiette Durable, entité du groupe GBG, valorise les produits locaux issus de l’agriculture durable et du Diversification Package pour promouvoir une alimentation responsable.">
+    <meta name="description" content="Restaurant Assiette Durable valorise les produits locaux issus de la diversification agricole pour promouvoir une alimentation responsable, durable et connectée aux producteurs.">
     <!-- ======== Page title ============ -->
-    <title>Restaurant Assiette Durable | Global Business Group</title>
+    <title>Restaurant Assiette Durable | Produits locaux et alimentation responsable | GBG</title>
+    <!-- SEO GBG START -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="theme-color" content="#143c28">
+    <link rel="canonical" href="https://gbg-ci.com/assiette-durable.html">
+    <meta property="og:locale" content="fr_CI">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Global Business Group SA">
+    <meta property="og:title" content="Restaurant Assiette Durable | Produits locaux et alimentation responsable | GBG">
+    <meta property="og:description" content="Restaurant Assiette Durable valorise les produits locaux issus de la diversification agricole pour promouvoir une alimentation responsable, durable et connectée aux producteurs.">
+    <meta property="og:url" content="https://gbg-ci.com/assiette-durable.html">
+    <meta property="og:image" content="https://gbg-ci.com/assets/img/about/t-food.png">
+    <meta property="og:image:alt" content="Global Business Group SA - agriculture durable et cacao en Côte d’Ivoire">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Restaurant Assiette Durable | Produits locaux et alimentation responsable | GBG">
+    <meta name="twitter:description" content="Restaurant Assiette Durable valorise les produits locaux issus de la diversification agricole pour promouvoir une alimentation responsable, durable et connectée aux producteurs.">
+    <meta name="twitter:image" content="https://gbg-ci.com/assets/img/about/t-food.png">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://gbg-ci.com/#organization",
+          "name": "Global Business Group SA",
+          "alternateName": "GBG",
+          "url": "https://gbg-ci.com/",
+          "logo": "https://gbg-ci.com/assets/img/logo/logo.png",
+          "email": "infogbg@gbg-ci.com",
+          "telephone": "+2250544831313",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "II Plateaux, Carrefour Macaci",
+            "addressLocality": "Abidjan",
+            "addressCountry": "CI"
+          },
+          "sameAs": []
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://gbg-ci.com/#website",
+          "url": "https://gbg-ci.com/",
+          "name": "Global Business Group SA",
+          "publisher": { "@id": "https://gbg-ci.com/#organization" },
+          "inLanguage": "fr-CI"
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://gbg-ci.com/assiette-durable.html#webpage",
+          "url": "https://gbg-ci.com/assiette-durable.html",
+          "name": "Restaurant Assiette Durable | Produits locaux et alimentation responsable | GBG",
+          "description": "Restaurant Assiette Durable valorise les produits locaux issus de la diversification agricole pour promouvoir une alimentation responsable, durable et connectée aux producteurs.",
+          "inLanguage": "fr-CI",
+          "isPartOf": { "@id": "https://gbg-ci.com/#website" },
+          "about": { "@id": "https://gbg-ci.com/#organization" }
+        }
+      ]
+    }
+    </script>
+    <!-- SEO GBG END -->
     <!--<< Favicon >>-->
     <link rel="shortcut icon" href="assets/img/logo/favcion.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="assets/img/logo/favcion.png">
     <!--<< Bootstrap min.css >>-->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <!--<< All Min Css >>-->
@@ -29,7 +91,179 @@
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <!--<< Main.css >>-->
     <link rel="stylesheet" href="assets/css/main.css">
-    <style>.wow { visibility: visible !important; }</style>
+    <style>
+    .wow { visibility: visible !important; }
+
+    /* ── Assiette Durable Enhanced Design ── */
+    .assiette-immersive-page .gbg-card {
+        border-radius: 20px !important;
+        border: none !important;
+        box-shadow: 0 12px 40px rgba(19,54,35,.07) !important;
+        position: relative;
+        overflow: hidden;
+    }
+    .assiette-immersive-page .gbg-card::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--gbg-green, #2f7537), #8bc34a, var(--gbg-green, #2f7537));
+        background-size: 200% 100%;
+        animation: ad-bar-flow 3s linear infinite;
+    }
+    @keyframes ad-bar-flow {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+    }
+    .assiette-immersive-page .gbg-card:hover {
+        transform: translateY(-10px) !important;
+        box-shadow: 0 28px 60px rgba(19,54,35,.13) !important;
+    }
+
+    /* Info list */
+    .assiette-immersive-page .gbg-info-list li {
+        background: #fff !important;
+        border: 1px solid rgba(20,60,40,.06) !important;
+        border-radius: 14px !important;
+        padding: 18px 22px !important;
+        box-shadow: 0 4px 16px rgba(19,54,35,.04);
+        transition: transform .3s cubic-bezier(.16,1,.3,1), box-shadow .3s ease, border-color .3s ease !important;
+    }
+    .assiette-immersive-page .gbg-info-list li:hover {
+        transform: translateX(8px) !important;
+        box-shadow: 0 8px 24px rgba(19,54,35,.08) !important;
+        border-color: rgba(98,189,67,.3) !important;
+    }
+    .assiette-immersive-page .gbg-info-list i {
+        width: 38px !important;
+        height: 38px !important;
+        border-radius: 10px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex-shrink: 0 !important;
+        font-size: 15px !important;
+    }
+    .assiette-immersive-page .gbg-info-list i.fa-check {
+        background: linear-gradient(135deg, #edf8e8, #d4efc9) !important;
+        color: var(--gbg-green, #2f7537) !important;
+    }
+    .assiette-immersive-page .gbg-info-list i.fa-seedling {
+        background: linear-gradient(135deg, #e8f5e9, #c8e6c9) !important;
+        color: #2e7d32 !important;
+    }
+
+    /* Mini cards */
+    .assiette-immersive-page .gbg-mini-card {
+        border-radius: 18px !important;
+        border: none !important;
+        box-shadow: 0 8px 28px rgba(19,54,35,.05) !important;
+        overflow: hidden;
+        position: relative;
+    }
+    .assiette-immersive-page .gbg-mini-card::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--gbg-green, #2f7537), #8bc34a);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform .4s cubic-bezier(.16,1,.3,1);
+    }
+    .assiette-immersive-page .gbg-mini-card:hover::before {
+        transform: scaleX(1);
+    }
+    .assiette-immersive-page .gbg-mini-card:hover {
+        transform: translateY(-10px) !important;
+        box-shadow: 0 20px 48px rgba(19,54,35,.1) !important;
+    }
+    .assiette-immersive-page .gbg-mini-card i {
+        width: 56px !important;
+        height: 56px !important;
+        border-radius: 16px !important;
+        font-size: 22px !important;
+        transition: transform .3s ease, background .3s ease, color .3s ease !important;
+    }
+    .assiette-immersive-page .gbg-mini-card:hover i {
+        background: linear-gradient(135deg, var(--gbg-green, #2f7537), #8bc34a) !important;
+        color: #fff !important;
+        transform: scale(1.1) rotate(-5deg) !important;
+    }
+
+    /* Media card */
+    .assiette-immersive-page .gbg-media-card {
+        border-radius: 20px !important;
+    }
+
+    /* Entity cards */
+    .assiette-immersive-page .gbg-entity-card {
+        border-radius: 18px !important;
+        border: none !important;
+        box-shadow: 0 8px 28px rgba(19,54,35,.06) !important;
+        transition: transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s ease !important;
+        overflow: hidden;
+    }
+    .assiette-immersive-page .gbg-entity-card:hover {
+        transform: translateY(-10px) !important;
+        box-shadow: 0 24px 56px rgba(19,54,35,.13) !important;
+    }
+    .assiette-immersive-page .gbg-entity-card img {
+        transition: transform .6s cubic-bezier(.16,1,.3,1) !important;
+    }
+    .assiette-immersive-page .gbg-entity-card:hover img {
+        transform: scale(1.08) !important;
+    }
+
+    /* Assiette story path steps */
+    .assiette-step {
+        border-radius: 18px !important;
+    }
+    .assiette-step.as-active {
+        transform: translateY(-8px) scale(1.05) !important;
+        z-index: 2;
+    }
+    .assiette-step.as-active img {
+        opacity: 1 !important;
+        transform: scale(1.06);
+    }
+    .assiette-step.as-active span {
+        background: linear-gradient(180deg, transparent 0%, rgba(98,189,67,.85) 100%) !important;
+    }
+
+    /* Menu placeholders */
+    .menu-placeholder {
+        border-radius: 16px !important;
+        transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease, background .3s ease !important;
+    }
+    .menu-placeholder:hover {
+        transform: translateY(-6px) !important;
+        border-style: solid !important;
+        border-color: rgba(98,189,67,.4) !important;
+        box-shadow: 0 14px 36px rgba(19,54,35,.08) !important;
+        background: #f7fbf4 !important;
+    }
+
+    /* Video box */
+    .assiette-immersive-page .gbg-video-box {
+        border-radius: 22px !important;
+    }
+    .assiette-immersive-page .gbg-play-button {
+        width: 92px !important;
+        height: 92px !important;
+    }
+
+    /* Gallery */
+    .assiette-immersive-page .gbg-gallery-item {
+        border-radius: 18px !important;
+    }
+
+    /* Chain steps */
+    .assiette-immersive-page .gbg-chain-step {
+        border-radius: 16px !important;
+        backdrop-filter: blur(6px);
+    }
+    </style>
 </head>
 
 <body>
@@ -936,6 +1170,32 @@
     <script src="assets/js/wow.min.js"></script>
     <!--<< Main.js >>-->
     <script src="assets/js/main.js"></script>
+    <script>
+    (function(){
+        // Reveal animations
+        var reveals = document.querySelectorAll('.gbg-reveal, .gbg-reveal-scale');
+        if (reveals.length) {
+            var rio = new IntersectionObserver(function(entries){
+                entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('is-visible'); rio.unobserve(e.target); }});
+            }, {threshold:.12});
+            reveals.forEach(function(el){ rio.observe(el); });
+        }
+        // Auto-highlight assiette story steps
+        var steps = document.querySelectorAll('.assiette-step');
+        if (steps.length) {
+            var ai = -1;
+            function nextStep() {
+                steps.forEach(function(s){ s.classList.remove('as-active'); });
+                ai = (ai + 1) % steps.length;
+                steps[ai].classList.add('as-active');
+            }
+            var aio = new IntersectionObserver(function(entries){
+                if (entries[0].isIntersecting) { nextStep(); setInterval(nextStep, 2000); aio.disconnect(); }
+            }, {threshold:.2});
+            aio.observe(steps[0].parentElement);
+        }
+    })();
+    </script>
 </body>
 
 </html>

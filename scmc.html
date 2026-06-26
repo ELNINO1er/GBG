@@ -7,12 +7,74 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=yes">
     <meta name="author" content="GBG">
-    <meta name="description" content="SCMC, société du groupe GBG, valorise et commercialise les produits agricoles durables, certifiés et traçables issus de filières responsables.">
+    <meta name="description" content="SCMC valorise et commercialise les produits agricoles durables, certifiés et traçables issus des filières responsables de Global Business Group SA.">
     <!-- ======== Page title ============ -->
-    <title>SCMC - Commercialisation durable | Global Business Group</title>
+    <title>SCMC | Commercialisation de produits agricoles durables | GBG</title>
+    <!-- SEO GBG START -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="theme-color" content="#143c28">
+    <link rel="canonical" href="https://gbg-ci.com/scmc.html">
+    <meta property="og:locale" content="fr_CI">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Global Business Group SA">
+    <meta property="og:title" content="SCMC | Commercialisation de produits agricoles durables | GBG">
+    <meta property="og:description" content="SCMC valorise et commercialise les produits agricoles durables, certifiés et traçables issus des filières responsables de Global Business Group SA.">
+    <meta property="og:url" content="https://gbg-ci.com/scmc.html">
+    <meta property="og:image" content="https://gbg-ci.com/assets/img/service/servicev3-2.jpg">
+    <meta property="og:image:alt" content="Global Business Group SA - agriculture durable et cacao en Côte d’Ivoire">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SCMC | Commercialisation de produits agricoles durables | GBG">
+    <meta name="twitter:description" content="SCMC valorise et commercialise les produits agricoles durables, certifiés et traçables issus des filières responsables de Global Business Group SA.">
+    <meta name="twitter:image" content="https://gbg-ci.com/assets/img/service/servicev3-2.jpg">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://gbg-ci.com/#organization",
+          "name": "Global Business Group SA",
+          "alternateName": "GBG",
+          "url": "https://gbg-ci.com/",
+          "logo": "https://gbg-ci.com/assets/img/logo/logo.png",
+          "email": "infogbg@gbg-ci.com",
+          "telephone": "+2250544831313",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "II Plateaux, Carrefour Macaci",
+            "addressLocality": "Abidjan",
+            "addressCountry": "CI"
+          },
+          "sameAs": []
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://gbg-ci.com/#website",
+          "url": "https://gbg-ci.com/",
+          "name": "Global Business Group SA",
+          "publisher": { "@id": "https://gbg-ci.com/#organization" },
+          "inLanguage": "fr-CI"
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://gbg-ci.com/scmc.html#webpage",
+          "url": "https://gbg-ci.com/scmc.html",
+          "name": "SCMC | Commercialisation de produits agricoles durables | GBG",
+          "description": "SCMC valorise et commercialise les produits agricoles durables, certifiés et traçables issus des filières responsables de Global Business Group SA.",
+          "inLanguage": "fr-CI",
+          "isPartOf": { "@id": "https://gbg-ci.com/#website" },
+          "about": { "@id": "https://gbg-ci.com/#organization" }
+        }
+      ]
+    }
+    </script>
+    <!-- SEO GBG END -->
     <!--<< Favicon >>-->
     <link rel="shortcut icon" href="assets/img/logo/favcion.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="assets/img/logo/favcion.png">
     <!--<< Bootstrap min.css >>-->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <!--<< All Min Css >>-->
@@ -29,7 +91,151 @@
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <!--<< Main.css >>-->
     <link rel="stylesheet" href="assets/css/main.css">
-    <style>.wow { visibility: visible !important; }</style>
+    <style>
+    .wow { visibility: visible !important; }
+
+    /* ── SCMC Enhanced Design ── */
+    .scmc-market-page .gbg-card {
+        border-radius: 20px !important;
+        border: none !important;
+        box-shadow: 0 12px 40px rgba(19,54,35,.07) !important;
+        position: relative;
+        overflow: hidden;
+    }
+    .scmc-market-page .gbg-card::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--gbg-green, #2f7537), var(--gbg-accent, #62bd43), var(--gbg-green, #2f7537));
+        background-size: 200% 100%;
+        animation: scmc-bar-flow 3s linear infinite;
+    }
+    @keyframes scmc-bar-flow {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+    }
+    .scmc-market-page .gbg-card:hover {
+        transform: translateY(-10px) !important;
+        box-shadow: 0 28px 60px rgba(19,54,35,.13) !important;
+    }
+
+    /* Mini cards */
+    .scmc-market-page .gbg-mini-card {
+        border-radius: 18px !important;
+        border: none !important;
+        box-shadow: 0 8px 28px rgba(19,54,35,.05) !important;
+        position: relative;
+        overflow: hidden;
+    }
+    .scmc-market-page .gbg-mini-card::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--gbg-green, #2f7537), var(--gbg-accent, #62bd43));
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform .4s cubic-bezier(.16,1,.3,1);
+    }
+    .scmc-market-page .gbg-mini-card:hover::before {
+        transform: scaleX(1);
+    }
+    .scmc-market-page .gbg-mini-card:hover {
+        transform: translateY(-10px) !important;
+        box-shadow: 0 20px 48px rgba(19,54,35,.1) !important;
+    }
+    .scmc-market-page .gbg-mini-card i {
+        width: 56px !important;
+        height: 56px !important;
+        border-radius: 16px !important;
+        font-size: 22px !important;
+        background: linear-gradient(135deg, #edf8e8, #d4efc9) !important;
+        transition: transform .3s ease, background .3s ease, color .3s ease !important;
+    }
+    .scmc-market-page .gbg-mini-card:hover i {
+        background: linear-gradient(135deg, var(--gbg-green, #2f7537), var(--gbg-accent, #62bd43)) !important;
+        color: #fff !important;
+        transform: scale(1.1) rotate(-5deg) !important;
+    }
+
+    /* Catalog cards */
+    .market-catalog-card {
+        border-radius: 18px !important;
+        border: none !important;
+        box-shadow: 0 8px 28px rgba(19,54,35,.06) !important;
+        transition: transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s ease !important;
+    }
+    .market-catalog-card:hover {
+        transform: translateY(-10px) !important;
+        box-shadow: 0 24px 56px rgba(19,54,35,.13) !important;
+    }
+    .market-catalog-card img {
+        transition: transform .6s cubic-bezier(.16,1,.3,1) !important;
+    }
+    .market-catalog-card:hover img {
+        transform: scale(1.08) !important;
+    }
+
+    /* Video box */
+    .scmc-market-page .gbg-video-box {
+        border-radius: 22px !important;
+        box-shadow: 0 30px 80px rgba(19,54,35,.16) !important;
+    }
+    .scmc-market-page .gbg-play-button {
+        width: 92px !important;
+        height: 92px !important;
+    }
+
+    /* Market route */
+    .market-route {
+        border-radius: 20px !important;
+    }
+    .market-node {
+        border-radius: 16px !important;
+        transition: transform .3s ease, background .3s ease !important;
+    }
+    .market-node:hover {
+        transform: translateY(-6px) !important;
+        background: rgba(255,255,255,.2) !important;
+    }
+
+    /* Stat cards */
+    .scmc-market-page .gbg-stat-card {
+        border-radius: 18px !important;
+        text-align: center;
+        border: none !important;
+        box-shadow: 0 8px 28px rgba(19,54,35,.06) !important;
+        transition: transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s ease !important;
+    }
+    .scmc-market-page .gbg-stat-card:hover {
+        transform: translateY(-8px) !important;
+        box-shadow: 0 20px 48px rgba(19,54,35,.12) !important;
+    }
+    .scmc-market-page .gbg-stat-card strong {
+        font-size: 42px !important;
+        background: linear-gradient(135deg, var(--gbg-green, #2f7537), var(--gbg-accent, #62bd43));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    /* Gallery */
+    .scmc-market-page .gbg-gallery-item {
+        border-radius: 18px !important;
+    }
+
+    /* Chain steps */
+    .scmc-market-page .gbg-chain-step {
+        border-radius: 16px !important;
+        backdrop-filter: blur(6px);
+    }
+
+    /* Media card */
+    .scmc-market-page .gbg-media-card {
+        border-radius: 20px !important;
+    }
+    </style>
 </head>
 
 <body>
@@ -1013,6 +1219,34 @@
     <script src="assets/js/wow.min.js"></script>
     <!--<< Main.js >>-->
     <script src="assets/js/main.js"></script>
+    <script>
+    (function(){
+        // Reveal animations
+        var reveals = document.querySelectorAll('.gbg-reveal, .gbg-reveal-scale');
+        if (reveals.length) {
+            var rio = new IntersectionObserver(function(entries){
+                entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('is-visible'); rio.unobserve(e.target); }});
+            }, {threshold:.12});
+            reveals.forEach(function(el){ rio.observe(el); });
+        }
+        // Auto-highlight market nodes
+        var nodes = document.querySelectorAll('.market-node');
+        if (nodes.length) {
+            var ni = -1;
+            function nextNode() {
+                nodes.forEach(function(n){ n.style.background = ''; n.style.transform = ''; n.style.borderColor = ''; });
+                ni = (ni + 1) % nodes.length;
+                nodes[ni].style.background = 'rgba(255,255,255,.22)';
+                nodes[ni].style.transform = 'translateY(-6px) scale(1.05)';
+                nodes[ni].style.borderColor = 'rgba(218,165,32,.6)';
+            }
+            var nio = new IntersectionObserver(function(entries){
+                if (entries[0].isIntersecting) { nextNode(); setInterval(nextNode, 2000); nio.disconnect(); }
+            }, {threshold:.2});
+            nio.observe(nodes[0].parentElement);
+        }
+    })();
+    </script>
 </body>
 
 </html>

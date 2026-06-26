@@ -1,0 +1,17 @@
+{
+  "name": "Global Business Group SA",
+  "short_name": "GBG",
+  "description": "Agriculture durable, cacao, certification, commercialisation, transformation locale et alimentation responsable en Côte d’Ivoire.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#143c28",
+  "icons": [
+    {
+      "src": "/assets/img/logo/favcion.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
