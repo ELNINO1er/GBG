@@ -1,0 +1,10 @@
+[Fri Jun 26 17:32:31.253914 2026] [ssl:warn] [pid 5548:tid 348] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Fri Jun 26 17:32:31.264078 2026] [mpm_winnt:notice] [pid 5548:tid 348] AH00455: Apache/2.4.59 (Win64) OpenSSL/3.1.5 configured -- resuming normal operations
+[Fri Jun 26 17:32:31.264078 2026] [mpm_winnt:notice] [pid 5548:tid 348] AH00456: Apache Lounge VS17 Server built: Apr  4 2024 15:03:17
+[Fri Jun 26 17:32:31.264078 2026] [core:notice] [pid 5548:tid 348] AH00094: Command line: 'C:\\wamp64\\bin\\apache\\apache2.4.59\\bin\\httpd.exe -d C:/wamp64/bin/apache/apache2.4.59 -f C:\\wamp64\\www\\GBG\\.codex-local-ssl\\httpd-local-ssl.conf'
+[Fri Jun 26 17:32:31.272270 2026] [mpm_winnt:notice] [pid 5548:tid 348] AH00418: Parent: Created child process 27856
+[Fri Jun 26 17:32:31.895400 2026] [ssl:warn] [pid 27856:tid 368] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Fri Jun 26 17:32:31.906550 2026] [mpm_winnt:notice] [pid 27856:tid 368] AH00354: Child: Starting 64 worker threads.
+[Fri Jun 26 17:33:27.973669 2026] [core:warn] [pid 33148:tid 348] AH00098: pid file C:/wamp64/www/GBG/.codex-local-ssl/httpd-local-ssl.pid overwritten -- Unclean shutdown of previous Apache run?
+[Fri Jun 26 17:33:27.983594 2026] [ssl:warn] [pid 33148:tid 348] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Fri Jun 26 17:33:27.991651 2026] [mpm_winnt:notice] [pid 33148:tid 348] AH00354: Child: Starting 64 worker threads.
