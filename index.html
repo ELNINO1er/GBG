@@ -259,92 +259,117 @@
             </div>
         </section>
 
-        <section class="gbg-section" id="gbg-écosystème">
-            <div class="container">
+        <section class="gbg-eco-section" id="gbg-écosystème">
+            <div class="gbg-eco-particles" aria-hidden="true">
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span>
+            </div>
+            <div class="container position-relative">
                 <div class="row justify-content-center mb-5">
                     <div class="col-lg-8 text-center">
                         <span class="gbg-eyebrow">Notre écosystème</span>
                         <h2 class="gbg-title">Cinq entités opérationnelles, une vision commune.</h2>
                     </div>
                 </div>
-                <div class="row g-4" id="gbg-entity-grid">
-                    <div class="col-xl-4 col-md-6">
-                        <article class="gbg-entity-card gbg-eco-reveal" style="--i:0">
-                            <div class="gbg-entity-img-wrap">
-                                <img src="assets/img/gbcc/DG sur terrain.jpeg" alt="GBCC conseil agricole">
-                                <div class="gbg-entity-overlay">
-                                    <span class="gbg-entity-number">01</span>
-                                </div>
-                            </div>
-                            <div class="gbg-entity-body">
-                                <span class="gbg-tag">GBCC</span>
-                                <h3>Global Business Consulting Company</h3>
-                                <p class="gbg-text">Conseil, certification, appui technique, formation, financement et accès aux marchés.</p>
-                                <a href="gbcc.html" class="gbg-btn gbg-btn-entity">Découvrir GBCC <i class="fa-solid fa-arrow-right"></i></a>
-                            </div>
-                        </article>
+
+                <div class="gbg-eco-showcase">
+                    <div class="gbg-eco-ring" aria-hidden="true">
+                        <svg viewBox="0 0 600 600" class="gbg-eco-ring-svg">
+                            <circle cx="300" cy="300" r="280" class="gbg-eco-ring-track"/>
+                            <circle cx="300" cy="300" r="280" class="gbg-eco-ring-progress"/>
+                        </svg>
                     </div>
-                    <div class="col-xl-4 col-md-6">
-                        <article class="gbg-entity-card gbg-eco-reveal" style="--i:1">
-                            <div class="gbg-entity-img-wrap">
-                                <img src="assets/img/service/servicev3-2.jpg" alt="SCMC commercialisation durable">
-                                <div class="gbg-entity-overlay">
-                                    <span class="gbg-entity-number">02</span>
-                                </div>
-                            </div>
-                            <div class="gbg-entity-body">
-                                <span class="gbg-tag">SCMC</span>
-                                <h3>Sustainable Commodities Marketing Company</h3>
-                                <p class="gbg-text">Commercialisation, valorisation et mise en marché des produits durables.</p>
-                                <a href="scmc.html" class="gbg-btn gbg-btn-entity">Découvrir SCMC <i class="fa-solid fa-arrow-right"></i></a>
-                            </div>
-                        </article>
+
+                    <div class="gbg-eco-center-hub">
+                        <div class="gbg-eco-hub-inner">
+                            <img src="assets/img/logo/logo.png" alt="GBG" class="gbg-eco-hub-logo">
+                            <span class="gbg-eco-hub-label">GBG Holding</span>
+                        </div>
                     </div>
-                    <div class="col-xl-4 col-md-6">
-                        <article class="gbg-entity-card gbg-eco-reveal" style="--i:2">
-                            <div class="gbg-entity-img-wrap">
-                                <img src="assets/img/service/servicev3-3.jpg" alt="KIC transformation cacao">
-                                <div class="gbg-entity-overlay">
-                                    <span class="gbg-entity-number">03</span>
+
+                    <div class="gbg-eco-cards-grid">
+                        <article class="gbg-ecard" data-index="0">
+                            <div class="gbg-ecard-glow"></div>
+                            <div class="gbg-ecard-inner">
+                                <div class="gbg-ecard-visual">
+                                    <img src="assets/img/gbcc/DG sur terrain.jpeg" alt="GBCC">
+                                    <div class="gbg-ecard-step">01</div>
+                                </div>
+                                <div class="gbg-ecard-content">
+                                    <span class="gbg-ecard-badge">GBCC</span>
+                                    <h3>Global Business Consulting Company</h3>
+                                    <p>Conseil, certification, appui technique, formation, financement et accès aux marchés.</p>
+                                    <a href="gbcc.html" class="gbg-ecard-link">Découvrir <i class="fa-solid fa-arrow-right"></i></a>
                                 </div>
                             </div>
-                            <div class="gbg-entity-body">
-                                <span class="gbg-tag">KIC</span>
-                                <h3>Konan Industrie et Chocolaterie</h3>
-                                <p class="gbg-text">Transformation industrielle du cacao et production de produits cacao à haute valeur ajoutée.</p>
-                                <a href="kic.html" class="gbg-btn gbg-btn-entity">Découvrir KIC <i class="fa-solid fa-arrow-right"></i></a>
-                            </div>
+                            <div class="gbg-ecard-connector"><span class="gbg-connector-dot"></span></div>
                         </article>
-                    </div>
-                    <div class="col-xl-6 col-md-6">
-                        <article class="gbg-entity-card gbg-entity-card-wide gbg-eco-reveal" style="--i:3">
-                            <div class="gbg-entity-img-wrap">
-                                <img src="assets/img/about/t-food.png" alt="Restaurant Assiette Durable">
-                                <div class="gbg-entity-overlay">
-                                    <span class="gbg-entity-number">04</span>
+
+                        <article class="gbg-ecard" data-index="1">
+                            <div class="gbg-ecard-glow"></div>
+                            <div class="gbg-ecard-inner">
+                                <div class="gbg-ecard-visual">
+                                    <img src="assets/img/service/servicev3-2.jpg" alt="SCMC">
+                                    <div class="gbg-ecard-step">02</div>
+                                </div>
+                                <div class="gbg-ecard-content">
+                                    <span class="gbg-ecard-badge">SCMC</span>
+                                    <h3>Sustainable Commodities Marketing Company</h3>
+                                    <p>Commercialisation, valorisation et mise en marché des produits durables.</p>
+                                    <a href="scmc.html" class="gbg-ecard-link">Découvrir <i class="fa-solid fa-arrow-right"></i></a>
                                 </div>
                             </div>
-                            <div class="gbg-entity-body">
-                                <span class="gbg-tag">Restaurant Assiette Durable</span>
-                                <h3>Alimentation durable</h3>
-                                <p class="gbg-text">Valorisation des produits locaux, débouchés pour les producteurs et consommation responsable.</p>
-                                <a href="assiette-durable.html" class="gbg-btn gbg-btn-entity">Découvrir le restaurant <i class="fa-solid fa-arrow-right"></i></a>
-                            </div>
+                            <div class="gbg-ecard-connector"><span class="gbg-connector-dot"></span></div>
                         </article>
-                    </div>
-                    <div class="col-xl-6 col-md-6">
-                        <article class="gbg-entity-card gbg-entity-card-wide gbg-eco-reveal" style="--i:4">
-                            <div class="gbg-entity-img-wrap">
-                                <img src="assets/img/blog/blog2.jpg" alt="SCMC Chocolaterie">
-                                <div class="gbg-entity-overlay">
-                                    <span class="gbg-entity-number">05</span>
+
+                        <article class="gbg-ecard" data-index="2">
+                            <div class="gbg-ecard-glow"></div>
+                            <div class="gbg-ecard-inner">
+                                <div class="gbg-ecard-visual">
+                                    <img src="assets/img/service/servicev3-3.jpg" alt="KIC">
+                                    <div class="gbg-ecard-step">03</div>
+                                </div>
+                                <div class="gbg-ecard-content">
+                                    <span class="gbg-ecard-badge">KIC</span>
+                                    <h3>Konan Industrie et Chocolaterie</h3>
+                                    <p>Transformation industrielle du cacao et produits à haute valeur ajoutée.</p>
+                                    <a href="kic.html" class="gbg-ecard-link">Découvrir <i class="fa-solid fa-arrow-right"></i></a>
                                 </div>
                             </div>
-                            <div class="gbg-entity-body">
-                                <span class="gbg-tag">SCMC Chocolaterie</span>
-                                <h3>Produits chocolatés responsables</h3>
-                                <p class="gbg-text">Développement, production et commercialisation de produits chocolatés issus de chaînes durables.</p>
-                                <a href="scmc-chocolaterie.html" class="gbg-btn gbg-btn-entity">Découvrir la chocolaterie <i class="fa-solid fa-arrow-right"></i></a>
+                            <div class="gbg-ecard-connector"><span class="gbg-connector-dot"></span></div>
+                        </article>
+
+                        <article class="gbg-ecard" data-index="3">
+                            <div class="gbg-ecard-glow"></div>
+                            <div class="gbg-ecard-inner">
+                                <div class="gbg-ecard-visual">
+                                    <img src="assets/img/about/t-food.png" alt="Assiette Durable">
+                                    <div class="gbg-ecard-step">04</div>
+                                </div>
+                                <div class="gbg-ecard-content">
+                                    <span class="gbg-ecard-badge">Assiette Durable</span>
+                                    <h3>Alimentation durable</h3>
+                                    <p>Valorisation des produits locaux, débouchés pour les producteurs et consommation responsable.</p>
+                                    <a href="assiette-durable.html" class="gbg-ecard-link">Découvrir <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                            <div class="gbg-ecard-connector"><span class="gbg-connector-dot"></span></div>
+                        </article>
+
+                        <article class="gbg-ecard" data-index="4">
+                            <div class="gbg-ecard-glow"></div>
+                            <div class="gbg-ecard-inner">
+                                <div class="gbg-ecard-visual">
+                                    <img src="assets/img/blog/blog2.jpg" alt="SCMC Chocolaterie">
+                                    <div class="gbg-ecard-step">05</div>
+                                </div>
+                                <div class="gbg-ecard-content">
+                                    <span class="gbg-ecard-badge">SCMC Chocolaterie</span>
+                                    <h3>Produits chocolatés responsables</h3>
+                                    <p>Développement, production et commercialisation de produits chocolatés issus de chaînes durables.</p>
+                                    <a href="scmc-chocolaterie.html" class="gbg-ecard-link">Découvrir <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
                             </div>
                         </article>
                     </div>
@@ -1511,17 +1536,58 @@
     <script src="assets/js/main.js"></script>
     <script>
     (function(){
-        var cards = document.querySelectorAll('.gbg-eco-reveal');
+        var cards = document.querySelectorAll('.gbg-ecard');
         if (!cards.length) return;
-        var io = new IntersectionObserver(function(entries){
-            entries.forEach(function(entry){
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('gbg-eco-visible');
-                    io.unobserve(entry.target);
+        var current = -1;
+        var interval = null;
+        var paused = false;
+
+        function activate(index) {
+            cards.forEach(function(c){ c.classList.remove('is-active'); });
+            cards[index].classList.add('is-active');
+            current = index;
+        }
+
+        function cycle() {
+            var next = (current + 1) % cards.length;
+            activate(next);
+        }
+
+        function startCycle() {
+            if (interval) return;
+            cycle();
+            interval = setInterval(cycle, 2500);
+        }
+
+        function stopCycle() {
+            clearInterval(interval);
+            interval = null;
+        }
+
+        cards.forEach(function(card, i) {
+            card.addEventListener('mouseenter', function() {
+                paused = true;
+                stopCycle();
+                activate(i);
+            });
+            card.addEventListener('mouseleave', function() {
+                paused = false;
+                startCycle();
+            });
+        });
+
+        var io = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting && !paused) {
+                    startCycle();
+                } else if (!entry.isIntersecting) {
+                    stopCycle();
                 }
             });
-        }, { threshold: 0.12 });
-        cards.forEach(function(card){ io.observe(card); });
+        }, { threshold: 0.2 });
+
+        var section = document.getElementById('gbg-écosystème');
+        if (section) io.observe(section);
     })();
     </script>
 </body>
