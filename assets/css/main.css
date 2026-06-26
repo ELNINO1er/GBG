@@ -9077,12 +9077,15 @@ html {
 .gbg-home-page ~ footer,
 .gbg-inner-page ~ section,
 .gbg-inner-page ~ .subscrbie-section,
-.gbg-inner-page ~ footer {
+.gbg-inner-page ~ footer,
+.gbg-entity-page ~ section,
+.gbg-entity-page ~ .subscrbie-section {
   display: none !important;
 }
 
 .gbg-home-page,
-.gbg-inner-page {
+.gbg-inner-page,
+.gbg-entity-page {
   --gbg-green: #143c28;
   --gbg-green-2: #23563a;
   --gbg-accent: #62bd43;
@@ -9092,6 +9095,77 @@ html {
   --gbg-muted: #64756d;
   color: var(--gbg-ink);
   background: #fff;
+}
+
+.gbg-entity-hero {
+  min-height: 680px;
+  display: flex;
+  align-items: center;
+  padding: 125px 0 90px;
+  background:
+    linear-gradient(90deg, rgba(13, 43, 27, 0.92), rgba(13, 43, 27, 0.76), rgba(13, 43, 27, 0.34)),
+    var(--entity-hero, url("../img/banner/hero-3.jpg")) center/cover no-repeat;
+  color: #fff;
+}
+
+.gbg-entity-hero.entity-scmc {
+  --entity-hero: url("../img/service/servicev3-2.jpg");
+}
+
+.gbg-entity-hero.entity-kic {
+  --entity-hero: url("../img/blog/blog1.jpg");
+}
+
+.gbg-entity-hero.entity-assiette {
+  --entity-hero: url("../img/about/t-food.png");
+}
+
+.gbg-entity-hero.entity-chocolaterie {
+  --entity-hero: url("../img/blog/blog2.jpg");
+}
+
+.gbg-entity-hero .gbg-title,
+.gbg-entity-hero .gbg-lead,
+.gbg-entity-hero .gbg-text {
+  color: #fff;
+}
+
+.gbg-entity-hero .gbg-title {
+  max-width: 900px;
+}
+
+.gbg-entity-hero .gbg-lead,
+.gbg-entity-hero .gbg-text {
+  max-width: 780px;
+}
+
+.gbg-info-list {
+  display: grid;
+  gap: 12px;
+}
+
+.gbg-info-list li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 14px 16px;
+  background: #f7fbf4;
+  border: 1px solid rgba(20, 60, 40, 0.09);
+  border-radius: 8px;
+  color: var(--gbg-muted);
+}
+
+.gbg-info-list i {
+  color: var(--gbg-accent);
+  margin-top: 5px;
+}
+
+.gbg-note {
+  padding: 18px 20px;
+  border-left: 4px solid var(--gbg-gold);
+  background: #fffbea;
+  color: #536155;
+  border-radius: 8px;
 }
 
 .gbg-section {
