@@ -93,12 +93,38 @@
         .gbcc-clarity-card i { color:#173f2d; font-size:28px; margin-bottom:16px; }
         .gbcc-clarity-card h3 { color:#173f2d; font-size:21px; margin-bottom:10px; }
         .gbcc-clarity-card p { color:#5b6b63; line-height:1.65; margin:0; }
-        .gbcc-ecosystem { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:12px; margin-top:34px; }
-        .gbcc-ecosystem-item { background:#fff; border:1px solid #e3e8de; border-radius:8px; padding:18px; position:relative; min-height:150px; }
-        .gbcc-ecosystem-item:after { content:"\f061"; font-family:"Font Awesome 6 Free"; font-weight:900; position:absolute; right:-16px; top:50%; transform:translateY(-50%); width:30px; height:30px; border-radius:50%; background:#fdd61f; color:#173f2d; display:flex; align-items:center; justify-content:center; z-index:2; font-size:12px; }
-        .gbcc-ecosystem-item:last-child:after { display:none; }
-        .gbcc-ecosystem-item strong { display:block; color:#173f2d; font-size:19px; margin-bottom:8px; }
+        .gbcc-ecosystem { display:grid; grid-template-columns:1fr 44px 1fr 44px 1fr 44px 1fr 44px 1fr 44px 1fr; gap:0; margin-top:34px; position:relative; }
+        .gbcc-eco-cell { display:flex; align-items:stretch; position:relative; }
+        .gbcc-ecosystem-item { background:#fff; border:1px solid #e3e8de; border-radius:12px; padding:22px 18px; position:relative; min-height:160px; width:100%; opacity:0; transform:translateY(40px) scale(.92); transition:opacity .6s cubic-bezier(.16,1,.3,1), transform .6s cubic-bezier(.16,1,.3,1), box-shadow .4s ease, border-color .4s ease; }
+        .gbcc-ecosystem-item.eco-visible { opacity:1; transform:translateY(0) scale(1); }
+        .gbcc-ecosystem-item:hover { transform:translateY(-6px) scale(1.03); box-shadow:0 18px 44px rgba(23,63,45,.14); border-color:#fdd61f; z-index:3; }
+        .gbcc-ecosystem-item.eco-active { border-color:#fdd61f; box-shadow:0 0 0 3px rgba(253,214,31,.25), 0 14px 36px rgba(23,63,45,.12); }
+        .gbcc-ecosystem-item.eco-active strong { color:#8f6b10; }
+        .gbcc-ecosystem-item strong { display:block; color:#173f2d; font-size:19px; margin-bottom:8px; font-weight:800; transition:color .4s ease; }
         .gbcc-ecosystem-item span { color:#5b6b63; font-size:13px; line-height:1.45; display:block; }
+        .gbcc-eco-connector { display:flex; align-items:center; justify-content:center; width:44px; flex:0 0 44px; position:relative; }
+        .gbcc-eco-connector .eco-line { position:absolute; top:50%; left:0; right:0; height:2px; background:#e3e8de; transform:scaleX(0); transform-origin:left; transition:transform .5s cubic-bezier(.16,1,.3,1), background .4s ease; }
+        .gbcc-eco-connector.eco-line-visible .eco-line { transform:scaleX(1); background:linear-gradient(90deg,#fdd61f,#c4a20e); }
+        .gbcc-eco-connector .eco-dot { position:relative; z-index:2; width:30px; height:30px; border-radius:50%; background:#e3e8de; display:flex; align-items:center; justify-content:center; font-size:11px; color:#173f2d; opacity:0; transform:scale(0); transition:opacity .35s ease, transform .35s cubic-bezier(.34,1.56,.64,1), background .4s ease, box-shadow .4s ease; }
+        .gbcc-eco-connector.eco-line-visible .eco-dot { opacity:1; transform:scale(1); background:#fdd61f; box-shadow:0 0 0 6px rgba(253,214,31,.18); }
+        .gbcc-eco-connector.eco-line-visible .eco-dot i { animation:ecoArrowPulse 1.8s ease-in-out infinite; }
+        @keyframes ecoArrowPulse { 0%,100%{transform:translateX(0);} 50%{transform:translateX(3px);} }
+        .gbcc-eco-cell:nth-child(1) .gbcc-ecosystem-item { transition-delay:0s; }
+        .gbcc-eco-cell:nth-child(2) .eco-line { transition-delay:.25s; }
+        .gbcc-eco-cell:nth-child(2) .eco-dot { transition-delay:.45s; }
+        .gbcc-eco-cell:nth-child(3) .gbcc-ecosystem-item { transition-delay:.55s; }
+        .gbcc-eco-cell:nth-child(4) .eco-line { transition-delay:.8s; }
+        .gbcc-eco-cell:nth-child(4) .eco-dot { transition-delay:1s; }
+        .gbcc-eco-cell:nth-child(5) .gbcc-ecosystem-item { transition-delay:1.1s; }
+        .gbcc-eco-cell:nth-child(6) .eco-line { transition-delay:1.35s; }
+        .gbcc-eco-cell:nth-child(6) .eco-dot { transition-delay:1.55s; }
+        .gbcc-eco-cell:nth-child(7) .gbcc-ecosystem-item { transition-delay:1.65s; }
+        .gbcc-eco-cell:nth-child(8) .eco-line { transition-delay:1.9s; }
+        .gbcc-eco-cell:nth-child(8) .eco-dot { transition-delay:2.1s; }
+        .gbcc-eco-cell:nth-child(9) .gbcc-ecosystem-item { transition-delay:2.2s; }
+        .gbcc-eco-cell:nth-child(10) .eco-line { transition-delay:2.45s; }
+        .gbcc-eco-cell:nth-child(10) .eco-dot { transition-delay:2.65s; }
+        .gbcc-eco-cell:nth-child(11) .gbcc-ecosystem-item { transition-delay:2.75s; }
         .gbcc-mvv-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; margin-top:34px; }
         .gbcc-mvv-card { background:#173f2d; color:#fff; border-radius:8px; padding:26px; min-height:250px; position:relative; overflow:hidden; }
         .gbcc-mvv-card:before { content:""; position:absolute; width:160px; height:160px; right:-60px; top:-60px; border-radius:50%; background:rgba(253,214,31,.12); }
@@ -219,8 +245,9 @@
         @media (max-width:991px){
             .gbcc-r-hero h2 { font-size:42px; }
             .gbcc-identity-grid, .gbcc-service-grid, .gbcc-team-grid, .gbcc-method-grid, .gbcc-footer-grid, .gbcc-clarity-grid, .gbcc-sector-grid, .gbcc-theme-grid, .gbcc-mvv-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
-            .gbcc-ecosystem { grid-template-columns:repeat(3,minmax(0,1fr)); }
-            .gbcc-ecosystem-item:after { display:none; }
+            .gbcc-ecosystem { grid-template-columns:repeat(3,1fr); gap:14px; }
+            .gbcc-eco-cell:has(.gbcc-eco-connector) { display:none; }
+            .gbcc-ecosystem-item { opacity:1; transform:none; }
             .gbcc-stat-strip { grid-template-columns:repeat(2,minmax(0,1fr)); }
             .gbcc-gallery-grid, .gbcc-impact-grid { grid-template-columns:1fr 1fr; }
             .gbcc-testimonial-grid { grid-template-columns:1fr; }
@@ -230,6 +257,8 @@
             .gbcc-r-hero { padding:72px 0 48px; }
             .gbcc-r-hero h2, .gbcc-section h2 { font-size:32px; }
             .gbcc-identity-grid, .gbcc-service-grid, .gbcc-projects, .gbcc-team-grid, .gbcc-panel-row, .gbcc-method-grid, .gbcc-gallery-grid, .gbcc-footer-grid, .gbcc-clarity-grid, .gbcc-video-grid, .gbcc-impact-grid, .gbcc-testimonial-grid, .gbcc-sector-grid, .gbcc-theme-grid, .gbcc-mvv-grid, .gbcc-ecosystem { grid-template-columns:1fr; }
+            .gbcc-eco-cell:has(.gbcc-eco-connector) { display:none; }
+            .gbcc-ecosystem-item { opacity:1; transform:none; }
             .gbcc-video-card { min-height:300px; }
             .gbcc-gallery-grid a:first-child { grid-column:auto; min-height:260px; }
             .gbcc-stat-strip { grid-template-columns:1fr; }
@@ -565,13 +594,40 @@
                 <p class="gbcc-lead">
                     Au sein de Global Business Group, GBCC intervient en amont de la cha&icirc;ne de valeur. Elle structure, accompagne, forme, certifie et pr&eacute;pare les producteurs et coop&eacute;ratives &agrave; acc&eacute;der &agrave; des opportunit&eacute;s commerciales plus solides. Elle alimente ensuite l'&eacute;cosyst&egrave;me du groupe en mati&egrave;res premi&egrave;res mieux suivies, mieux document&eacute;es et plus responsables.
                 </p>
-                <div class="gbcc-ecosystem">
-                    <div class="gbcc-ecosystem-item gbcc-scroll-reveal"><strong>GBG</strong><span>Vision strat&eacute;gique et coordination du groupe</span></div>
-                    <div class="gbcc-ecosystem-item gbcc-scroll-reveal"><strong>GBCC</strong><span>Conseil, certification, formation, financement et acc&egrave;s march&eacute;s</span></div>
-                    <div class="gbcc-ecosystem-item gbcc-scroll-reveal"><strong>SCMC</strong><span>Commercialisation et valorisation des produits durables</span></div>
-                    <div class="gbcc-ecosystem-item gbcc-scroll-reveal"><strong>KIC</strong><span>Transformation industrielle du cacao</span></div>
-                    <div class="gbcc-ecosystem-item gbcc-scroll-reveal"><strong>Chocolaterie</strong><span>Produits chocolat&eacute;s et marque commerciale</span></div>
-                    <div class="gbcc-ecosystem-item gbcc-scroll-reveal"><strong>Assiette Durable</strong><span>Alimentation responsable et d&eacute;bouch&eacute;s locaux</span></div>
+                <div class="gbcc-ecosystem" id="gbcc-eco-chain">
+                    <div class="gbcc-eco-cell">
+                        <div class="gbcc-ecosystem-item"><strong>GBG</strong><span>Vision strat&eacute;gique et coordination du groupe</span></div>
+                    </div>
+                    <div class="gbcc-eco-cell">
+                        <div class="gbcc-eco-connector"><div class="eco-line"></div><div class="eco-dot"><i class="fa-solid fa-arrow-right"></i></div></div>
+                    </div>
+                    <div class="gbcc-eco-cell">
+                        <div class="gbcc-ecosystem-item eco-active"><strong>GBCC</strong><span>Conseil, certification, formation, financement et acc&egrave;s march&eacute;s</span></div>
+                    </div>
+                    <div class="gbcc-eco-cell">
+                        <div class="gbcc-eco-connector"><div class="eco-line"></div><div class="eco-dot"><i class="fa-solid fa-arrow-right"></i></div></div>
+                    </div>
+                    <div class="gbcc-eco-cell">
+                        <div class="gbcc-ecosystem-item"><strong>SCMC</strong><span>Commercialisation et valorisation des produits durables</span></div>
+                    </div>
+                    <div class="gbcc-eco-cell">
+                        <div class="gbcc-eco-connector"><div class="eco-line"></div><div class="eco-dot"><i class="fa-solid fa-arrow-right"></i></div></div>
+                    </div>
+                    <div class="gbcc-eco-cell">
+                        <div class="gbcc-ecosystem-item"><strong>KIC</strong><span>Transformation industrielle du cacao</span></div>
+                    </div>
+                    <div class="gbcc-eco-cell">
+                        <div class="gbcc-eco-connector"><div class="eco-line"></div><div class="eco-dot"><i class="fa-solid fa-arrow-right"></i></div></div>
+                    </div>
+                    <div class="gbcc-eco-cell">
+                        <div class="gbcc-ecosystem-item"><strong>Chocolaterie</strong><span>Produits chocolat&eacute;s et marque commerciale</span></div>
+                    </div>
+                    <div class="gbcc-eco-cell">
+                        <div class="gbcc-eco-connector"><div class="eco-line"></div><div class="eco-dot"><i class="fa-solid fa-arrow-right"></i></div></div>
+                    </div>
+                    <div class="gbcc-eco-cell">
+                        <div class="gbcc-ecosystem-item"><strong>Assiette Durable</strong><span>Alimentation responsable et d&eacute;bouch&eacute;s locaux</span></div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -2095,6 +2151,24 @@
                 item.classList.add('gbcc-scroll-reveal');
                 observer.observe(item);
             });
+
+            var ecoChain = document.getElementById('gbcc-eco-chain');
+            if (ecoChain) {
+                var ecoFired = false;
+                var ecoObserver = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting && !ecoFired) {
+                            ecoFired = true;
+                            var cards = ecoChain.querySelectorAll('.gbcc-ecosystem-item');
+                            var connectors = ecoChain.querySelectorAll('.gbcc-eco-connector');
+                            cards.forEach(function (card) { card.classList.add('eco-visible'); });
+                            connectors.forEach(function (conn) { conn.classList.add('eco-line-visible'); });
+                            ecoObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.2 });
+                ecoObserver.observe(ecoChain);
+            }
         });
     </script>
 </body>
