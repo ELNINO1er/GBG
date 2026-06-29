@@ -3412,6 +3412,120 @@ iframe {
   opacity: 1;
   transform: translateY(0px);
 }
+
+/* ── Enhanced Entity Dropdown ── */
+.header-main .main-menu ul li .submenu.gbg-entity-dropdown {
+  min-width: 340px;
+  padding: 12px;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid rgba(34,139,34,0.08);
+  box-shadow: 0 20px 60px rgba(19,54,35,0.15);
+  transform: translateY(16px);
+  transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
+}
+.header-main .main-menu ul li:hover > .submenu.gbg-entity-dropdown {
+  transform: translateY(4px);
+}
+.header-main .main-menu ul li .submenu.gbg-entity-dropdown li {
+  margin-bottom: 2px;
+}
+.header-main .main-menu ul li .submenu.gbg-entity-dropdown li:last-child {
+  margin-bottom: 0;
+}
+.header-main .main-menu ul li .submenu.gbg-entity-dropdown li a {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: #133623;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+.header-main .main-menu ul li .submenu.gbg-entity-dropdown li a:hover {
+  background: rgba(34,139,34,0.06);
+  transform: translateX(4px);
+  color: #228B22;
+  box-shadow: none;
+}
+.gbg-drop-icon {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+.gbg-drop-icon i {
+  font-size: 16px;
+  color: #fff;
+}
+.submenu.gbg-entity-dropdown li a:hover .gbg-drop-icon {
+  transform: scale(1.1) rotate(-5deg);
+}
+.gbg-drop-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+.gbg-drop-text span {
+  font-size: 14px;
+  font-weight: 700;
+  color: #133623;
+  transition: color 0.3s ease;
+}
+.gbg-drop-text small {
+  font-size: 11px;
+  font-weight: 400;
+  color: #888;
+  margin-top: 1px;
+  transition: color 0.3s ease;
+}
+.submenu.gbg-entity-dropdown li a:hover .gbg-drop-text span {
+  color: #228B22;
+}
+.submenu.gbg-entity-dropdown li a:hover .gbg-drop-text small {
+  color: #555;
+}
+.gbg-drop-arrow {
+  margin-left: auto;
+  font-size: 11px;
+  color: #ccc;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.submenu.gbg-entity-dropdown li a:hover .gbg-drop-arrow {
+  color: #228B22;
+  transform: translateX(3px);
+}
+
+/* Entity dropdown color coding */
+.gbg-drop-gbcc { background: linear-gradient(135deg, #228B22, #2ecc40); }
+.gbg-drop-scmc { background: linear-gradient(135deg, #1a6b3c, #34a853); }
+.gbg-drop-kic  { background: linear-gradient(135deg, #8b5a2b, #daa520); }
+.gbg-drop-ad   { background: linear-gradient(135deg, #2d8659, #62bd43); }
+.gbg-drop-choc { background: linear-gradient(135deg, #5c3317, #a0522d); }
+
+/* Stagger animation for dropdown items */
+.submenu.gbg-entity-dropdown li {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.header-main .main-menu ul li:hover > .submenu.gbg-entity-dropdown li {
+  opacity: 1;
+  transform: translateY(0);
+}
+.submenu.gbg-entity-dropdown li:nth-child(1) { transition-delay: 0.04s; }
+.submenu.gbg-entity-dropdown li:nth-child(2) { transition-delay: 0.08s; }
+.submenu.gbg-entity-dropdown li:nth-child(3) { transition-delay: 0.12s; }
+.submenu.gbg-entity-dropdown li:nth-child(4) { transition-delay: 0.16s; }
+.submenu.gbg-entity-dropdown li:nth-child(5) { transition-delay: 0.20s; }
+
 .header-main .sidebar__toggle {
   cursor: pointer;
   font-size: 39px;
@@ -10651,6 +10765,21 @@ html {
   pointer-events: none;
 }
 
+.gbg-footer .row,
+.gbg-footer [class*="col-"] {
+  display: flex;
+  visibility: visible;
+  opacity: 1;
+}
+
+.gbg-footer .row {
+  flex-wrap: wrap;
+}
+
+.gbg-footer [class*="col-"] {
+  flex-direction: column;
+}
+
 .gbg-footer h4 {
   color: #fff;
   font-size: 1.05rem;
@@ -10842,11 +10971,12 @@ html {
 }
 
 .gbg-footer-reveal {
-  opacity: 0;
-  transform: translateY(20px);
+  opacity: 1;
+  transform: translateY(0);
   transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1);
 }
-.gbg-footer-reveal.is-visible {
+.gbg-footer-reveal.is-visible,
+.gbg-footer-reveal.is-footer-visible {
   opacity: 1;
   transform: translateY(0);
 }

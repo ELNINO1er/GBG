@@ -91,8 +91,45 @@
     <!--<< Nice Select.css >>-->
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <!--<< Main.css >>-->
-    <link rel="stylesheet" href="assets/css/main.css">
-    <style>.wow { visibility: visible !important; }</style>
+    <link rel="stylesheet" href="assets/css/main.css?v=20260629-footer">
+    <style>
+    .wow { visibility: visible !important; }
+    .gbg-footer{padding:80px 0 0!important;background:linear-gradient(175deg,#0d2818 0%,#091a10 100%)!important;color:rgba(255,255,255,0.7)!important;position:relative!important;overflow:hidden!important}
+    .gbg-footer::before{content:''!important;position:absolute!important;top:0!important;left:0!important;right:0!important;height:3px!important;background:linear-gradient(90deg,transparent,#228B22,#2ecc40,#228B22,transparent)!important}
+    .gbg-footer::after{content:''!important;position:absolute!important;bottom:-120px!important;right:-120px!important;width:400px!important;height:400px!important;border-radius:50%!important;background:radial-gradient(circle,rgba(34,139,34,0.06) 0%,transparent 70%)!important;pointer-events:none!important}
+    .gbg-footer h4{color:#fff!important;font-size:1.05rem!important;font-weight:700!important;margin-bottom:20px!important;position:relative!important;padding-bottom:12px!important}
+    .gbg-footer h4::after{content:''!important;position:absolute!important;bottom:0!important;left:0!important;width:32px!important;height:2px!important;background:linear-gradient(90deg,#2ecc40,transparent)!important;border-radius:2px!important}
+    .gbg-footer-desc{font-size:0.9rem!important;line-height:1.7!important;color:rgba(255,255,255,0.6)!important;margin-top:16px!important}
+    .gbg-footer-links{list-style:none!important;padding:0!important;margin:0!important}
+    .gbg-footer-links li{margin-bottom:10px!important}
+    .gbg-footer-links a{color:rgba(255,255,255,0.7)!important;text-decoration:none!important;font-size:0.9rem!important;display:inline-flex!important;align-items:center!important;gap:8px!important;transition:color .3s ease,transform .3s ease!important}
+    .gbg-footer-links a::before{content:''!important;width:6px!important;height:6px!important;border-radius:50%!important;background:rgba(46,204,64,0.4)!important;transition:background .3s ease,transform .3s ease!important;flex-shrink:0!important}
+    .gbg-footer-links a:hover{color:#2ecc40!important;transform:translateX(4px)!important}
+    .gbg-footer-links a:hover::before{background:#2ecc40!important;transform:scale(1.4)!important}
+    .gbg-footer-contact-item{display:flex!important;align-items:flex-start!important;gap:12px!important;margin-bottom:16px!important;font-size:0.88rem!important;line-height:1.5!important}
+    .gbg-footer-contact-icon{width:36px!important;height:36px!important;min-width:36px!important;border-radius:10px!important;background:rgba(46,204,64,0.1)!important;display:flex!important;align-items:center!important;justify-content:center!important;transition:background .3s ease,transform .3s ease!important}
+    .gbg-footer-contact-icon i{color:#2ecc40!important;font-size:14px!important}
+    .gbg-footer-contact-item:hover .gbg-footer-contact-icon{background:rgba(46,204,64,0.2)!important;transform:translateY(-2px)!important}
+    .gbg-footer-contact-item a{color:rgba(255,255,255,0.7)!important;text-decoration:none!important;transition:color .3s ease!important}
+    .gbg-footer-contact-item a:hover{color:#2ecc40!important}
+    .gbg-footer-social{display:flex!important;gap:10px!important;margin-top:24px!important}
+    .gbg-footer-social a{width:40px!important;height:40px!important;border-radius:12px!important;background:rgba(255,255,255,0.06)!important;border:1px solid rgba(255,255,255,0.1)!important;display:flex!important;align-items:center!important;justify-content:center!important;color:rgba(255,255,255,0.6)!important;font-size:15px!important;text-decoration:none!important;transition:transform .3s ease,background .3s ease,border-color .3s ease,color .3s ease!important}
+    .gbg-footer-social a:hover{transform:translateY(-4px)!important;background:rgba(46,204,64,0.15)!important;border-color:rgba(46,204,64,0.4)!important;color:#2ecc40!important}
+    .gbg-footer-newsletter{margin-top:20px!important}
+    .gbg-footer-newsletter-form{display:flex!important;gap:0!important;border-radius:12px!important;overflow:hidden!important;border:1px solid rgba(255,255,255,0.12)!important;transition:border-color .3s ease!important}
+    .gbg-footer-newsletter-form:focus-within{border-color:rgba(46,204,64,0.4)!important}
+    .gbg-footer-newsletter-form input{flex:1!important;background:rgba(255,255,255,0.05)!important;border:none!important;padding:12px 16px!important;color:#fff!important;font-size:0.85rem!important;outline:none!important}
+    .gbg-footer-newsletter-form input::placeholder{color:rgba(255,255,255,0.35)!important}
+    .gbg-footer-newsletter-form button{background:linear-gradient(135deg,#228B22,#2ecc40)!important;border:none!important;padding:12px 20px!important;color:#fff!important;cursor:pointer!important;font-size:14px!important;transition:opacity .3s ease!important}
+    .gbg-footer-newsletter-form button:hover{opacity:0.85!important}
+    .gbg-footer-bottom{margin-top:48px!important;padding:20px 0!important;border-top:1px solid rgba(255,255,255,0.08)!important;display:flex!important;flex-wrap:wrap!important;justify-content:space-between!important;align-items:center!important;gap:12px!important;font-size:0.82rem!important;color:rgba(255,255,255,0.45)!important}
+    .gbg-footer-bottom a{color:rgba(255,255,255,0.55)!important;text-decoration:none!important;transition:color .3s ease!important}
+    .gbg-footer-bottom a:hover{color:#2ecc40!important}
+    .gbg-footer-bottom-links{display:flex!important;gap:20px!important;list-style:none!important;margin:0!important;padding:0!important}
+    .gbg-footer-reveal{opacity:1!important;transform:translateY(0)!important;transition:opacity .6s cubic-bezier(0.16,1,0.3,1),transform .6s cubic-bezier(0.16,1,0.3,1)!important}
+    .gbg-footer-reveal.is-visible,.gbg-footer-reveal.is-footer-visible{opacity:1!important;transform:translateY(0)!important}
+    @media(max-width:767px){.gbg-footer-bottom{flex-direction:column!important;text-align:center!important}.gbg-footer-bottom-links{justify-content:center!important}}
+    </style>
 </head>
 
 <body>
@@ -235,12 +272,12 @@
                                                         Nos Entités
                                                         <i class="fas fa-angle-down"></i>
                                                     </a>
-                                                    <ul class="submenu">
-                                                        <li><a href="gbcc.html">GBCC</a></li>
-                                                        <li><a href="scmc.html">SCMC</a></li>
-                                                        <li><a href="kic.html">KIC</a></li>
-                                                        <li><a href="assiette-durable.html">Restaurant Assiette Durable</a></li>
-                                                        <li><a href="scmc-chocolaterie.html">SCMC Chocolaterie</a></li>
+                                                    <ul class="submenu gbg-entity-dropdown">
+                                                        <li><a href="gbcc.html"><div class="gbg-drop-icon gbg-drop-gbcc"><i class="fa-solid fa-handshake"></i></div><div class="gbg-drop-text"><span>GBCC</span><small>Conseil &amp; Certification</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
+                                                        <li><a href="scmc.html"><div class="gbg-drop-icon gbg-drop-scmc"><i class="fa-solid fa-truck"></i></div><div class="gbg-drop-text"><span>SCMC</span><small>Commercialisation durable</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
+                                                        <li><a href="kic.html"><div class="gbg-drop-icon gbg-drop-kic"><i class="fa-solid fa-industry"></i></div><div class="gbg-drop-text"><span>KIC</span><small>Transformation du cacao</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
+                                                        <li><a href="assiette-durable.html"><div class="gbg-drop-icon gbg-drop-ad"><i class="fa-solid fa-utensils"></i></div><div class="gbg-drop-text"><span>Assiette Durable</span><small>Restauration responsable</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
+                                                        <li><a href="scmc-chocolaterie.html"><div class="gbg-drop-icon gbg-drop-choc"><i class="fa-solid fa-candy-cane"></i></div><div class="gbg-drop-text"><span>SCMC Chocolaterie</span><small>Produits chocolatés</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
                                                     </ul>
                                                 </li>
                                                 <li class="active">
@@ -419,7 +456,7 @@
         <footer class="gbg-footer">
             <div class="container position-relative" style="z-index:1;">
                 <div class="row g-5">
-                    <div class="col-lg-4 gbg-footer-reveal">
+                    <div class="col-lg-4">
                         <img src="assets/img/logo/logo-light.svg" alt="Global Business Group" style="max-width: 150px;">
                         <p class="gbg-footer-desc">Global Business Group SA coordonne un écosystème d'entreprises engagées pour des filières agricoles durables, traçables et créatrices de valeur.</p>
                         <div class="gbg-footer-social">
@@ -427,10 +464,9 @@
                             <a href="https://www.instagram.com/globalbusinessg/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                             <a href="https://www.tiktok.com/@global.business.g1" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                             <a href="https://www.youtube.com/@globalbusinessgroup-j8m" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                            <a href="https://www.linkedin.com/company/global-business-group-ci" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-md-4 gbg-footer-reveal" style="--i:1">
+                    <div class="col-lg-2 col-md-4" style="--i:1">
                         <h4>Nos entités</h4>
                         <ul class="gbg-footer-links">
                             <li><a href="gbcc.html">GBCC</a></li>
@@ -440,7 +476,7 @@
                             <li><a href="scmc-chocolaterie.html">SCMC Chocolaterie</a></li>
                         </ul>
                     </div>
-                    <div class="col-lg-2 col-md-4 gbg-footer-reveal" style="--i:2">
+                    <div class="col-lg-2 col-md-4" style="--i:2">
                         <h4>Liens rapides</h4>
                         <ul class="gbg-footer-links">
                             <li><a href="about.html">À propos</a></li>
@@ -449,7 +485,7 @@
                             <li><a href="contact.html">Contact</a></li>
                         </ul>
                     </div>
-                    <div class="col-lg-4 col-md-4 gbg-footer-reveal" style="--i:3">
+                    <div class="col-lg-4 col-md-4" style="--i:3">
                         <h4>Contact</h4>
                         <div class="gbg-footer-contact-item">
                             <div class="gbg-footer-contact-icon"><i class="fa-solid fa-location-dot"></i></div>
