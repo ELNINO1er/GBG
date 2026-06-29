@@ -231,27 +231,223 @@
         background: linear-gradient(180deg, transparent 0%, rgba(98,189,67,.85) 100%) !important;
     }
 
-    /* Menu placeholders */
-    .menu-placeholder {
-        border-radius: 16px !important;
-        transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease, background .3s ease !important;
+    /* ── Chain flow (Rôle dans GBG) ── */
+    .ad-chain-flow {
+        display: flex;
+        align-items: stretch;
+        gap: 0;
+        margin-top: 28px;
+        position: relative;
     }
-    .menu-placeholder:hover {
-        transform: translateY(-6px) !important;
-        border-style: solid !important;
-        border-color: rgba(98,189,67,.4) !important;
-        box-shadow: 0 14px 36px rgba(19,54,35,.08) !important;
-        background: #f7fbf4 !important;
+    .ad-chain-node {
+        flex: 1;
+        text-align: center;
+        padding: 24px 16px;
+        background: rgba(34,139,34,0.04);
+        border: 1px solid rgba(34,139,34,0.12);
+        position: relative;
+        transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), background 0.4s ease, box-shadow 0.4s ease;
+    }
+    .ad-chain-node:first-child { border-radius: 14px 0 0 14px; }
+    .ad-chain-node:last-child { border-radius: 0 14px 14px 0; }
+    .ad-chain-node + .ad-chain-node { border-left: none; }
+
+    .ad-chain-node:hover, .ad-chain-node.ad-chain-active {
+        transform: translateY(-6px);
+        background: rgba(34,139,34,0.1);
+        box-shadow: 0 12px 32px rgba(34,139,34,0.12);
+        z-index: 2;
+        border-radius: 14px;
+    }
+    .ad-chain-node-icon {
+        width: 44px; height: 44px; border-radius: 50%;
+        background: linear-gradient(135deg, #228B22, #2ecc40);
+        display: inline-flex; align-items: center; justify-content: center;
+        margin-bottom: 12px;
+        transition: transform 0.4s ease;
+    }
+    .ad-chain-node:hover .ad-chain-node-icon,
+    .ad-chain-node.ad-chain-active .ad-chain-node-icon { transform: scale(1.15) rotate(10deg); }
+    .ad-chain-node-icon i { color: #fff; font-size: 16px; }
+    .ad-chain-node h4 {
+        font-size: 0.85rem; font-weight: 700; color: #133623;
+        margin: 0 0 4px; line-height: 1.3;
+    }
+    .ad-chain-node p {
+        font-size: 0.75rem; color: #555; margin: 0; line-height: 1.4;
+    }
+    .ad-chain-arrow {
+        position: absolute; right: -10px; top: 50%; transform: translateY(-50%);
+        z-index: 3; width: 20px; height: 20px; border-radius: 50%;
+        background: #fff; border: 2px solid rgba(34,139,34,0.3);
+        display: flex; align-items: center; justify-content: center;
+    }
+    .ad-chain-arrow i { font-size: 8px; color: #228B22; }
+    @media (max-width: 767px) {
+        .ad-chain-flow { flex-direction: column; gap: 8px; }
+        .ad-chain-node { border-radius: 14px !important; border: 1px solid rgba(34,139,34,0.12) !important; }
+        .ad-chain-arrow { display: none; }
     }
 
-    /* Video box */
-    .assiette-immersive-page .gbg-video-box {
-        border-radius: 22px !important;
+    @keyframes ad-chain-pulse {
+        0%, 100% { box-shadow: 0 0 0 0 rgba(34,139,34,0.2); }
+        50% { box-shadow: 0 0 0 8px rgba(34,139,34,0); }
     }
-    .assiette-immersive-page .gbg-play-button {
-        width: 92px !important;
-        height: 92px !important;
+    .ad-chain-node.ad-chain-active { animation: ad-chain-pulse 2s ease-in-out infinite; }
+
+    /* ── Menu cards (Offre culinaire) ── */
+    .ad-menu-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 16px;
     }
+    @media (max-width: 991px) { .ad-menu-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 575px) { .ad-menu-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    .ad-menu-card {
+        background: #fff;
+        border-radius: 16px;
+        border: 1px dashed rgba(34,139,34,0.2);
+        padding: 24px 16px;
+        text-align: center;
+        transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease, border-color 0.4s ease;
+        position: relative;
+        overflow: hidden;
+    }
+    .ad-menu-card:hover, .ad-menu-card.ad-menu-active {
+        transform: translateY(-8px);
+        box-shadow: 0 16px 40px rgba(34,139,34,0.1);
+        border-color: rgba(34,139,34,0.4);
+        border-style: solid;
+    }
+    .ad-menu-icon {
+        width: 52px; height: 52px; border-radius: 50%;
+        background: linear-gradient(135deg, rgba(34,139,34,0.08), rgba(46,204,64,0.12));
+        display: inline-flex; align-items: center; justify-content: center;
+        margin-bottom: 14px;
+        transition: transform 0.4s ease, background 0.4s ease;
+    }
+    .ad-menu-card:hover .ad-menu-icon,
+    .ad-menu-card.ad-menu-active .ad-menu-icon {
+        transform: scale(1.15) rotate(-8deg);
+        background: linear-gradient(135deg, #228B22, #2ecc40);
+    }
+    .ad-menu-icon i {
+        font-size: 20px; color: #228B22;
+        transition: color 0.4s ease;
+    }
+    .ad-menu-card:hover .ad-menu-icon i,
+    .ad-menu-card.ad-menu-active .ad-menu-icon i { color: #fff; }
+    .ad-menu-card h4 {
+        font-size: 0.95rem; font-weight: 700; color: #133623; margin: 0 0 6px;
+    }
+    .ad-menu-card p {
+        font-size: 0.78rem; color: #999; margin: 0; font-style: italic;
+    }
+    .ad-menu-card-glow {
+        position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+        background: linear-gradient(90deg, transparent, #228B22, #2ecc40, #228B22, transparent);
+        opacity: 0; transition: opacity 0.4s ease;
+    }
+    .ad-menu-card:hover .ad-menu-card-glow,
+    .ad-menu-card.ad-menu-active .ad-menu-card-glow { opacity: 1; }
+    @keyframes ad-menu-pulse {
+        0%, 100% { box-shadow: 0 0 0 0 rgba(34,139,34,0.2); }
+        50% { box-shadow: 0 0 0 8px rgba(34,139,34,0); }
+    }
+    .ad-menu-card.ad-menu-active { animation: ad-menu-pulse 2s ease-in-out infinite; }
+
+    .ad-sec-reveal {
+        opacity: 0; transform: translateY(24px);
+        transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1);
+    }
+    .ad-sec-reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+    /* Video grid */
+    .ad-video-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    @media (max-width: 991px) { .ad-video-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 575px) { .ad-video-grid { grid-template-columns: 1fr; } }
+
+    .ad-vcard {
+        position: relative;
+        border-radius: 16px;
+        overflow: hidden;
+        background: #0a1a0a;
+        cursor: pointer;
+        transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease;
+    }
+    .ad-vcard:hover, .ad-vcard.ad-v-active {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 50px rgba(34,139,34,0.25);
+    }
+    .ad-vcard-thumb {
+        position: relative; height: 220px; overflow: hidden;
+    }
+    .ad-vcard-thumb img {
+        width: 100%; height: 100%; object-fit: cover;
+        transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+    }
+    .ad-vcard:hover .ad-vcard-thumb img, .ad-vcard.ad-v-active .ad-vcard-thumb img {
+        transform: scale(1.1);
+    }
+    .ad-vcard-thumb::after {
+        content: ''; position: absolute; inset: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.1) 60%, transparent 100%);
+        pointer-events: none;
+    }
+    .ad-vcard-play {
+        position: absolute; top: 50%; left: 50%;
+        transform: translate(-50%,-50%); width: 56px; height: 56px;
+        border-radius: 50%; background: linear-gradient(135deg, #228B22, #2ecc40);
+        display: flex; align-items: center; justify-content: center; z-index: 2;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .ad-vcard-play i { color: #fff; font-size: 18px; margin-left: 3px; }
+    .ad-vcard:hover .ad-vcard-play, .ad-vcard.ad-v-active .ad-vcard-play {
+        transform: translate(-50%,-50%) scale(1.15);
+        box-shadow: 0 0 0 12px rgba(34,139,34,0.2);
+    }
+    .ad-vcard-play-ring {
+        position: absolute; top: 50%; left: 50%; width: 56px; height: 56px;
+        border-radius: 50%; border: 2px solid rgba(46,204,64,0.4);
+        transform: translate(-50%,-50%) scale(1); opacity: 0; z-index: 1; pointer-events: none;
+    }
+    .ad-vcard.ad-v-active .ad-vcard-play-ring {
+        animation: ad-play-ring 2s ease-out infinite;
+    }
+    @keyframes ad-play-ring {
+        0% { transform: translate(-50%,-50%) scale(1); opacity: 0.6; }
+        100% { transform: translate(-50%,-50%) scale(2.2); opacity: 0; }
+    }
+    .ad-vcard-info { padding: 16px 18px; }
+    .ad-vcard-info h4 { color: #fff; font-size: 0.95rem; font-weight: 700; margin: 0 0 4px; }
+    .ad-vcard-info p { color: rgba(255,255,255,0.55); font-size: 0.8rem; margin: 0; }
+    .ad-vcard-bar {
+        position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+        background: linear-gradient(90deg, transparent, #228B22, #2ecc40, #228B22, transparent);
+        opacity: 0; transition: opacity 0.4s ease;
+    }
+    .ad-vcard:hover .ad-vcard-bar, .ad-vcard.ad-v-active .ad-vcard-bar { opacity: 1; }
+    .ad-vcard-badge {
+        position: absolute; top: 12px; left: 12px;
+        background: rgba(34,139,34,0.85); color: #fff; font-size: 0.7rem;
+        font-weight: 600; padding: 4px 10px; border-radius: 20px; z-index: 3;
+        letter-spacing: 0.5px; backdrop-filter: blur(4px);
+    }
+    @keyframes ad-v-pulse {
+        0%, 100% { box-shadow: 0 0 0 0 rgba(34,139,34,0.3); }
+        50% { box-shadow: 0 0 0 10px rgba(34,139,34,0); }
+    }
+    .ad-vcard.ad-v-active { animation: ad-v-pulse 2s ease-in-out infinite; }
+    .ad-v-reveal {
+        opacity: 0; transform: translateY(24px);
+        transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1);
+    }
+    .ad-v-reveal.is-visible { opacity: 1; transform: translateY(0); }
 
     /* Gallery */
     .assiette-immersive-page .gbg-gallery-item {
@@ -532,8 +728,43 @@
             <div class="container"><div class="row g-4"><div class="col-lg-6"><div class="gbg-card gbg-reveal p-5 h-100"><span class="gbg-eyebrow">Mission</span><h3>Promouvoir une alimentation durable.</h3><p class="gbg-text">Promouvoir une alimentation durable tout en créant des débouchés économiques pour les producteurs engagés dans la diversification agricole.</p></div></div><div class="col-lg-6"><div class="gbg-card gbg-reveal p-5 h-100"><span class="gbg-eyebrow">Vision</span><h3>Relier producteurs et consommateurs.</h3><p class="gbg-text">Devenir un modèle de restauration responsable capable de relier producteurs, territoires, marchés locaux et consommateurs autour d'une alimentation durable, saine et créatrice de valeur.</p></div></div></div></div>
         </section>
 
-        <section class="gbg-section gbg-reveal">
-            <div class="container"><div class="row g-5"><div class="col-lg-5"><span class="gbg-eyebrow">Rôle dans GBG</span><h2 class="gbg-title">Le maillon consommation du groupe.</h2></div><div class="col-lg-7"><p class="gbg-lead">Restaurant Assiette Durable donne une finalité concrète aux productions agricoles durables et aux cultures de diversification accompagnées par GBG.</p><div class="gbg-chain mt-4"><div class="gbg-chain-step"><span>GBCC</span>Accompagne les producteurs</div><div class="gbg-chain-step"><span>Diversification</span>Structure les cultures complémentaires</div><div class="gbg-chain-step"><span>SCMC</span>Contribue à la mise en marché</div><div class="gbg-chain-step"><span>Assiette Durable</span>Valorise dans l'alimentation</div></div></div></div></div>
+        <section class="gbg-section" id="ad-role-chain">
+            <div class="container">
+                <div class="row g-5">
+                    <div class="col-lg-5 ad-sec-reveal">
+                        <span class="gbg-eyebrow">Rôle dans GBG</span>
+                        <h2 class="gbg-title">Le maillon consommation du groupe.</h2>
+                        <p class="gbg-lead">Restaurant Assiette Durable donne une finalité concrète aux productions agricoles durables et aux cultures de diversification accompagnées par GBG.</p>
+                    </div>
+                    <div class="col-lg-7 ad-sec-reveal" style="--i:1">
+                        <div class="ad-chain-flow">
+                            <div class="ad-chain-node" data-chain="0">
+                                <div class="ad-chain-node-icon"><i class="fa-solid fa-handshake"></i></div>
+                                <h4>GBCC</h4>
+                                <p>Accompagne les producteurs</p>
+                                <div class="ad-chain-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+                            </div>
+                            <div class="ad-chain-node" data-chain="1">
+                                <div class="ad-chain-node-icon"><i class="fa-solid fa-seedling"></i></div>
+                                <h4>Diversification</h4>
+                                <p>Cultures complémentaires</p>
+                                <div class="ad-chain-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+                            </div>
+                            <div class="ad-chain-node" data-chain="2">
+                                <div class="ad-chain-node-icon"><i class="fa-solid fa-truck"></i></div>
+                                <h4>SCMC</h4>
+                                <p>Mise en marché</p>
+                                <div class="ad-chain-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+                            </div>
+                            <div class="ad-chain-node" data-chain="3">
+                                <div class="ad-chain-node-icon"><i class="fa-solid fa-utensils"></i></div>
+                                <h4>Assiette Durable</h4>
+                                <p>Valorise dans l'alimentation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section class="gbg-section gbg-reveal">
@@ -614,18 +845,95 @@
             </div>
         </section>
 
-        <section class="gbg-section gbg-reveal">
+        <section class="gbg-section" id="ad-videos">
             <div class="container">
-                <div class="row justify-content-center mb-5"><div class="col-lg-8 text-center"><span class="gbg-eyebrow">Vidéo</span><h2 class="gbg-title">Du champ à l'assiette.</h2><p class="gbg-lead">La vidéo devra montrer producteurs, récoltes, légumes, marché, préparation en cuisine, dressage et clients.</p></div></div>
-                <div class="gbg-video-box"><img src="assets/img/about/feature-vid.jpg" alt="Vidéo Restaurant Assiette Durable"><div class="gbg-video-content"><div><span class="gbg-play-button"><i class="fa-solid fa-play"></i></span><h3>video-restaurant-du-champ-a-lassiette.mp4</h3><p>Emplacement vidéo à remplacer par le fichier officiel.</p></div></div></div>
+                <div class="row justify-content-center mb-4"><div class="col-lg-8 text-center ad-v-reveal"><span class="gbg-eyebrow">Nos vidéos</span><h2 class="gbg-title">Du champ à l'assiette.</h2></div></div>
+                <div class="ad-video-grid">
+                    <div class="ad-vcard ad-v-reveal" style="--i:1" data-vid="0">
+                        <span class="ad-vcard-badge"><i class="fa-solid fa-play"></i>&nbsp; Vidéo</span>
+                        <div class="ad-vcard-thumb">
+                            <img src="assets/img/about/feature-vid.jpg" alt="Du champ à l'assiette">
+                            <div class="ad-vcard-play"><i class="fa-solid fa-play"></i></div>
+                            <div class="ad-vcard-play-ring"></div>
+                        </div>
+                        <div class="ad-vcard-info">
+                            <h4>Du champ à l'assiette</h4>
+                            <p>Producteurs, récoltes, marché et préparation en cuisine.</p>
+                        </div>
+                        <div class="ad-vcard-bar"></div>
+                    </div>
+
+                    <div class="ad-vcard ad-v-reveal" style="--i:2" data-vid="1">
+                        <span class="ad-vcard-badge"><i class="fa-solid fa-play"></i>&nbsp; Vidéo</span>
+                        <div class="ad-vcard-thumb">
+                            <img src="assets/img/gallery/feature7.jpg" alt="Cuisine responsable">
+                            <div class="ad-vcard-play"><i class="fa-solid fa-play"></i></div>
+                            <div class="ad-vcard-play-ring"></div>
+                        </div>
+                        <div class="ad-vcard-info">
+                            <h4>Cuisine responsable</h4>
+                            <p>Dressage, saveurs locales et alimentation durable.</p>
+                        </div>
+                        <div class="ad-vcard-bar"></div>
+                    </div>
+
+                    <div class="ad-vcard ad-v-reveal" style="--i:3" data-vid="2">
+                        <span class="ad-vcard-badge"><i class="fa-solid fa-play"></i>&nbsp; Vidéo</span>
+                        <div class="ad-vcard-thumb">
+                            <img src="assets/img/gallery/feature8.jpg" alt="Expérience client">
+                            <div class="ad-vcard-play"><i class="fa-solid fa-play"></i></div>
+                            <div class="ad-vcard-play-ring"></div>
+                        </div>
+                        <div class="ad-vcard-info">
+                            <h4>Expérience client</h4>
+                            <p>Ambiance restaurant et engagement communautaire.</p>
+                        </div>
+                        <div class="ad-vcard-bar"></div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="gbg-section gbg-reveal gbg-section-soft">
+        <section class="gbg-section gbg-section-soft" id="ad-menu-section">
             <div class="container">
-                <div class="row g-4 align-items-center">
-                    <div class="col-lg-6"><span class="gbg-eyebrow">Offre culinaire</span><h2 class="gbg-title">Un menu à définir officiellement.</h2><p class="gbg-lead">Cette section prépare l’espace qui accueillera l’offre réelle dès validation.</p></div>
-                    <div class="col-lg-6"><div class="assiette-menu-shell"><div class="menu-placeholder"><h3>Entrées</h3><p>À confirmer</p></div><div class="menu-placeholder"><h3>Plats</h3><p>À confirmer</p></div><div class="menu-placeholder"><h3>Boissons</h3><p>À confirmer</p></div><div class="menu-placeholder"><h3>Desserts</h3><p>À confirmer</p></div><div class="menu-placeholder"><h3>Spécialités durables</h3><p>À confirmer</p></div></div></div>
+                <div class="row justify-content-center mb-4">
+                    <div class="col-lg-8 text-center ad-sec-reveal">
+                        <span class="gbg-eyebrow">Offre culinaire</span>
+                        <h2 class="gbg-title">Un menu à définir officiellement.</h2>
+                        <p class="gbg-lead">Cette section prépare l’espace qui accueillera l’offre réelle dès validation.</p>
+                    </div>
+                </div>
+                <div class="ad-menu-grid">
+                    <div class="ad-menu-card ad-sec-reveal" style="--i:1" data-menu="0">
+                        <div class="ad-menu-icon"><i class="fa-solid fa-leaf"></i></div>
+                        <h4>Entrées</h4>
+                        <p>À confirmer</p>
+                        <div class="ad-menu-card-glow"></div>
+                    </div>
+                    <div class="ad-menu-card ad-sec-reveal" style="--i:2" data-menu="1">
+                        <div class="ad-menu-icon"><i class="fa-solid fa-plate-wheat"></i></div>
+                        <h4>Plats</h4>
+                        <p>À confirmer</p>
+                        <div class="ad-menu-card-glow"></div>
+                    </div>
+                    <div class="ad-menu-card ad-sec-reveal" style="--i:3" data-menu="2">
+                        <div class="ad-menu-icon"><i class="fa-solid fa-glass-water"></i></div>
+                        <h4>Boissons</h4>
+                        <p>À confirmer</p>
+                        <div class="ad-menu-card-glow"></div>
+                    </div>
+                    <div class="ad-menu-card ad-sec-reveal" style="--i:4" data-menu="3">
+                        <div class="ad-menu-icon"><i class="fa-solid fa-cookie-bite"></i></div>
+                        <h4>Desserts</h4>
+                        <p>À confirmer</p>
+                        <div class="ad-menu-card-glow"></div>
+                    </div>
+                    <div class="ad-menu-card ad-sec-reveal" style="--i:5" data-menu="4">
+                        <div class="ad-menu-icon"><i class="fa-solid fa-star"></i></div>
+                        <h4>Spécialités durables</h4>
+                        <p>À confirmer</p>
+                        <div class="ad-menu-card-glow"></div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1193,6 +1501,97 @@
                 if (entries[0].isIntersecting) { nextStep(); setInterval(nextStep, 2000); aio.disconnect(); }
             }, {threshold:.2});
             aio.observe(steps[0].parentElement);
+        }
+
+        // Video cards: reveal + auto-cycle
+        var avRevEls = document.querySelectorAll('.ad-v-reveal');
+        var avIO = new IntersectionObserver(function(entries){
+            entries.forEach(function(e){
+                if(e.isIntersecting){
+                    var d = parseInt(getComputedStyle(e.target).getPropertyValue('--i')) || 0;
+                    setTimeout(function(){ e.target.classList.add('is-visible'); }, d * 150);
+                    avIO.unobserve(e.target);
+                }
+            });
+        }, {threshold: 0.15});
+        avRevEls.forEach(function(el){ avIO.observe(el); });
+
+        var avCards = document.querySelectorAll('.ad-vcard');
+        if(avCards.length){
+            var avCur = -1, avInt = null, avPaused = false;
+            function avActivate(i){ avCards.forEach(function(c){c.classList.remove('ad-v-active');}); avCards[i].classList.add('ad-v-active'); avCur=i; }
+            function avCycle(){ avActivate((avCur+1)%avCards.length); }
+            function avStart(){ if(avInt)return; avCycle(); avInt=setInterval(avCycle,2500); }
+            function avStop(){ clearInterval(avInt); avInt=null; }
+            avCards.forEach(function(c,i){
+                c.addEventListener('mouseenter',function(){avPaused=true;avStop();avActivate(i);});
+                c.addEventListener('mouseleave',function(){avPaused=false;avStart();});
+            });
+            var avSecIO = new IntersectionObserver(function(entries){
+                entries.forEach(function(e){
+                    if(e.isIntersecting&&!avPaused)avStart();
+                    else if(!e.isIntersecting)avStop();
+                });
+            },{threshold:0.2});
+            var avSec = document.getElementById('ad-videos');
+            if(avSec)avSecIO.observe(avSec);
+        }
+
+        // Reveal for new sections
+        var secRevEls = document.querySelectorAll('.ad-sec-reveal');
+        var secIO = new IntersectionObserver(function(entries){
+            entries.forEach(function(e){
+                if(e.isIntersecting){
+                    var d = parseInt(getComputedStyle(e.target).getPropertyValue('--i')) || 0;
+                    setTimeout(function(){ e.target.classList.add('is-visible'); }, d * 150);
+                    secIO.unobserve(e.target);
+                }
+            });
+        }, {threshold: 0.15});
+        secRevEls.forEach(function(el){ secIO.observe(el); });
+
+        // Chain flow auto-cycle
+        var chainNodes = document.querySelectorAll('.ad-chain-node');
+        if(chainNodes.length){
+            var ci=-1, cInt=null, cPaused=false;
+            function cActivate(i){ chainNodes.forEach(function(n){n.classList.remove('ad-chain-active');}); chainNodes[i].classList.add('ad-chain-active'); ci=i; }
+            function cCycle(){ cActivate((ci+1)%chainNodes.length); }
+            function cStart(){ if(cInt)return; cCycle(); cInt=setInterval(cCycle,2000); }
+            function cStop(){ clearInterval(cInt); cInt=null; }
+            chainNodes.forEach(function(n,i){
+                n.addEventListener('mouseenter',function(){cPaused=true;cStop();cActivate(i);});
+                n.addEventListener('mouseleave',function(){cPaused=false;cStart();});
+            });
+            var cSecIO = new IntersectionObserver(function(entries){
+                entries.forEach(function(e){
+                    if(e.isIntersecting&&!cPaused)cStart();
+                    else if(!e.isIntersecting)cStop();
+                });
+            },{threshold:0.2});
+            var cSec = document.getElementById('ad-role-chain');
+            if(cSec) cSecIO.observe(cSec);
+        }
+
+        // Menu cards auto-cycle
+        var menuCards = document.querySelectorAll('.ad-menu-card');
+        if(menuCards.length){
+            var mi=-1, mInt=null, mPaused=false;
+            function mActivate(i){ menuCards.forEach(function(c){c.classList.remove('ad-menu-active');}); menuCards[i].classList.add('ad-menu-active'); mi=i; }
+            function mCycle(){ mActivate((mi+1)%menuCards.length); }
+            function mStart(){ if(mInt)return; mCycle(); mInt=setInterval(mCycle,2000); }
+            function mStop(){ clearInterval(mInt); mInt=null; }
+            menuCards.forEach(function(c,i){
+                c.addEventListener('mouseenter',function(){mPaused=true;mStop();mActivate(i);});
+                c.addEventListener('mouseleave',function(){mPaused=false;mStart();});
+            });
+            var mSecIO = new IntersectionObserver(function(entries){
+                entries.forEach(function(e){
+                    if(e.isIntersecting&&!mPaused)mStart();
+                    else if(!e.isIntersecting)mStop();
+                });
+            },{threshold:0.2});
+            var mSec = document.getElementById('ad-menu-section');
+            if(mSec) mSecIO.observe(mSec);
         }
     })();
     </script>

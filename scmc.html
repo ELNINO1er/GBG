@@ -177,14 +177,162 @@
         transform: scale(1.08) !important;
     }
 
-    /* Video box */
-    .scmc-market-page .gbg-video-box {
-        border-radius: 22px !important;
-        box-shadow: 0 30px 80px rgba(19,54,35,.16) !important;
+    /* Video grid */
+    .scmc-video-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
     }
-    .scmc-market-page .gbg-play-button {
-        width: 92px !important;
-        height: 92px !important;
+    @media (max-width: 991px) { .scmc-video-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 575px) { .scmc-video-grid { grid-template-columns: 1fr; } }
+
+    .scmc-vcard {
+        position: relative;
+        border-radius: 16px;
+        overflow: hidden;
+        background: #0a1a0a;
+        cursor: pointer;
+        transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease;
+    }
+    .scmc-vcard:hover,
+    .scmc-vcard.scmc-v-active {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 50px rgba(34,139,34,0.25);
+    }
+
+    .scmc-vcard-thumb {
+        position: relative;
+        height: 220px;
+        overflow: hidden;
+    }
+    .scmc-vcard-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+    }
+    .scmc-vcard:hover .scmc-vcard-thumb img,
+    .scmc-vcard.scmc-v-active .scmc-vcard-thumb img {
+        transform: scale(1.1);
+    }
+    .scmc-vcard-thumb::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.1) 60%, transparent 100%);
+        pointer-events: none;
+    }
+
+    .scmc-vcard-play {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(1);
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #228B22, #2ecc40);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .scmc-vcard-play i {
+        color: #fff;
+        font-size: 18px;
+        margin-left: 3px;
+    }
+    .scmc-vcard:hover .scmc-vcard-play,
+    .scmc-vcard.scmc-v-active .scmc-vcard-play {
+        transform: translate(-50%, -50%) scale(1.15);
+        box-shadow: 0 0 0 12px rgba(34,139,34,0.2);
+    }
+
+    .scmc-vcard-play-ring {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        border: 2px solid rgba(46,204,64,0.4);
+        transform: translate(-50%,-50%) scale(1);
+        opacity: 0;
+        z-index: 1;
+        pointer-events: none;
+    }
+    .scmc-vcard.scmc-v-active .scmc-vcard-play-ring {
+        animation: scmc-play-ring 2s ease-out infinite;
+    }
+    @keyframes scmc-play-ring {
+        0%   { transform: translate(-50%,-50%) scale(1);   opacity: 0.6; }
+        100% { transform: translate(-50%,-50%) scale(2.2); opacity: 0; }
+    }
+
+    .scmc-vcard-info {
+        padding: 16px 18px;
+    }
+    .scmc-vcard-info h4 {
+        color: #fff;
+        font-size: 0.95rem;
+        font-weight: 700;
+        margin: 0 0 4px;
+        line-height: 1.3;
+    }
+    .scmc-vcard-info p {
+        color: rgba(255,255,255,0.55);
+        font-size: 0.8rem;
+        margin: 0;
+        line-height: 1.4;
+    }
+
+    .scmc-vcard-bar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, transparent, #228B22, #2ecc40, #228B22, transparent);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+    }
+    .scmc-vcard:hover .scmc-vcard-bar,
+    .scmc-vcard.scmc-v-active .scmc-vcard-bar {
+        opacity: 1;
+    }
+
+    .scmc-vcard-badge {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        background: rgba(34,139,34,0.85);
+        color: #fff;
+        font-size: 0.7rem;
+        font-weight: 600;
+        padding: 4px 10px;
+        border-radius: 20px;
+        z-index: 3;
+        letter-spacing: 0.5px;
+        backdrop-filter: blur(4px);
+    }
+
+    @keyframes scmc-v-pulse {
+        0%, 100% { box-shadow: 0 0 0 0 rgba(34,139,34,0.3); }
+        50% { box-shadow: 0 0 0 10px rgba(34,139,34,0); }
+    }
+    .scmc-vcard.scmc-v-active {
+        animation: scmc-v-pulse 2s ease-in-out infinite;
+    }
+
+    .scmc-v-reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1);
+    }
+    .scmc-v-reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
     }
 
     /* Market route */
@@ -638,23 +786,55 @@
             </div>
         </section>
 
-        <section class="gbg-section gbg-reveal gbg-section-soft">
+        <section class="gbg-section gbg-section-soft" id="scmc-videos">
             <div class="container">
-                <div class="row justify-content-center mb-5">
-                    <div class="col-lg-8 text-center">
-                        <span class="gbg-eyebrow">Vidéo</span>
-                        <h2 class="gbg-title">Découvrez la mission commerciale de SCMC.</h2>
-                        <p class="gbg-lead">Cette vidéo doit présenter le rôle de SCMC dans la connexion entre les filières durables et les marchés responsables.</p>
+                <div class="row justify-content-center mb-4">
+                    <div class="col-lg-8 text-center scmc-v-reveal">
+                        <span class="gbg-eyebrow">Nos vidéos</span>
+                        <h2 class="gbg-title">La mission commerciale de SCMC en images.</h2>
                     </div>
                 </div>
-                <div class="gbg-video-box">
-                    <img src="assets/img/service/servicev3-2.jpg" alt="Couverture vidéo SCMC">
-                    <div class="gbg-video-content">
-                        <div>
-                            <span class="gbg-play-button"><i class="fa-solid fa-play"></i></span>
-                            <h3>video-scmc-commercialisation.mp4</h3>
-                            <p>Producteurs, produits agricoles, marché, entrepôt, transport, distribution et partenaires.</p>
+                <div class="scmc-video-grid">
+                    <div class="scmc-vcard scmc-v-reveal" style="--i:1" data-vid="0">
+                        <span class="scmc-vcard-badge"><i class="fa-solid fa-play"></i>&nbsp; Vidéo</span>
+                        <div class="scmc-vcard-thumb">
+                            <img src="assets/img/service/servicev3-2.jpg" alt="Commercialisation SCMC">
+                            <div class="scmc-vcard-play"><i class="fa-solid fa-play"></i></div>
+                            <div class="scmc-vcard-play-ring"></div>
                         </div>
+                        <div class="scmc-vcard-info">
+                            <h4>Mission commerciale</h4>
+                            <p>Producteurs, marchés, entrepôt, transport et distribution.</p>
+                        </div>
+                        <div class="scmc-vcard-bar"></div>
+                    </div>
+
+                    <div class="scmc-vcard scmc-v-reveal" style="--i:2" data-vid="1">
+                        <span class="scmc-vcard-badge"><i class="fa-solid fa-play"></i>&nbsp; Vidéo</span>
+                        <div class="scmc-vcard-thumb">
+                            <img src="assets/img/gallery/gl1.jpg" alt="Filière cacao durable">
+                            <div class="scmc-vcard-play"><i class="fa-solid fa-play"></i></div>
+                            <div class="scmc-vcard-play-ring"></div>
+                        </div>
+                        <div class="scmc-vcard-info">
+                            <h4>Filière cacao durable</h4>
+                            <p>Traçabilité et certification des produits agricoles.</p>
+                        </div>
+                        <div class="scmc-vcard-bar"></div>
+                    </div>
+
+                    <div class="scmc-vcard scmc-v-reveal" style="--i:3" data-vid="2">
+                        <span class="scmc-vcard-badge"><i class="fa-solid fa-play"></i>&nbsp; Vidéo</span>
+                        <div class="scmc-vcard-thumb">
+                            <img src="assets/img/gallery/feature5.jpg" alt="Partenaires et marchés">
+                            <div class="scmc-vcard-play"><i class="fa-solid fa-play"></i></div>
+                            <div class="scmc-vcard-play-ring"></div>
+                        </div>
+                        <div class="scmc-vcard-info">
+                            <h4>Partenaires & marchés</h4>
+                            <p>Mise en relation avec les acheteurs responsables.</p>
+                        </div>
+                        <div class="scmc-vcard-bar"></div>
                     </div>
                 </div>
             </div>
@@ -1245,6 +1425,48 @@
             }, {threshold:.2});
             nio.observe(nodes[0].parentElement);
         }
+    })();
+
+    // Video cards: reveal + auto-cycle
+    (function(){
+        var vRevEls = document.querySelectorAll('.scmc-v-reveal');
+        var vIO = new IntersectionObserver(function(entries){
+            entries.forEach(function(e){
+                if(e.isIntersecting){
+                    var d = parseInt(getComputedStyle(e.target).getPropertyValue('--i')) || 0;
+                    setTimeout(function(){ e.target.classList.add('is-visible'); }, d * 150);
+                    vIO.unobserve(e.target);
+                }
+            });
+        }, {threshold: 0.15});
+        vRevEls.forEach(function(el){ vIO.observe(el); });
+
+        var vCards = document.querySelectorAll('.scmc-vcard');
+        if(!vCards.length) return;
+        var vCur = -1, vInt = null, vPaused = false;
+
+        function vActivate(i){
+            vCards.forEach(function(c){ c.classList.remove('scmc-v-active'); });
+            vCards[i].classList.add('scmc-v-active');
+            vCur = i;
+        }
+        function vCycle(){ vActivate((vCur + 1) % vCards.length); }
+        function vStart(){ if(vInt) return; vCycle(); vInt = setInterval(vCycle, 2500); }
+        function vStop(){ clearInterval(vInt); vInt = null; }
+
+        vCards.forEach(function(c, i){
+            c.addEventListener('mouseenter', function(){ vPaused=true; vStop(); vActivate(i); });
+            c.addEventListener('mouseleave', function(){ vPaused=false; vStart(); });
+        });
+
+        var vSecIO = new IntersectionObserver(function(entries){
+            entries.forEach(function(e){
+                if(e.isIntersecting && !vPaused) vStart();
+                else if(!e.isIntersecting) vStop();
+            });
+        }, {threshold: 0.2});
+        var vSec = document.getElementById('scmc-videos');
+        if(vSec) vSecIO.observe(vSec);
     })();
     </script>
 </body>
