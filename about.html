@@ -256,6 +256,148 @@
     }
     .about-model-step.am-active { animation: am-pulse 2s ease-in-out infinite; }
 
+    /* About image mosaic */
+    .about-mosaic {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 200px 200px;
+        gap: 14px;
+    }
+    .about-mosaic-item {
+        position: relative; border-radius: 14px; overflow: hidden;
+        transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease;
+    }
+    .about-mosaic-item:hover {
+        transform: translateY(-6px); box-shadow: 0 16px 44px rgba(19,54,35,0.15);
+        z-index: 2;
+    }
+    .about-mosaic-item img {
+        width: 100%; height: 100%; object-fit: cover; display: block;
+        transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+    }
+    .about-mosaic-item:hover img { transform: scale(1.08); }
+    .about-mosaic-item:nth-child(1) { grid-row: 1 / 3; }
+    .about-mosaic-item::after {
+        content: ''; position: absolute; inset: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 50%);
+        opacity: 0; transition: opacity 0.4s ease; pointer-events: none;
+    }
+    .about-mosaic-item:hover::after { opacity: 1; }
+    .about-mosaic-label {
+        position: absolute; bottom: 12px; left: 12px;
+        background: rgba(34,139,34,0.85); color: #fff;
+        font-size: 0.72rem; font-weight: 600; padding: 4px 12px;
+        border-radius: 20px; z-index: 2; opacity: 0;
+        transform: translateY(8px); transition: opacity 0.3s ease, transform 0.3s ease;
+        backdrop-filter: blur(4px);
+    }
+    .about-mosaic-item:hover .about-mosaic-label {
+        opacity: 1; transform: translateY(0);
+    }
+    @media (max-width: 575px) {
+        .about-mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: 180px 180px; }
+        .about-mosaic-item:nth-child(1) { grid-row: auto; }
+    }
+
+    /* About video section */
+    .about-video-grid {
+        display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+    }
+    @media (max-width: 767px) { .about-video-grid { grid-template-columns: 1fr; } }
+    .about-vcard {
+        position: relative; border-radius: 16px; overflow: hidden;
+        background: #0a1a0a; cursor: pointer;
+        transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease;
+    }
+    .about-vcard:hover, .about-vcard.abv-active {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 50px rgba(34,139,34,0.25);
+    }
+    .about-vcard-thumb {
+        position: relative; height: 260px; overflow: hidden;
+    }
+    .about-vcard-thumb img {
+        width: 100%; height: 100%; object-fit: cover;
+        transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+    }
+    .about-vcard:hover .about-vcard-thumb img,
+    .about-vcard.abv-active .about-vcard-thumb img { transform: scale(1.1); }
+    .about-vcard-thumb::after {
+        content: ''; position: absolute; inset: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.1) 60%, transparent 100%);
+        pointer-events: none;
+    }
+    .about-vcard-play {
+        position: absolute; top: 50%; left: 50%;
+        transform: translate(-50%,-50%); width: 64px; height: 64px;
+        border-radius: 50%; background: linear-gradient(135deg, #228B22, #2ecc40);
+        display: flex; align-items: center; justify-content: center; z-index: 2;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .about-vcard-play i { color: #fff; font-size: 20px; margin-left: 3px; }
+    .about-vcard:hover .about-vcard-play,
+    .about-vcard.abv-active .about-vcard-play {
+        transform: translate(-50%,-50%) scale(1.15);
+        box-shadow: 0 0 0 14px rgba(34,139,34,0.2);
+    }
+    .about-vcard-play-ring {
+        position: absolute; top: 50%; left: 50%; width: 64px; height: 64px;
+        border-radius: 50%; border: 2px solid rgba(46,204,64,0.4);
+        transform: translate(-50%,-50%) scale(1); opacity: 0; z-index: 1; pointer-events: none;
+    }
+    .about-vcard.abv-active .about-vcard-play-ring {
+        animation: abv-ring 2s ease-out infinite;
+    }
+    @keyframes abv-ring {
+        0% { transform: translate(-50%,-50%) scale(1); opacity: 0.6; }
+        100% { transform: translate(-50%,-50%) scale(2.2); opacity: 0; }
+    }
+    .about-vcard-info { padding: 18px 20px; }
+    .about-vcard-info h4 { color: #fff; font-size: 1.05rem; font-weight: 700; margin: 0 0 6px; }
+    .about-vcard-info p { color: rgba(255,255,255,0.55); font-size: 0.82rem; margin: 0; line-height: 1.5; }
+    .about-vcard-bar {
+        position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+        background: linear-gradient(90deg, transparent, #228B22, #2ecc40, #228B22, transparent);
+        opacity: 0; transition: opacity 0.4s ease;
+    }
+    .about-vcard:hover .about-vcard-bar,
+    .about-vcard.abv-active .about-vcard-bar { opacity: 1; }
+    .about-vcard-badge {
+        position: absolute; top: 14px; left: 14px;
+        background: rgba(34,139,34,0.85); color: #fff; font-size: 0.72rem;
+        font-weight: 600; padding: 5px 12px; border-radius: 20px; z-index: 3;
+        letter-spacing: 0.5px; backdrop-filter: blur(4px);
+    }
+    @keyframes abv-pulse {
+        0%, 100% { box-shadow: 0 0 0 0 rgba(34,139,34,0.3); }
+        50% { box-shadow: 0 0 0 10px rgba(34,139,34,0); }
+    }
+    .about-vcard.abv-active { animation: abv-pulse 2s ease-in-out infinite; }
+
+    /* Intro image */
+    .about-intro-img {
+        position: relative; border-radius: 18px; overflow: hidden;
+        box-shadow: 0 20px 60px rgba(19,54,35,0.14);
+    }
+    .about-intro-img img {
+        width: 100%; height: 380px; object-fit: cover; display: block;
+        transition: transform 0.8s cubic-bezier(0.16,1,0.3,1);
+    }
+    .about-intro-img:hover img { transform: scale(1.05); }
+    .about-intro-img::after {
+        content: ''; position: absolute; inset: 0;
+        background: linear-gradient(to top, rgba(13,40,24,0.6) 0%, transparent 50%);
+        pointer-events: none;
+    }
+    .about-intro-img-label {
+        position: absolute; bottom: 20px; left: 20px; z-index: 2;
+        color: #fff; font-weight: 700; font-size: 1.1rem;
+    }
+    .about-intro-img-label span {
+        display: block; font-weight: 400; font-size: 0.82rem;
+        color: rgba(255,255,255,0.7); margin-top: 4px;
+    }
+
     /* Scroll reveal */
     .about-reveal {
         opacity: 0; transform: translateY(28px);
@@ -529,15 +671,13 @@
                         </div>
                     </div>
                     <div class="col-lg-6 about-reveal" style="--i:1">
-                        <p class="gbg-lead">
-                            Global Business Group SA est un groupe engagé dans la transformation durable des filières
-                            agricoles et agroalimentaires. Il coordonne plusieurs sociétés spécialisées qui interviennent
-                            à différents niveaux de la chaîne de valeur.
-                        </p>
-                        <p class="gbg-text">
-                            GBG n'est pas une simple structure administrative. C'est une plateforme stratégique qui relie
-                            expertise terrain, innovation, durabilité, transformation économique et accès aux marchés.
-                        </p>
+                        <div class="about-intro-img">
+                            <img src="assets/img/gbcc/equipe.jpg" alt="Équipe Global Business Group">
+                            <div class="about-intro-img-label">
+                                Notre équipe sur le terrain
+                                <span>Engagement, expertise et proximité</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -575,19 +715,105 @@
         <section class="gbg-section gbg-section-dark">
             <div class="container">
                 <div class="row g-5 align-items-center">
-                    <div class="col-lg-5">
-                        <span class="gbg-eyebrow">Le role de GBG</span>
+                    <div class="col-lg-5 about-reveal">
+                        <span class="gbg-eyebrow">Le rôle de GBG</span>
                         <h2 class="gbg-title">Coordonner, structurer et connecter.</h2>
-                    </div>
-                    <div class="col-lg-7">
                         <p class="gbg-lead">
-                            GBG assure la vision stratégique, la coordination institutionnelle, la coherence des actions,
-                            le développement des partenariats et la synergie entre ses differentes sociétés.
+                            GBG assure la vision stratégique, la coordination institutionnelle, la cohérence des actions,
+                            le développement des partenariats et la synergie entre ses différentes sociétés.
                         </p>
-                        <p class="gbg-text">
-                            Le groupe veille a ce que chaque entite contribue a une vision commune : créer une chaîne de
-                            valeur plus durable, plus équitable, plus traçable et plus performante.
-                        </p>
+                    </div>
+                    <div class="col-lg-7 about-reveal" style="--i:1">
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <div style="border-radius:14px;overflow:hidden;height:200px;">
+                                    <img src="assets/img/gbcc/DG-004.jpg" alt="Direction GBG" style="width:100%;height:100%;object-fit:cover;transition:transform .6s ease;">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div style="border-radius:14px;overflow:hidden;height:200px;">
+                                    <img src="assets/img/service/servicev3-3.jpg" alt="Industrie KIC" style="width:100%;height:100%;object-fit:cover;transition:transform .6s ease;">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div style="border-radius:14px;overflow:hidden;height:180px;">
+                                    <img src="assets/img/gbcc/two-trucks-on-plant-field-scaled.jpg" alt="Terrain agricole" style="width:100%;height:100%;object-fit:cover;transition:transform .6s ease;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gbg-section gbg-section-soft">
+            <div class="container">
+                <div class="row justify-content-center mb-4">
+                    <div class="col-lg-8 text-center about-reveal">
+                        <span class="gbg-eyebrow">En images</span>
+                        <h2 class="gbg-title">GBG sur le terrain et dans l'action.</h2>
+                    </div>
+                </div>
+                <div class="about-mosaic">
+                    <div class="about-mosaic-item about-reveal" style="--i:0">
+                        <img src="assets/img/gbcc/DG sur terrain.jpeg" alt="DG sur le terrain">
+                        <span class="about-mosaic-label">Direction sur le terrain</span>
+                    </div>
+                    <div class="about-mosaic-item about-reveal" style="--i:1">
+                        <img src="assets/img/gallery/gl1.jpg" alt="Cacao durable">
+                        <span class="about-mosaic-label">Cacao durable</span>
+                    </div>
+                    <div class="about-mosaic-item about-reveal" style="--i:2">
+                        <img src="assets/img/gbcc/DG-partenaire.jpg" alt="Partenariat">
+                        <span class="about-mosaic-label">Partenariats</span>
+                    </div>
+                    <div class="about-mosaic-item about-reveal" style="--i:3">
+                        <img src="assets/img/service/servicev3-2.jpg" alt="Commercialisation">
+                        <span class="about-mosaic-label">Commercialisation</span>
+                    </div>
+                    <div class="about-mosaic-item about-reveal" style="--i:4">
+                        <img src="assets/img/about/feature-video02.jpg" alt="Transformation">
+                        <span class="about-mosaic-label">Transformation du cacao</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gbg-section" id="about-videos">
+            <div class="container">
+                <div class="row justify-content-center mb-4">
+                    <div class="col-lg-8 text-center about-reveal">
+                        <span class="gbg-eyebrow">Nos vidéos</span>
+                        <h2 class="gbg-title">Découvrez GBG en mouvement.</h2>
+                    </div>
+                </div>
+                <div class="about-video-grid">
+                    <div class="about-vcard about-reveal" style="--i:0" data-abv="0">
+                        <span class="about-vcard-badge"><i class="fa-solid fa-play"></i>&nbsp; Vidéo</span>
+                        <div class="about-vcard-thumb">
+                            <img src="assets/img/banner/hero-3.jpg" alt="Vision GBG">
+                            <div class="about-vcard-play"><i class="fa-solid fa-play"></i></div>
+                            <div class="about-vcard-play-ring"></div>
+                        </div>
+                        <div class="about-vcard-info">
+                            <h4>Vision & stratégie du groupe</h4>
+                            <p>Découvrez comment GBG coordonne ses entités pour transformer durablement les filières agricoles en Côte d'Ivoire.</p>
+                        </div>
+                        <div class="about-vcard-bar"></div>
+                    </div>
+
+                    <div class="about-vcard about-reveal" style="--i:1" data-abv="1">
+                        <span class="about-vcard-badge"><i class="fa-solid fa-play"></i>&nbsp; Vidéo</span>
+                        <div class="about-vcard-thumb">
+                            <img src="assets/img/gbcc/DG-01.jpg" alt="Impact terrain">
+                            <div class="about-vcard-play"><i class="fa-solid fa-play"></i></div>
+                            <div class="about-vcard-play-ring"></div>
+                        </div>
+                        <div class="about-vcard-info">
+                            <h4>Impact sur le terrain</h4>
+                            <p>Notre engagement auprès des producteurs, coopératives et communautés pour des filières plus responsables.</p>
+                        </div>
+                        <div class="about-vcard-bar"></div>
                     </div>
                 </div>
             </div>
@@ -1624,6 +1850,28 @@
             },{threshold:0.2});
             var mSec = document.getElementById('about-model');
             if(mSec) mIO.observe(mSec);
+        }
+
+        // Video cards auto-cycle
+        var abvCards = document.querySelectorAll('.about-vcard');
+        if(abvCards.length){
+            var abi=-1, abInt=null, abPaused=false;
+            function abAct(i){ abvCards.forEach(function(c){c.classList.remove('abv-active');}); abvCards[i].classList.add('abv-active'); abi=i; }
+            function abCyc(){ abAct((abi+1)%abvCards.length); }
+            function abStart(){ if(abInt)return; abCyc(); abInt=setInterval(abCyc,3000); }
+            function abStop(){ clearInterval(abInt); abInt=null; }
+            abvCards.forEach(function(c,i){
+                c.addEventListener('mouseenter',function(){abPaused=true;abStop();abAct(i);});
+                c.addEventListener('mouseleave',function(){abPaused=false;abStart();});
+            });
+            var abIO = new IntersectionObserver(function(entries){
+                entries.forEach(function(e){
+                    if(e.isIntersecting&&!abPaused)abStart();
+                    else if(!e.isIntersecting)abStop();
+                });
+            },{threshold:0.2});
+            var abSec = document.getElementById('about-videos');
+            if(abSec) abIO.observe(abSec);
         }
     })();
     </script>
