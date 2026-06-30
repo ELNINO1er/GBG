@@ -417,9 +417,14 @@
     .gbg-footer-bottom a{color:rgba(255,255,255,0.55)!important;text-decoration:none!important;transition:color .3s ease!important}
     .gbg-footer-bottom a:hover{color:#2ecc40!important}
     .gbg-footer-bottom-links{display:flex!important;gap:20px!important;list-style:none!important;margin:0!important;padding:0!important}
-    .gbg-footer-reveal{opacity:1!important;transform:translateY(0)!important;transition:opacity .6s cubic-bezier(0.16,1,0.3,1),transform .6s cubic-bezier(0.16,1,0.3,1)!important}
-    .gbg-footer-reveal.is-visible,.gbg-footer-reveal.is-footer-visible{opacity:1!important;transform:translateY(0)!important}
     @media(max-width:767px){.gbg-footer-bottom{flex-direction:column!important;text-align:center!important}.gbg-footer-bottom-links{justify-content:center!important}}
+
+    /* Values auto-cycling */
+    .scmc-value-card{transition:transform .4s cubic-bezier(.16,1,.3,1),box-shadow .4s ease,border-color .4s ease}
+    .scmc-value-card.scmc-value-active{transform:translateY(-8px) scale(1.05);box-shadow:0 12px 32px rgba(0,0,0,.12);border-color:var(--p1)!important}
+    .scmc-value-card.scmc-value-active i{color:var(--p1)!important;transform:scale(1.15);transition:transform .3s ease}
+    .scmc-values-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1.5rem}
+    @media(max-width:767px){.scmc-values-grid{grid-template-columns:repeat(2,1fr)}}
     </style>
 </head>
 
@@ -659,174 +664,174 @@
     </section>
 
     <main class="gbg-entity-page scmc-market-page">
+        <!-- Hero Section -->
         <section class="gbg-entity-hero entity-scmc">
             <div class="container">
                 <span class="gbg-eyebrow">Sustainable Commodities Marketing Company</span>
-                <h1 class="gbg-title">SCMC connecte les produits durables aux marchés responsables.</h1>
-                <p class="gbg-lead">Sustainable Commodities Marketing Company accompagne la commercialisation des produits agricoles durables, certifiés et traçables issus des filières responsables soutenues par le groupe GBG.</p>
-                <p class="gbg-text">SCMC agit comme le bras commercial de Global Business Group. Elle facilite l'accès aux marchés, renforce la visibilité des produits responsables, développe des partenariats commerciaux et contribue à une meilleure valorisation économique des productions durables.</p>
+                <h1 class="gbg-title">Construire une agriculture durable, cr&eacute;atrice de valeur et de prosp&eacute;rit&eacute; pour les producteurs africains.</h1>
+                <p class="gbg-lead">Sustainable Commodities Marketing Company d&eacute;veloppe, commercialise et valorise des produits agricoles durables issus de cha&icirc;nes de valeur responsables, avec une ambition forte : am&eacute;liorer les revenus des producteurs, renforcer la souverainet&eacute; alimentaire et connecter les fili&egrave;res agricoles africaines aux march&eacute;s.</p>
                 <div class="gbg-actions">
-                    <a href="#scmc-catalogue" class="gbg-btn">Voir nos produits <i class="fa-solid fa-arrow-right"></i></a>
-                    <a href="contact.html" class="gbg-btn gbg-btn-outline">Devenir partenaire</a>
+                    <a href="#scmc-activites" class="gbg-btn">D&eacute;couvrir nos activit&eacute;s <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="contact.html" class="gbg-btn gbg-btn-outline">Contacter SCMC</a>
                 </div>
             </div>
         </section>
 
+        <!-- Pr&eacute;sentation -->
         <section class="gbg-section gbg-reveal gbg-section-soft">
             <div class="container">
                 <div class="row justify-content-center mb-5">
                     <div class="col-lg-9 text-center">
-                        <span class="gbg-eyebrow">Le rôle commercial de SCMC</span>
-                        <h2 class="gbg-title">Transformer la durabilité en flux commerciaux organisés.</h2>
-                        <p class="gbg-lead">SCMC n'est pas une page institutionnelle : c'est le point de passage entre les filières durables, les produits qualifiés et les marchés capables de reconnaître leur valeur.</p>
+                        <span class="gbg-eyebrow">Qui sommes-nous</span>
+                        <h2 class="gbg-title">Une entreprise au c&oelig;ur des cha&icirc;nes de valeur agricoles durables.</h2>
                     </div>
                 </div>
-                <div class="gbg-mini-grid">
-                    <div class="gbg-mini-card gbg-reveal"><i class="fa-solid fa-magnifying-glass-chart"></i><h3>Identifier</h3><p class="gbg-text">Repérer les produits agricoles durables, certifiés, traçables ou issus de la diversification.</p></div>
-                    <div class="gbg-mini-card gbg-reveal"><i class="fa-solid fa-boxes-stacked"></i><h3>Structurer l'offre</h3><p class="gbg-text">Rendre l'offre lisible pour les acheteurs, distributeurs, transformateurs et institutions.</p></div>
-                    <div class="gbg-mini-card gbg-reveal"><i class="fa-solid fa-handshake"></i><h3>Connecter</h3><p class="gbg-text">Créer des passerelles commerciales entre producteurs, coopératives et marchés responsables.</p></div>
-                </div>
-            </div>
-        </section>
-
-        <section class="gbg-section gbg-reveal">
-            <div class="container">
-                <div class="row g-4">
-                    <div class="col-lg-6"><div class="gbg-card gbg-reveal p-5 h-100"><span class="gbg-eyebrow">Mission</span><h3>Faciliter l'accès aux marchés.</h3><p class="gbg-text">Faciliter l'accès aux marchés pour les produits durables, certifiés et traçables, tout en contribuant à l'amélioration de la valeur générée pour les producteurs et les partenaires.</p></div></div>
-                    <div class="col-lg-6"><div class="gbg-card gbg-reveal p-5 h-100"><span class="gbg-eyebrow">Vision</span><h3>Commercialisation responsable.</h3><p class="gbg-text">Devenir un acteur de référence dans la commercialisation responsable des produits agricoles durables issus d'Afrique de l'Ouest.</p></div></div>
-                </div>
-            </div>
-        </section>
-
-        <section class="gbg-section gbg-reveal">
-            <div class="container">
                 <div class="row g-5 align-items-center">
-                    <div class="col-lg-5">
-                        <span class="gbg-eyebrow">Carte des marchés</span>
-                        <h2 class="gbg-title">Des filières locales aux marchés structurés.</h2>
-                        <p class="gbg-lead">Les pays exacts et marchés cibles restent à confirmer, mais la logique commerciale est claire : organiser le passage du produit responsable vers l'acheteur qualifié.</p>
+                    <div class="col-lg-6">
+                        <p class="gbg-lead">SCMC est une entreprise ivoirienne sp&eacute;cialis&eacute;e dans le d&eacute;veloppement, la commercialisation et la transformation durable des produits agricoles. Elle intervient principalement dans les cha&icirc;nes de valeur du cacao, des cultures mara&icirc;ch&egrave;res et des intrants agricoles.</p>
+                        <p class="gbg-text">Au sein de l'&eacute;cosyst&egrave;me Global Business Group, SCMC joue un r&ocirc;le strat&eacute;gique : elle transforme les efforts de durabilit&eacute;, de certification et de diversification agricole en opportunit&eacute;s &eacute;conomiques concr&egrave;tes. Elle agit comme un pont entre les producteurs, les coop&eacute;ratives, les investisseurs, les institutions, les acheteurs et les march&eacute;s.</p>
+                        <p class="gbg-text">SCMC d&eacute;veloppe des solutions int&eacute;gr&eacute;es fond&eacute;es sur la durabilit&eacute; environnementale, la tra&ccedil;abilit&eacute;, la diversification agricole et l'inclusion &eacute;conomique des petits producteurs.</p>
                     </div>
-                    <div class="col-lg-7">
-                        <div class="market-route">
-                            <div class="market-node-grid">
-                                <div class="market-node"><strong>Producteurs</strong><br>Origine terrain</div>
-                                <div class="market-node"><strong>Coopératives</strong><br>Organisation</div>
-                                <div class="market-node"><strong>SCMC</strong><br>Structuration</div>
-                                <div class="market-node"><strong>Acheteurs</strong><br>B2B</div>
-                                <div class="market-node"><strong>Marchés</strong><br>À confirmer</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="gbg-section gbg-reveal" id="scmc-catalogue">
-            <div class="container">
-                <div class="row justify-content-center mb-5"><div class="col-lg-8 text-center"><span class="gbg-eyebrow">Catalogue B2B</span><h2 class="gbg-title">Produits durables à commercialiser.</h2><p class="gbg-lead">Une présentation orientée acheteurs, distributeurs, coopératives et partenaires.</p></div></div>
-                <div class="row g-4">
-                    <div class="col-lg-3 col-md-6"><div class="market-catalog-card gbg-reveal"><img src="assets/img/gallery/gl1.jpg" alt="Cacao"><div class="body"><span class="gbg-tag">Cacao</span><h3>Cacao durable</h3><p class="gbg-text">Type : produit agricole certifiable.</p><a href="contact.html">Demander une information</a></div></div></div>
-                    <div class="col-lg-3 col-md-6"><div class="market-catalog-card gbg-reveal"><img src="assets/img/gallery/feature5.jpg" alt="Maïs"><div class="body"><span class="gbg-tag">À confirmer</span><h3>Maïs</h3><p class="gbg-text">Type : produit vivrier.</p><a href="contact.html">Demander une information</a></div></div></div>
-                    <div class="col-lg-3 col-md-6"><div class="market-catalog-card gbg-reveal"><img src="assets/img/gallery/mg3.jpg" alt="Maraîchers"><div class="body"><span class="gbg-tag">À confirmer</span><h3>Produits maraîchers</h3><p class="gbg-text">Type : diversification agricole.</p><a href="contact.html">Demander une information</a></div></div></div>
-                    <div class="col-lg-3 col-md-6"><div class="market-catalog-card gbg-reveal"><img src="assets/img/gbcc/le logo de la certification .jpg" alt="Certifiés"><div class="body"><span class="gbg-tag">Certifiés</span><h3>Produits traçables</h3><p class="gbg-text">Statut et volumes : à confirmer.</p><a href="contact.html">Demander une information</a></div></div></div>
-                </div>
-            </div>
-        </section>
-
-        <section class="gbg-section gbg-reveal gbg-section-soft">
-            <div class="container">
-                <div class="row g-4">
-                    <div class="col-lg-8">
-                        <span class="gbg-eyebrow">Espace partenaires</span>
-                        <h2 class="gbg-title">Une page pensée pour les profils B2B.</h2>
-                        <div class="gbg-mini-grid mt-4">
-                            <div class="gbg-mini-card gbg-reveal"><i class="fa-solid fa-cart-shopping"></i><h3>Acheteur</h3><p class="gbg-text">Découvrez les produits durables disponibles ou à qualifier.</p></div>
-                            <div class="gbg-mini-card gbg-reveal"><i class="fa-solid fa-people-roof"></i><h3>Coopérative</h3><p class="gbg-text">Valorisez vos productions avec une approche marché.</p></div>
-                            <div class="gbg-mini-card gbg-reveal"><i class="fa-solid fa-building-columns"></i><h3>Institution</h3><p class="gbg-text">Construisons des circuits commerciaux responsables.</p></div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4"><div class="gbg-note"><strong>À compléter :</strong> marchés ciblés, conditions commerciales, volumes, certifications, partenaires, logistique et contacts spécifiques.</div></div>
-                </div>
-            </div>
-        </section>
-
-        <section class="gbg-section gbg-reveal">
-            <div class="container">
-                <div class="row g-5 align-items-center">
                     <div class="col-lg-6">
                         <div class="gbg-media-card gbg-reveal-scale">
-                            <img src="assets/img/gbcc/two-trucks-on-plant-field-scaled.jpg" alt="Logistique et produits durables">
+                            <img src="assets/img/service/servicev3-2.jpg" alt="SCMC - Cha&icirc;nes de valeur agricoles durables">
                             <div class="gbg-media-overlay">
-                                <span class="gbg-tag">Storytelling</span>
-                                <h3>De la production durable au marché</h3>
+                                <span class="gbg-tag">SCMC</span>
+                                <h3>Agriculture durable</h3>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <span class="gbg-eyebrow">Histoire commerciale</span>
-                        <h2 class="gbg-title">La durabilité devient utile quand elle ouvre des débouchés.</h2>
-                        <p class="gbg-lead">La durabilité n'a d'impact réel que lorsqu'elle permet aux producteurs d'accéder à des opportunités concrètes. SCMC transforme les produits agricoles responsables en propositions commerciales lisibles, fiables et valorisables.</p>
-                        <div class="gbg-mini-grid mt-4">
-                            <div class="gbg-mini-card gbg-reveal"><i class="fa-solid fa-people-group"></i><h3>Producteurs</h3><p class="gbg-text">Des organisations accompagnées et mieux structurées.</p></div>
-                            <div class="gbg-mini-card gbg-reveal"><i class="fa-solid fa-seedling"></i><h3>Produits durables</h3><p class="gbg-text">Des productions certifiées, traçables ou issues de la diversification.</p></div>
-                            <div class="gbg-mini-card gbg-reveal"><i class="fa-solid fa-globe"></i><h3>Marchés</h3><p class="gbg-text">Des débouchés locaux, régionaux et internationaux à confirmer.</p></div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Vision & Mission -->
+        <section class="gbg-section gbg-reveal">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="gbg-card gbg-reveal p-5 h-100">
+                            <i class="fa-solid fa-eye fa-2x mb-3" style="color:var(--p1);"></i>
+                            <span class="gbg-eyebrow">Vision</span>
+                            <h3>Leadership africain</h3>
+                            <p class="gbg-text">Devenir un leader africain des cha&icirc;nes de valeur agricoles durables, en cr&eacute;ant un mod&egrave;le &eacute;conomique inclusif qui g&eacute;n&egrave;re de la valeur ajout&eacute;e au profit des producteurs, des communaut&eacute;s rurales et des investisseurs.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="gbg-card gbg-reveal p-5 h-100">
+                            <i class="fa-solid fa-bullseye fa-2x mb-3" style="color:var(--p1);"></i>
+                            <span class="gbg-eyebrow">Mission</span>
+                            <h3>Fili&egrave;res durables et rentables</h3>
+                            <p class="gbg-text">D&eacute;velopper des fili&egrave;res agricoles durables et rentables, capables de cr&eacute;er une valeur durable pour les producteurs et les march&eacute;s.</p>
+                            <ul class="gbg-text mt-3" style="padding-left:1.2em;">
+                                <li>Am&eacute;liorer les revenus des producteurs gr&acirc;ce &agrave; la diversification agricole</li>
+                                <li>Promouvoir la transformation locale des mati&egrave;res premi&egrave;res agricoles</li>
+                                <li>Faciliter l'acc&egrave;s des producteurs aux march&eacute;s nationaux et internationaux</li>
+                                <li>Fournir des intrants agricoles de qualit&eacute; et des services techniques adapt&eacute;s</li>
+                                <li>Contribuer &agrave; la souverainet&eacute; alimentaire et au d&eacute;veloppement des communaut&eacute;s rurales</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Domaines d'activit&eacute;s -->
+        <section class="gbg-section gbg-reveal gbg-section-soft" id="scmc-activites">
+            <div class="container">
+                <div class="row justify-content-center mb-5">
+                    <div class="col-lg-9 text-center">
+                        <span class="gbg-eyebrow">Nos domaines d'activit&eacute;s</span>
+                        <h2 class="gbg-title">Quatre piliers pour une agriculture durable et rentable.</h2>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="gbg-card gbg-reveal p-5 h-100" style="--i:1">
+                            <i class="fa-solid fa-store fa-2x mb-3" style="color:var(--p1);"></i>
+                            <h3>Commercialisation des produits agricoles</h3>
+                            <p class="gbg-text">SCMC ach&egrave;te, collecte et commercialise diff&eacute;rentes mati&egrave;res premi&egrave;res agricoles, notamment le cacao et ses produits d&eacute;riv&eacute;s, le ma&iuml;s, les produits mara&icirc;chers et les autres cultures vivri&egrave;res ou de diversification. Cette activit&eacute; permet de donner aux producteurs un acc&egrave;s plus structur&eacute; aux march&eacute;s et de valoriser les productions issues de fili&egrave;res durables.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="gbg-card gbg-reveal p-5 h-100" style="--i:2">
+                            <i class="fa-solid fa-seedling fa-2x mb-3" style="color:var(--p1);"></i>
+                            <h3>Diversification agricole</h3>
+                            <p class="gbg-text">SCMC met en &oelig;uvre le programme Diversification Package, qui vise &agrave; r&eacute;duire la d&eacute;pendance des producteurs au cacao, cr&eacute;er des revenus compl&eacute;mentaires tout au long de l'ann&eacute;e et renforcer la s&eacute;curit&eacute; alimentaire des m&eacute;nages ruraux.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="gbg-card gbg-reveal p-5 h-100" style="--i:3">
+                            <i class="fa-solid fa-tractor fa-2x mb-3" style="color:var(--p1);"></i>
+                            <h3>Fourniture d'intrants et services agricoles</h3>
+                            <p class="gbg-text">SCMC fournit des semences am&eacute;lior&eacute;es, des engrais et fertilisants, des produits phytosanitaires homologu&eacute;s, des &eacute;quipements agricoles, ainsi qu'une assistance technique adapt&eacute;e aux besoins des producteurs.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="gbg-card gbg-reveal p-5 h-100" style="--i:4">
+                            <i class="fa-solid fa-industry fa-2x mb-3" style="color:var(--p1);"></i>
+                            <h3>Transformation agro-industrielle</h3>
+                            <p class="gbg-text">SCMC ambitionne de d&eacute;velopper des unit&eacute;s de transformation pour valoriser les produits d&eacute;riv&eacute;s du cacao, les fruits et l&eacute;gumes, ainsi que les produits alimentaires destin&eacute;s aux march&eacute;s locaux et internationaux.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mod&egrave;le d'intervention -->
         <section class="gbg-section gbg-reveal gbg-section-dark">
             <div class="container">
                 <div class="row justify-content-center mb-5">
-                    <div class="col-lg-8 text-center">
-                        <span class="gbg-eyebrow">Processus commercial</span>
-                        <h2 class="gbg-title">Organiser la circulation de la valeur.</h2>
-                        <p class="gbg-lead">SCMC structure le passage entre les filières accompagnées et les marchés capables de reconnaître leur valeur durable.</p>
+                    <div class="col-lg-9 text-center">
+                        <span class="gbg-eyebrow">Notre mod&egrave;le</span>
+                        <h2 class="gbg-title">Un r&eacute;seau de partenaires pour des cha&icirc;nes de valeur durables.</h2>
+                        <p class="gbg-lead">SCMC travaille en partenariat avec plusieurs cat&eacute;gories d'acteurs pour connecter la production, la commercialisation, la transformation et l'investissement.</p>
                     </div>
                 </div>
                 <div class="gbg-chain">
-                    <div class="gbg-chain-step"><span>01</span>Identification des produits</div>
-                    <div class="gbg-chain-step"><span>02</span>Qualification durable</div>
-                    <div class="gbg-chain-step"><span>03</span>Organisation commerciale</div>
-                    <div class="gbg-chain-step"><span>04</span>Mise en relation acheteurs</div>
-                    <div class="gbg-chain-step"><span>05</span>Distribution et suivi</div>
-                    <div class="gbg-chain-step"><span>06</span>Valorisation économique</div>
-                    <div class="gbg-chain-step"><span>07</span>Retours marché</div>
-                    <div class="gbg-chain-step"><span>08</span>Amélioration continue</div>
+                    <div class="gbg-chain-step" style="--i:1"><span><i class="fa-solid fa-people-group"></i></span>Organisations de producteurs</div>
+                    <div class="gbg-chain-step" style="--i:2"><span><i class="fa-solid fa-people-roof"></i></span>Coop&eacute;ratives agricoles</div>
+                    <div class="gbg-chain-step" style="--i:3"><span><i class="fa-solid fa-building-columns"></i></span>Institutions financi&egrave;res</div>
+                    <div class="gbg-chain-step" style="--i:4"><span><i class="fa-solid fa-hands-helping"></i></span>Acteurs du d&eacute;veloppement</div>
+                    <div class="gbg-chain-step" style="--i:5"><span><i class="fa-solid fa-chart-pie"></i></span>Investisseurs priv&eacute;s</div>
+                    <div class="gbg-chain-step" style="--i:6"><span><i class="fa-solid fa-globe"></i></span>Acheteurs nationaux et internationaux</div>
                 </div>
             </div>
         </section>
 
-        <section class="gbg-section gbg-reveal">
+        <!-- Nos valeurs -->
+        <section class="gbg-section gbg-reveal" id="scmc-valeurs">
             <div class="container">
                 <div class="row justify-content-center mb-5">
-                    <div class="col-lg-8 text-center">
-                        <span class="gbg-eyebrow">Galerie produits</span>
-                        <h2 class="gbg-title">Des familles de produits à valoriser.</h2>
+                    <div class="col-lg-9 text-center">
+                        <span class="gbg-eyebrow">Nos valeurs</span>
+                        <h2 class="gbg-title">Les fondements de notre action.</h2>
                     </div>
                 </div>
-                <div class="gbg-gallery-grid">
-                    <div class="gbg-gallery-item gbg-reveal-scale"><img src="assets/img/gallery/gl1.jpg" alt="Cacao durable"><span>Cacao durable</span></div>
-                    <div class="gbg-gallery-item gbg-reveal-scale"><img src="assets/img/gallery/feature5.jpg" alt="Produits vivriers"><span>Produits vivriers</span></div>
-                    <div class="gbg-gallery-item gbg-reveal-scale"><img src="assets/img/gallery/mg3.jpg" alt="Produits maraîchers"><span>Produits maraîchers</span></div>
-                    <div class="gbg-gallery-item gbg-reveal-scale"><img src="assets/img/gbcc/le logo de la certification .jpg" alt="Produits certifiés"><span>Produits certifiés</span></div>
+                <div class="gbg-mini-grid scmc-values-grid">
+                    <div class="gbg-mini-card gbg-reveal scmc-value-card" style="--i:1"><i class="fa-solid fa-leaf"></i><h3>Durabilit&eacute;</h3></div>
+                    <div class="gbg-mini-card gbg-reveal scmc-value-card" style="--i:2"><i class="fa-solid fa-shield-halved"></i><h3>Int&eacute;grit&eacute;</h3></div>
+                    <div class="gbg-mini-card gbg-reveal scmc-value-card" style="--i:3"><i class="fa-solid fa-lightbulb"></i><h3>Innovation</h3></div>
+                    <div class="gbg-mini-card gbg-reveal scmc-value-card" style="--i:4"><i class="fa-solid fa-award"></i><h3>Excellence</h3></div>
+                    <div class="gbg-mini-card gbg-reveal scmc-value-card" style="--i:5"><i class="fa-solid fa-people-group"></i><h3>Inclusion</h3></div>
+                    <div class="gbg-mini-card gbg-reveal scmc-value-card" style="--i:6"><i class="fa-solid fa-heart"></i><h3>Responsabilit&eacute; sociale</h3></div>
+                    <div class="gbg-mini-card gbg-reveal scmc-value-card" style="--i:7"><i class="fa-solid fa-eye"></i><h3>Transparence</h3></div>
                 </div>
-                <p class="gbg-note mt-4">Images spécifiques recommandées : image-scmc-cacao.jpg, image-scmc-mais.jpg, image-scmc-produits-maraichers.jpg, image-scmc-produits-certifies.jpg.</p>
             </div>
         </section>
 
+        <!-- Vid&eacute;os (section conserv&eacute;e) -->
         <section class="gbg-section gbg-section-soft" id="scmc-videos">
             <div class="container">
                 <div class="row justify-content-center mb-4">
                     <div class="col-lg-8 text-center scmc-v-reveal">
-                        <span class="gbg-eyebrow">Nos vidéos</span>
+                        <span class="gbg-eyebrow">Nos vid&eacute;os</span>
                         <h2 class="gbg-title">La mission commerciale de SCMC en images.</h2>
                     </div>
                 </div>
                 <div class="scmc-video-grid">
                     <div class="scmc-vcard scmc-v-reveal" style="--i:1" data-vid="0">
-                        <span class="scmc-vcard-badge"><i class="fa-solid fa-play"></i>&nbsp; Vidéo</span>
+                        <span class="scmc-vcard-badge"><i class="fa-solid fa-play"></i>&nbsp; Vid&eacute;o</span>
                         <div class="scmc-vcard-thumb">
                             <img src="assets/img/service/servicev3-2.jpg" alt="Commercialisation SCMC">
                             <div class="scmc-vcard-play"><i class="fa-solid fa-play"></i></div>
@@ -834,34 +839,34 @@
                         </div>
                         <div class="scmc-vcard-info">
                             <h4>Mission commerciale</h4>
-                            <p>Producteurs, marchés, entrepôt, transport et distribution.</p>
+                            <p>Producteurs, march&eacute;s, entrep&ocirc;t, transport et distribution.</p>
                         </div>
                         <div class="scmc-vcard-bar"></div>
                     </div>
 
                     <div class="scmc-vcard scmc-v-reveal" style="--i:2" data-vid="1">
-                        <span class="scmc-vcard-badge"><i class="fa-solid fa-play"></i>&nbsp; Vidéo</span>
+                        <span class="scmc-vcard-badge"><i class="fa-solid fa-play"></i>&nbsp; Vid&eacute;o</span>
                         <div class="scmc-vcard-thumb">
-                            <img src="assets/img/gallery/gl1.jpg" alt="Filière cacao durable">
+                            <img src="assets/img/gallery/gl1.jpg" alt="Fili&egrave;re cacao durable">
                             <div class="scmc-vcard-play"><i class="fa-solid fa-play"></i></div>
                             <div class="scmc-vcard-play-ring"></div>
                         </div>
                         <div class="scmc-vcard-info">
-                            <h4>Filière cacao durable</h4>
-                            <p>Traçabilité et certification des produits agricoles.</p>
+                            <h4>Fili&egrave;re cacao durable</h4>
+                            <p>Tra&ccedil;abilit&eacute; et certification des produits agricoles.</p>
                         </div>
                         <div class="scmc-vcard-bar"></div>
                     </div>
 
                     <div class="scmc-vcard scmc-v-reveal" style="--i:3" data-vid="2">
-                        <span class="scmc-vcard-badge"><i class="fa-solid fa-play"></i>&nbsp; Vidéo</span>
+                        <span class="scmc-vcard-badge"><i class="fa-solid fa-play"></i>&nbsp; Vid&eacute;o</span>
                         <div class="scmc-vcard-thumb">
-                            <img src="assets/img/gallery/feature5.jpg" alt="Partenaires et marchés">
+                            <img src="assets/img/gallery/feature5.jpg" alt="Partenaires et march&eacute;s">
                             <div class="scmc-vcard-play"><i class="fa-solid fa-play"></i></div>
                             <div class="scmc-vcard-play-ring"></div>
                         </div>
                         <div class="scmc-vcard-info">
-                            <h4>Partenaires & marchés</h4>
+                            <h4>Partenaires & march&eacute;s</h4>
                             <p>Mise en relation avec les acheteurs responsables.</p>
                         </div>
                         <div class="scmc-vcard-bar"></div>
@@ -870,20 +875,83 @@
             </div>
         </section>
 
-        <section class="gbg-section gbg-reveal">
+        <!-- Impact attendu -->
+        <section class="gbg-section gbg-reveal gbg-section-soft">
             <div class="container">
-                <div class="row justify-content-center mb-5"><div class="col-lg-8 text-center"><span class="gbg-eyebrow">Impact</span><h2 class="gbg-title">Quatre contributions directes.</h2></div></div>
+                <div class="row justify-content-center mb-5">
+                    <div class="col-lg-9 text-center">
+                        <span class="gbg-eyebrow">Notre impact</span>
+                        <h2 class="gbg-title">Cinq contributions pour un avenir durable.</h2>
+                    </div>
+                </div>
                 <div class="row g-4">
-                    <div class="col-lg-3 col-md-6"><div class="gbg-stat-card"><strong>01</strong><p>Valorisation des producteurs</p></div></div>
-                    <div class="col-lg-3 col-md-6"><div class="gbg-stat-card"><strong>02</strong><p>Accès aux marchés</p></div></div>
-                    <div class="col-lg-3 col-md-6"><div class="gbg-stat-card"><strong>03</strong><p>Produits traçables</p></div></div>
-                    <div class="col-lg-3 col-md-6"><div class="gbg-stat-card"><strong>04</strong><p>Commerce responsable</p></div></div>
+                    <div class="col-lg col-md-6">
+                        <div class="gbg-stat-card gbg-reveal" style="--i:1">
+                            <i class="fa-solid fa-coins fa-2x mb-3" style="color:var(--p1);"></i>
+                            <p>Am&eacute;liorer durablement les revenus des producteurs</p>
+                        </div>
+                    </div>
+                    <div class="col-lg col-md-6">
+                        <div class="gbg-stat-card gbg-reveal" style="--i:2">
+                            <i class="fa-solid fa-briefcase fa-2x mb-3" style="color:var(--p1);"></i>
+                            <p>Cr&eacute;er des emplois ruraux, notamment pour les jeunes et les femmes</p>
+                        </div>
+                    </div>
+                    <div class="col-lg col-md-6">
+                        <div class="gbg-stat-card gbg-reveal" style="--i:3">
+                            <i class="fa-solid fa-cloud-sun fa-2x mb-3" style="color:var(--p1);"></i>
+                            <p>Renforcer la r&eacute;silience face au changement climatique</p>
+                        </div>
+                    </div>
+                    <div class="col-lg col-md-6">
+                        <div class="gbg-stat-card gbg-reveal" style="--i:4">
+                            <i class="fa-solid fa-chart-line fa-2x mb-3" style="color:var(--p1);"></i>
+                            <p>Promouvoir une agriculture comp&eacute;titive et durable</p>
+                        </div>
+                    </div>
+                    <div class="col-lg col-md-6">
+                        <div class="gbg-stat-card gbg-reveal" style="--i:5">
+                            <i class="fa-solid fa-globe-africa fa-2x mb-3" style="color:var(--p1);"></i>
+                            <p>Contribuer &agrave; la souverainet&eacute; alimentaire en Afrique</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- Ambition strat&eacute;gique -->
+        <section class="gbg-section gbg-reveal">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6">
+                        <span class="gbg-eyebrow">Ambition strat&eacute;gique</span>
+                        <h2 class="gbg-title">Devenir une r&eacute;f&eacute;rence r&eacute;gionale.</h2>
+                        <p class="gbg-lead">SCMC entend devenir une r&eacute;f&eacute;rence r&eacute;gionale dans la gestion durable des cha&icirc;nes de valeur agricoles en Afrique de l'Ouest, en associant production durable, transformation locale, commercialisation comp&eacute;titive, innovation, tra&ccedil;abilit&eacute; et croissance inclusive.</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="gbg-media-card gbg-reveal-scale">
+                            <img src="assets/img/gbcc/two-trucks-on-plant-field-scaled.jpg" alt="Ambition strat&eacute;gique SCMC">
+                            <div class="gbg-media-overlay">
+                                <span class="gbg-tag">Ambition</span>
+                                <h3>R&eacute;f&eacute;rence r&eacute;gionale</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
         <section class="gbg-section gbg-reveal gbg-section-dark">
-            <div class="container"><div class="row g-4 align-items-center"><div class="col-lg-8"><h2 class="gbg-title">Vous recherchez des produits agricoles durables, certifiés ou traçables ?</h2><p class="gbg-lead">SCMC vous accompagne dans la mise en relation avec des filières responsables.</p></div><div class="col-lg-4 text-lg-end"><a href="contact.html" class="gbg-btn">Contacter SCMC</a></div></div></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10 text-center">
+                        <h2 class="gbg-title">Vous &ecirc;tes une coop&eacute;rative, un producteur, un investisseur, une institution ou un partenaire commercial ?</h2>
+                        <p class="gbg-lead mt-3">SCMC vous accompagne dans le d&eacute;veloppement de fili&egrave;res agricoles durables, rentables et cr&eacute;atrices de valeur.</p>
+                        <a href="contact.html" class="gbg-btn mt-4">Contacter SCMC <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <footer class="gbg-footer">
@@ -952,517 +1020,6 @@
             </div>
         </footer>
     </main>
-
-    <!-- Section 1: Presentation -->
-    <section class="servicevm-details-section overflow-hidden section-padding white-bg">
-        <div class="container">
-            <div class="row g-xl-5 g-4 align-items-center">
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay=".2s">
-                    <div class="thumb">
-                        <img src="assets/img/service/service-single2.jpg" alt="SCMC - Commercialisation du cacao" class="rounded-3 w-100">
-                    </div>
-                </div>
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay=".4s">
-                    <span class="p1-clr fw-bold text-uppercase d-block mb-2" style="letter-spacing:2px; font-size:14px;">QUI SOMMES-NOUS</span>
-                    <h2 class="mb-4">Société de Commercialisation et de Marketing du Cacao</h2>
-                    <p class="mb-3">
-                        SCMC est l'entité commerciale du groupe GBG, spécialisée dans la commercialisation responsable et la distribution de produits agricoles durables. Elle assure le lien stratégique entre les producteurs certifiés et les marchés nationaux et internationaux.
-                    </p>
-                    <p class="mb-4">
-                        Forte de son ancrage dans la filière cacao ivoirienne, SCMC développe des circuits de commercialisation équitables qui garantissent une juste rémunération des producteurs tout en répondant aux exigences de qualité et de traçabilité des acheteurs internationaux.
-                    </p>
-                    <div class="p-4 mb-4 rounded-3" style="background-color: rgba(76, 175, 80, 0.08); border-left: 4px solid var(--p1);">
-                        <h5 class="p1-clr mb-2"><i class="fa-solid fa-bullseye me-2"></i>Notre Mission</h5>
-                        <p class="mb-0">Commercialiser les produits agricoles durables en créant de la valeur pour les producteurs et en garantissant qualité et traçabilité aux acheteurs.</p>
-                    </div>
-                    <div class="p-4 rounded-3" style="background-color: rgba(76, 175, 80, 0.08); border-left: 4px solid var(--p1);">
-                        <h5 class="p1-clr mb-2"><i class="fa-solid fa-eye me-2"></i>Notre Vision</h5>
-                        <p class="mb-0">Devenir le leader de la commercialisation responsable des produits agricoles en Afrique de l'Ouest.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 2: Chiffres Cles -->
-    <div class="counter-section p900-bg section-padding">
-        <div class="container">
-            <div class="section-title text-center mb-50">
-                <span class="p1-clr fw-bold sub-title d-block wow fadeInUp" style="letter-spacing:2px; font-size:14px;">CHIFFRES CLES</span>
-                <h2 class="white-clr wow fadeInUp" data-wow-delay=".2s">Notre impact en chiffres</h2>
-            </div>
-            <div class="row g-4 justify-content-center">
-                <div class="col-lg-3 col-md-6 col-6 wow fadeInUp" data-wow-delay=".2s">
-                    <div class="counter-items d-grid justify-content-center text-center">
-                        <div class="counter-box">
-                            <h2 class="white-clr"><span class="count">50000</span></h2>
-                        </div>
-                        <p class="white-clr mt-2">Tonnes commercialisées/an</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-6 wow fadeInUp" data-wow-delay=".3s">
-                    <div class="counter-items d-grid justify-content-center text-center">
-                        <div class="counter-box">
-                            <h2 class="white-clr"><span class="count">200</span>+</h2>
-                        </div>
-                        <p class="white-clr mt-2">Coopératives partenaires</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-6 wow fadeInUp" data-wow-delay=".4s">
-                    <div class="counter-items d-grid justify-content-center text-center">
-                        <div class="counter-box">
-                            <h2 class="white-clr"><span class="count">15</span></h2>
-                        </div>
-                        <p class="white-clr mt-2">Pays d'exportation</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-6 wow fadeInUp" data-wow-delay=".5s">
-                    <div class="counter-items d-grid justify-content-center text-center">
-                        <div class="counter-box">
-                            <h2 class="white-clr"><span class="count">98</span>%</h2>
-                        </div>
-                        <p class="white-clr mt-2">Taux de traçabilité</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Section 3: Nos Activites -->
-    <section class="section-padding white-bg overflow-hidden">
-        <div class="container">
-            <div class="section-title text-center mb-50">
-                <span class="p1-clr fw-bold sub-title d-block wow fadeInUp" style="letter-spacing:2px; font-size:14px;">NOS ACTIVITES</span>
-                <h2 class="wow fadeInUp" data-wow-delay=".2s">Des solutions commerciales complètes</h2>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".2s">
-                    <div class="service-itemsv02 p-4 rounded-3 h-100" style="border:1px solid #e8e8e8; transition: all .3s;">
-                        <div class="icon mb-3">
-                            <i class="fa-solid fa-handshake p1-clr" style="font-size: 40px;"></i>
-                        </div>
-                        <h4 class="mb-3">Achat & Collecte</h4>
-                        <p>Achat de cacao et produits agricoles auprès des coopératives certifiées, avec des prix justes et transparents.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".3s">
-                    <div class="service-itemsv02 p-4 rounded-3 h-100" style="border:1px solid #e8e8e8; transition: all .3s;">
-                        <div class="icon mb-3">
-                            <i class="fa-solid fa-ship p1-clr" style="font-size: 40px;"></i>
-                        </div>
-                        <h4 class="mb-3">Exportation</h4>
-                        <p>Logistique d'exportation vers les marchés européens, américains et asiatiques dans le respect des normes internationales.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".4s">
-                    <div class="service-itemsv02 p-4 rounded-3 h-100" style="border:1px solid #e8e8e8; transition: all .3s;">
-                        <div class="icon mb-3">
-                            <i class="fa-solid fa-boxes-stacked p1-clr" style="font-size: 40px;"></i>
-                        </div>
-                        <h4 class="mb-3">Distribution locale</h4>
-                        <p>Réseau de distribution nationale pour les produits agricoles transformés et semi-transformés.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".2s">
-                    <div class="service-itemsv02 p-4 rounded-3 h-100" style="border:1px solid #e8e8e8; transition: all .3s;">
-                        <div class="icon mb-3">
-                            <i class="fa-solid fa-leaf p1-clr" style="font-size: 40px;"></i>
-                        </div>
-                        <h4 class="mb-3">Produits certifiés</h4>
-                        <p>Commercialisation de gammes certifiées Rainforest Alliance, Fairtrade et Bio, garantissant durabilité et traçabilité.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".3s">
-                    <div class="service-itemsv02 p-4 rounded-3 h-100" style="border:1px solid #e8e8e8; transition: all .3s;">
-                        <div class="icon mb-3">
-                            <i class="fa-solid fa-wheat-awn p1-clr" style="font-size: 40px;"></i>
-                        </div>
-                        <h4 class="mb-3">Diversification</h4>
-                        <p>Commercialisation au-delà du cacao : maïs, produits maraîchers, vivriers et produits transformés locaux.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".4s">
-                    <div class="service-itemsv02 p-4 rounded-3 h-100" style="border:1px solid #e8e8e8; transition: all .3s;">
-                        <div class="icon mb-3">
-                            <i class="fa-solid fa-chart-pie p1-clr" style="font-size: 40px;"></i>
-                        </div>
-                        <h4 class="mb-3">Veille & Intelligence marché</h4>
-                        <p>Analyse des tendances, suivi des prix internationaux et conseil aux coopératives partenaires.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 4: Nos Produits -->
-    <section class="section-padding overflow-hidden" style="background-color: #f8f9fa;">
-        <div class="container">
-            <div class="section-title text-center mb-50">
-                <span class="p1-clr fw-bold sub-title d-block wow fadeInUp" style="letter-spacing:2px; font-size:14px;">NOS PRODUITS</span>
-                <h2 class="wow fadeInUp" data-wow-delay=".2s">Une gamme diversifiée de produits agricoles</h2>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".2s">
-                    <div class="text-center p-4 rounded-3 h-100 white-bg" style="border:1px solid #e8e8e8;">
-                        <div class="icon mb-3">
-                            <i class="fa-solid fa-mug-hot p1-clr" style="font-size: 48px;"></i>
-                        </div>
-                        <h5 class="mb-2">Cacao</h5>
-                        <p class="mb-0">Fèves certifiées, cacao fin et de saveur</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".3s">
-                    <div class="text-center p-4 rounded-3 h-100 white-bg" style="border:1px solid #e8e8e8;">
-                        <div class="icon mb-3">
-                            <i class="fa-solid fa-wheat-awn p1-clr" style="font-size: 48px;"></i>
-                        </div>
-                        <h5 class="mb-2">Maïs</h5>
-                        <p class="mb-0">Maïs de qualité pour l'alimentation</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".4s">
-                    <div class="text-center p-4 rounded-3 h-100 white-bg" style="border:1px solid #e8e8e8;">
-                        <div class="icon mb-3">
-                            <i class="fa-solid fa-carrot p1-clr" style="font-size: 48px;"></i>
-                        </div>
-                        <h5 class="mb-2">Maraîchers</h5>
-                        <p class="mb-0">Légumes frais et de saison</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".2s">
-                    <div class="text-center p-4 rounded-3 h-100 white-bg" style="border:1px solid #e8e8e8;">
-                        <div class="icon mb-3">
-                            <i class="fa-solid fa-apple-whole p1-clr" style="font-size: 48px;"></i>
-                        </div>
-                        <h5 class="mb-2">Vivriers</h5>
-                        <p class="mb-0">Igname, manioc, plantain, riz local</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".3s">
-                    <div class="text-center p-4 rounded-3 h-100 white-bg" style="border:1px solid #e8e8e8;">
-                        <div class="icon mb-3">
-                            <i class="fa-solid fa-jar p1-clr" style="font-size: 48px;"></i>
-                        </div>
-                        <h5 class="mb-2">Transformés</h5>
-                        <p class="mb-0">Produits agricoles semi-transformés</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".4s">
-                    <div class="text-center p-4 rounded-3 h-100 white-bg" style="border:1px solid #e8e8e8;">
-                        <div class="icon mb-3">
-                            <i class="fa-solid fa-certificate p1-clr" style="font-size: 48px;"></i>
-                        </div>
-                        <h5 class="mb-2">Certifiés</h5>
-                        <p class="mb-0">Produits labellisés durables</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section: Processus Commercial -->
-    <section class="section-padding overflow-hidden white-bg">
-        <div class="container">
-            <div class="text-center mb-5">
-                <span class="p1-clr fw-bold text-uppercase fz-14 d-block mb-2 wow fadeInUp">NOTRE PROCESSUS</span>
-                <h2 class="wow fadeInUp" data-wow-delay=".2s">De la collecte à l'exportation</h2>
-            </div>
-            <div class="row g-4 justify-content-center">
-                <div class="col-lg-3 col-md-6 text-center wow fadeInUp" data-wow-delay=".2s">
-                    <div class="p-4 rounded-3" style="background:#f8f9fa;border-top:4px solid #1a5632;">
-                        <div class="d-flex align-items-center justify-content-center mx-auto mb-3" style="width:70px;height:70px;border-radius:50%;background:#1a5632;color:#fff;font-size:24px;font-weight:700;">1</div>
-                        <h5>Collecte</h5>
-                        <p class="fz-14">Achat auprès des coopératives certifiées par GBCC avec prix justes et transparents</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center wow fadeInUp" data-wow-delay=".3s">
-                    <div class="p-4 rounded-3" style="background:#f8f9fa;border-top:4px solid #1a5632;">
-                        <div class="d-flex align-items-center justify-content-center mx-auto mb-3" style="width:70px;height:70px;border-radius:50%;background:#1a5632;color:#fff;font-size:24px;font-weight:700;">2</div>
-                        <h5>Contrôle Qualité</h5>
-                        <p class="fz-14">Vérification rigoureuse de la qualité, traçabilité et conformité aux standards</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center wow fadeInUp" data-wow-delay=".4s">
-                    <div class="p-4 rounded-3" style="background:#f8f9fa;border-top:4px solid #1a5632;">
-                        <div class="d-flex align-items-center justify-content-center mx-auto mb-3" style="width:70px;height:70px;border-radius:50%;background:#1a5632;color:#fff;font-size:24px;font-weight:700;">3</div>
-                        <h5>Conditionnement</h5>
-                        <p class="fz-14">Préparation et conditionnement selon les normes d'exportation internationales</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center wow fadeInUp" data-wow-delay=".5s">
-                    <div class="p-4 rounded-3" style="background:#f8f9fa;border-top:4px solid #1a5632;">
-                        <div class="d-flex align-items-center justify-content-center mx-auto mb-3" style="width:70px;height:70px;border-radius:50%;background:#1a5632;color:#fff;font-size:24px;font-weight:700;">4</div>
-                        <h5>Exportation</h5>
-                        <p class="fz-14">Livraison vers 15 pays avec logistique complète et documentation certifiée</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section: Nos Engagements -->
-    <section class="section-padding overflow-hidden p900-bg">
-        <div class="container">
-            <div class="text-center mb-5">
-                <span class="fw-bold text-uppercase fz-14 d-block mb-2" style="color:#FDD61F;">NOS ENGAGEMENTS</span>
-                <h2 class="white-clr wow fadeInUp" data-wow-delay=".2s">Une commercialisation éthique et responsable</h2>
-            </div>
-            <div class="row g-4 justify-content-center">
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".2s">
-                    <div class="text-center p-4 rounded-3" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);">
-                        <i class="fa-solid fa-scale-balanced white-clr mb-3" style="font-size:48px;"></i>
-                        <h5 class="white-clr">Prix Justes</h5>
-                        <p class="white-clr fz-14" style="opacity:0.85;">Nous garantissons un prix supérieur au marché pour les producteurs certifiés, avec des primes de durabilité et de qualité.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".3s">
-                    <div class="text-center p-4 rounded-3" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);">
-                        <i class="fa-solid fa-magnifying-glass white-clr mb-3" style="font-size:48px;"></i>
-                        <h5 class="white-clr">Transparence Totale</h5>
-                        <p class="white-clr fz-14" style="opacity:0.85;">Chaque transaction est documentée et traçable. Nos partenaires ont une visibilité complète sur l'origine et le parcours des produits.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".4s">
-                    <div class="text-center p-4 rounded-3" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);">
-                        <i class="fa-solid fa-earth-africa white-clr mb-3" style="font-size:48px;"></i>
-                        <h5 class="white-clr">Impact Durable</h5>
-                        <p class="white-clr fz-14" style="opacity:0.85;">Notre modèle commercial soutient les communautés rurales, finance des projets sociaux et promeut des pratiques agricoles durables.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section: FAQ -->
-    <section class="section-padding overflow-hidden" style="background:#f8f9fa;">
-        <div class="container">
-            <div class="row g-xl-5 g-4">
-                <div class="col-lg-5 wow fadeInLeft" data-wow-delay=".3s">
-                    <span class="p1-clr fw-bold text-uppercase fz-14 d-block mb-2">FAQ</span>
-                    <h2 class="mb-3">Questions fréquentes</h2>
-                    <p>Tout ce que vous devez savoir sur la commercialisation responsable avec SCMC.</p>
-                    <a href="contact.html" class="cmn-btn mt-4">
-                        Nous contacter
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                </div>
-                <div class="col-lg-7 wow fadeInRight" data-wow-delay=".3s">
-                    <div class="tab-faq faq">
-                        <div class="accordion-section d-grid gap-3">
-                            <div class="accordion-single active">
-                                <h5 class="header-area">
-                                    <button class="accordion-btn d-flex align-items-center position-relative w-100" type="button">
-                                        Quels produits commercialisez-vous ?
-                                    </button>
-                                </h5>
-                                <div class="content-area" style="display:block;">
-                                    <p>Nous commercialisons principalement du cacao certifié (Rainforest Alliance, Fairtrade, Bio), mais aussi du maïs, des produits maraîchers, des vivriers et des produits transformés issus de l'agriculture durable ivoirienne.</p>
-                                </div>
-                            </div>
-                            <div class="accordion-single">
-                                <h5 class="header-area">
-                                    <button class="accordion-btn d-flex align-items-center position-relative w-100" type="button">
-                                        Comment garantissez-vous la traçabilité ?
-                                    </button>
-                                </h5>
-                                <div class="content-area">
-                                    <p>Grâce à notre intégration avec GBCC, chaque lot est tracé depuis le producteur. Nous utilisons des systèmes de documentation rigoureux qui permettent de retracer l'origine exacte de chaque produit commercialisé.</p>
-                                </div>
-                            </div>
-                            <div class="accordion-single">
-                                <h5 class="header-area">
-                                    <button class="accordion-btn d-flex align-items-center position-relative w-100" type="button">
-                                        Vers quels pays exportez-vous ?
-                                    </button>
-                                </h5>
-                                <div class="content-area">
-                                    <p>Nous exportons vers 15 pays, principalement en Europe (France, Belgique, Pays-Bas, Allemagne, Suisse), en Amérique du Nord et en Asie. Nos partenaires incluent des négociants, transformateurs et marques engagées dans le commerce durable.</p>
-                                </div>
-                            </div>
-                            <div class="accordion-single">
-                                <h5 class="header-area">
-                                    <button class="accordion-btn d-flex align-items-center position-relative w-100" type="button">
-                                        Quelle est la différence entre SCMC et SCMC Chocolaterie ?
-                                    </button>
-                                </h5>
-                                <div class="content-area">
-                                    <p>SCMC se concentre sur la commercialisation de matières premières agricoles (cacao en fèves, maïs, etc.), tandis que SCMC Chocolaterie crée des produits chocolatés finis (tablettes, pralines, pâtes à tartiner). SCMC fournit les fèves, SCMC Chocolaterie les transforme en produits de consommation.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 5: Notre Place dans le Groupe -->
-    <section class="section-padding overflow-hidden white-bg">
-        <div class="container">
-            <div class="section-title text-center mb-4">
-                <span class="p1-clr fw-bold sub-title d-block wow fadeInUp" style="letter-spacing:2px; font-size:14px;">NOTRE ECOSYSTEME</span>
-                <h2 class="wow fadeInUp" data-wow-delay=".2s">SCMC au coeur de la chaîne de valeur</h2>
-            </div>
-            <div class="row justify-content-center mb-50">
-                <div class="col-lg-8 text-center wow fadeInUp" data-wow-delay=".3s">
-                    <p>SCMC occupe une position stratégique dans le groupe GBG en assurant le lien entre la production certifiée par GBCC et la transformation industrielle par KIC. Elle est le moteur commercial qui donne accès aux marchés et crée de la valeur pour l'ensemble de la chaîne.</p>
-                </div>
-            </div>
-            <div class="row g-4 justify-content-center">
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay=".2s">
-                    <a href="gbcc.html" class="d-block text-center p-4 rounded-3 h-100" style="border:1px solid #e8e8e8; text-decoration:none; transition: all .3s; background:#fff;">
-                        <div class="icon mb-3">
-                            <i class="fa-solid fa-users-gear p1-clr" style="font-size: 40px;"></i>
-                        </div>
-                        <h5 class="mb-2">GBCC</h5>
-                        <p class="mb-0" style="color:#555;">Conseil, certification et accompagnement</p>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay=".3s">
-                    <a href="kic.html" class="d-block text-center p-4 rounded-3 h-100" style="border:1px solid #e8e8e8; text-decoration:none; transition: all .3s; background:#fff;">
-                        <div class="icon mb-3">
-                            <i class="fa-solid fa-industry p1-clr" style="font-size: 40px;"></i>
-                        </div>
-                        <h5 class="mb-2">KIC</h5>
-                        <p class="mb-0" style="color:#555;">Transformation industrielle du cacao</p>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay=".4s">
-                    <a href="assiette-durable.html" class="d-block text-center p-4 rounded-3 h-100" style="border:1px solid #e8e8e8; text-decoration:none; transition: all .3s; background:#fff;">
-                        <div class="icon mb-3">
-                            <i class="fa-solid fa-utensils p1-clr" style="font-size: 40px;"></i>
-                        </div>
-                        <h5 class="mb-2">Assiette Durable</h5>
-                        <p class="mb-0" style="color:#555;">Alimentation responsable</p>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay=".5s">
-                    <a href="scmc-chocolaterie.html" class="d-block text-center p-4 rounded-3 h-100" style="border:1px solid #e8e8e8; text-decoration:none; transition: all .3s; background:#fff;">
-                        <div class="icon mb-3">
-                            <i class="fa-solid fa-candy-cane p1-clr" style="font-size: 40px;"></i>
-                        </div>
-                        <h5 class="mb-2">SCMC Chocolaterie</h5>
-                        <p class="mb-0" style="color:#555;">Produits chocolatés premium</p>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 6: CTA Banner -->
-    <section class="p900-bg section-padding overflow-hidden">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 text-center wow fadeInUp" data-wow-delay=".2s">
-                    <h2 class="white-clr mb-4">Vous souhaitez commercialiser vos produits avec SCMC ?</h2>
-                    <a href="contact.html" class="cmn-btn">
-                        Nous Contacter
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!--<< Footer Section Start >>-->
-    <footer class="footer-section overflow-hidden position-relative footer-style3">
-        <div class="footer-widgets-wrapper footer-widget-wrapperv03">
-            <div class="container">
-                <div class="row g-3 g-md-4 g-4 justify-content-between">
-                    <div class="col-xl-4 col-lg-3 col-md-6 col-sm-6 wow fadeInUp" data-wow-delay=".3s">
-                        <div class="single-footer-widget">
-                            <div class="widget-head">
-                                <a href="index.html" class="footer-logo">
-                                    <img src="assets/img/logo/logo-light.svg" alt="logo-img">
-                                </a>
-                            </div>
-                            <div class="footer-content">
-                                <p class="pre-pragraph">
-                                    Global Business Group - Un groupe engagé pour une agriculture durable, équitable et créatrice de valeur.
-                                </p>
-                                <div class="social-wrapper social-empact d-flex align-items-center">
-                                    <a href="https://www.facebook.com/people/Global-Business-Group/61587118201614/?mibextid=wwXIfr&rdid=K920zRrvx26jcxif&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1HZbKbFsPj%2F%3Fmibextid%3DwwXIfr" target="_blank" rel="noopener noreferrer" class="white-clr" aria-label="Facebook"><i class="white-clr fab fa-facebook-f"></i></a>
-                                    <a href="https://www.instagram.com/globalbusinessg/" target="_blank" rel="noopener noreferrer" class="white-clr" aria-label="Instagram"><i class="white-clr fa-brands fa-instagram"></i></a>
-                                    <a href="https://www.tiktok.com/@global.business.g1?_r=1&_t=ZS-97cJgWr5hTx" target="_blank" rel="noopener noreferrer" class="white-clr" aria-label="TikTok"><i class="white-clr fa-brands fa-tiktok"></i></a>
-                                    <a href="https://www.youtube.com/@globalbusinessgroup-j8m" target="_blank" rel="noopener noreferrer" class="white-clr" aria-label="YouTube"><i class="white-clr fab fa-youtube"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-2 col-md-6 col-sm-6 wow fadeInUp" data-wow-delay=".5s">
-                        <div class="single-footer-widget">
-                            <div class="widget-head">
-                                <h3 class="white-clr">Nos Entités</h3>
-                            </div>
-                            <ul class="list-area">
-                                <li><a href="gbcc.html">GBCC</a></li>
-                                <li><a href="scmc.html">SCMC</a></li>
-                                <li><a href="kic.html">KIC</a></li>
-                                <li><a href="assiette-durable.html">Restaurant Assiette Durable</a></li>
-                                <li><a href="scmc-chocolaterie.html">SCMC Chocolaterie</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 wow fadeInUp" data-wow-delay=".5s">
-                        <div class="single-footer-widget">
-                            <div class="widget-head">
-                                <h3 class="white-clr">Contact</h3>
-                            </div>
-                            <ul class="list-area list-contact">
-                                <li>
-                                    <a href="mailto:infogbg@gbg-ci.com">
-                                        <i class="fa-solid fa-envelope"></i>
-                                        infogbg@gbg-ci.com
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="link">
-                                        <i class="fa-solid fa-location-dot"></i>
-                                        II Plateaux, Carrefour Macaci, Abidjan
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="tel:+2250544831313" class="link">
-                                        <i class="fa-solid fa-phone"></i>
-                                        +225 05 44 83 13 13
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 wow fadeInUp" data-wow-delay=".5s">
-                        <div class="single-footer-widget">
-                            <div class="widget-head">
-                                <h3 class="white-clr">Navigation</h3>
-                            </div>
-                            <ul class="list-area">
-                                <li><a href="index.html">Accueil</a></li>
-                                <li><a href="about.html">À propos</a></li>
-                                <li><a href="expertises.html">Nos Expertises</a></li>
-                                <li><a href="projets.html">Nos Projets</a></li>
-                                <li><a href="contact.html">Contact</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="container">
-                <div
-                    class="footer-wrapper footer-wrapperv01 d-md-flex d-grid gap-md-0 gap-2 align-items-center justify-content-md-between justify-content-center text-md-start text-center">
-                    <p class="wow fadeInLeft color-2" data-wow-delay=".3s">
-                        &copy; Global Business Group 2024. Tous droits réservés.
-                    </p>
-                    <ul class="footer-menu wow fadeInRight" data-wow-delay=".5s">
-                        <li><a href="contact.html">Mentions légales</a></li>
-                        <li><a href="contact.html">Politique de confidentialité</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
 
     <!--<< All JS Plugins >>-->
     <script src="assets/js/jquery-3.7.1.min.js"></script>
@@ -1558,13 +1115,35 @@
         if(vSec) vSecIO.observe(vSec);
     })();
 
-    var fRevEls = document.querySelectorAll('.gbg-footer-reveal');
-    if (fRevEls.length) {
-        var fRevIO = new IntersectionObserver(function(entries) {
-            entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('is-footer-visible'); fRevIO.unobserve(e.target); } });
-        }, { threshold: 0.15 });
-        fRevEls.forEach(function(el) { fRevIO.observe(el); });
-    }
+    // Values auto-cycling
+    (function(){
+        var valCards = document.querySelectorAll('.scmc-value-card');
+        if(!valCards.length) return;
+        var valCur = -1, valInt = null, valPaused = false;
+
+        function valActivate(i){
+            valCards.forEach(function(c){ c.classList.remove('scmc-value-active'); });
+            valCards[i].classList.add('scmc-value-active');
+            valCur = i;
+        }
+        function valCycle(){ valActivate((valCur + 1) % valCards.length); }
+        function valStart(){ if(valInt) return; valCycle(); valInt = setInterval(valCycle, 2500); }
+        function valStop(){ clearInterval(valInt); valInt = null; }
+
+        valCards.forEach(function(c, i){
+            c.addEventListener('mouseenter', function(){ valPaused = true; valStop(); valActivate(i); });
+            c.addEventListener('mouseleave', function(){ valPaused = false; valStart(); });
+        });
+
+        var valSecIO = new IntersectionObserver(function(entries){
+            entries.forEach(function(e){
+                if(e.isIntersecting && !valPaused) valStart();
+                else if(!e.isIntersecting) valStop();
+            });
+        }, {threshold: 0.2});
+        var valSec = document.getElementById('scmc-valeurs');
+        if(valSec) valSecIO.observe(valSec);
+    })();
     </script>
 </body>
 
