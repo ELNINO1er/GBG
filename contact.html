@@ -90,7 +90,7 @@
     <!--<< Nice Select.css >>-->
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <!--<< Main.css >>-->
-    <link rel="stylesheet" href="assets/css/main.css?v=20260701-polish">
+    <link rel="stylesheet" href="assets/css/main.css?v=20260701-form">
     <style>
     .wow { visibility: visible !important; }
     .gbg-footer{padding:80px 0 0!important;background:linear-gradient(175deg,#0d2818 0%,#091a10 100%)!important;color:rgba(255,255,255,0.7)!important;position:relative!important;overflow:hidden!important}
@@ -390,15 +390,15 @@
                         <div class="gbg-card p-4 p-lg-5">
                             <span class="gbg-eyebrow">Formulaire</span>
                             <h3>Envoyer un message</h3>
-                            <form action="contact-submit.php" method="post" id="contact-form" class="gbg-form row g-3">
+                            <form action="contact-submit.php" method="post" id="contact-form" class="gbg-form row g-3" novalidate>
                                 <div class="col-md-6"><input type="text" name="nom" placeholder="Nom" required></div>
                                 <div class="col-md-6"><input type="text" name="prenom" placeholder="Prenom"></div>
                                 <div class="col-md-6"><input type="text" name="organisation" placeholder="Organisation"></div>
                                 <div class="col-md-6"><input type="email" name="email" placeholder="Email" required></div>
                                 <div class="col-12"><input type="tel" name="telephone" placeholder="Telephone"></div>
                                 <div class="col-12">
-                                    <select name="entite" required>
-                                        <option value="">Entité concernée</option>
+                                    <select name="entite">
+                                        <option value="">Choisir une entité concernée</option>
                                         <option>GBG</option>
                                         <option>GBCC</option>
                                         <option>SCMC</option>
@@ -611,9 +611,31 @@
             form.addEventListener('submit', function (event) {
                 event.preventDefault();
 
-                if (!form.checkValidity()) {
-                    form.reportValidity();
-                    setMessage('error', "Veuillez remplir les champs obligatoires avant l'envoi.");
+                var nom = form.elements.nom;
+                var email = form.elements.email;
+                var entite = form.elements.entite;
+                var message = form.elements.message;
+
+                if (!nom.value.trim()) {
+                    nom.focus();
+                    setMessage('error', 'Veuillez renseigner votre nom.');
+                    return;
+                }
+
+                if (!email.value.trim() || !email.checkValidity()) {
+                    email.focus();
+                    setMessage('error', 'Veuillez renseigner une adresse email valide.');
+                    return;
+                }
+
+                if (!entite.value) {
+                    setMessage('error', "Veuillez choisir l'entite concernee.");
+                    return;
+                }
+
+                if (!message.value.trim()) {
+                    message.focus();
+                    setMessage('error', 'Veuillez renseigner votre message.');
                     return;
                 }
 
