@@ -327,6 +327,23 @@
         }
         @media (max-width:575px){ .gbcc-fact-grid { grid-template-columns:1fr; } }
 
+    .entity-hero-logo {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+        border-radius: 16px;
+        background: #fff;
+        padding: 6px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        margin-bottom: 20px;
+        display: block;
+        animation: fadeInUp 0.6s ease-out both;
+    }
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
     /* ── Footer Inline Override (cache-bust) ── */
     .gbg-footer{padding:80px 0 0!important;background:linear-gradient(175deg,#0d2818 0%,#091a10 100%)!important;color:rgba(255,255,255,0.7)!important;position:relative!important;overflow:hidden!important}
     .gbg-footer::before{content:''!important;position:absolute!important;top:0!important;left:0!important;right:0!important;height:3px!important;background:linear-gradient(90deg,transparent,#228B22,#2ecc40,#228B22,transparent)!important}
@@ -363,6 +380,7 @@
     .gbg-footer-reveal{opacity:1!important;transform:translateY(0)!important;transition:opacity .6s cubic-bezier(0.16,1,0.3,1),transform .6s cubic-bezier(0.16,1,0.3,1)!important}
     .gbg-footer-reveal.is-visible,.gbg-footer-reveal.is-footer-visible{opacity:1!important;transform:translateY(0)!important}
     @media(max-width:767px){.gbg-footer-bottom{flex-direction:column!important;text-align:center!important}.gbg-footer-bottom-links{justify-content:center!important}}
+    .gbg-drop-icon img { width:100% !important; height:100% !important; object-fit:cover !important; border-radius:inherit !important; }
     </style>
 </head>
 
@@ -507,10 +525,10 @@
                                                         <i class="fas fa-angle-down"></i>
                                                     </a>
                                                     <ul class="submenu gbg-entity-dropdown">
-                                                        <li><a href="gbcc.html"><div class="gbg-drop-icon gbg-drop-gbcc"><i class="fa-solid fa-handshake"></i></div><div class="gbg-drop-text"><span>GBCC</span><small>Conseil &amp; Certification</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
-                                                        <li><a href="scmc.html"><div class="gbg-drop-icon gbg-drop-scmc"><i class="fa-solid fa-truck"></i></div><div class="gbg-drop-text"><span>SCMC</span><small>Commercialisation durable</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
-                                                        <li><a href="kic.html"><div class="gbg-drop-icon gbg-drop-kic"><i class="fa-solid fa-industry"></i></div><div class="gbg-drop-text"><span>KIC</span><small>Transformation du cacao</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
-                                                        <li><a href="assiette-durable.html"><div class="gbg-drop-icon gbg-drop-ad"><i class="fa-solid fa-utensils"></i></div><div class="gbg-drop-text"><span>Assiette Durable</span><small>Restauration responsable</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
+                                                        <li><a href="gbcc.html"><div class="gbg-drop-icon gbg-drop-gbcc"><img src="assets/img/logo/GBCC.jpg" alt="GBCC"></div><div class="gbg-drop-text"><span>GBCC</span><small>Conseil &amp; Certification</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
+                                                        <li><a href="scmc.html"><div class="gbg-drop-icon gbg-drop-scmc"><img src="assets/img/logo/scmc.jpg" alt="SCMC"></div><div class="gbg-drop-text"><span>SCMC</span><small>Commercialisation durable</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
+                                                        <li><a href="kic.html"><div class="gbg-drop-icon gbg-drop-kic"><img src="assets/img/logo/KIC.jpg" alt="KIC"></div><div class="gbg-drop-text"><span>KIC</span><small>Transformation du cacao</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
+                                                        <li><a href="assiette-durable.html"><div class="gbg-drop-icon gbg-drop-ad"><img src="assets/img/logo/SCMC assiette durable.jpg" alt="Assiette Durable"></div><div class="gbg-drop-text"><span>Assiette Durable</span><small>Restauration responsable</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
                                                         <li><a href="scmc-chocolaterie.html"><div class="gbg-drop-icon gbg-drop-choc"><i class="fa-solid fa-candy-cane"></i></div><div class="gbg-drop-text"><span>SCMC Chocolaterie</span><small>Produits chocolatés</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
                                                     </ul>
                                                 </li>
@@ -606,6 +624,7 @@
             <div class="container">
                 <div class="row g-4 align-items-center">
                     <div class="col-lg-7">
+                        <img src="assets/img/logo/GBCC.jpg" alt="GBCC" class="entity-hero-logo gbcc-fade-up">
                         <span class="gbcc-kicker gbcc-fade-up">Global Business Consulting Company</span>
                         <h2 class="gbcc-fade-up gbcc-delay-1">Le cabinet ivoirien de référence pour un cacao traçable et durable</h2>
                         <p class="gbcc-fade-up gbcc-delay-2">
