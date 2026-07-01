@@ -93,6 +93,478 @@
     <link rel="stylesheet" href="assets/css/main.css?v=20260701-form">
     <style>
     .wow { visibility: visible !important; }
+
+    /* ── Contact Page Redesign ── */
+    .ct-reveal {
+        opacity: 0;
+        transform: translateY(28px);
+        transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1);
+        transition-delay: calc(var(--i, 0) * 100ms);
+    }
+    .ct-reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Info cards */
+    .ct-info-card {
+        background: #fff;
+        border-radius: 20px;
+        padding: 32px 24px;
+        text-align: center;
+        border: 1px solid rgba(34,139,34,0.08);
+        box-shadow: 0 8px 32px rgba(19,54,35,0.06);
+        transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease, border-color 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+    .ct-info-card::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #228B22, #2ecc40);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+    }
+    .ct-info-card:hover::before { transform: scaleX(1); }
+    .ct-info-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 50px rgba(19,54,35,0.12);
+        border-color: rgba(34,139,34,0.15);
+    }
+    .ct-info-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 16px;
+        background: linear-gradient(135deg, #edf8e8, #d4efc9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 16px;
+        transition: transform 0.3s ease, background 0.3s ease;
+    }
+    .ct-info-icon i {
+        font-size: 22px;
+        color: #228B22;
+        transition: color 0.3s ease;
+    }
+    .ct-info-card:hover .ct-info-icon {
+        background: linear-gradient(135deg, #228B22, #2ecc40);
+        transform: scale(1.1) rotate(-5deg);
+    }
+    .ct-info-card:hover .ct-info-icon i { color: #fff; }
+    .ct-info-card h4 {
+        font-size: 1rem;
+        font-weight: 700;
+        color: #0d2818;
+        margin-bottom: 8px;
+    }
+    .ct-info-card p {
+        font-size: 0.88rem;
+        color: #555;
+        margin: 0;
+        line-height: 1.6;
+    }
+    .ct-info-card a {
+        color: #228B22;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    .ct-info-card a:hover { color: #2ecc40; }
+
+    /* Form section */
+    .ct-form-section {
+        padding: 60px 0 80px;
+        background: linear-gradient(180deg, #f4f9f0 0%, #fff 100%);
+    }
+    .ct-form-wrapper {
+        display: flex;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(19,54,35,0.1);
+        border: 1px solid rgba(34,139,34,0.08);
+    }
+    .ct-form-side {
+        flex: 0 0 38%;
+        background: linear-gradient(175deg, #0d2818 0%, #143c1a 50%, #1a5a24 100%);
+        padding: 48px 36px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+    }
+    .ct-form-side::before {
+        content: '';
+        position: absolute;
+        top: -80px;
+        right: -80px;
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(46,204,64,0.12) 0%, transparent 70%);
+        pointer-events: none;
+    }
+    .ct-form-side::after {
+        content: '';
+        position: absolute;
+        bottom: -60px;
+        left: -60px;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(34,139,34,0.08) 0%, transparent 70%);
+        pointer-events: none;
+    }
+    .ct-form-side-content {
+        position: relative;
+        z-index: 1;
+    }
+    .ct-form-side h3 {
+        color: #fff;
+        font-size: 1.5rem;
+        font-weight: 800;
+        margin-bottom: 12px;
+        line-height: 1.3;
+    }
+    .ct-form-side p {
+        color: rgba(255,255,255,0.65);
+        font-size: 0.9rem;
+        line-height: 1.7;
+        margin-bottom: 28px;
+    }
+    .ct-form-side-features {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        margin-bottom: 32px;
+    }
+    .ct-feature {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: rgba(255,255,255,0.8);
+        font-size: 0.88rem;
+    }
+    .ct-feature i {
+        color: #2ecc40;
+        font-size: 16px;
+        flex-shrink: 0;
+    }
+    .ct-form-side-social span {
+        display: block;
+        color: rgba(255,255,255,0.5);
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        margin-bottom: 12px;
+    }
+    .ct-social-row {
+        display: flex;
+        gap: 10px;
+    }
+    .ct-social-row a {
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.12);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(255,255,255,0.6);
+        font-size: 14px;
+        text-decoration: none;
+        transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    }
+    .ct-social-row a:hover {
+        transform: translateY(-3px);
+        background: rgba(46,204,64,0.2);
+        border-color: rgba(46,204,64,0.4);
+        color: #2ecc40;
+    }
+
+    /* Form main */
+    .ct-form-main {
+        flex: 1;
+        background: #fff;
+        padding: 48px 40px;
+    }
+    .ct-form-main h3 {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #0d2818;
+        margin-bottom: 24px;
+    }
+    .ct-form {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+    .ct-form-row {
+        display: flex;
+        gap: 16px;
+    }
+    .ct-form-row .ct-input-group { flex: 1; }
+    .ct-input-group {
+        position: relative;
+    }
+    .ct-input-group > i {
+        position: absolute;
+        top: 50%;
+        left: 16px;
+        transform: translateY(-50%);
+        color: #aaa;
+        font-size: 14px;
+        transition: color 0.3s ease;
+        z-index: 2;
+        pointer-events: none;
+    }
+    .ct-textarea-group > i {
+        top: 20px;
+        transform: none;
+    }
+    .ct-input-group input,
+    .ct-input-group select,
+    .ct-input-group textarea {
+        width: 100%;
+        padding: 14px 16px 14px 44px;
+        border: 2px solid #e8ede5;
+        border-radius: 14px;
+        font-size: 0.9rem;
+        color: #0d2818;
+        background: #fafcf8;
+        outline: none;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+        -webkit-appearance: none;
+        appearance: none;
+    }
+    .ct-input-group input:focus,
+    .ct-input-group select:focus,
+    .ct-input-group textarea:focus {
+        border-color: #228B22;
+        box-shadow: 0 0 0 4px rgba(34,139,34,0.08);
+        background: #fff;
+    }
+    .ct-input-group input:focus ~ i,
+    .ct-input-group select:focus ~ i,
+    .ct-input-group textarea:focus ~ i,
+    .ct-input-group:focus-within > i {
+        color: #228B22;
+    }
+    .ct-input-group input::placeholder,
+    .ct-input-group textarea::placeholder {
+        color: #aaa;
+    }
+    .ct-input-group textarea {
+        resize: vertical;
+        min-height: 120px;
+    }
+    .ct-select-group select {
+        cursor: pointer;
+        color: #aaa;
+    }
+    .ct-select-group select:valid:not([value=""]) {
+        color: #0d2818;
+    }
+    .ct-select-group::after {
+        content: '\f107';
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #aaa;
+        font-size: 14px;
+        pointer-events: none;
+    }
+
+    .ct-submit-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 16px 36px;
+        background: linear-gradient(135deg, #228B22, #2ecc40);
+        color: #fff;
+        border: none;
+        border-radius: 14px;
+        font-size: 0.95rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+    .ct-submit-btn::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    .ct-submit-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 30px rgba(34,139,34,0.3);
+    }
+    .ct-submit-btn:hover::before { opacity: 1; }
+    .ct-submit-btn:active {
+        transform: translateY(0);
+    }
+    .ct-submit-btn i {
+        transition: transform 0.3s ease;
+    }
+    .ct-submit-btn:hover i {
+        transform: translateX(4px);
+    }
+
+    /* Custom dropdown */
+    .ct-dropdown {
+        position: relative;
+        width: 100%;
+    }
+    .ct-dropdown-trigger {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 14px 16px 14px 44px;
+        border: 2px solid #e8ede5;
+        border-radius: 14px;
+        background: #fafcf8;
+        cursor: pointer;
+        position: relative;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    }
+    .ct-dropdown-trigger > i:first-child {
+        position: absolute;
+        left: 16px;
+        color: #aaa;
+        font-size: 14px;
+        transition: color 0.3s ease;
+    }
+    .ct-dropdown.is-open .ct-dropdown-trigger > i:first-child,
+    .ct-dropdown.has-value .ct-dropdown-trigger > i:first-child {
+        color: #228B22;
+    }
+    .ct-dropdown.is-open .ct-dropdown-trigger {
+        border-color: #228B22;
+        box-shadow: 0 0 0 4px rgba(34,139,34,0.08);
+        background: #fff;
+    }
+    .ct-dropdown-label {
+        flex: 1;
+        font-size: 0.9rem;
+        color: #aaa;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .ct-dropdown.has-value .ct-dropdown-label {
+        color: #0d2818;
+        font-weight: 500;
+    }
+    .ct-dropdown-arrow {
+        font-size: 12px;
+        color: #aaa;
+        transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), color 0.3s ease;
+    }
+    .ct-dropdown.is-open .ct-dropdown-arrow {
+        transform: rotate(180deg);
+        color: #228B22;
+    }
+
+    .ct-dropdown-menu {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        right: 0;
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 16px 48px rgba(19,54,35,0.15);
+        border: 1px solid rgba(34,139,34,0.1);
+        padding: 8px;
+        z-index: 100;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-8px);
+        transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16,1,0.3,1), visibility 0.25s ease;
+    }
+    .ct-dropdown.is-open .ct-dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .ct-dropdown-item {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 12px 14px;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .ct-dropdown-item:hover {
+        background: #f0f8ec;
+        transform: translateX(4px);
+    }
+    .ct-dropdown-item.is-selected {
+        background: linear-gradient(135deg, rgba(34,139,34,0.08), rgba(46,204,64,0.06));
+        border: 1px solid rgba(34,139,34,0.15);
+    }
+    .ct-drop-icon {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+    .ct-drop-icon i {
+        color: #fff;
+        font-size: 16px;
+    }
+    .ct-drop-text {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+    .ct-drop-text strong {
+        font-size: 0.9rem;
+        color: #0d2818;
+        font-weight: 700;
+    }
+    .ct-drop-text small {
+        font-size: 0.78rem;
+        color: #888;
+    }
+
+    .gbg-form-message.success {
+        color: #228B22;
+        background: rgba(34,139,34,0.08);
+        padding: 12px 16px;
+        border-radius: 10px;
+        font-size: 0.88rem;
+    }
+    .gbg-form-message.error {
+        color: #c0392b;
+        background: rgba(192,57,43,0.08);
+        padding: 12px 16px;
+        border-radius: 10px;
+        font-size: 0.88rem;
+    }
+
+    @media (max-width: 991px) {
+        .ct-form-wrapper { flex-direction: column; }
+        .ct-form-side { padding: 36px 28px; }
+        .ct-form-main { padding: 36px 28px; }
+        .ct-form-row { flex-direction: column; gap: 16px; }
+    }
+
     .gbg-footer{padding:80px 0 0!important;background:linear-gradient(175deg,#0d2818 0%,#091a10 100%)!important;color:rgba(255,255,255,0.7)!important;position:relative!important;overflow:hidden!important}
     .gbg-footer::before{content:''!important;position:absolute!important;top:0!important;left:0!important;right:0!important;height:3px!important;background:linear-gradient(90deg,transparent,#228B22,#2ecc40,#228B22,transparent)!important}
     .gbg-footer::after{content:''!important;position:absolute!important;bottom:-120px!important;right:-120px!important;width:400px!important;height:400px!important;border-radius:50%!important;background:radial-gradient(circle,rgba(34,139,34,0.06) 0%,transparent 70%)!important;pointer-events:none!important}
@@ -369,49 +841,146 @@
     </section>
 
     <main class="gbg-inner-page gbg-contact-page">
-        <section class="gbg-section gbg-section-soft">
+        <section class="gbg-section gbg-section-soft" style="padding-bottom:0;">
             <div class="container">
-                <div class="row g-5 align-items-start">
-                    <div class="col-lg-5">
+                <div class="row justify-content-center mb-5">
+                    <div class="col-lg-8 text-center ct-reveal">
                         <span class="gbg-eyebrow">Contact GBG</span>
                         <h2 class="gbg-title">Entrer en relation avec le groupe ou l'une de ses entités.</h2>
-                        <p class="gbg-lead">
-                            GBG accompagne les institutions, coopératives, partenaires commerciaux, investisseurs,
-                            clients et acteurs agricoles dans la structuration de projets durables.
-                        </p>
-                        <div class="row g-3 mt-3">
-                            <div class="col-12"><div class="gbg-contact-card p-4"><h3>Adresse</h3><p class="gbg-text mb-0">II Plateaux, Carrefour Macaci, Abidjan, Côte d'Ivoire</p></div></div>
-                            <div class="col-12"><div class="gbg-contact-card p-4"><h3>Telephone</h3><p class="gbg-text mb-0"><a href="tel:+2250544202767">+225 05 44 20 27 67</a><br><a href="tel:+2250710410605">+225 07 10 41 06 05</a></p></div></div>
-                            <div class="col-12"><div class="gbg-contact-card p-4"><h3>Emails</h3><p class="gbg-text mb-0"><a href="mailto:infos@gbg-ci.com">infos@gbg-ci.com</a></p></div></div>
-                            <div class="col-12"><div class="gbg-contact-card p-4"><h3>Horaires</h3><p class="gbg-text mb-0">Lundi - Samedi : 8h00 - 16h30<br>Dimanche : fermé</p></div></div>
+                        <p class="gbg-lead">GBG accompagne les institutions, coopératives, partenaires commerciaux, investisseurs, clients et acteurs agricoles dans la structuration de projets durables.</p>
+                    </div>
+                </div>
+
+                <div class="row g-4 mb-5">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="ct-info-card ct-reveal" style="--i:0">
+                            <div class="ct-info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <h4>Adresse</h4>
+                            <p>II Plateaux, Carrefour Macaci,<br>Abidjan, Côte d'Ivoire</p>
                         </div>
                     </div>
-                    <div class="col-lg-7">
-                        <div class="gbg-card p-4 p-lg-5">
-                            <span class="gbg-eyebrow">Formulaire</span>
-                            <h3>Envoyer un message</h3>
-                            <form action="contact-submit.php" method="post" id="contact-form" class="gbg-form row g-3" novalidate>
-                                <div class="col-md-6"><input type="text" name="nom" placeholder="Nom" required></div>
-                                <div class="col-md-6"><input type="text" name="prenom" placeholder="Prenom"></div>
-                                <div class="col-md-6"><input type="text" name="organisation" placeholder="Organisation"></div>
-                                <div class="col-md-6"><input type="email" name="email" placeholder="Email" required></div>
-                                <div class="col-12"><input type="tel" name="telephone" placeholder="Telephone"></div>
-                                <div class="col-12">
-                                    <select name="entite">
-                                        <option value="">Choisir une entité concernée</option>
-                                        <option>GBG</option>
-                                        <option>GBCC</option>
-                                        <option>SCMC</option>
-                                        <option>KIC</option>
-                                        <option>Restaurant Assiette Durable</option>
-                                        <option>SCMC Chocolaterie</option>
-                                    </select>
-                                </div>
-                                <div class="col-12"><textarea name="message" placeholder="Message" required></textarea></div>
-                                <div class="col-12"><p class="form-message gbg-form-message" aria-live="polite"></p></div>
-                                <div class="col-12"><button type="submit" class="gbg-btn">Envoyer le message <i class="fa-solid fa-arrow-right"></i></button></div>
-                            </form>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="ct-info-card ct-reveal" style="--i:1">
+                            <div class="ct-info-icon"><i class="fa-solid fa-phone"></i></div>
+                            <h4>Téléphone</h4>
+                            <p><a href="tel:+2250544202767">+225 05 44 20 27 67</a><br><a href="tel:+2250710410605">+225 07 10 41 06 05</a></p>
                         </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="ct-info-card ct-reveal" style="--i:2">
+                            <div class="ct-info-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <h4>Email</h4>
+                            <p><a href="mailto:infos@gbg-ci.com">infos@gbg-ci.com</a></p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="ct-info-card ct-reveal" style="--i:3">
+                            <div class="ct-info-icon"><i class="fa-solid fa-clock"></i></div>
+                            <h4>Horaires</h4>
+                            <p>Lun - Sam : 8h00 - 16h30<br>Dimanche : fermé</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="ct-form-section">
+            <div class="container">
+                <div class="ct-form-wrapper ct-reveal">
+                    <div class="ct-form-side">
+                        <div class="ct-form-side-content">
+                            <h3>Discutons de votre projet</h3>
+                            <p>Remplissez le formulaire et notre équipe vous répondra dans les plus brefs délais.</p>
+                            <div class="ct-form-side-features">
+                                <div class="ct-feature"><i class="fa-solid fa-check-circle"></i><span>Réponse sous 24-48h</span></div>
+                                <div class="ct-feature"><i class="fa-solid fa-check-circle"></i><span>Orientation vers la bonne entité</span></div>
+                                <div class="ct-feature"><i class="fa-solid fa-check-circle"></i><span>Accompagnement personnalisé</span></div>
+                                <div class="ct-feature"><i class="fa-solid fa-check-circle"></i><span>Confidentialité garantie</span></div>
+                            </div>
+                            <div class="ct-form-side-social">
+                                <span>Suivez-nous</span>
+                                <div class="ct-social-row">
+                                    <a href="https://www.facebook.com/people/Global-Business-Group/61587118201614/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="https://www.instagram.com/globalbusinessg/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                                    <a href="https://www.tiktok.com/@global.business.g1" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                                    <a href="https://www.youtube.com/@globalbusinessgroup-j8m" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                                    <a href="https://www.linkedin.com/company/global-business-group-ci" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ct-form-main">
+                        <span class="gbg-eyebrow">Formulaire</span>
+                        <h3>Envoyer un message</h3>
+                        <form action="contact-submit.php" method="post" id="contact-form" class="ct-form" novalidate>
+                            <div class="ct-form-row">
+                                <div class="ct-input-group">
+                                    <i class="fa-solid fa-user"></i>
+                                    <input type="text" name="nom" placeholder="Votre nom *" required>
+                                </div>
+                                <div class="ct-input-group">
+                                    <i class="fa-solid fa-user"></i>
+                                    <input type="text" name="prenom" placeholder="Votre prénom">
+                                </div>
+                            </div>
+                            <div class="ct-form-row">
+                                <div class="ct-input-group">
+                                    <i class="fa-solid fa-building"></i>
+                                    <input type="text" name="organisation" placeholder="Organisation / Entreprise">
+                                </div>
+                                <div class="ct-input-group">
+                                    <i class="fa-solid fa-envelope"></i>
+                                    <input type="email" name="email" placeholder="Adresse email *" required>
+                                </div>
+                            </div>
+                            <div class="ct-input-group">
+                                <i class="fa-solid fa-phone"></i>
+                                <input type="tel" name="telephone" placeholder="Numéro de téléphone">
+                            </div>
+                            <input type="hidden" name="entite" id="ct-entite-value" value="">
+                            <div class="ct-dropdown" id="ct-entite-dropdown">
+                                <div class="ct-dropdown-trigger" tabindex="0">
+                                    <i class="fa-solid fa-sitemap"></i>
+                                    <span class="ct-dropdown-label">Choisir une entité concernée</span>
+                                    <i class="fa-solid fa-chevron-down ct-dropdown-arrow"></i>
+                                </div>
+                                <div class="ct-dropdown-menu">
+                                    <div class="ct-dropdown-item" data-value="GBG — Groupe">
+                                        <div class="ct-drop-icon" style="background:linear-gradient(135deg,#228B22,#2ecc40);"><i class="fa-solid fa-globe"></i></div>
+                                        <div class="ct-drop-text"><strong>GBG</strong><small>Coordination groupe</small></div>
+                                    </div>
+                                    <div class="ct-dropdown-item" data-value="GBCC — Conseil & Certification">
+                                        <div class="ct-drop-icon" style="background:linear-gradient(135deg,#2f7537,#4a9e3f);"><i class="fa-solid fa-handshake"></i></div>
+                                        <div class="ct-drop-text"><strong>GBCC</strong><small>Conseil & Certification</small></div>
+                                    </div>
+                                    <div class="ct-dropdown-item" data-value="SCMC — Commercialisation">
+                                        <div class="ct-drop-icon" style="background:linear-gradient(135deg,#1a6b30,#3da84a);"><i class="fa-solid fa-truck"></i></div>
+                                        <div class="ct-drop-text"><strong>SCMC</strong><small>Commercialisation durable</small></div>
+                                    </div>
+                                    <div class="ct-dropdown-item" data-value="KIC — Transformation cacao">
+                                        <div class="ct-drop-icon" style="background:linear-gradient(135deg,#8B6914,#c4972a);"><i class="fa-solid fa-industry"></i></div>
+                                        <div class="ct-drop-text"><strong>KIC</strong><small>Transformation du cacao</small></div>
+                                    </div>
+                                    <div class="ct-dropdown-item" data-value="Assiette Durable — Restauration">
+                                        <div class="ct-drop-icon" style="background:linear-gradient(135deg,#228B22,#62bd43);"><i class="fa-solid fa-utensils"></i></div>
+                                        <div class="ct-drop-text"><strong>Assiette Durable</strong><small>Restauration responsable</small></div>
+                                    </div>
+                                    <div class="ct-dropdown-item" data-value="SCMC Chocolaterie">
+                                        <div class="ct-drop-icon" style="background:linear-gradient(135deg,#5C3317,#8B5E3C);"><i class="fa-solid fa-candy-cane"></i></div>
+                                        <div class="ct-drop-text"><strong>SCMC Chocolaterie</strong><small>Produits chocolatés</small></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ct-input-group ct-textarea-group">
+                                <i class="fa-solid fa-message"></i>
+                                <textarea name="message" placeholder="Décrivez votre projet ou votre besoin *" rows="5" required></textarea>
+                            </div>
+                            <p class="form-message gbg-form-message" aria-live="polite"></p>
+                            <button type="submit" class="ct-submit-btn">
+                                <span>Envoyer le message</span>
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -594,6 +1163,55 @@
     <!--<< Main.js >>-->
     <script src="assets/js/main.js"></script>
     <script>
+        // Custom dropdown
+        (function() {
+            var dd = document.getElementById('ct-entite-dropdown');
+            if (!dd) return;
+            var trigger = dd.querySelector('.ct-dropdown-trigger');
+            var label = dd.querySelector('.ct-dropdown-label');
+            var hidden = document.getElementById('ct-entite-value');
+            var items = dd.querySelectorAll('.ct-dropdown-item');
+
+            trigger.addEventListener('click', function(e) {
+                e.stopPropagation();
+                dd.classList.toggle('is-open');
+            });
+            trigger.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); dd.classList.toggle('is-open'); }
+                if (e.key === 'Escape') dd.classList.remove('is-open');
+            });
+
+            items.forEach(function(item) {
+                item.addEventListener('click', function() {
+                    var val = item.getAttribute('data-value');
+                    hidden.value = val;
+                    label.textContent = val;
+                    dd.classList.add('has-value');
+                    dd.classList.remove('is-open');
+                    items.forEach(function(it) { it.classList.remove('is-selected'); });
+                    item.classList.add('is-selected');
+                });
+            });
+
+            document.addEventListener('click', function() { dd.classList.remove('is-open'); });
+            dd.addEventListener('click', function(e) { e.stopPropagation(); });
+        })();
+
+        // Scroll reveal for contact page
+        (function() {
+            var els = document.querySelectorAll('.ct-reveal');
+            if (!els.length) return;
+            var io = new IntersectionObserver(function(entries) {
+                entries.forEach(function(e) {
+                    if (e.isIntersecting) {
+                        e.target.classList.add('is-visible');
+                        io.unobserve(e.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            els.forEach(function(el) { io.observe(el); });
+        })();
+
         (function () {
             var form = document.getElementById('contact-form');
             if (!form) return;
@@ -613,7 +1231,7 @@
 
                 var nom = form.elements.nom;
                 var email = form.elements.email;
-                var entite = form.elements.entite;
+                var entite = document.getElementById('ct-entite-value');
                 var message = form.elements.message;
 
                 if (!nom.value.trim()) {
