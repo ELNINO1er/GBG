@@ -11006,6 +11006,29 @@ html {
   min-height: 150px;
 }
 
+.gbg-form-message {
+  display: none;
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.gbg-form-message.success {
+  display: block;
+  color: #123f25;
+  background: #e9f7ee;
+  border: 1px solid rgba(42, 132, 73, 0.22);
+}
+
+.gbg-form-message.error {
+  display: block;
+  color: #842029;
+  background: #f8d7da;
+  border: 1px solid rgba(132, 32, 41, 0.22);
+}
+
 /* Rich expertises page */
 .gbg-expertises-page .gbg-section-soft {
   position: relative;

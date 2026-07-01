@@ -390,16 +390,16 @@
                         <div class="gbg-card p-4 p-lg-5">
                             <span class="gbg-eyebrow">Formulaire</span>
                             <h3>Envoyer un message</h3>
-                            <form action="#" class="gbg-form row g-3">
-                                <div class="col-md-6"><input type="text" name="nom" placeholder="Nom"></div>
+                            <form action="mailto:infos@gbg-ci.com" method="post" enctype="text/plain" id="contact-form" class="gbg-form row g-3">
+                                <div class="col-md-6"><input type="text" name="nom" placeholder="Nom" required></div>
                                 <div class="col-md-6"><input type="text" name="prenom" placeholder="Prenom"></div>
                                 <div class="col-md-6"><input type="text" name="organisation" placeholder="Organisation"></div>
-                                <div class="col-md-6"><input type="email" name="email" placeholder="Email"></div>
+                                <div class="col-md-6"><input type="email" name="email" placeholder="Email" required></div>
                                 <div class="col-md-6"><input type="tel" name="telephone" placeholder="Telephone"></div>
-                                <div class="col-md-6"><input type="text" name="sujet" placeholder="Sujet"></div>
+                                <div class="col-md-6"><input type="text" name="sujet" placeholder="Sujet" required></div>
                                 <div class="col-12">
-                                    <select name="entite">
-                                        <option>Entité concernée</option>
+                                    <select name="entite" required>
+                                        <option value="">Entité concernée</option>
                                         <option>GBG</option>
                                         <option>GBCC</option>
                                         <option>SCMC</option>
@@ -408,7 +408,8 @@
                                         <option>SCMC Chocolaterie</option>
                                     </select>
                                 </div>
-                                <div class="col-12"><textarea name="message" placeholder="Message"></textarea></div>
+                                <div class="col-12"><textarea name="message" placeholder="Message" required></textarea></div>
+                                <div class="col-12"><p class="form-message gbg-form-message" aria-live="polite"></p></div>
                                 <div class="col-12"><button type="submit" class="gbg-btn">Envoyer le message <i class="fa-solid fa-arrow-right"></i></button></div>
                             </form>
                         </div>
@@ -593,6 +594,65 @@
     <script src="assets/js/wow.min.js"></script>
     <!--<< Main.js >>-->
     <script src="assets/js/main.js"></script>
+    <script>
+        (function () {
+            var form = document.getElementById('contact-form');
+            if (!form) return;
+
+            var messageBox = form.querySelector('.form-message');
+            var submitButton = form.querySelector('button[type="submit"]');
+
+            function setMessage(type, text) {
+                if (!messageBox) return;
+                messageBox.classList.remove('success', 'error');
+                messageBox.classList.add(type);
+                messageBox.textContent = text;
+            }
+
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                if (!form.checkValidity()) {
+                    form.reportValidity();
+                    setMessage('error', "Veuillez remplir les champs obligatoires avant l'envoi.");
+                    return;
+                }
+
+                var data = new FormData(form);
+                var subject = data.get('sujet') || 'Demande depuis le site GBG';
+                var body = [
+                    'Nom : ' + (data.get('nom') || ''),
+                    'Prenom : ' + (data.get('prenom') || ''),
+                    'Organisation : ' + (data.get('organisation') || ''),
+                    'Email : ' + (data.get('email') || ''),
+                    'Telephone : ' + (data.get('telephone') || ''),
+                    'Entite concernee : ' + (data.get('entite') || ''),
+                    '',
+                    'Message :',
+                    data.get('message') || ''
+                ].join('\\n');
+
+                var mailto = 'mailto:infos@gbg-ci.com'
+                    + '?subject=' + encodeURIComponent(subject)
+                    + '&body=' + encodeURIComponent(body);
+
+                if (submitButton) {
+                    submitButton.disabled = true;
+                    submitButton.style.opacity = '0.75';
+                }
+
+                setMessage('success', "Votre logiciel email va s'ouvrir avec le message pre-rempli. Verifiez puis envoyez l'email.");
+                window.location.href = mailto;
+
+                window.setTimeout(function () {
+                    if (submitButton) {
+                        submitButton.disabled = false;
+                        submitButton.style.opacity = '';
+                    }
+                }, 1200);
+            });
+        })();
+    </script>
 </body>
 
 </html>
