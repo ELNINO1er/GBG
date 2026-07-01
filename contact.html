@@ -390,13 +390,12 @@
                         <div class="gbg-card p-4 p-lg-5">
                             <span class="gbg-eyebrow">Formulaire</span>
                             <h3>Envoyer un message</h3>
-                            <form action="mailto:infos@gbg-ci.com" method="post" enctype="text/plain" id="contact-form" class="gbg-form row g-3">
+                            <form action="contact-submit.php" method="post" id="contact-form" class="gbg-form row g-3">
                                 <div class="col-md-6"><input type="text" name="nom" placeholder="Nom" required></div>
                                 <div class="col-md-6"><input type="text" name="prenom" placeholder="Prenom"></div>
                                 <div class="col-md-6"><input type="text" name="organisation" placeholder="Organisation"></div>
                                 <div class="col-md-6"><input type="email" name="email" placeholder="Email" required></div>
-                                <div class="col-md-6"><input type="tel" name="telephone" placeholder="Telephone"></div>
-                                <div class="col-md-6"><input type="text" name="sujet" placeholder="Sujet" required></div>
+                                <div class="col-12"><input type="tel" name="telephone" placeholder="Telephone"></div>
                                 <div class="col-12">
                                     <select name="entite" required>
                                         <option value="">Entité concernée</option>
@@ -619,37 +618,43 @@
                 }
 
                 var data = new FormData(form);
-                var subject = data.get('sujet') || 'Demande depuis le site GBG';
-                var body = [
-                    'Nom : ' + (data.get('nom') || ''),
-                    'Prenom : ' + (data.get('prenom') || ''),
-                    'Organisation : ' + (data.get('organisation') || ''),
-                    'Email : ' + (data.get('email') || ''),
-                    'Telephone : ' + (data.get('telephone') || ''),
-                    'Entite concernee : ' + (data.get('entite') || ''),
-                    '',
-                    'Message :',
-                    data.get('message') || ''
-                ].join('\\n');
-
-                var mailto = 'mailto:infos@gbg-ci.com'
-                    + '?subject=' + encodeURIComponent(subject)
-                    + '&body=' + encodeURIComponent(body);
 
                 if (submitButton) {
                     submitButton.disabled = true;
                     submitButton.style.opacity = '0.75';
+                    submitButton.dataset.originalText = submitButton.innerHTML;
+                    submitButton.innerHTML = 'Envoi en cours...';
                 }
 
-                setMessage('success', "Votre logiciel email va s'ouvrir avec le message pre-rempli. Verifiez puis envoyez l'email.");
-                window.location.href = mailto;
-
-                window.setTimeout(function () {
+                fetch(form.action, {
+                    method: 'POST',
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(function (response) {
+                    return response.json().then(function (payload) {
+                        if (!response.ok || !payload.ok) {
+                            throw new Error(payload.message || "Votre message n'a pas pu etre envoye.");
+                        }
+                        return payload;
+                    });
+                })
+                .then(function (payload) {
+                    setMessage('success', payload.message || 'Votre message a bien ete envoye.');
+                    form.reset();
+                })
+                .catch(function (error) {
+                    setMessage('error', error.message || "Une erreur est survenue pendant l'envoi.");
+                })
+                .finally(function () {
                     if (submitButton) {
                         submitButton.disabled = false;
                         submitButton.style.opacity = '';
+                        submitButton.innerHTML = submitButton.dataset.originalText || 'Envoyer le message <i class="fa-solid fa-arrow-right"></i>';
                     }
-                }, 1200);
+                });
             });
         })();
     </script>

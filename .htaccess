@@ -1,5 +1,9 @@
 DirectoryIndex index.html
 
+<FilesMatch "^contact-config.*\.php$">
+  Require all denied
+</FilesMatch>
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
