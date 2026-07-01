@@ -440,8 +440,10 @@
     .scmc-value-card{transition:transform .4s cubic-bezier(.16,1,.3,1),box-shadow .4s ease,border-color .4s ease}
     .scmc-value-card.scmc-value-active{transform:translateY(-8px) scale(1.05);box-shadow:0 12px 32px rgba(0,0,0,.12);border-color:var(--p1)!important}
     .scmc-value-card.scmc-value-active i{color:var(--p1)!important;transform:scale(1.15);transition:transform .3s ease}
-    .scmc-values-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1.5rem}
-    @media(max-width:767px){.scmc-values-grid{grid-template-columns:repeat(2,1fr)}}
+    .scmc-values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;max-width:900px;margin:0 auto}
+    .scmc-values-grid .gbg-mini-card h3{font-size:0.95rem !important;white-space:normal !important;word-break:normal !important;overflow:visible !important;text-overflow:unset !important;line-height:1.3 !important}
+    @media(max-width:991px){.scmc-values-grid{grid-template-columns:repeat(3,1fr);max-width:700px}}
+    @media(max-width:767px){.scmc-values-grid{grid-template-columns:repeat(2,1fr);max-width:100%}}
     .gbg-drop-icon img { width:100% !important; height:100% !important; object-fit:cover !important; border-radius:inherit !important; }
     </style>
 </head>
