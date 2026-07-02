@@ -9,9 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="format-detection" content="telephone=yes">
     <meta name="author" content="GBG">
-    <meta name="description" content="KIC transforme le cacao durable en produits cacao premium à forte valeur ajoutée : beurre de cacao, masse de cacao, poudre premium et produits pour marchés professionnels.">
+    <meta name="description" content="KIC est l'entit&eacute; commerciale cacao du groupe GBG : trading international, importation, distribution de f&egrave;ves et produits d&eacute;riv&eacute;s du cacao durables, certifi&eacute;s et tra&ccedil;ables.">
     <!-- ======== Page title ============ -->
-    <title>KIC | Transformation industrielle du cacao durable | GBG</title>
+    <title>KIC | Commercialisation internationale de produits cacao durables | GBG</title>
     <!-- SEO GBG START -->
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="theme-color" content="#143c28">
@@ -19,14 +19,14 @@
     <meta property="og:locale" content="fr_CI">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Global Business Group SA">
-    <meta property="og:title" content="KIC | Transformation industrielle du cacao durable | GBG">
-    <meta property="og:description" content="KIC transforme le cacao durable en produits cacao premium à forte valeur ajoutée : beurre de cacao, masse de cacao, poudre premium et produits pour marchés professionnels.">
+    <meta property="og:title" content="KIC | Commercialisation internationale de produits cacao durables | GBG">
+    <meta property="og:description" content="KIC est l'entit&eacute; commerciale cacao du groupe GBG : trading international, importation, distribution de f&egrave;ves et produits d&eacute;riv&eacute;s du cacao durables, certifi&eacute;s et tra&ccedil;ables.">
     <meta property="og:url" content="https://gbg-ci.com/kic.html">
     <meta property="og:image" content="https://gbg-ci.com/assets/img/service/servicev3-3.jpg">
     <meta property="og:image:alt" content="Global Business Group SA - agriculture durable et cacao en Côte d’Ivoire">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="KIC | Transformation industrielle du cacao durable | GBG">
-    <meta name="twitter:description" content="KIC transforme le cacao durable en produits cacao premium à forte valeur ajoutée : beurre de cacao, masse de cacao, poudre premium et produits pour marchés professionnels.">
+    <meta name="twitter:title" content="KIC | Commercialisation internationale de produits cacao durables | GBG">
+    <meta name="twitter:description" content="KIC est l'entit&eacute; commerciale cacao du groupe GBG : trading international, importation, distribution de f&egrave;ves et produits d&eacute;riv&eacute;s du cacao durables, certifi&eacute;s et tra&ccedil;ables.">
     <meta name="twitter:image" content="https://gbg-ci.com/assets/img/service/servicev3-3.jpg">
     <script type="application/ld+json">
     {
@@ -47,7 +47,7 @@
             "addressLocality": "Abidjan",
             "addressCountry": "CI"
           },
-          "sameAs": []
+          "sameAs": ["https://www.linkedin.com/in/gb-group-40447841b/"]
         },
         {
           "@type": "WebSite",
@@ -61,8 +61,8 @@
           "@type": "WebPage",
           "@id": "https://gbg-ci.com/kic.html#webpage",
           "url": "https://gbg-ci.com/kic.html",
-          "name": "KIC | Transformation industrielle du cacao durable | GBG",
-          "description": "KIC transforme le cacao durable en produits cacao premium à forte valeur ajoutée : beurre de cacao, masse de cacao, poudre premium et produits pour marchés professionnels.",
+          "name": "KIC | Commercialisation internationale de produits cacao durables | GBG",
+          "description": "KIC est l'entit&eacute; commerciale cacao du groupe GBG : trading international, importation, distribution de f&egrave;ves et produits d&eacute;riv&eacute;s du cacao durables, certifi&eacute;s et tra&ccedil;ables.",
           "inLanguage": "fr-CI",
           "isPartOf": { "@id": "https://gbg-ci.com/#website" },
           "about": { "@id": "https://gbg-ci.com/#organization" }
@@ -183,19 +183,149 @@
         transform: translateY(-4px) !important;
     }
 
-    /* Timeline */
-    .gbg-timeline-item {
-        border-radius: 18px !important;
-        border: none !important;
-        box-shadow: 0 8px 28px rgba(75,45,20,.05) !important;
+    /* KIC Chain (chaîne de valeur) */
+    .kic-chain {
+        position: relative !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        padding-top: 60px !important;
     }
-    .gbg-timeline-item::before {
-        border-radius: 14px !important;
+    .kic-chain-line {
+        position: absolute !important;
+        top: 84px !important;
+        left: 40px !important;
+        right: 40px !important;
+        height: 4px !important;
+        background: rgba(139,90,43,.12) !important;
+        border-radius: 2px !important;
+        z-index: 0 !important;
+        overflow: hidden !important;
+    }
+    .kic-chain-line-fill {
+        width: 0% !important;
+        height: 100% !important;
+        background: linear-gradient(90deg, #8b5a2b, #daa520) !important;
+        border-radius: 2px !important;
+        transition: width 1.8s cubic-bezier(.16,1,.3,1) !important;
+    }
+    .kic-chain.is-visible .kic-chain-line-fill {
+        width: 100% !important;
+    }
+    .kic-chain-step {
+        position: relative !important;
+        z-index: 1 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        flex: 1 !important;
+        max-width: 180px !important;
+        opacity: 0 !important;
+        transform: translateY(30px) !important;
+        transition: opacity .6s cubic-bezier(.16,1,.3,1), transform .6s cubic-bezier(.16,1,.3,1) !important;
+        transition-delay: calc(var(--i) * 200ms) !important;
+    }
+    .kic-chain.is-visible .kic-chain-step {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
+    .kic-chain-dot {
+        width: 52px !important;
+        height: 52px !important;
+        border-radius: 50% !important;
         background: linear-gradient(135deg, #8b5a2b, #daa520) !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        color: #fff !important;
+        font-size: 18px !important;
+        box-shadow: 0 6px 20px rgba(139,90,43,.25) !important;
+        flex-shrink: 0 !important;
+        transition: transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s ease !important;
+        position: relative !important;
     }
-    .gbg-timeline-item:hover {
-        transform: translateY(-8px) !important;
-        box-shadow: 0 20px 48px rgba(75,45,20,.12) !important;
+    .kic-chain-dot::after {
+        content: '' !important;
+        position: absolute !important;
+        inset: -5px !important;
+        border-radius: 50% !important;
+        border: 2px solid rgba(218,165,32,.2) !important;
+        transition: border-color .3s ease, transform .4s ease !important;
+    }
+    .kic-chain-step:hover .kic-chain-dot {
+        transform: scale(1.15) !important;
+        box-shadow: 0 10px 30px rgba(139,90,43,.35) !important;
+    }
+    .kic-chain-step:hover .kic-chain-dot::after {
+        border-color: rgba(218,165,32,.5) !important;
+        transform: scale(1.1) !important;
+    }
+    .kic-chain-card {
+        margin-top: 20px !important;
+        background: #fff !important;
+        border-radius: 16px !important;
+        padding: 24px 18px !important;
+        text-align: center !important;
+        box-shadow: 0 8px 28px rgba(75,45,20,.06) !important;
+        transition: transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s ease !important;
+        position: relative !important;
+        overflow: hidden !important;
+    }
+    .kic-chain-card::before {
+        content: '' !important;
+        position: absolute !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: 3px !important;
+        background: linear-gradient(90deg, #8b5a2b, #daa520) !important;
+        transform: scaleX(0) !important;
+        transition: transform .4s cubic-bezier(.16,1,.3,1) !important;
+    }
+    .kic-chain-step:hover .kic-chain-card {
+        transform: translateY(-6px) !important;
+        box-shadow: 0 16px 44px rgba(75,45,20,.12) !important;
+    }
+    .kic-chain-step:hover .kic-chain-card::before {
+        transform: scaleX(1) !important;
+    }
+    .kic-chain-num {
+        display: inline-block !important;
+        font-size: 12px !important;
+        font-weight: 700 !important;
+        color: #daa520 !important;
+        letter-spacing: 1px !important;
+        margin-bottom: 6px !important;
+    }
+    .kic-chain-card h3 {
+        font-size: 16px !important;
+        font-weight: 700 !important;
+        color: #1a0e05 !important;
+        margin: 0 0 8px !important;
+    }
+    .kic-chain-card p {
+        font-size: 13px !important;
+        line-height: 1.5 !important;
+        color: #6b5940 !important;
+        margin: 0 !important;
+    }
+
+    @media (max-width: 991px) {
+        .kic-chain {
+            flex-wrap: wrap !important;
+            justify-content: center !important;
+            gap: 24px !important;
+            padding-top: 0 !important;
+        }
+        .kic-chain-line { display: none !important; }
+        .kic-chain-step {
+            flex: 0 0 calc(33.33% - 16px) !important;
+            max-width: 220px !important;
+        }
+    }
+    @media (max-width: 575px) {
+        .kic-chain-step {
+            flex: 0 0 calc(50% - 12px) !important;
+        }
     }
 
     /* Video grid */
@@ -432,6 +562,7 @@
                             <a href="https://www.instagram.com/globalbusinessg/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                             <a href="https://www.tiktok.com/@global.business.g1?_r=1&_t=ZS-97cJgWr5hTx" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                             <a href="https://www.youtube.com/@globalbusinessgroup-j8m" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="https://www.linkedin.com/in/gb-group-40447841b/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
                 </div>
@@ -464,6 +595,7 @@
                             <a href="https://www.instagram.com/globalbusinessg/" target="_blank" rel="noopener noreferrer" class="white" aria-label="Instagram"><i class="white fa-brands fa-instagram"></i></a>
                             <a href="https://www.tiktok.com/@global.business.g1?_r=1&_t=ZS-97cJgWr5hTx" target="_blank" rel="noopener noreferrer" class="white" aria-label="TikTok"><i class="white fa-brands fa-tiktok"></i></a>
                             <a href="https://www.youtube.com/@globalbusinessgroup-j8m" target="_blank" rel="noopener noreferrer" class="white" aria-label="YouTube"><i class="white fab fa-youtube"></i></a>
+                            <a href="https://www.linkedin.com/in/gb-group-40447841b/" target="_blank" rel="noopener noreferrer" class="white" aria-label="LinkedIn"><i class="white fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
                 </div>
@@ -593,154 +725,259 @@
     </section>
 
     <main class="gbg-entity-page kic-industrial-page">
+        <!-- H&eacute;ro -->
         <section class="gbg-entity-hero entity-kic">
             <div class="container">
                 <img src="assets/img/logo/KIC.jpg" alt="KIC" class="entity-hero-logo">
-                <span class="gbg-eyebrow">Konan Industrie et Chocolaterie</span>
-                <h1 class="gbg-title">KIC transforme le cacao durable en produits premium à forte valeur ajoutée.</h1>
-                <p class="gbg-lead">Konan Industrie et Chocolaterie développe une approche industrielle, éthique et qualitative de la transformation du cacao, tournée vers la traçabilité, la durabilité et les marchés exigeants.</p>
-                <p class="gbg-text">KIC s'inscrit dans la stratégie de valorisation du cacao durable portée par Global Business Group. L'entreprise transforme le cacao en produits à haute valeur ajoutée destinés aux chocolatiers, artisans, industriels, exportateurs et marchés premium.</p>
-                <div class="gbg-actions"><a href="#kic-produits" class="gbg-btn">Découvrir KIC</a><a href="contact.html" class="gbg-btn gbg-btn-outline">Nous contacter</a></div>
+                <span class="gbg-eyebrow">KIC &mdash; Entit&eacute; commerciale cacao</span>
+                <h1 class="gbg-title">Commercialisation internationale de produits cacao durables, certifi&eacute;s et tra&ccedil;ables.</h1>
+                <p class="gbg-lead">KIC d&eacute;veloppe une approche commerciale tourn&eacute;e vers la valorisation du cacao durable d'Afrique de l'Ouest, en connectant les produits d&eacute;riv&eacute;s du cacao aux march&eacute;s professionnels, premium et internationaux.</p>
+                <p class="gbg-text">KIC est l'entit&eacute; commerciale du groupe GBG d&eacute;di&eacute;e &agrave; la commercialisation, au trading international, &agrave; l'importation et &agrave; la distribution de f&egrave;ves de cacao et de produits d&eacute;riv&eacute;s du cacao.</p>
+                <div class="gbg-actions"><a href="#kic-produits" class="gbg-btn">D&eacute;couvrir nos produits</a><a href="contact.html" class="gbg-btn gbg-btn-outline">Contacter KIC</a></div>
             </div>
         </section>
 
+        <!-- Pr&eacute;sentation d&eacute;taill&eacute;e -->
         <section class="gbg-section gbg-reveal gbg-section-soft">
             <div class="container">
                 <div class="kic-split">
-                    <img src="assets/img/gallery/gl1.jpg" alt="Cacao brut durable">
+                    <img src="assets/img/gallery/gl1.jpg" alt="Cacao durable Afrique de l'Ouest">
                     <div style="background:#fff;padding:56px;display:flex;flex-direction:column;justify-content:center;">
-                        <span class="gbg-eyebrow">Du cacao brut au produit premium</span>
-                        <h2 class="gbg-title">Une page industrielle, technique et haut de gamme.</h2>
-                        <p class="gbg-lead">KIC transforme le cacao durable en produits à forte valeur ajoutée destinés aux marchés professionnels, premium et internationaux.</p>
-                        <p class="gbg-text">L'expérience de cette page met en avant la transformation, la qualité contrôlée, les produits cacao et le positionnement premium.</p>
+                        <span class="gbg-eyebrow">Pont &eacute;conomique Afrique&ndash;Europe</span>
+                        <h2 class="gbg-title">Connecter les fili&egrave;res cacao durables aux march&eacute;s internationaux.</h2>
+                        <p class="gbg-lead">KIC intervient dans la valorisation commerciale du cacao durable &agrave; travers une offre orient&eacute;e vers les acheteurs professionnels, les distributeurs, les industriels, les chocolatiers, les p&acirc;tissiers et les exportateurs.</p>
+                        <p class="gbg-text">L'entit&eacute; s'appuie sur une connaissance approfondie de la fili&egrave;re cacao, un r&eacute;seau de producteurs certifi&eacute;s, une exigence de tra&ccedil;abilit&eacute; et une orientation premium pour r&eacute;pondre aux besoins des march&eacute;s exigeants.</p>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Mission / Vision -->
         <section class="gbg-section gbg-reveal">
-            <div class="container"><div class="row g-4"><div class="col-lg-6"><div class="gbg-card gbg-reveal p-5 h-100"><span class="gbg-eyebrow">Mission</span><h3>Transformer le cacao durable.</h3><p class="gbg-text">Transformer le cacao durable en produits de qualité, traçables et compétitifs, destinés aux marchés professionnels, premium et internationaux.</p></div></div><div class="col-lg-6"><div class="gbg-card gbg-reveal p-5 h-100"><span class="gbg-eyebrow">Vision</span><h3>Valoriser le savoir-faire africain.</h3><p class="gbg-text">Devenir un acteur de référence dans la transformation du cacao durable, en créant un pont économique entre l'Afrique et l'Europe.</p></div></div></div></div>
-        </section>
-
-        <section class="gbg-section gbg-reveal gbg-section-dark">
-            <div class="container"><div class="row g-5"><div class="col-lg-5"><span class="gbg-eyebrow">Rôle dans GBG</span><h2 class="gbg-title">Augmenter la valeur ajoutée du cacao durable.</h2></div><div class="col-lg-7"><p class="gbg-lead">KIC représente le maillon transformation du groupe. Elle intervient après la production, l'accompagnement, la certification et la commercialisation.</p><div class="gbg-chain mt-4"><div class="gbg-chain-step"><span>GBCC</span>Accompagne et certifie</div><div class="gbg-chain-step"><span>SCMC</span>Facilite la mise en marché</div><div class="gbg-chain-step"><span>KIC</span>Transforme la matière première</div><div class="gbg-chain-step"><span>SCMC Chocolaterie</span>Valorise les produits chocolatés</div></div></div></div></div>
-        </section>
-
-        <section class="gbg-section gbg-reveal" id="kic-produits">
             <div class="container">
-                <div class="row justify-content-center mb-5"><div class="col-lg-8 text-center"><span class="gbg-eyebrow">Produits cacao</span><h2 class="gbg-title">Une présentation premium par usage professionnel.</h2></div></div>
-                <div class="kic-product-row gbg-reveal"><img src="assets/img/blog/blog1.jpg" alt="Beurre de cacao"><div><h3>Beurre de cacao</h3><p class="gbg-text">Produit cacao destiné aux usages professionnels, cosmétiques, chocolatiers ou industriels.</p></div><div><span class="gbg-tag">Usage professionnel</span></div></div>
-                <div class="kic-product-row gbg-reveal"><img src="assets/img/gallery/gl2.jpg" alt="Masse de cacao"><div><h3>Masse de cacao</h3><p class="gbg-text">Base de transformation pour chocolatiers, artisans, industriels et exportateurs.</p></div><div><span class="gbg-tag">Professionnels</span></div></div>
-                <div class="kic-product-row gbg-reveal"><img src="assets/img/blog/blog2.jpg" alt="Poudre de cacao"><div><h3>Poudre de cacao premium</h3><p class="gbg-text">Produit à forte valeur ajoutée, positionnement qualité et origine durable.</p></div><div><span class="gbg-tag">Premium</span></div></div>
-                <div class="kic-product-row gbg-reveal"><img src="assets/img/service/servicev3-3.jpg" alt="Chocolat de couverture"><div><h3>Chocolat de couverture</h3><p class="gbg-text">Produit destiné aux artisans, pâtissiers et chocolatiers dans une logique de qualité et de traçabilité.</p></div><div><span class="gbg-tag">Professionnels</span></div></div>
+                <div class="row g-4">
+                    <div class="col-lg-6"><div class="gbg-card gbg-reveal p-5 h-100"><span class="gbg-eyebrow">Mission</span><h3>Commercialiser le cacao durable.</h3><p class="gbg-text">Cr&eacute;er un pont &eacute;conomique entre les fili&egrave;res cacao durables d'Afrique de l'Ouest et les march&eacute;s professionnels, notamment en France, en Europe et &agrave; l'international.</p></div></div>
+                    <div class="col-lg-6"><div class="gbg-card gbg-reveal p-5 h-100"><span class="gbg-eyebrow">Vision</span><h3>Renforcer la pr&eacute;sence du cacao africain.</h3><p class="gbg-text">Renforcer la pr&eacute;sence du cacao durable africain sur les march&eacute;s internationaux, tout en favorisant une meilleure cr&eacute;ation de valeur pour les producteurs et les partenaires de la cha&icirc;ne de valeur.</p></div></div>
+                </div>
             </div>
         </section>
 
-        <section class="gbg-section gbg-reveal gbg-section-soft">
+        <!-- R&ocirc;le dans GBG -->
+        <section class="gbg-section gbg-reveal gbg-section-dark">
+            <div class="container">
+                <div class="row g-5">
+                    <div class="col-lg-5">
+                        <span class="gbg-eyebrow">R&ocirc;le dans GBG</span>
+                        <h2 class="gbg-title">La passerelle commerciale internationale pour les produits cacao.</h2>
+                    </div>
+                    <div class="col-lg-7">
+                        <p class="gbg-lead">Au sein de Global Business Group, KIC joue le r&ocirc;le de passerelle commerciale internationale pour les produits cacao.</p>
+                        <div class="gbg-chain mt-4">
+                            <div class="gbg-chain-step"><span>GBCC</span>Accompagne, structure et certifie</div>
+                            <div class="gbg-chain-step"><span>SCMC</span>Valorise et commercialise les produits agricoles</div>
+                            <div class="gbg-chain-step"><span>KIC</span>Trading, importation et distribution cacao</div>
+                            <div class="gbg-chain-step"><span>SCMC Chocolaterie</span>Marque, produits finis et exp&eacute;rience consommateur</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Activit&eacute;s commerciales -->
+        <section class="gbg-section gbg-reveal" id="kic-activites">
+            <div class="container">
+                <div class="row justify-content-center mb-5"><div class="col-lg-8 text-center"><span class="gbg-eyebrow">Activit&eacute;s commerciales</span><h2 class="gbg-title">Quatre axes strat&eacute;giques pour le cacao durable.</h2></div></div>
+                <div class="row g-4">
+                    <div class="col-lg-6"><div class="gbg-card gbg-reveal p-4 h-100"><div style="font-size:2rem;color:#daa520;margin-bottom:12px"><i class="fa-solid fa-globe"></i></div><h3>Trading international de cacao</h3><p class="gbg-text">KIC intervient dans le trading international de f&egrave;ves de cacao et de produits d&eacute;riv&eacute;s, connectant les fili&egrave;res d'approvisionnement durable aux acheteurs nationaux et internationaux.</p></div></div>
+                    <div class="col-lg-6"><div class="gbg-card gbg-reveal p-4 h-100"><div style="font-size:2rem;color:#daa520;margin-bottom:12px"><i class="fa-solid fa-truck-fast"></i></div><h3>Importation et distribution</h3><p class="gbg-text">D&eacute;veloppement de l'importation et de la distribution de produits cacao certifi&eacute;s, tra&ccedil;ables et issus de cha&icirc;nes de valeur durables, notamment vers les march&eacute;s europ&eacute;ens.</p></div></div>
+                    <div class="col-lg-6"><div class="gbg-card gbg-reveal p-4 h-100"><div style="font-size:2rem;color:#daa520;margin-bottom:12px"><i class="fa-solid fa-boxes-stacked"></i></div><h3>Commercialisation de produits d&eacute;riv&eacute;s</h3><p class="gbg-text">Commercialisation de f&egrave;ves, beurre, masse, poudre premium, chocolat de couverture et produits certifi&eacute;s &agrave; destination des professionnels.</p></div></div>
+                    <div class="col-lg-6"><div class="gbg-card gbg-reveal p-4 h-100"><div style="font-size:2rem;color:#daa520;margin-bottom:12px"><i class="fa-solid fa-handshake"></i></div><h3>D&eacute;veloppement commercial international</h3><p class="gbg-text">Renforcement de la pr&eacute;sence du cacao durable africain &agrave; travers des partenariats commerciaux, des circuits de distribution structur&eacute;s et le d&eacute;veloppement de relais internationaux.</p></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Produits -->
+        <section class="gbg-section gbg-reveal gbg-section-soft" id="kic-produits">
+            <div class="container">
+                <div class="row justify-content-center mb-5"><div class="col-lg-8 text-center"><span class="gbg-eyebrow">Nos produits</span><h2 class="gbg-title">Une gamme cacao compl&egrave;te pour les professionnels.</h2></div></div>
+                <div class="kic-product-row gbg-reveal"><img src="assets/img/gallery/gl1.jpg" alt="F&egrave;ves de cacao"><div><h3>F&egrave;ves de cacao</h3><p class="gbg-text">F&egrave;ves issues de fili&egrave;res durables et tra&ccedil;ables, destin&eacute;es aux acheteurs, transformateurs et exportateurs.</p></div><div><span class="gbg-tag">Mati&egrave;re premi&egrave;re</span></div></div>
+                <div class="kic-product-row gbg-reveal"><img src="assets/img/blog/blog1.jpg" alt="Beurre de cacao"><div><h3>Beurre de cacao</h3><p class="gbg-text">Produit d&eacute;riv&eacute; du cacao destin&eacute; aux industries agroalimentaires, cosm&eacute;tiques, chocolatiers et transformateurs.</p></div><div><span class="gbg-tag">Professionnel</span></div></div>
+                <div class="kic-product-row gbg-reveal"><img src="assets/img/gallery/gl2.jpg" alt="Masse de cacao"><div><h3>Masse de cacao</h3><p class="gbg-text">Mati&egrave;re premi&egrave;re destin&eacute;e &agrave; la fabrication de chocolat et de produits cacao.</p></div><div><span class="gbg-tag">Transformation</span></div></div>
+                <div class="kic-product-row gbg-reveal"><img src="assets/img/blog/blog2.jpg" alt="Poudre de cacao premium"><div><h3>Poudre de cacao premium</h3><p class="gbg-text">Produit adapt&eacute; aux march&eacute;s professionnels, &agrave; l'industrie alimentaire et aux marques recherchant une mati&egrave;re de qualit&eacute;.</p></div><div><span class="gbg-tag">Premium</span></div></div>
+                <div class="kic-product-row gbg-reveal"><img src="assets/img/service/servicev3-3.jpg" alt="Chocolat de couverture"><div><h3>Chocolat de couverture</h3><p class="gbg-text">Produit destin&eacute; aux chocolatiers, p&acirc;tissiers et professionnels de la transformation.</p></div><div><span class="gbg-tag">Artisans</span></div></div>
+                <div class="kic-product-row gbg-reveal"><img src="assets/img/gallery/galleryv2-3.jpg" alt="Produits certifi&eacute;s"><div><h3>Produits certifi&eacute;s et tra&ccedil;ables</h3><p class="gbg-text">Produits cacao issus de cha&icirc;nes de valeur durables, avec une attention particuli&egrave;re port&eacute;e &agrave; la qualit&eacute;, &agrave; l'origine et &agrave; la tra&ccedil;abilit&eacute;.</p></div><div><span class="gbg-tag">Certifi&eacute;</span></div></div>
+            </div>
+        </section>
+
+        <!-- Positionnement commercial -->
+        <section class="gbg-section gbg-reveal">
             <div class="container">
                 <div class="row g-4 align-items-center">
-                    <div class="col-lg-7"><span class="gbg-eyebrow">Qualité et traçabilité</span><h2 class="gbg-title">Une lecture technique du cacao durable.</h2><p class="gbg-lead">La page KIC met l'accent sur les exigences industrielles : matière première, contrôle, transformation, conditionnement, marchés et qualité.</p><div class="quality-badges mt-4"><span>Cacao durable</span><span>Traçabilité</span><span>Qualité contrôlée</span><span>Standards internationaux</span><span>Marchés professionnels</span><span>Valorisation du cacao africain</span></div></div>
-                    <div class="col-lg-5"><div class="gbg-note"><strong>Positionnement :</strong> une offre industrielle orientée cacao durable, traçabilité, qualité et valorisation locale des matières premières.</div></div>
-                </div>
-            </div>
-        </section>
-
-        <section class="gbg-section gbg-reveal">
-            <div class="container">
-                <div class="row justify-content-center mb-5">
-                    <div class="col-lg-8 text-center">
-                        <span class="gbg-eyebrow">Du cacao au produit premium</span>
-                        <h2 class="gbg-title">Une transformation en étapes lisibles.</h2>
+                    <div class="col-lg-7">
+                        <span class="gbg-eyebrow">Positionnement</span>
+                        <h2 class="gbg-title">Une entit&eacute; commerciale premium sp&eacute;cialis&eacute;e dans le cacao durable.</h2>
+                        <p class="gbg-lead">Le positionnement de KIC repose sur la tra&ccedil;abilit&eacute;, la qualit&eacute; des mati&egrave;res premi&egrave;res, la durabilit&eacute; des cha&icirc;nes de valeur et la cr&eacute;ation de liens commerciaux entre l'Afrique et l'Europe.</p>
+                        <div class="quality-badges mt-4">
+                            <span>Tra&ccedil;abilit&eacute;</span>
+                            <span>Qualit&eacute; premium</span>
+                            <span>Cacao durable</span>
+                            <span>Origine Afrique de l'Ouest</span>
+                            <span>March&eacute;s europ&eacute;ens</span>
+                            <span>Haute valeur ajout&eacute;e</span>
+                            <span>Pont Afrique&ndash;Europe</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="gbg-note">
+                            <strong>KIC vs SCMC Chocolaterie :</strong><br>
+                            KIC = trading, distribution, produits cacao professionnels, march&eacute;s internationaux.<br>
+                            SCMC Chocolaterie = produits chocolat&eacute;s finis, marque, consommation, packaging.
+                        </div>
                     </div>
                 </div>
-                <div class="gbg-timeline">
-                    <div class="gbg-timeline-item gbg-reveal"><h3>Sélection</h3><p class="gbg-text">Cacao durable issu de filières responsables.</p></div>
-                    <div class="gbg-timeline-item gbg-reveal"><h3>Contrôle qualité</h3><p class="gbg-text">Vérification des exigences qualité et traçabilité.</p></div>
-                    <div class="gbg-timeline-item gbg-reveal"><h3>Transformation</h3><p class="gbg-text">Passage de la fève à la matière cacao.</p></div>
-                    <div class="gbg-timeline-item gbg-reveal"><h3>Beurre, masse, poudre</h3><p class="gbg-text">Produits cacao à forte valeur ajoutée.</p></div>
-                    <div class="gbg-timeline-item gbg-reveal"><h3>Premium</h3><p class="gbg-text">Développement de produits pour marchés exigeants.</p></div>
-                    <div class="gbg-timeline-item gbg-reveal"><h3>Distribution</h3><p class="gbg-text">Accès aux marchés professionnels grâce à une offre cacao structurée.</p></div>
+            </div>
+        </section>
+
+        <!-- Cha&icirc;ne de valeur commerciale -->
+        <section class="gbg-section gbg-section-soft" id="kic-chaine">
+            <div class="container">
+                <div class="row justify-content-center mb-5">
+                    <div class="col-lg-8 text-center gbg-reveal">
+                        <span class="gbg-eyebrow">Cha&icirc;ne de valeur</span>
+                        <h2 class="gbg-title">Du producteur au march&eacute; international.</h2>
+                    </div>
+                </div>
+                <div class="kic-chain">
+                    <div class="kic-chain-line"><div class="kic-chain-line-fill"></div></div>
+                    <div class="kic-chain-step" style="--i:0">
+                        <div class="kic-chain-dot"><i class="fa-solid fa-seedling"></i></div>
+                        <div class="kic-chain-card">
+                            <span class="kic-chain-num">01</span>
+                            <h3>Sourcing</h3>
+                            <p>S&eacute;lection de cacao durable issu de fili&egrave;res certifi&eacute;es et responsables.</p>
+                        </div>
+                    </div>
+                    <div class="kic-chain-step" style="--i:1">
+                        <div class="kic-chain-dot"><i class="fa-solid fa-microscope"></i></div>
+                        <div class="kic-chain-card">
+                            <span class="kic-chain-num">02</span>
+                            <h3>Contr&ocirc;le qualit&eacute;</h3>
+                            <p>V&eacute;rification des exigences qualit&eacute;, tra&ccedil;abilit&eacute; et certifications.</p>
+                        </div>
+                    </div>
+                    <div class="kic-chain-step" style="--i:2">
+                        <div class="kic-chain-dot"><i class="fa-solid fa-handshake"></i></div>
+                        <div class="kic-chain-card">
+                            <span class="kic-chain-num">03</span>
+                            <h3>Trading</h3>
+                            <p>N&eacute;gociation et mise en relation avec les acheteurs internationaux.</p>
+                        </div>
+                    </div>
+                    <div class="kic-chain-step" style="--i:3">
+                        <div class="kic-chain-dot"><i class="fa-solid fa-ship"></i></div>
+                        <div class="kic-chain-card">
+                            <span class="kic-chain-num">04</span>
+                            <h3>Importation</h3>
+                            <p>Acheminement vers les march&eacute;s europ&eacute;ens et internationaux.</p>
+                        </div>
+                    </div>
+                    <div class="kic-chain-step" style="--i:4">
+                        <div class="kic-chain-dot"><i class="fa-solid fa-truck-fast"></i></div>
+                        <div class="kic-chain-card">
+                            <span class="kic-chain-num">05</span>
+                            <h3>Distribution</h3>
+                            <p>Livraison aux professionnels : chocolatiers, industriels, distributeurs.</p>
+                        </div>
+                    </div>
+                    <div class="kic-chain-step" style="--i:5">
+                        <div class="kic-chain-dot"><i class="fa-solid fa-chart-line"></i></div>
+                        <div class="kic-chain-card">
+                            <span class="kic-chain-num">06</span>
+                            <h3>Suivi commercial</h3>
+                            <p>Accompagnement des partenaires et d&eacute;veloppement de relations durables.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- March&eacute;s et clients -->
         <section class="gbg-section gbg-reveal gbg-section-dark">
             <div class="container">
                 <div class="row justify-content-center mb-5">
                     <div class="col-lg-8 text-center">
-                        <span class="gbg-eyebrow">Marché premium</span>
-                        <h2 class="gbg-title">Répondre à une demande croissante pour le cacao durable.</h2>
-                        <p class="gbg-lead">Le marché recherche des matières premières traçables, responsables et qualitatives. KIC se positionne sur ce segment avec une approche fondée sur la transformation et la durabilité.</p>
+                        <span class="gbg-eyebrow">March&eacute;s et clients</span>
+                        <h2 class="gbg-title">Des march&eacute;s exigeants, des partenaires de confiance.</h2>
+                        <p class="gbg-lead">KIC cible les march&eacute;s o&ugrave; la demande en produits cacao de qualit&eacute;, responsables et tra&ccedil;ables est en progression.</p>
                     </div>
                 </div>
                 <div class="row g-4">
-                    <div class="col-lg-4"><div class="gbg-media-card gbg-reveal-scale"><img src="assets/img/gallery/gl2.jpg" alt="Transformation cacao"><div class="gbg-media-overlay"><h3>Transformation industrielle</h3><p>Beurre, masse et poudre de cacao premium.</p></div></div></div>
-                    <div class="col-lg-4"><div class="gbg-media-card gbg-reveal-scale"><img src="assets/img/blog/blog2.jpg" alt="Chocolat premium"><div class="gbg-media-overlay"><h3>Chocolat premium</h3><p>Produits derives et couverture pour usages professionnels.</p></div></div></div>
-                    <div class="col-lg-4"><div class="gbg-media-card gbg-reveal-scale"><img src="assets/img/gallery/galleryv2-3.jpg" alt="Distribution cacao"><div class="gbg-media-overlay"><h3>Importation et distribution</h3><p>Valorisation du cacao durable sur des marchés cibles.</p></div></div></div>
+                    <div class="col-lg-4"><div class="gbg-media-card gbg-reveal-scale"><img src="assets/img/gallery/gl2.jpg" alt="March&eacute; ivoirien"><div class="gbg-media-overlay"><h3>C&ocirc;te d'Ivoire &amp; Afrique de l'Ouest</h3><p>March&eacute; local et r&eacute;gional, base de sourcing et premiers clients.</p></div></div></div>
+                    <div class="col-lg-4"><div class="gbg-media-card gbg-reveal-scale"><img src="assets/img/blog/blog2.jpg" alt="March&eacute; fran&ccedil;ais"><div class="gbg-media-overlay"><h3>France &amp; Europe</h3><p>Chocolatiers, p&acirc;tissiers, industriels et distributeurs europ&eacute;ens.</p></div></div></div>
+                    <div class="col-lg-4"><div class="gbg-media-card gbg-reveal-scale"><img src="assets/img/gallery/galleryv2-3.jpg" alt="March&eacute; international"><div class="gbg-media-overlay"><h3>Acheteurs internationaux</h3><p>Importateurs, marques de chocolat et partenaires commerciaux.</p></div></div></div>
                 </div>
             </div>
         </section>
 
+        <!-- Galerie produits -->
         <section class="gbg-section gbg-reveal">
             <div class="container">
-                <div class="row justify-content-center mb-5"><div class="col-lg-8 text-center"><span class="gbg-eyebrow">Galerie produits</span><h2 class="gbg-title">Une gamme cacao premium structurée par usage.</h2></div></div>
+                <div class="row justify-content-center mb-5"><div class="col-lg-8 text-center"><span class="gbg-eyebrow">Galerie</span><h2 class="gbg-title">Nos produits cacao en images.</h2></div></div>
                 <div class="gbg-gallery-grid">
+                    <div class="gbg-gallery-item gbg-reveal-scale"><img src="assets/img/gallery/gl1.jpg" alt="F&egrave;ves de cacao"><span>F&egrave;ves de cacao</span></div>
                     <div class="gbg-gallery-item gbg-reveal-scale"><img src="assets/img/blog/blog1.jpg" alt="Beurre de cacao"><span>Beurre de cacao</span></div>
-                    <div class="gbg-gallery-item gbg-reveal-scale"><img src="assets/img/gallery/gl1.jpg" alt="Masse de cacao"><span>Masse de cacao</span></div>
-                    <div class="gbg-gallery-item gbg-reveal-scale"><img src="assets/img/blog/blog2.jpg" alt="Poudre de cacao"><span>Poudre de cacao premium</span></div>
-                    <div class="gbg-gallery-item gbg-reveal-scale"><img src="assets/img/service/servicev3-3.jpg" alt="Tablettes premium"><span>Tablettes premium</span></div>
+                    <div class="gbg-gallery-item gbg-reveal-scale"><img src="assets/img/blog/blog2.jpg" alt="Poudre de cacao premium"><span>Poudre de cacao premium</span></div>
+                    <div class="gbg-gallery-item gbg-reveal-scale"><img src="assets/img/service/servicev3-3.jpg" alt="Chocolat de couverture"><span>Chocolat de couverture</span></div>
                 </div>
-                <p class="gbg-note mt-4">Images spécifiques recommandées : image-kic-beurre-cacao.jpg, image-kic-masse-cacao.jpg, image-kic-poudre-cacao.jpg, image-kic-tablette-premium.jpg.</p>
             </div>
         </section>
 
+        <!-- Vid&eacute;os -->
         <section class="gbg-section gbg-section-soft" id="kic-videos">
             <div class="container">
                 <div class="row justify-content-center mb-4">
                     <div class="col-lg-8 text-center kic-v-reveal">
-                        <span class="gbg-eyebrow">Nos vidéos</span>
-                        <h2 class="gbg-title">Au cœur de la transformation du cacao.</h2>
+                        <span class="gbg-eyebrow">Nos vid&eacute;os</span>
+                        <h2 class="gbg-title">Le cacao durable en mouvement.</h2>
                     </div>
                 </div>
                 <div class="kic-video-grid">
                     <div class="kic-vcard kic-v-reveal" style="--i:1" data-vid="0" data-yt="">
-                        <span class="kic-vcard-badge"><i class="fa-solid fa-play"></i>&nbsp; Vidéo</span>
+                        <span class="kic-vcard-badge"><i class="fa-solid fa-play"></i>&nbsp; Vid&eacute;o</span>
                         <div class="kic-vcard-thumb">
-                            <img src="assets/img/about/feature-video02.jpg" alt="Transformation du cacao">
+                            <img src="assets/img/about/feature-video02.jpg" alt="Fili&egrave;re cacao">
                             <div class="kic-vcard-play"><i class="fa-solid fa-play"></i></div>
                             <div class="kic-vcard-play-ring"></div>
                         </div>
                         <div class="kic-vcard-info">
-                            <h4>Transformation du cacao</h4>
-                            <p>Fèves, nettoyage, broyage, beurre et poudre de cacao.</p>
+                            <h4>La fili&egrave;re cacao</h4>
+                            <p>Du producteur au march&eacute; international.</p>
                         </div>
                         <div class="kic-vcard-bar"></div>
                     </div>
-
                     <div class="kic-vcard kic-v-reveal" style="--i:2" data-vid="1" data-yt="">
-                        <span class="kic-vcard-badge"><i class="fa-solid fa-play"></i>&nbsp; Vidéo</span>
+                        <span class="kic-vcard-badge"><i class="fa-solid fa-play"></i>&nbsp; Vid&eacute;o</span>
                         <div class="kic-vcard-thumb">
-                            <img src="assets/img/service/servicev3-3.jpg" alt="Contrôle qualité">
+                            <img src="assets/img/service/servicev3-3.jpg" alt="Produits cacao">
                             <div class="kic-vcard-play"><i class="fa-solid fa-play"></i></div>
                             <div class="kic-vcard-play-ring"></div>
                         </div>
                         <div class="kic-vcard-info">
-                            <h4>Contrôle qualité</h4>
-                            <p>Standards d'excellence et traçabilité des produits finis.</p>
+                            <h4>Nos produits cacao</h4>
+                            <p>F&egrave;ves, beurre, masse, poudre et couverture.</p>
                         </div>
                         <div class="kic-vcard-bar"></div>
                     </div>
-
                     <div class="kic-vcard kic-v-reveal" style="--i:3" data-vid="2" data-yt="">
-                        <span class="kic-vcard-badge"><i class="fa-solid fa-play"></i>&nbsp; Vidéo</span>
+                        <span class="kic-vcard-badge"><i class="fa-solid fa-play"></i>&nbsp; Vid&eacute;o</span>
                         <div class="kic-vcard-thumb">
-                            <img src="assets/img/gallery/feature6.jpg" alt="Produits finis">
+                            <img src="assets/img/gallery/feature6.jpg" alt="Distribution">
                             <div class="kic-vcard-play"><i class="fa-solid fa-play"></i></div>
                             <div class="kic-vcard-play-ring"></div>
                         </div>
                         <div class="kic-vcard-info">
-                            <h4>Emballage & produits finis</h4>
-                            <p>Du cacao transformé aux produits prêts à l'export.</p>
+                            <h4>Trading &amp; distribution</h4>
+                            <p>Acc&egrave;s aux march&eacute;s professionnels internationaux.</p>
                         </div>
                         <div class="kic-vcard-bar"></div>
                     </div>
@@ -748,38 +985,55 @@
             </div>
         </section>
 
+        <!-- Avantages commerciaux -->
         <section class="gbg-section gbg-reveal">
             <div class="container">
-                <div class="row justify-content-center mb-5"><div class="col-lg-8 text-center"><span class="gbg-eyebrow">Avantages compétitifs</span><h2 class="gbg-title">Une approche industrielle intégrée.</h2></div></div>
+                <div class="row justify-content-center mb-5"><div class="col-lg-8 text-center"><span class="gbg-eyebrow">Avantages commerciaux</span><h2 class="gbg-title">Pourquoi choisir KIC comme partenaire cacao.</h2></div></div>
                 <div class="gbg-mini-grid">
-                    <div class="gbg-mini-card gbg-reveal"><i class="fa-solid fa-users"></i><h3>Réseaux producteurs</h3><p class="gbg-text">Accès privilégié aux filières accompagnées par GBG.</p></div>
-                    <div class="gbg-mini-card gbg-reveal"><i class="fa-solid fa-location-dot"></i><h3>Traçabilité</h3><p class="gbg-text">Maîtrise de l'origine et de la documentation produit.</p></div>
-                    <div class="gbg-mini-card gbg-reveal"><i class="fa-solid fa-certificate"></i><h3>Certification</h3><p class="gbg-text">Expertise durabilité portée par l'écosystème GBG.</p></div>
-                    <div class="gbg-mini-card gbg-reveal"><i class="fa-solid fa-star"></i><h3>Premium</h3><p class="gbg-text">Positionnement orienté qualité et valeur ajoutée.</p></div>
-                    <div class="gbg-mini-card gbg-reveal"><i class="fa-solid fa-globe-europe"></i><h3>Marchés européens</h3><p class="gbg-text">Marchés professionnels et partenaires industriels.</p></div>
-                    <div class="gbg-mini-card gbg-reveal"><i class="fa-solid fa-industry"></i><h3>Intégration</h3><p class="gbg-text">Lien entre production, transformation et commercialisation.</p></div>
+                    <div class="gbg-mini-card gbg-reveal"><i class="fa-solid fa-seedling"></i><h3>Cacao durable</h3><p class="gbg-text">Produits issus de fili&egrave;res cacao durables, certifi&eacute;es et tra&ccedil;ables.</p></div>
+                    <div class="gbg-mini-card gbg-reveal"><i class="fa-solid fa-earth-europe"></i><h3>March&eacute;s europ&eacute;ens</h3><p class="gbg-text">Orientation vers la France et l'Europe o&ugrave; la demande en cacao responsable cro&icirc;t.</p></div>
+                    <div class="gbg-mini-card gbg-reveal"><i class="fa-solid fa-users"></i><h3>R&eacute;seau producteurs</h3><p class="gbg-text">Expertise forte de la fili&egrave;re cacao et acc&egrave;s &agrave; des r&eacute;seaux de producteurs structur&eacute;s.</p></div>
+                    <div class="gbg-mini-card gbg-reveal"><i class="fa-solid fa-user-tie"></i><h3>Offre professionnelle</h3><p class="gbg-text">Mati&egrave;res cacao fiables, qualitatives et adapt&eacute;es aux besoins des chocolatiers, p&acirc;tissiers et industriels.</p></div>
+                    <div class="gbg-mini-card gbg-reveal"><i class="fa-solid fa-bridge"></i><h3>Pont Afrique&ndash;Europe</h3><p class="gbg-text">Relais commercial entre les fili&egrave;res africaines et les march&eacute;s europ&eacute;ens, favorisant des &eacute;changes responsables.</p></div>
+                    <div class="gbg-mini-card gbg-reveal"><i class="fa-solid fa-certificate"></i><h3>Tra&ccedil;abilit&eacute; totale</h3><p class="gbg-text">Ma&icirc;trise de l'origine, documentation produit et conformit&eacute; aux standards internationaux.</p></div>
                 </div>
             </div>
         </section>
 
+        <!-- Clients cibles -->
         <section class="gbg-section gbg-reveal gbg-section-soft">
             <div class="container">
                 <div class="row g-4 align-items-center">
-                    <div class="col-lg-6"><span class="gbg-eyebrow">Équipe</span><h2 class="gbg-title">Une gouvernance orientée développement industriel.</h2><p class="gbg-lead">L'équipe dirigeante porte une ambition de transformation locale, de qualité et de valorisation du cacao durable.</p></div>
+                    <div class="col-lg-6">
+                        <span class="gbg-eyebrow">&Agrave; qui s'adresse KIC</span>
+                        <h2 class="gbg-title">Des professionnels du cacao et du chocolat.</h2>
+                        <p class="gbg-lead">KIC s'adresse aux acteurs de la fili&egrave;re cacao qui recherchent des mati&egrave;res premi&egrave;res de qualit&eacute;, certifi&eacute;es et &agrave; forte valeur ajout&eacute;e.</p>
+                    </div>
                     <div class="col-lg-6">
                         <div class="gbg-confirm-grid">
-                            <div class="gbg-confirm-item">Edmond Konan - Direction stratégique</div>
-                            <div class="gbg-confirm-item">Jonathan Konan - Opérations et développement</div>
-                            <div class="gbg-confirm-item">Sylvain Konan - Durabilité et filières responsables</div>
-                            <div class="gbg-confirm-item">Expertise collective au service de la transformation du cacao</div>
+                            <div class="gbg-confirm-item"><i class="fa-solid fa-candy-cane" style="color:#daa520;margin-right:8px"></i> Chocolatiers professionnels</div>
+                            <div class="gbg-confirm-item"><i class="fa-solid fa-cake-candles" style="color:#daa520;margin-right:8px"></i> P&acirc;tissiers</div>
+                            <div class="gbg-confirm-item"><i class="fa-solid fa-industry" style="color:#daa520;margin-right:8px"></i> Industriels agroalimentaires</div>
+                            <div class="gbg-confirm-item"><i class="fa-solid fa-truck" style="color:#daa520;margin-right:8px"></i> Distributeurs &amp; exportateurs</div>
+                            <div class="gbg-confirm-item"><i class="fa-solid fa-tags" style="color:#daa520;margin-right:8px"></i> Marques de chocolat</div>
+                            <div class="gbg-confirm-item"><i class="fa-solid fa-chart-line" style="color:#daa520;margin-right:8px"></i> Investisseurs &amp; partenaires commerciaux</div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- CTA -->
         <section class="gbg-section gbg-reveal gbg-section-dark">
-            <div class="container"><div class="row g-4 align-items-center"><div class="col-lg-8"><h2 class="gbg-title">Vous recherchez des produits cacao premium et traçables ?</h2><p class="gbg-lead">KIC vous accompagne dans vos besoins en transformation, distribution et valorisation du cacao.</p></div><div class="col-lg-4 text-lg-end"><a href="contact.html" class="gbg-btn">Contacter KIC</a></div></div></div>
+            <div class="container">
+                <div class="row g-4 align-items-center">
+                    <div class="col-lg-8">
+                        <h2 class="gbg-title">Vous &ecirc;tes acheteur, distributeur, chocolatier ou partenaire commercial ?</h2>
+                        <p class="gbg-lead">KIC vous accompagne dans l'acc&egrave;s &agrave; des produits cacao durables, certifi&eacute;s, tra&ccedil;ables et adapt&eacute;s aux exigences des march&eacute;s professionnels.</p>
+                    </div>
+                    <div class="col-lg-4 text-lg-end"><a href="contact.html" class="gbg-btn">Contacter KIC</a></div>
+                </div>
+            </div>
         </section>
 
         <footer class="gbg-footer">
@@ -793,6 +1047,7 @@
                             <a href="https://www.instagram.com/globalbusinessg/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                             <a href="https://www.tiktok.com/@global.business.g1" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                             <a href="https://www.youtube.com/@globalbusinessgroup-j8m" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="https://www.linkedin.com/in/gb-group-40447841b/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-4" style="--i:1">
@@ -900,6 +1155,20 @@
                 r.addEventListener('mouseenter', function(){ clearInterval(rInt); rows.forEach(function(x){x.classList.remove('kpr-active');}); r.classList.add('kpr-active'); ri=i; });
                 r.addEventListener('mouseleave', function(){ rInt = setInterval(nextRow, 2500); });
             });
+        }
+
+        // Chaîne de valeur: scroll-triggered animation
+        var kicChain = document.querySelector('.kic-chain');
+        if (kicChain) {
+            var chainIO = new IntersectionObserver(function(entries){
+                entries.forEach(function(e){
+                    if(e.isIntersecting){
+                        e.target.classList.add('is-visible');
+                        chainIO.unobserve(e.target);
+                    }
+                });
+            }, {threshold: 0.2});
+            chainIO.observe(kicChain);
         }
 
         // Video cards: reveal + auto-cycle
