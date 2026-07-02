@@ -95,7 +95,7 @@
         align-items: center !important;
         background: linear-gradient(135deg, rgba(26,14,5,.92) 0%, rgba(61,43,31,.85) 50%, rgba(26,60,40,.88) 100%) !important;
         overflow: hidden !important;
-        padding: 140px 0 80px !important;
+        padding: 80px 0 80px !important;
     }
     .ek-hero-bg {
         position: absolute !important;
@@ -777,6 +777,223 @@
     .gbg-footer-reveal.is-visible,.gbg-footer-reveal.is-footer-visible{opacity:1!important;transform:translateY(0)!important}
     @media(max-width:767px){.gbg-footer-bottom{flex-direction:column!important;text-align:center!important}.gbg-footer-bottom-links{justify-content:center!important}}
     .gbg-drop-icon img { width:100% !important; height:100% !important; object-fit:cover !important; border-radius:inherit !important; }
+    /* ── BACK BUTTON ── */
+    .ek-back-btn {
+        position: fixed !important;
+        top: 24px !important;
+        left: 24px !important;
+        z-index: 999 !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        padding: 10px 20px !important;
+        background: rgba(26,60,40,.85) !important;
+        backdrop-filter: blur(10px) !important;
+        color: #fff !important;
+        text-decoration: none !important;
+        border-radius: 50px !important;
+        font-size: 13px !important;
+        font-weight: 600 !important;
+        letter-spacing: .5px !important;
+        transition: transform .3s ease, background .3s ease, box-shadow .3s ease !important;
+        box-shadow: 0 4px 20px rgba(0,0,0,.15) !important;
+        opacity: 0;
+        animation: ekFadeIn .6s .5s ease forwards;
+    }
+    .ek-back-btn:hover {
+        background: rgba(26,60,40,.95) !important;
+        transform: translateX(-3px) !important;
+        box-shadow: 0 6px 25px rgba(0,0,0,.25) !important;
+        color: var(--ek-gold) !important;
+    }
+    @keyframes ekFadeIn { to { opacity: 1; } }
+
+    /* ── ENHANCED ANIMATIONS ── */
+    .ek-reveal-left {
+        opacity: 0;
+        transform: translateX(-40px);
+        transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1);
+    }
+    .ek-reveal-left.is-visible { opacity: 1; transform: translateX(0); }
+
+    .ek-reveal-right {
+        opacity: 0;
+        transform: translateX(40px);
+        transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1);
+    }
+    .ek-reveal-right.is-visible { opacity: 1; transform: translateX(0); }
+
+    .ek-reveal-scale {
+        opacity: 0;
+        transform: scale(.85);
+        transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1);
+    }
+    .ek-reveal-scale.is-visible { opacity: 1; transform: scale(1); }
+
+    .ek-stagger { transition-delay: calc(var(--i, 0) * 100ms); }
+
+    /* Hero parallax background */
+    .ek-hero-bg img { transition: transform 20s linear !important; }
+    .ek-hero:hover .ek-hero-bg img { transform: scale(1.05) !important; }
+
+    /* Hero floating decorative particles */
+    .ek-hero::before {
+        content: '' !important;
+        position: absolute !important;
+        top: 15% !important;
+        right: 8% !important;
+        width: 80px !important;
+        height: 80px !important;
+        border: 2px solid rgba(218,165,32,.12) !important;
+        border-radius: 50% !important;
+        animation: ekFloat 6s ease-in-out infinite !important;
+        z-index: 1 !important;
+    }
+    .ek-hero::after {
+        content: '' !important;
+        position: absolute !important;
+        bottom: 20% !important;
+        left: 5% !important;
+        width: 50px !important;
+        height: 50px !important;
+        border: 2px solid rgba(218,165,32,.08) !important;
+        border-radius: 12px !important;
+        animation: ekFloat 8s 2s ease-in-out infinite !important;
+        z-index: 1 !important;
+        transform: rotate(45deg);
+    }
+    @keyframes ekFloat {
+        0%, 100% { transform: translateY(0) rotate(0deg); }
+        50% { transform: translateY(-20px) rotate(8deg); }
+    }
+
+    /* Section title decoration */
+    .ek-title::after {
+        content: '' !important;
+        display: block !important;
+        width: 50px !important;
+        height: 3px !important;
+        background: linear-gradient(90deg, var(--ek-gold), transparent) !important;
+        margin-top: 12px !important;
+        border-radius: 3px !important;
+        transition: width .6s cubic-bezier(.16,1,.3,1) !important;
+    }
+    .is-visible .ek-title::after,
+    .ek-reveal.is-visible .ek-title::after { width: 80px !important; }
+    .text-center .ek-title::after { margin-left: auto !important; margin-right: auto !important; }
+
+    /* Expertise cards enhanced hover */
+    .ek-expertise-card {
+        transition: transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s ease !important;
+    }
+    .ek-expertise-card:hover {
+        transform: translateY(-8px) !important;
+        box-shadow: 0 20px 40px rgba(61,43,31,.12) !important;
+    }
+    .ek-expertise-card i {
+        transition: transform .4s cubic-bezier(.16,1,.3,1) !important;
+    }
+    .ek-expertise-card:hover i {
+        transform: scale(1.15) rotate(-5deg) !important;
+    }
+
+    /* Timeline items enhanced */
+    .ek-timeline-item {
+        opacity: 0;
+        transform: translateX(-30px);
+        transition: opacity .6s cubic-bezier(.16,1,.3,1), transform .6s cubic-bezier(.16,1,.3,1);
+    }
+    .ek-timeline-item:nth-child(even) {
+        transform: translateX(30px);
+    }
+    .ek-timeline-item.is-visible {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    /* Publication cards tilt on hover */
+    .ek-pub-card {
+        transition: transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s ease !important;
+    }
+    .ek-pub-card:hover {
+        transform: translateY(-6px) rotate(-1deg) !important;
+        box-shadow: 0 20px 40px rgba(61,43,31,.12) !important;
+    }
+
+    /* Gallery images zoom on hover */
+    .ek-gallery-grid img {
+        transition: transform .5s cubic-bezier(.16,1,.3,1), filter .5s ease !important;
+    }
+    .ek-gallery-grid img:hover {
+        transform: scale(1.06) !important;
+        filter: brightness(1.05) !important;
+    }
+
+    /* Video play button pulse */
+    .ek-video-play {
+        animation: ekPulse 2s ease-in-out infinite !important;
+    }
+    @keyframes ekPulse {
+        0%, 100% { box-shadow: 0 0 0 0 rgba(218,165,32,.4); }
+        50% { box-shadow: 0 0 0 20px rgba(218,165,32,0); }
+    }
+
+    /* Impact counter glow */
+    .ek-impact-num {
+        transition: text-shadow .4s ease !important;
+    }
+    .ek-impact-card:hover .ek-impact-num {
+        text-shadow: 0 0 30px rgba(218,165,32,.4) !important;
+    }
+
+    /* Formation cards stagger reveal */
+    .ek-formation-card {
+        transition: transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s ease !important;
+    }
+    .ek-formation-card:hover {
+        transform: translateY(-6px) !important;
+        box-shadow: 0 15px 35px rgba(61,43,31,.1) !important;
+    }
+
+    /* Conference cards slide effect */
+    .ek-conf-card {
+        transition: transform .4s cubic-bezier(.16,1,.3,1), border-color .3s ease !important;
+    }
+    .ek-conf-card:hover {
+        transform: translateY(-4px) !important;
+        border-color: var(--ek-gold) !important;
+    }
+
+    /* Distinction items glow */
+    .ek-distinction {
+        transition: transform .4s cubic-bezier(.16,1,.3,1), background .3s ease !important;
+    }
+    .ek-distinction:hover {
+        transform: translateY(-4px) !important;
+        background: rgba(218,165,32,.08) !important;
+    }
+
+    /* Smooth section divider */
+    .ek-section + .ek-section::before {
+        content: '' !important;
+        display: block !important;
+        width: 60px !important;
+        height: 2px !important;
+        background: linear-gradient(90deg, transparent, var(--ek-gold), transparent) !important;
+        margin: 0 auto !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+    }
+
+    /* Contact form input focus glow */
+    .ek-form-group input:focus,
+    .ek-form-group textarea:focus {
+        box-shadow: 0 0 0 3px rgba(218,165,32,.15) !important;
+        border-color: var(--ek-gold) !important;
+    }
+
     @media (prefers-reduced-motion: reduce) {
         *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
     }
@@ -785,118 +1002,10 @@
 
 <body>
 
-    <!-- Preloader Start -->
-    <div id="preloader" class="preloader">
-        <div class="box d-grid gap-4">
-            <span class="man-pre m-auto"><img src="assets/img/banner/preloader.png" alt="img"></span>
-            <span class="p1-clr fz-40 fw-bold text-center d-block">GBG</span>
-        </div>
-    </div>
-
-    <!-- Offcanvas Area Start -->
-    <div class="fix-area">
-        <div class="offcanvas__info">
-            <div class="offcanvas__wrapper">
-                <div class="offcanvas__content">
-                    <div class="offcanvas__top d-flex justify-content-between align-items-center">
-                        <div class="offcanvas__logo"><a href="index.html"><img src="assets/img/logo/favcion.png" alt="logo-img"></a></div>
-                        <div class="offcanvas__close"><button><i class="fas fa-times"></i></button></div>
-                    </div>
-                    <div class="mobile-menu fix mb-3"></div>
-                    <div class="offcanvas__contact">
-                        <p class="p800-clr mb-xxl-5 mb-3">Global Business Group accompagne la transformation des fili&egrave;res agricoles &agrave; travers le conseil, la certification, la commercialisation durable et la transformation du cacao.</p>
-                        <h4>Contact Info</h4>
-                        <ul>
-                            <li class="d-flex align-items-center"><div class="offcanvas__contact-icon"><i class="fal fa-map-marker-alt"></i></div><div class="offcanvas__contact-text"><a target="_blank" href="#">II Plateaux, Carrefour Macaci, Abidjan</a></div></li>
-                            <li class="d-flex align-items-center"><div class="offcanvas__contact-icon mr-15"><i class="fal fa-envelope"></i></div><div class="offcanvas__contact-text"><a href="mailto:infos@gbg-ci.com"><span>infos@gbg-ci.com</span></a></div></li>
-                            <li class="d-flex align-items-center"><div class="offcanvas__contact-icon mr-15"><i class="far fa-phone"></i></div><div class="offcanvas__contact-text"><a href="tel:+2250544202767">+225 05 44 20 27 67</a></div></li>
-                        </ul>
-                        <div class="header-button mt-4 mb-4"><a href="contact.html" class="cmn-btn">Nous Contacter <i class="fa-solid fa-arrow-right"></i></a></div>
-                        <h4>R&eacute;seaux Sociaux</h4>
-                        <div class="social-icon d-flex align-items-center">
-                            <a href="https://www.facebook.com/people/Global-Business-Group/61587118201614/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
-                            <a href="https://www.instagram.com/globalbusinessg/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                            <a href="https://www.tiktok.com/@global.business.g1" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
-                            <a href="https://www.youtube.com/@globalbusinessgroup-j8m" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
-                            <a href="https://www.linkedin.com/in/gb-group-40447841b/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="offcanvas__overlay"></div>
-
-    <!-- Header -->
-    <div id="header-sticky" class="header-common-adjustment">
-        <a href="index.html" class="logo-v04"><img src="assets/img/logo/logo-light.svg" alt="img"></a>
-        <div class="topheader-mainheader">
-            <div class="header-top-section topcmn-style d-lg-block d-none">
-                <div class="container">
-                    <div class="header-top-wrapper">
-                        <ul class="contact-list">
-                            <li><a href="mailto:infos@gbg-ci.com"><i class="fa-solid fa-envelope p1-clr"></i> infos@gbg-ci.com</a></li>
-                            <li><a href="#" class="link"><i class="fa-solid fa-location-dot p1-clr"></i> II Plateaux, Carrefour Macaci, Abidjan</a></li>
-                        </ul>
-                        <div class="social-wrapper d-flex align-items-center">
-                            <a href="https://www.facebook.com/people/Global-Business-Group/61587118201614/" target="_blank" rel="noopener noreferrer" class="white"><i class="white fa-brands fa-facebook-f"></i></a>
-                            <a href="https://www.instagram.com/globalbusinessg/" target="_blank" rel="noopener noreferrer" class="white"><i class="white fa-brands fa-instagram"></i></a>
-                            <a href="https://www.tiktok.com/@global.business.g1" target="_blank" rel="noopener noreferrer" class="white"><i class="white fa-brands fa-tiktok"></i></a>
-                            <a href="https://www.youtube.com/@globalbusinessgroup-j8m" target="_blank" rel="noopener noreferrer" class="white"><i class="white fab fa-youtube"></i></a>
-                            <a href="https://www.linkedin.com/in/gb-group-40447841b/" target="_blank" rel="noopener noreferrer" class="white"><i class="white fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <header class="header-v4">
-                <div class="container">
-                    <div class="mega-menu-wrapper">
-                        <div class="header-main">
-                            <div class="header-left d-xl-none d-block">
-                                <div class="logo"><a href="index.html" class="header-logo"><img src="assets/img/logo/logo.svg" alt="logo-img"></a></div>
-                            </div>
-                            <div class="header-right d-flex justify-content-between w-100 align-items-center">
-                                <div class="mean__menu-wrapper">
-                                    <div class="main-menu">
-                                        <nav id="mobile-menu">
-                                            <ul>
-                                                <li><a href="index.html">Accueil</a></li>
-                                                <li><a href="about.html">&Agrave; propos</a></li>
-                                                <li class="has-dropdown">
-                                                    <a href="entites.html">Nos Entit&eacute;s <i class="fas fa-angle-down"></i></a>
-                                                    <ul class="submenu gbg-entity-dropdown">
-                                                        <li><a href="gbcc.html"><div class="gbg-drop-icon gbg-drop-gbcc"><img src="assets/img/logo/GBCC.jpg" alt="GBCC"></div><div class="gbg-drop-text"><span>GBCC</span><small>Conseil &amp; Certification</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
-                                                        <li><a href="scmc.html"><div class="gbg-drop-icon gbg-drop-scmc"><img src="assets/img/logo/scmc.jpg" alt="SCMC"></div><div class="gbg-drop-text"><span>SCMC</span><small>Commercialisation durable</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
-                                                        <li><a href="kic.html"><div class="gbg-drop-icon gbg-drop-kic"><img src="assets/img/logo/KIC.jpg" alt="KIC"></div><div class="gbg-drop-text"><span>KIC</span><small>Trading cacao</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
-                                                        <li><a href="assiette-durable.html"><div class="gbg-drop-icon gbg-drop-ad"><img src="assets/img/logo/SCMC assiette durable.jpg" alt="Assiette Durable"></div><div class="gbg-drop-text"><span>Assiette Durable</span><small>Restauration responsable</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
-                                                        <li><a href="scmc-chocolaterie.html"><div class="gbg-drop-icon gbg-drop-choc"><i class="fa-solid fa-candy-cane"></i></div><div class="gbg-drop-text"><span>SCMC Chocolaterie</span><small>Produits chocolat&eacute;s</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="expertises.html">Nos Expertises</a></li>
-                                                <li><a href="projets.html">Nos Projets</a></li>
-                                                <li><a href="contact.html">Contact</a></li>
-                                            </ul>
-                                        </nav>
-                                    </div>
-                                </div>
-                                <div class="common-adjust-toggle">
-                                    <div class="header-button"><a href="contact.html" class="cmn-btn">Nous Contacter <i class="fa-solid fa-arrow-right"></i></a></div>
-                                    <div class="header__hamburger my-auto">
-                                        <div class="sidebar__toggle d-center">
-                                            <svg width="22" height="10" viewBox="0 0 22 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M10.5879 1L21.1761 1" stroke="#FDD61F" stroke-width="2"/>
-                                                <path d="M0 8.41406L21.1765 8.41406" stroke="#FDD61F" stroke-width="2"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </header>
-        </div>
-    </div>
+    <!-- Back to site button -->
+    <a href="gbcc.html" class="ek-back-btn" title="Retour au site GBG">
+        <i class="fa-solid fa-arrow-left"></i> <span>Retour</span>
+    </a>
 
     <main>
 
@@ -933,10 +1042,10 @@
     <section class="ek-section" id="ek-about">
         <div class="container">
             <div class="row g-5 align-items-center">
-                <div class="col-lg-5 ek-reveal">
+                <div class="col-lg-5 ek-reveal-left">
                     <img src="assets/img/gbcc/DG-01.jpg" alt="Edmond Konan en conf&eacute;rence" style="width:100%;border-radius:20px;box-shadow:0 20px 50px rgba(61,43,31,.1)">
                 </div>
-                <div class="col-lg-7 ek-reveal">
+                <div class="col-lg-7 ek-reveal-right">
                     <span class="ek-eyebrow">&Agrave; propos</span>
                     <h2 class="ek-title">&Agrave; propos de M. Edmond Konan</h2>
                     <p class="ek-lead">M. Edmond Konan est un expert, consultant et sp&eacute;cialiste des cha&icirc;nes de valeur agricoles, avec une expertise reconnue dans la durabilit&eacute; de la fili&egrave;re cacao, la certification, la normalisation, la gouvernance et la structuration de mod&egrave;les &eacute;conomiques durables.</p>
@@ -1248,11 +1357,11 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-10 ek-reveal">
-                    <div class="ek-video-wrap" id="ek-video-player" data-yt="">
+                    <div class="ek-video-wrap" id="ek-video-player" data-yt="j_7P8jHHpv4">
                         <img src="assets/img/gallery/gl1.jpg" alt="Vid&eacute;o Edmond Konan">
                         <div class="ek-video-play"><i class="fa-solid fa-play"></i></div>
                     </div>
-                    <p class="ek-text text-center mt-3" style="font-style:italic">Vid&eacute;o &agrave; int&eacute;grer : pr&eacute;sentation personnelle, vision de la durabilit&eacute;, importance de la certification et perspectives pour l'Afrique.</p>
+                    <p class="ek-text text-center mt-3" style="font-style:italic">Cliquez pour d&eacute;couvrir la vision d'Edmond Konan pour une &eacute;conomie cacaoy&egrave;re durable.</p>
                 </div>
             </div>
         </div>
@@ -1384,16 +1493,18 @@
     <script src="assets/js/main.js"></script>
     <script>
     (function(){
-        var io = new IntersectionObserver(function(entries){
+        /* ── Unified reveal observer ── */
+        var revealIO = new IntersectionObserver(function(entries){
             entries.forEach(function(e){
                 if(e.isIntersecting){
                     e.target.classList.add('is-visible');
-                    io.unobserve(e.target);
+                    revealIO.unobserve(e.target);
                 }
             });
         }, {threshold:.12});
-        document.querySelectorAll('.ek-reveal').forEach(function(el){ io.observe(el); });
+        document.querySelectorAll('.ek-reveal, .ek-reveal-left, .ek-reveal-right, .ek-reveal-scale').forEach(function(el){ revealIO.observe(el); });
 
+        /* ── Language bars ── */
         var langIO = new IntersectionObserver(function(entries){
             entries.forEach(function(e){
                 if(e.isIntersecting){
@@ -1404,6 +1515,7 @@
         }, {threshold:.3});
         document.querySelectorAll('.ek-lang-bar').forEach(function(el){ langIO.observe(el); });
 
+        /* ── Timeline items ── */
         var timelineIO = new IntersectionObserver(function(entries){
             entries.forEach(function(e){
                 if(e.isIntersecting){
@@ -1414,6 +1526,77 @@
         }, {threshold:.15});
         document.querySelectorAll('.ek-timeline-item').forEach(function(el){ timelineIO.observe(el); });
 
+        /* ── Counter animation for impact numbers ── */
+        var counterIO = new IntersectionObserver(function(entries){
+            entries.forEach(function(e){
+                if(e.isIntersecting){
+                    counterIO.unobserve(e.target);
+                    var el = e.target;
+                    var text = el.textContent.trim();
+                    var suffix = text.replace(/[0-9]/g, '');
+                    var target = parseInt(text);
+                    if(isNaN(target)) return;
+                    var start = 0;
+                    var duration = 2000;
+                    var startTime = null;
+                    function step(ts){
+                        if(!startTime) startTime = ts;
+                        var progress = Math.min((ts - startTime) / duration, 1);
+                        var eased = 1 - Math.pow(1 - progress, 3);
+                        el.textContent = Math.floor(eased * target) + suffix;
+                        if(progress < 1) requestAnimationFrame(step);
+                    }
+                    requestAnimationFrame(step);
+                }
+            });
+        }, {threshold:.5});
+        document.querySelectorAll('.ek-impact-num').forEach(function(el){ counterIO.observe(el); });
+
+        /* ── Staggered card reveals ── */
+        var staggerIO = new IntersectionObserver(function(entries){
+            entries.forEach(function(e){
+                if(e.isIntersecting){
+                    staggerIO.unobserve(e.target);
+                    var cards = e.target.querySelectorAll('.ek-expertise-card, .ek-impact-card, .ek-formation-card, .ek-conf-card, .ek-pub-card');
+                    cards.forEach(function(card, i){
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        card.style.transition = 'opacity .5s cubic-bezier(.16,1,.3,1), transform .5s cubic-bezier(.16,1,.3,1)';
+                        card.style.transitionDelay = (i * 80) + 'ms';
+                        setTimeout(function(){
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 50);
+                    });
+                }
+            });
+        }, {threshold:.1});
+        document.querySelectorAll('.ek-expertise-grid, .ek-impact-grid, .row').forEach(function(el){
+            if(el.querySelector('.ek-expertise-card, .ek-impact-card, .ek-formation-card, .ek-conf-card, .ek-pub-card')){
+                staggerIO.observe(el);
+            }
+        });
+
+        /* ── Typing effect for hero name ── */
+        var heroH1 = document.querySelector('.ek-hero h1');
+        if(heroH1){
+            var fullName = heroH1.textContent;
+            heroH1.textContent = '';
+            heroH1.style.borderRight = '2px solid var(--ek-gold)';
+            var charIndex = 0;
+            setTimeout(function(){
+                var typeInterval = setInterval(function(){
+                    heroH1.textContent = fullName.substring(0, charIndex + 1);
+                    charIndex++;
+                    if(charIndex >= fullName.length){
+                        clearInterval(typeInterval);
+                        setTimeout(function(){ heroH1.style.borderRight = 'none'; }, 1500);
+                    }
+                }, 80);
+            }, 800);
+        }
+
+        /* ── Video click handler ── */
         var videoWrap = document.getElementById('ek-video-player');
         if(videoWrap){
             videoWrap.addEventListener('click', function(){
@@ -1425,6 +1608,7 @@
             });
         }
 
+        /* ── Smooth anchor scroll ── */
         document.querySelectorAll('a[href^="#"]').forEach(function(a){
             a.addEventListener('click', function(e){
                 var target = document.querySelector(this.getAttribute('href'));
@@ -1434,6 +1618,18 @@
                 }
             });
         });
+
+        /* ── Back button show/hide on scroll ── */
+        var backBtn = document.querySelector('.ek-back-btn');
+        if(backBtn){
+            window.addEventListener('scroll', function(){
+                if(window.scrollY > 300){
+                    backBtn.style.opacity = '1';
+                } else {
+                    backBtn.style.opacity = '0.7';
+                }
+            });
+        }
     })();
     </script>
 </body>
