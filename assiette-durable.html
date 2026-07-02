@@ -449,6 +449,133 @@
     }
     .ad-v-reveal.is-visible { opacity: 1; transform: translateY(0); }
 
+    /* Hero video section */
+    .ad-vid-hero { margin-bottom: 28px !important; }
+    .ad-vid-hero-frame {
+        position: relative !important; width: 100% !important;
+        padding-top: 56.25% !important; border-radius: 20px !important;
+        overflow: hidden !important; box-shadow: 0 24px 60px rgba(0,0,0,0.3) !important;
+    }
+    .ad-vid-hero-frame iframe,
+    .ad-vid-hero-frame .ad-local-video,
+    .ad-vid-hero-frame .ad-vid-placeholder {
+        position: absolute !important; top: 0 !important; left: 0 !important;
+        width: 100% !important; height: 100% !important; border: none !important;
+        object-fit: cover !important;
+    }
+    .ad-vid-placeholder {
+        cursor: pointer !important; z-index: 2 !important;
+    }
+    .ad-vid-placeholder img {
+        width: 100% !important; height: 100% !important;
+        object-fit: cover !important; transition: transform .5s ease !important;
+    }
+    .ad-vid-placeholder:hover img { transform: scale(1.03) !important; }
+    .ad-vid-play-overlay {
+        position: absolute !important; inset: 0 !important;
+        display: flex !important; flex-direction: column !important;
+        align-items: center !important; justify-content: center !important;
+        gap: 12px !important; background: rgba(10,26,10,.45) !important;
+        transition: background .3s ease !important;
+    }
+    .ad-vid-placeholder:hover .ad-vid-play-overlay { background: rgba(10,26,10,.6) !important; }
+    .ad-vid-play-btn {
+        width: 80px !important; height: 80px !important; border-radius: 50% !important;
+        background: linear-gradient(135deg, #228B22, #2ecc40) !important;
+        display: flex !important; align-items: center !important; justify-content: center !important;
+        color: #fff !important; font-size: 26px !important;
+        box-shadow: 0 8px 32px rgba(34,139,34,0.4) !important;
+        transition: transform .3s ease !important; position: relative !important;
+    }
+    .ad-vid-play-btn::before {
+        content: '' !important; position: absolute !important; inset: -10px !important;
+        border-radius: 50% !important; border: 2px solid rgba(46,204,64,.35) !important;
+        animation: ad-ring-pulse 2.5s ease-out infinite !important;
+    }
+    @keyframes ad-ring-pulse {
+        0% { transform: scale(1); opacity: .6; }
+        100% { transform: scale(1.6); opacity: 0; }
+    }
+    .ad-vid-placeholder:hover .ad-vid-play-btn { transform: scale(1.1) !important; }
+    .ad-vid-play-btn i { margin-left: 4px !important; }
+    .ad-vid-play-sm { width: 56px !important; height: 56px !important; font-size: 18px !important; }
+    .ad-vid-play-sm::before { inset: -7px !important; }
+    .ad-vid-play-overlay > span {
+        color: rgba(255,255,255,.8) !important; font-size: 13px !important;
+        font-weight: 700 !important; letter-spacing: 1px !important; text-transform: uppercase !important;
+    }
+    .ad-vid-hero-info {
+        display: flex !important; align-items: center !important; gap: 14px !important;
+        padding: 18px 0 0 !important;
+    }
+    .ad-vid-badge {
+        background: linear-gradient(135deg, #228B22, #2ecc40) !important;
+        color: #fff !important; font-size: .72rem !important; font-weight: 800 !important;
+        padding: 6px 14px !important; border-radius: 20px !important; white-space: nowrap !important;
+        letter-spacing: .6px !important;
+    }
+    .ad-vid-hero-info h3 { font-size: 1.05rem !important; color: #fff !important; margin: 0 !important; font-weight: 700 !important; }
+    .ad-vid-hero-info p { color: rgba(255,255,255,.6) !important; font-size: .85rem !important; margin: 0 0 0 auto !important; }
+
+    .ad-vid-grid {
+        display: grid !important; grid-template-columns: repeat(4, 1fr) !important;
+        gap: 16px !important;
+    }
+    @media (max-width: 991px) { .ad-vid-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+    @media (max-width: 575px) { .ad-vid-grid { grid-template-columns: 1fr !important; } }
+
+    .ad-vid-card {
+        border-radius: 16px !important; overflow: hidden !important;
+        background: #0a1a0a !important; transition: transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s ease !important;
+    }
+    .ad-vid-card:hover { transform: translateY(-6px) !important; box-shadow: 0 16px 40px rgba(34,139,34,.2) !important; }
+    .ad-vid-card-frame {
+        position: relative !important; padding-top: 56.25% !important;
+    }
+    .ad-vid-card-frame iframe,
+    .ad-vid-card-frame .ad-local-video,
+    .ad-vid-card-frame .ad-vid-placeholder {
+        position: absolute !important; top: 0 !important; left: 0 !important;
+        width: 100% !important; height: 100% !important; border: none !important;
+        object-fit: cover !important;
+    }
+    .ad-vid-card-info {
+        display: flex !important; align-items: center !important; gap: 10px !important;
+        padding: 12px 14px !important;
+    }
+    .ad-vid-badge-sm {
+        width: 28px !important; height: 28px !important; min-width: 28px !important;
+        border-radius: 50% !important; background: rgba(34,139,34,.85) !important;
+        display: flex !important; align-items: center !important; justify-content: center !important;
+        color: #fff !important; font-size: 10px !important;
+    }
+    .ad-vid-card-info h4 { color: #fff !important; font-size: .85rem !important; font-weight: 700 !important; margin: 0 !important; }
+    .ad-vid-card-info p { color: rgba(255,255,255,.5) !important; font-size: .75rem !important; margin: 2px 0 0 !important; }
+
+    /* Menu section image */
+    .ad-menu-showcase {
+        display: grid !important; grid-template-columns: 1fr 1fr !important;
+        gap: 40px !important; align-items: center !important; margin-top: 32px !important;
+    }
+    @media (max-width: 767px) { .ad-menu-showcase { grid-template-columns: 1fr !important; } }
+    .ad-menu-img-wrap {
+        border-radius: 20px !important; overflow: hidden !important;
+        box-shadow: 0 20px 50px rgba(0,0,0,.15) !important;
+        transition: transform .4s ease !important;
+    }
+    .ad-menu-img-wrap:hover { transform: translateY(-4px) !important; }
+    .ad-menu-img-wrap img { width: 100% !important; height: auto !important; display: block !important; }
+    .ad-menu-details h3 { font-size: 1.6rem !important; font-weight: 800 !important; margin-bottom: 16px !important; }
+    .ad-menu-details p { line-height: 1.7 !important; margin-bottom: 12px !important; }
+    .ad-menu-plats { list-style: none !important; padding: 0 !important; margin: 20px 0 0 !important; }
+    .ad-menu-plats li {
+        display: flex !important; justify-content: space-between !important;
+        padding: 10px 0 !important; border-bottom: 1px solid rgba(0,0,0,.08) !important;
+        font-size: .95rem !important;
+    }
+    .ad-menu-plats li:last-child { border-bottom: none !important; }
+    .ad-menu-plats .ad-plat-prix { font-weight: 700 !important; color: #228B22 !important; }
+
     /* Gallery */
     .assiette-immersive-page .gbg-gallery-item {
         border-radius: 18px !important;
@@ -896,48 +1023,94 @@
 
         <section class="gbg-section" id="ad-videos">
             <div class="container">
-                <div class="row justify-content-center mb-4"><div class="col-lg-8 text-center ad-v-reveal"><span class="gbg-eyebrow">Nos vidéos</span><h2 class="gbg-title">Du champ à l'assiette.</h2></div></div>
-                <div class="ad-video-grid">
-                    <div class="ad-vcard ad-v-reveal" style="--i:1" data-vid="0" data-yt="">
-                        <span class="ad-vcard-badge"><i class="fa-solid fa-play"></i>&nbsp; Vidéo</span>
-                        <div class="ad-vcard-thumb">
-                            <img src="assets/img/about/feature-vid.jpg" alt="Du champ à l'assiette">
-                            <div class="ad-vcard-play"><i class="fa-solid fa-play"></i></div>
-                            <div class="ad-vcard-play-ring"></div>
-                        </div>
-                        <div class="ad-vcard-info">
-                            <h4>Du champ à l'assiette</h4>
-                            <p>Producteurs, récoltes, marché et préparation en cuisine.</p>
-                        </div>
-                        <div class="ad-vcard-bar"></div>
+                <div class="row justify-content-center mb-5">
+                    <div class="col-lg-8 text-center ad-v-reveal">
+                        <span class="gbg-eyebrow">Nos vid&eacute;os</span>
+                        <h2 class="gbg-title">Du champ &agrave; l'assiette, vivez l'exp&eacute;rience.</h2>
+                        <p class="gbg-lead">D&eacute;couvrez l'univers de L'Assiette Durable : nos &eacute;v&eacute;nements, notre cuisine et notre engagement pour une alimentation responsable.</p>
                     </div>
+                </div>
 
-                    <div class="ad-vcard ad-v-reveal" style="--i:2" data-vid="1" data-yt="">
-                        <span class="ad-vcard-badge"><i class="fa-solid fa-play"></i>&nbsp; Vidéo</span>
-                        <div class="ad-vcard-thumb">
-                            <img src="assets/img/gallery/feature7.jpg" alt="Cuisine responsable">
-                            <div class="ad-vcard-play"><i class="fa-solid fa-play"></i></div>
-                            <div class="ad-vcard-play-ring"></div>
+                <!-- Vid&eacute;o principale YouTube -->
+                <div class="ad-vid-hero ad-v-reveal">
+                    <div class="ad-vid-hero-frame">
+                        <iframe id="ad-yt-hero" src="" data-yt="KlwRFuUx2I4" title="Pr&eacute;sentation L'Assiette Durable" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" style="z-index:1"></iframe>
+                        <div class="ad-vid-placeholder">
+                            <img src="assets/img/Assiete durable photo et videos/Menu.jpeg" alt="Pr&eacute;sentation Assiette Durable">
+                            <div class="ad-vid-play-overlay">
+                                <div class="ad-vid-play-btn"><i class="fa-solid fa-play"></i></div>
+                                <span>Regarder la vid&eacute;o</span>
+                            </div>
                         </div>
-                        <div class="ad-vcard-info">
-                            <h4>Cuisine responsable</h4>
-                            <p>Dressage, saveurs locales et alimentation durable.</p>
-                        </div>
-                        <div class="ad-vcard-bar"></div>
                     </div>
+                    <div class="ad-vid-hero-info">
+                        <span class="ad-vid-badge"><i class="fa-brands fa-youtube"></i> YouTube</span>
+                        <h3>Pr&eacute;sentation de L'Assiette Durable</h3>
+                        <p>D&eacute;couvrez notre concept de restauration durable au c&oelig;ur de la C&ocirc;te d'Ivoire.</p>
+                    </div>
+                </div>
 
-                    <div class="ad-vcard ad-v-reveal" style="--i:3" data-vid="2" data-yt="">
-                        <span class="ad-vcard-badge"><i class="fa-solid fa-play"></i>&nbsp; Vidéo</span>
-                        <div class="ad-vcard-thumb">
-                            <img src="assets/img/gallery/feature8.jpg" alt="Expérience client">
-                            <div class="ad-vcard-play"><i class="fa-solid fa-play"></i></div>
-                            <div class="ad-vcard-play-ring"></div>
+                <!-- 4 vid&eacute;os secondaires locales -->
+                <div class="ad-vid-grid">
+                    <div class="ad-vid-card ad-v-reveal" style="--i:1">
+                        <div class="ad-vid-card-frame">
+                            <video class="ad-local-video" preload="none" poster="assets/img/about/feature-vid.jpg" data-yt="">
+                                <source src="assets/img/Assiete durable photo et videos/Presentation.mp4" type="video/mp4">
+                            </video>
+                            <div class="ad-vid-placeholder">
+                                <img src="assets/img/about/feature-vid.jpg" alt="Pr&eacute;sentation">
+                                <div class="ad-vid-play-overlay"><div class="ad-vid-play-btn ad-vid-play-sm"><i class="fa-solid fa-play"></i></div></div>
+                            </div>
                         </div>
-                        <div class="ad-vcard-info">
-                            <h4>Expérience client</h4>
-                            <p>Ambiance restaurant et engagement communautaire.</p>
+                        <div class="ad-vid-card-info">
+                            <span class="ad-vid-badge-sm"><i class="fa-solid fa-play"></i></span>
+                            <div><h4>Pr&eacute;sentation</h4><p>Le concept et la vision du restaurant.</p></div>
                         </div>
-                        <div class="ad-vcard-bar"></div>
+                    </div>
+                    <div class="ad-vid-card ad-v-reveal" style="--i:2">
+                        <div class="ad-vid-card-frame">
+                            <video class="ad-local-video" preload="none" poster="assets/img/gallery/feature7.jpg" data-yt="">
+                                <source src="assets/img/Assiete durable photo et videos/video de nourriture.mp4" type="video/mp4">
+                            </video>
+                            <div class="ad-vid-placeholder">
+                                <img src="assets/img/gallery/feature7.jpg" alt="Cuisine">
+                                <div class="ad-vid-play-overlay"><div class="ad-vid-play-btn ad-vid-play-sm"><i class="fa-solid fa-play"></i></div></div>
+                            </div>
+                        </div>
+                        <div class="ad-vid-card-info">
+                            <span class="ad-vid-badge-sm"><i class="fa-solid fa-play"></i></span>
+                            <div><h4>Nos plats</h4><p>Cuisine au cacao et produits locaux.</p></div>
+                        </div>
+                    </div>
+                    <div class="ad-vid-card ad-v-reveal" style="--i:3">
+                        <div class="ad-vid-card-frame">
+                            <video class="ad-local-video" preload="none" poster="assets/img/gallery/feature8.jpg" data-yt="">
+                                <source src="assets/img/Assiete durable photo et videos/evenement du mondiale.mp4" type="video/mp4">
+                            </video>
+                            <div class="ad-vid-placeholder">
+                                <img src="assets/img/gallery/feature8.jpg" alt="&Eacute;v&eacute;nement">
+                                <div class="ad-vid-play-overlay"><div class="ad-vid-play-btn ad-vid-play-sm"><i class="fa-solid fa-play"></i></div></div>
+                            </div>
+                        </div>
+                        <div class="ad-vid-card-info">
+                            <span class="ad-vid-badge-sm"><i class="fa-solid fa-play"></i></span>
+                            <div><h4>&Eacute;v&eacute;nement mondial</h4><p>Participation aux &eacute;v&eacute;nements internationaux.</p></div>
+                        </div>
+                    </div>
+                    <div class="ad-vid-card ad-v-reveal" style="--i:4">
+                        <div class="ad-vid-card-frame">
+                            <video class="ad-local-video" preload="none" poster="assets/img/about/feature-video02.jpg" data-yt="">
+                                <source src="assets/img/Assiete durable photo et videos/WhatsApp Video 2026-04-03 at 18.42.36.mp4" type="video/mp4">
+                            </video>
+                            <div class="ad-vid-placeholder">
+                                <img src="assets/img/about/feature-video02.jpg" alt="En coulisses">
+                                <div class="ad-vid-play-overlay"><div class="ad-vid-play-btn ad-vid-play-sm"><i class="fa-solid fa-play"></i></div></div>
+                            </div>
+                        </div>
+                        <div class="ad-vid-card-info">
+                            <span class="ad-vid-badge-sm"><i class="fa-solid fa-play"></i></span>
+                            <div><h4>En coulisses</h4><p>Les coulisses de la pr&eacute;paration.</p></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -948,40 +1121,25 @@
                 <div class="row justify-content-center mb-4">
                     <div class="col-lg-8 text-center ad-sec-reveal">
                         <span class="gbg-eyebrow">Offre culinaire</span>
-                        <h2 class="gbg-title">Un menu pensé autour des produits locaux.</h2>
-                        <p class="gbg-lead">Cette section met en avant une offre culinaire évolutive, construite autour des récoltes, des saisons et des producteurs.</p>
+                        <h2 class="gbg-title">Le Menu Cacao &mdash; une cuisine unique au monde.</h2>
+                        <p class="gbg-lead">Des plats chauds pr&eacute;par&eacute;s avec des marinades et sauces au cacao, une exp&eacute;rience gustative in&eacute;dite qui valorise les produits locaux ivoiriens.</p>
                     </div>
                 </div>
-                <div class="ad-menu-grid">
-                    <div class="ad-menu-card ad-sec-reveal" style="--i:1" data-menu="0">
-                        <div class="ad-menu-icon"><i class="fa-solid fa-leaf"></i></div>
-                        <h4>Entrées</h4>
-                        <p>Selon saison</p>
-                        <div class="ad-menu-card-glow"></div>
+                <div class="ad-menu-showcase ad-sec-reveal">
+                    <div class="ad-menu-img-wrap">
+                        <img src="assets/img/Assiete durable photo et videos/Menu.jpeg" alt="Menu Cacao - L'Assiette Durable">
                     </div>
-                    <div class="ad-menu-card ad-sec-reveal" style="--i:2" data-menu="1">
-                        <div class="ad-menu-icon"><i class="fa-solid fa-plate-wheat"></i></div>
-                        <h4>Plats</h4>
-                        <p>Selon saison</p>
-                        <div class="ad-menu-card-glow"></div>
-                    </div>
-                    <div class="ad-menu-card ad-sec-reveal" style="--i:3" data-menu="2">
-                        <div class="ad-menu-icon"><i class="fa-solid fa-glass-water"></i></div>
-                        <h4>Boissons</h4>
-                        <p>Selon saison</p>
-                        <div class="ad-menu-card-glow"></div>
-                    </div>
-                    <div class="ad-menu-card ad-sec-reveal" style="--i:4" data-menu="3">
-                        <div class="ad-menu-icon"><i class="fa-solid fa-cookie-bite"></i></div>
-                        <h4>Desserts</h4>
-                        <p>Selon saison</p>
-                        <div class="ad-menu-card-glow"></div>
-                    </div>
-                    <div class="ad-menu-card ad-sec-reveal" style="--i:5" data-menu="4">
-                        <div class="ad-menu-icon"><i class="fa-solid fa-star"></i></div>
-                        <h4>Spécialités durables</h4>
-                        <p>Selon saison</p>
-                        <div class="ad-menu-card-glow"></div>
+                    <div class="ad-menu-details">
+                        <h3><i class="fa-solid fa-utensils" style="color:#228B22"></i> Plats Chauds au Cacao</h3>
+                        <p>Chaque plat est pr&eacute;par&eacute; avec une touche distinctive de cacao &mdash; marinades, sauces, poudre &mdash; pour une exp&eacute;rience gustative qui relie la terre &agrave; l'assiette.</p>
+                        <ul class="ad-menu-plats">
+                            <li><span>Poulet brais&eacute; au cacao &bull; Atti&eacute;k&eacute;</span><span class="ad-plat-prix">7 000 F</span></li>
+                            <li><span>Brochette de b&oelig;uf au cacao &bull; Frites</span><span class="ad-plat-prix">7 000 F</span></li>
+                            <li><span>Choukouya mouton au cacao &bull; Igname</span><span class="ad-plat-prix">7 500 F</span></li>
+                            <li><span>Soupe de l&eacute;gumes au mouton au cacao</span><span class="ad-plat-prix">8 000 F</span></li>
+                            <li><span>Sauce graine cacao ivoire &bull; Foutou</span><span class="ad-plat-prix">5 000 F</span></li>
+                            <li><span>Poisson brais&eacute; au cacao</span><span class="ad-plat-prix">6 000 F</span></li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -1107,7 +1265,7 @@
             aio.observe(steps[0].parentElement);
         }
 
-        // Video cards: reveal + auto-cycle
+        // Video cards: reveal
         var avRevEls = document.querySelectorAll('.ad-v-reveal');
         var avIO = new IntersectionObserver(function(entries){
             entries.forEach(function(e){
@@ -1119,27 +1277,6 @@
             });
         }, {threshold: 0.15});
         avRevEls.forEach(function(el){ avIO.observe(el); });
-
-        var avCards = document.querySelectorAll('.ad-vcard');
-        if(avCards.length){
-            var avCur = -1, avInt = null, avPaused = false;
-            function avActivate(i){ avCards.forEach(function(c){c.classList.remove('ad-v-active');}); avCards[i].classList.add('ad-v-active'); avCur=i; }
-            function avCycle(){ avActivate((avCur+1)%avCards.length); }
-            function avStart(){ if(avInt)return; avCycle(); avInt=setInterval(avCycle,2500); }
-            function avStop(){ clearInterval(avInt); avInt=null; }
-            avCards.forEach(function(c,i){
-                c.addEventListener('mouseenter',function(){avPaused=true;avStop();avActivate(i);});
-                c.addEventListener('mouseleave',function(){avPaused=false;avStart();});
-            });
-            var avSecIO = new IntersectionObserver(function(entries){
-                entries.forEach(function(e){
-                    if(e.isIntersecting&&!avPaused)avStart();
-                    else if(!e.isIntersecting)avStop();
-                });
-            },{threshold:0.2});
-            var avSec = document.getElementById('ad-videos');
-            if(avSec)avSecIO.observe(avSec);
-        }
 
         // Reveal for new sections
         var secRevEls = document.querySelectorAll('.ad-sec-reveal');
@@ -1210,15 +1347,42 @@
     </script>
 <script>
 (function(){
-    document.querySelectorAll('.ad-vcard[data-yt]').forEach(function(card){
-        card.style.cursor = 'pointer';
-        card.addEventListener('click', function(){
-            var ytId = card.getAttribute('data-yt');
-            if (!ytId || ytId.length < 3) return;
-            var thumb = card.querySelector('.ad-vcard-thumb');
-            if (!thumb) return;
-            thumb.innerHTML = '<div style="position:relative;width:100%;height:100%"><iframe src="https://www.youtube.com/embed/' + ytId + '?autoplay=1&rel=0" style="position:absolute;top:0;left:0;width:100%;height:100%;border:none" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe></div>';
-            card.style.pointerEvents = 'none';
+    // Hero YouTube placeholder click
+    var heroPh = document.querySelector('.ad-vid-hero .ad-vid-placeholder');
+    if (heroPh) {
+        heroPh.addEventListener('click', function(){
+            var iframe = document.getElementById('ad-yt-hero');
+            if (!iframe) return;
+            var ytId = iframe.getAttribute('data-yt');
+            if (ytId && ytId.length > 3) {
+                iframe.src = 'https://www.youtube.com/embed/' + ytId + '?autoplay=1&rel=0';
+                heroPh.style.display = 'none';
+            }
+        });
+    }
+
+    // Secondary video cards (local mp4 + YouTube-ready)
+    document.querySelectorAll('.ad-vid-card .ad-vid-placeholder').forEach(function(ph){
+        ph.addEventListener('click', function(){
+            var frame = ph.closest('.ad-vid-card-frame');
+            if (!frame) return;
+            var video = frame.querySelector('.ad-local-video');
+            if (!video) return;
+            var ytId = video.getAttribute('data-yt');
+            if (ytId && ytId.length > 3) {
+                var iframe = document.createElement('iframe');
+                iframe.src = 'https://www.youtube.com/embed/' + ytId + '?autoplay=1&rel=0';
+                iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+                iframe.setAttribute('allowfullscreen', '');
+                iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:none;z-index:5';
+                video.style.display = 'none';
+                frame.appendChild(iframe);
+                ph.style.display = 'none';
+            } else {
+                video.controls = true;
+                video.play();
+                ph.style.display = 'none';
+            }
         });
     });
 })();
