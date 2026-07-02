@@ -375,17 +375,26 @@
         pointer-events: all;
     }
 
-    .choco-video-modal video {
-        max-width: 90%;
-        max-height: 85vh;
+    .choco-modal-content {
+        width: 90%;
+        max-width: 960px;
+        aspect-ratio: 16/9;
         border-radius: 12px;
+        overflow: hidden;
         box-shadow: 0 40px 100px rgba(0,0,0,.6);
         transform: scale(.9);
         transition: transform .4s cubic-bezier(.16,1,.3,1);
     }
 
-    .choco-video-modal.is-open video {
+    .choco-video-modal.is-open .choco-modal-content {
         transform: scale(1);
+    }
+
+    .choco-modal-content video,
+    .choco-modal-content iframe {
+        width: 100% !important;
+        height: 100% !important;
+        border: none !important;
     }
 
     .choco-video-close {
@@ -551,6 +560,690 @@
     /* ── Gallery items ── */
     .choco-brand-page .gbg-gallery-item {
         border-radius: 16px !important;
+    }
+
+    /* ── Nos Marques (3 brand cards) ── */
+    .choco-brands-grid {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 32px !important;
+    }
+    .choco-brand-card {
+        border-radius: 20px !important;
+        overflow: hidden !important;
+        background: #fff !important;
+        box-shadow: 0 12px 40px rgba(43,24,14,.08) !important;
+        transition: transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s ease !important;
+        position: relative !important;
+    }
+    .choco-brand-card:hover {
+        transform: translateY(-10px) !important;
+        box-shadow: 0 28px 60px rgba(43,24,14,.16) !important;
+    }
+    .choco-brand-card-img {
+        position: relative !important;
+        height: 280px !important;
+        overflow: hidden !important;
+    }
+    .choco-brand-card-img img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        transition: transform .6s cubic-bezier(.16,1,.3,1) !important;
+    }
+    .choco-brand-card:hover .choco-brand-card-img img {
+        transform: scale(1.06) !important;
+    }
+    .choco-brand-card-img::after {
+        content: '' !important;
+        position: absolute !important;
+        inset: 0 !important;
+        background: linear-gradient(to top, rgba(30,15,5,.55) 0%, transparent 60%) !important;
+        pointer-events: none !important;
+    }
+    .choco-brand-card-body {
+        padding: 28px 24px !important;
+        text-align: center !important;
+    }
+    .choco-brand-card-body h3 {
+        font-size: 1.35rem !important;
+        font-weight: 800 !important;
+        color: #3E2723 !important;
+        margin-bottom: 4px !important;
+    }
+    .choco-brand-card-body .choco-brand-tagline {
+        font-size: .85rem !important;
+        font-weight: 700 !important;
+        color: #daa520 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 1.5px !important;
+        margin-bottom: 12px !important;
+        display: block !important;
+    }
+    .choco-brand-card-body p {
+        font-size: .92rem !important;
+        color: #5C3317 !important;
+        line-height: 1.6 !important;
+        margin: 0 !important;
+    }
+    .choco-brand-card::before {
+        content: '' !important;
+        position: absolute !important;
+        top: 0 !important; left: 0 !important; right: 0 !important;
+        height: 4px !important;
+        z-index: 2 !important;
+        background: linear-gradient(90deg, #daa520, #b8860b, #daa520) !important;
+        background-size: 200% 100% !important;
+        animation: choco-card-shine 3s linear infinite !important;
+    }
+    @media (max-width: 991px) {
+        .choco-brands-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    }
+    @media (max-width: 575px) {
+        .choco-brands-grid { grid-template-columns: 1fr !important; }
+        .choco-brand-card-img { height: 220px !important; }
+    }
+
+    /* ── Catalogue Produits (product grid) ── */
+    .choco-product-grid {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 24px !important;
+    }
+    .choco-product-card {
+        border-radius: 18px !important;
+        overflow: hidden !important;
+        background: #fff !important;
+        box-shadow: 0 8px 28px rgba(43,24,14,.07) !important;
+        transition: transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s ease !important;
+        position: relative !important;
+    }
+    .choco-product-card:hover {
+        transform: translateY(-8px) !important;
+        box-shadow: 0 20px 48px rgba(43,24,14,.14) !important;
+    }
+    .choco-product-card-img {
+        position: relative !important;
+        height: 240px !important;
+        overflow: hidden !important;
+        background: #faf6f0 !important;
+    }
+    .choco-product-card-img img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        transition: transform .5s cubic-bezier(.16,1,.3,1) !important;
+    }
+    .choco-product-card:hover .choco-product-card-img img {
+        transform: scale(1.05) !important;
+    }
+    .choco-product-badge {
+        position: absolute !important;
+        top: 12px !important;
+        right: 12px !important;
+        padding: 5px 14px !important;
+        border-radius: 999px !important;
+        font-size: .7rem !important;
+        font-weight: 700 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 1px !important;
+        backdrop-filter: blur(8px) !important;
+        z-index: 2 !important;
+    }
+    .choco-product-badge.badge-yua {
+        background: rgba(218,165,32,.18) !important;
+        color: #b8860b !important;
+        border: 1px solid rgba(218,165,32,.3) !important;
+    }
+    .choco-product-badge.badge-lor {
+        background: rgba(92,51,23,.15) !important;
+        color: #5C3317 !important;
+        border: 1px solid rgba(92,51,23,.25) !important;
+    }
+    .choco-product-badge.badge-sust {
+        background: rgba(62,39,35,.15) !important;
+        color: #3E2723 !important;
+        border: 1px solid rgba(62,39,35,.2) !important;
+    }
+    .choco-product-card-info {
+        padding: 18px 16px !important;
+    }
+    .choco-product-card-info h4 {
+        font-size: .95rem !important;
+        font-weight: 700 !important;
+        color: #3E2723 !important;
+        margin-bottom: 4px !important;
+        line-height: 1.3 !important;
+    }
+    .choco-product-card-info .choco-product-size {
+        font-size: .82rem !important;
+        color: #8B5E3C !important;
+        font-weight: 600 !important;
+    }
+    @media (max-width: 991px) {
+        .choco-product-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    }
+    @media (max-width: 575px) {
+        .choco-product-grid { grid-template-columns: 1fr !important; }
+        .choco-product-card-img { height: 200px !important; }
+    }
+
+    /* ── Galerie Video ── */
+    .choco-video-gallery {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 24px !important;
+    }
+    .choco-video-gallery .choco-video-item {
+        border-radius: 18px !important;
+        overflow: hidden !important;
+        background: #1a0e08 !important;
+        box-shadow: 0 12px 36px rgba(0,0,0,.2) !important;
+        transition: transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s ease !important;
+    }
+    .choco-video-gallery .choco-video-item:hover {
+        transform: translateY(-6px) !important;
+        box-shadow: 0 20px 50px rgba(0,0,0,.3) !important;
+    }
+    .choco-video-gallery video {
+        width: 100% !important;
+        display: block !important;
+        border-radius: 18px 18px 0 0 !important;
+    }
+    .choco-video-item-label {
+        padding: 14px 16px !important;
+        text-align: center !important;
+    }
+    .choco-video-item-label span {
+        color: rgba(255,255,255,.7) !important;
+        font-size: .85rem !important;
+        font-weight: 600 !important;
+    }
+    @media (max-width: 991px) {
+        .choco-video-gallery { grid-template-columns: repeat(2, 1fr) !important; }
+    }
+    @media (max-width: 575px) {
+        .choco-video-gallery { grid-template-columns: 1fr !important; }
+    }
+
+    /* ── Restaurant L'Or Brun ── */
+    .choco-restaurant {
+        background: linear-gradient(175deg, #1a0e08 0%, #2b1810 100%) !important;
+        padding: 100px 0 !important;
+        overflow: hidden !important;
+    }
+    .choco-restaurant-img {
+        border-radius: 20px !important;
+        overflow: hidden !important;
+        box-shadow: 0 24px 60px rgba(0,0,0,.35) !important;
+    }
+    .choco-restaurant-img img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        min-height: 360px !important;
+        transition: transform .6s ease !important;
+    }
+    .choco-restaurant-img:hover img {
+        transform: scale(1.03) !important;
+    }
+    .choco-restaurant-text .gbg-eyebrow {
+        color: #daa520 !important;
+    }
+    .choco-restaurant-text h2 {
+        color: #fff !important;
+        font-size: clamp(1.6rem, 3vw, 2.4rem) !important;
+        font-weight: 800 !important;
+        margin-bottom: 20px !important;
+    }
+    .choco-restaurant-text p {
+        color: rgba(255,255,255,.7) !important;
+        font-size: 1rem !important;
+        line-height: 1.7 !important;
+    }
+
+    /* ── Certifications ── */
+    .choco-certif {
+        background: linear-gradient(135deg, #fff9ef, #fff5e6) !important;
+        padding: 80px 0 !important;
+    }
+    .choco-certif-card {
+        background: #fff !important;
+        border-radius: 20px !important;
+        padding: 40px 32px !important;
+        text-align: center !important;
+        box-shadow: 0 8px 28px rgba(43,24,14,.06) !important;
+        border: 1px solid rgba(218,165,32,.12) !important;
+        transition: transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s ease !important;
+        height: 100% !important;
+    }
+    .choco-certif-card:hover {
+        transform: translateY(-6px) !important;
+        box-shadow: 0 16px 40px rgba(218,165,32,.12) !important;
+    }
+    .choco-certif-card img {
+        width: 120px !important;
+        height: 120px !important;
+        object-fit: contain !important;
+        margin-bottom: 20px !important;
+        border-radius: 16px !important;
+    }
+    .choco-certif-card h4 {
+        font-size: 1.1rem !important;
+        font-weight: 700 !important;
+        color: #3E2723 !important;
+        margin-bottom: 10px !important;
+    }
+    .choco-certif-card p {
+        font-size: .9rem !important;
+        color: #5C3317 !important;
+        line-height: 1.6 !important;
+        margin: 0 !important;
+    }
+
+    /* ── Presentation section ── */
+    .choco-presentation-img {
+        border-radius: 20px !important;
+        overflow: hidden !important;
+        box-shadow: 0 20px 50px rgba(43,24,14,.12) !important;
+    }
+    .choco-presentation-img img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        min-height: 380px !important;
+        transition: transform .6s ease !important;
+    }
+    .choco-presentation-img:hover img {
+        transform: scale(1.03) !important;
+    }
+
+    /* ── Brand Cards ── */
+    .choco-brand-card {
+        background: #fff !important;
+        border-radius: 20px !important;
+        overflow: hidden !important;
+        box-shadow: 0 8px 32px rgba(43,24,14,.08) !important;
+        transition: transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s ease !important;
+        height: 100% !important;
+    }
+    .choco-brand-card:hover {
+        transform: translateY(-10px) !important;
+        box-shadow: 0 24px 56px rgba(43,24,14,.15) !important;
+    }
+    .choco-brand-card::before {
+        content: '' !important;
+        display: block !important;
+        height: 4px !important;
+        background: var(--accent, #daa520) !important;
+    }
+    .choco-brand-img {
+        height: 280px !important;
+        overflow: hidden !important;
+        background: #f8f5f0 !important;
+    }
+    .choco-brand-img img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: contain !important;
+        padding: 16px !important;
+        transition: transform .5s ease !important;
+    }
+    .choco-brand-card:hover .choco-brand-img img {
+        transform: scale(1.05) !important;
+    }
+    .choco-brand-body {
+        padding: 28px !important;
+    }
+    .choco-brand-body h3 {
+        font-size: 1.4rem !important;
+        font-weight: 800 !important;
+        color: #3E2723 !important;
+        margin-bottom: 6px !important;
+    }
+    .choco-brand-tag {
+        display: inline-block !important;
+        font-size: 12px !important;
+        font-weight: 700 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 1.5px !important;
+        color: var(--accent, #daa520) !important;
+        margin-bottom: 12px !important;
+    }
+    .choco-brand-body p {
+        font-size: 0.92rem !important;
+        line-height: 1.65 !important;
+        color: #5d4037 !important;
+        margin: 0 !important;
+    }
+
+    /* ── Product Grid ── */
+    .choco-product-grid {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 24px !important;
+    }
+    .choco-prod-card {
+        background: #fff !important;
+        border-radius: 18px !important;
+        overflow: hidden !important;
+        box-shadow: 0 6px 24px rgba(43,24,14,.06) !important;
+        transition: transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s ease !important;
+    }
+    .choco-prod-card:hover {
+        transform: translateY(-8px) !important;
+        box-shadow: 0 20px 48px rgba(43,24,14,.12) !important;
+    }
+    .choco-prod-img {
+        height: 260px !important;
+        overflow: hidden !important;
+        background: #faf7f2 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    .choco-prod-img img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: contain !important;
+        padding: 12px !important;
+        transition: transform .4s ease !important;
+    }
+    .choco-prod-card:hover .choco-prod-img img {
+        transform: scale(1.06) !important;
+    }
+    .choco-prod-info {
+        padding: 18px 20px !important;
+        border-top: 1px solid rgba(0,0,0,.06) !important;
+    }
+    .choco-prod-brand {
+        display: inline-block !important;
+        font-size: 10px !important;
+        font-weight: 800 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 1.5px !important;
+        color: #b8860b !important;
+        background: rgba(218,165,32,.1) !important;
+        padding: 3px 10px !important;
+        border-radius: 6px !important;
+        margin-bottom: 6px !important;
+    }
+    .choco-prod-info h4 {
+        font-size: 1rem !important;
+        font-weight: 700 !important;
+        color: #3E2723 !important;
+        margin: 0 0 2px !important;
+    }
+    .choco-prod-size {
+        font-size: 0.85rem !important;
+        color: #8d6e63 !important;
+    }
+    @media(max-width:991px) { .choco-product-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+    @media(max-width:575px) { .choco-product-grid { grid-template-columns: 1fr !important; } }
+
+    /* ── Video Gallery (premium) ── */
+    .choco-vid-hero {
+        margin-bottom: 32px !important;
+        border-radius: 24px !important;
+        overflow: hidden !important;
+        background: #1a0e07 !important;
+        box-shadow: 0 20px 60px rgba(43,24,14,.18) !important;
+    }
+    .choco-vid-hero-frame {
+        position: relative !important;
+        width: 100% !important;
+        padding-top: 56.25% !important;
+    }
+    .choco-vid-hero-frame iframe,
+    .choco-vid-hero-frame .choco-local-video,
+    .choco-vid-hero-frame .choco-vid-placeholder {
+        position: absolute !important;
+        top: 0 !important; left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        border: none !important;
+        object-fit: cover !important;
+    }
+    .choco-vid-placeholder {
+        cursor: pointer !important;
+        z-index: 2 !important;
+    }
+    .choco-vid-placeholder img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        transition: transform .5s ease !important;
+    }
+    .choco-vid-placeholder:hover img {
+        transform: scale(1.03) !important;
+    }
+    .choco-vid-play-overlay {
+        position: absolute !important;
+        inset: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 14px !important;
+        background: rgba(26,14,7,.45) !important;
+        transition: background .3s ease !important;
+    }
+    .choco-vid-placeholder:hover .choco-vid-play-overlay {
+        background: rgba(26,14,7,.6) !important;
+    }
+    .choco-vid-play-btn {
+        width: 80px !important;
+        height: 80px !important;
+        border-radius: 50% !important;
+        background: linear-gradient(135deg, #daa520, #b8860b) !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        color: #fff !important;
+        font-size: 24px !important;
+        box-shadow: 0 8px 32px rgba(218,165,32,.4) !important;
+        transition: transform .3s ease !important;
+        position: relative !important;
+    }
+    .choco-vid-play-btn::before {
+        content: '' !important;
+        position: absolute !important;
+        inset: -10px !important;
+        border-radius: 50% !important;
+        border: 2px solid rgba(218,165,32,.35) !important;
+        animation: choco-ring-pulse 2.5s ease-out infinite !important;
+    }
+    .choco-vid-placeholder:hover .choco-vid-play-btn {
+        transform: scale(1.1) !important;
+    }
+    .choco-vid-play-btn i {
+        margin-left: 4px !important;
+    }
+    .choco-vid-play-sm {
+        width: 56px !important;
+        height: 56px !important;
+        font-size: 18px !important;
+    }
+    .choco-vid-play-sm::before {
+        inset: -7px !important;
+    }
+    .choco-vid-play-overlay > span {
+        color: rgba(255,255,255,.8) !important;
+        font-size: 13px !important;
+        font-weight: 700 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 2px !important;
+    }
+    .choco-vid-hero-info {
+        padding: 28px 32px !important;
+    }
+    .choco-vid-badge {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        padding: 6px 16px !important;
+        border-radius: 8px !important;
+        background: rgba(218,165,32,.15) !important;
+        color: #daa520 !important;
+        font-size: 12px !important;
+        font-weight: 700 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 1px !important;
+        margin-bottom: 12px !important;
+    }
+    .choco-vid-hero-info h3 {
+        font-size: 1.3rem !important;
+        font-weight: 800 !important;
+        color: #fff !important;
+        margin-bottom: 6px !important;
+    }
+    .choco-vid-hero-info p {
+        font-size: 0.92rem !important;
+        color: rgba(255,255,255,.6) !important;
+        margin: 0 !important;
+        line-height: 1.5 !important;
+    }
+
+    /* Video grid (4 secondaires) */
+    .choco-vid-grid {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 20px !important;
+    }
+    .choco-vid-card {
+        border-radius: 16px !important;
+        overflow: hidden !important;
+        background: #fff !important;
+        box-shadow: 0 6px 24px rgba(43,24,14,.07) !important;
+        transition: transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s ease !important;
+    }
+    .choco-vid-card:hover {
+        transform: translateY(-8px) !important;
+        box-shadow: 0 20px 48px rgba(43,24,14,.14) !important;
+    }
+    .choco-vid-card-frame {
+        position: relative !important;
+        padding-top: 56.25% !important;
+    }
+    .choco-vid-card-frame iframe,
+    .choco-vid-card-frame .choco-local-video,
+    .choco-vid-card-frame .choco-vid-placeholder {
+        position: absolute !important;
+        top: 0 !important; left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        border: none !important;
+        object-fit: cover !important;
+    }
+    .choco-vid-card-info {
+        display: flex !important;
+        align-items: flex-start !important;
+        gap: 12px !important;
+        padding: 16px !important;
+    }
+    .choco-vid-badge-sm {
+        width: 36px !important;
+        height: 36px !important;
+        min-width: 36px !important;
+        border-radius: 10px !important;
+        background: linear-gradient(135deg, #ff0000, #cc0000) !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        color: #fff !important;
+        font-size: 14px !important;
+    }
+    .choco-vid-card-info h4 {
+        font-size: 0.95rem !important;
+        font-weight: 700 !important;
+        color: #3E2723 !important;
+        margin: 0 0 2px !important;
+    }
+    .choco-vid-card-info p {
+        font-size: 0.8rem !important;
+        color: #8d6e63 !important;
+        margin: 0 !important;
+        line-height: 1.4 !important;
+    }
+    @media(max-width:991px) { .choco-vid-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+    @media(max-width:575px) { .choco-vid-grid { grid-template-columns: 1fr !important; } }
+
+    /* ── Restaurant Section ── */
+    .choco-restaurant-img {
+        border-radius: 20px !important;
+        overflow: hidden !important;
+        box-shadow: 0 20px 50px rgba(43,24,14,.15) !important;
+    }
+    .choco-restaurant-img img {
+        width: 100% !important;
+        min-height: 400px !important;
+        object-fit: cover !important;
+        transition: transform .6s ease !important;
+    }
+    .choco-restaurant-img:hover img {
+        transform: scale(1.03) !important;
+    }
+    .choco-restaurant-features {
+        list-style: none !important;
+        padding: 0 !important;
+        margin: 24px 0 0 !important;
+    }
+    .choco-restaurant-features li {
+        padding: 12px 16px !important;
+        margin-bottom: 10px !important;
+        background: linear-gradient(135deg, #fdf6ec, #fef9f1) !important;
+        border-radius: 12px !important;
+        font-size: 0.95rem !important;
+        color: #3E2723 !important;
+        border: 1px solid rgba(218,165,32,.1) !important;
+        transition: transform .3s ease, box-shadow .3s ease !important;
+    }
+    .choco-restaurant-features li:hover {
+        transform: translateX(6px) !important;
+        box-shadow: 0 4px 16px rgba(218,165,32,.1) !important;
+    }
+    .choco-restaurant-features i {
+        color: #b8860b !important;
+        margin-right: 10px !important;
+        width: 20px !important;
+    }
+
+    /* ── Certification Cards ── */
+    .choco-certif-card {
+        background: #fff !important;
+        border-radius: 20px !important;
+        padding: 40px 30px !important;
+        box-shadow: 0 8px 28px rgba(43,24,14,.06) !important;
+        transition: transform .35s ease, box-shadow .35s ease !important;
+        height: 100% !important;
+    }
+    .choco-certif-card:hover {
+        transform: translateY(-8px) !important;
+        box-shadow: 0 20px 48px rgba(43,24,14,.1) !important;
+    }
+    .choco-certif-badge {
+        width: 100px !important;
+        height: 100px !important;
+        object-fit: contain !important;
+        margin-bottom: 20px !important;
+        border-radius: 50% !important;
+    }
+    .choco-certif-ft {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    .choco-certif-card h4 {
+        font-size: 1.15rem !important;
+        font-weight: 700 !important;
+        color: #3E2723 !important;
+        margin-bottom: 10px !important;
+    }
+    .choco-certif-card p {
+        font-size: 0.9rem !important;
+        color: #5d4037 !important;
+        line-height: 1.6 !important;
+        margin: 0 !important;
     }
 
     /* ── Footer Inline Override (cache-bust) ── */
@@ -829,130 +1522,337 @@
     </section>
 
     <main class="gbg-entity-page choco-brand-page">
-        <section class="gbg-entity-hero entity-chocolaterie">
-            <div class="container">
-                <span class="gbg-eyebrow">SCMC Chocolaterie</span>
-                <h1 class="gbg-title">Créer des produits chocolatés responsables à partir d'un cacao durable et traçable.</h1>
-                <p class="gbg-lead">SCMC Chocolaterie valorise le cacao durable à travers des produits chocolatés de qualité, pensés pour les consommateurs, les distributeurs et les marchés responsables.</p>
-                <p class="gbg-text">SCMC Chocolaterie donne une identité commerciale et consommateur au cacao durable valorisé par le groupe GBG. Elle développe une offre fondée sur la qualité, la traçabilité, l'origine, la durabilité et le savoir-faire africain.</p>
-                <div class="gbg-actions"><a href="#choco-produits" class="gbg-btn">Découvrir nos produits</a><a href="contact.html" class="gbg-btn gbg-btn-outline">Nous contacter</a></div>
-            </div>
-        </section>
 
-        <section class="gbg-section gbg-reveal gbg-section-soft">
-            <div class="container">
-                <div class="row g-5 align-items-center">
-                    <div class="col-lg-6"><span class="gbg-eyebrow">Identité de marque</span><h2 class="gbg-title">Un chocolat responsable, traçable et porteur de sens.</h2><p class="gbg-lead">SCMC Chocolaterie transforme la valeur du cacao durable en produits chocolatés visibles, désirables et accessibles aux consommateurs, distributeurs, artisans et partenaires commerciaux.</p><p class="gbg-text">Cette page doit ressembler à une marque chocolat premium : produit fini, packaging, dégustation, expérience consommateur et univers commercial.</p></div>
-                    <div class="col-lg-6"><div class="gbg-media-card gbg-reveal-scale"><img src="assets/img/scmc chocolaterie/WhatsApp Image 2025-10-27 at 16.49.50.jpeg" alt="SCMC Chocolaterie packaging"><div class="gbg-media-overlay"><h3>Marque, produit et expérience</h3><p>Une identité commerciale construite autour du chocolat durable.</p></div></div></div>
-                </div>
-            </div>
-        </section>
-
-        <section class="gbg-section gbg-reveal">
-            <div class="container"><div class="row g-4"><div class="col-lg-6"><div class="gbg-card gbg-reveal p-5 h-100"><span class="gbg-eyebrow">Mission</span><h3>Créer et valoriser un chocolat responsable.</h3><p class="gbg-text">Créer et valoriser des produits chocolatés responsables à partir d'un cacao durable, en mettant en avant la qualité, l'origine, la traçabilité et le savoir-faire africain.</p></div></div><div class="col-lg-6"><div class="gbg-card gbg-reveal p-5 h-100"><span class="gbg-eyebrow">Vision</span><h3>Une référence chocolatée durable.</h3><p class="gbg-text">Faire de SCMC Chocolaterie une entité de référence dans la valorisation du cacao durable à travers des produits chocolatés accessibles, responsables et de qualité.</p></div></div></div></div>
-        </section>
-
-        <section class="gbg-section gbg-reveal gbg-section-dark">
-            <div class="container"><div class="row g-5"><div class="col-lg-5"><span class="gbg-eyebrow">Différence avec KIC</span><h2 class="gbg-title">KIC transforme. SCMC Chocolaterie développe la marque et les produits.</h2></div><div class="col-lg-7"><p class="gbg-lead">KIC se concentre principalement sur la transformation industrielle du cacao et les produits cacao à forte valeur ajoutée. SCMC Chocolaterie se concentre davantage sur le développement de produits chocolatés, la marque, la distribution, l'expérience consommateur et la commercialisation.</p><div class="gbg-chain mt-4"><div class="gbg-chain-step"><span>GBCC</span>Certifie les filières</div><div class="gbg-chain-step"><span>SCMC</span>Commercialise les matières durables</div><div class="gbg-chain-step"><span>KIC</span>Transforme le cacao</div><div class="gbg-chain-step"><span>SCMC Chocolaterie</span>Crée les produits chocolatés</div></div></div></div></div>
-        </section>
-
-        <section class="gbg-section gbg-reveal" id="choco-produits">
-            <div class="container">
-                <div class="row justify-content-center mb-5">
-                    <div class="col-lg-8 text-center">
-                        <span class="gbg-eyebrow">Collection de produits</span>
-                        <h2 class="gbg-title">Une collection chocolatée premium.</h2>
-                        <p class="gbg-lead">La page présente un univers produit orienté chocolat responsable, marque, packaging, dégustation et expérience consommateur.</p>
-                    </div>
-                </div>
-                <div class="gbg-gallery-grid">
-                    <div class="gbg-gallery-item gbg-reveal-scale"><img src="assets/img/scmc chocolaterie/WhatsApp Image 2025-10-27 at 16.49.50.jpeg" alt="Tablettes de chocolat"><span>Tablettes premium</span></div>
-                    <div class="gbg-gallery-item gbg-reveal-scale"><img src="assets/img/scmc chocolaterie/WhatsApp Image 2025-10-27 at 16.53.03.jpeg" alt="Dégustation chocolat"><span>Dégustation</span></div>
-                    <div class="gbg-gallery-item gbg-reveal-scale"><img src="assets/img/scmc chocolaterie/WhatsApp Image 2025-10-27 at 16.55.48.jpeg" alt="Cacao chocolat"><span>Cacao & chocolat</span></div>
-                </div>
-                <p class="gbg-note mt-4">Images recommandées : image-chocolaterie-tablette.jpg, image-chocolaterie-chocolat-fondu.jpg, image-chocolaterie-coffret.jpg, image-chocolaterie-packaging.jpg.</p>
-            </div>
-        </section>
-
-        <section class="gbg-section gbg-reveal gbg-section-dark">
-            <div class="container">
-                <div class="row justify-content-center mb-5"><div class="col-lg-8 text-center"><span class="gbg-eyebrow">Processus</span><h2 class="gbg-title">De la fève au chocolat.</h2></div></div>
-                <div class="gbg-chain">
-                    <div class="gbg-chain-step"><span>01</span>Cacao durable</div>
-                    <div class="gbg-chain-step"><span>02</span>Traçabilité</div>
-                    <div class="gbg-chain-step"><span>03</span>Transformation</div>
-                    <div class="gbg-chain-step"><span>04</span>Création de recettes</div>
-                    <div class="gbg-chain-step"><span>05</span>Packaging</div>
-                    <div class="gbg-chain-step"><span>06</span>Distribution</div>
-                    <div class="gbg-chain-step"><span>07</span>Expérience consommateur</div>
-                    <div class="gbg-chain-step"><span>08</span>Retours marché</div>
-                </div>
-            </div>
-        </section>
-
+        <!-- 1. HERO CINEMA -->
         <section class="choco-cinema-section">
             <div class="choco-cinema-bg">
-                <video muted loop autoplay playsinline poster="assets/img/scmc chocolaterie/WhatsApp Image 2025-10-27 at 16.49.50.jpeg">
+                <video muted loop autoplay playsinline poster="assets/img/scmc chocolaterie/WhatsApp Image 2025-10-27 at 16.53.04.jpeg">
                     <source src="assets/img/scmc chocolaterie/WhatsApp Video 2025-10-27 at 17.01.49.mp4" type="video/mp4">
                 </video>
             </div>
             <div class="choco-cinema-overlay"></div>
-            <div class="choco-cinema-particles" aria-hidden="true">
-                <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-            </div>
+            <div class="choco-cinema-particles" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
             <div class="container position-relative" style="z-index:5;">
                 <div class="row justify-content-center">
                     <div class="col-lg-8 text-center">
-                        <span class="choco-cinema-eyebrow">L'univers chocolaté</span>
+                        <span class="choco-cinema-eyebrow">L'univers chocolat&eacute;</span>
                         <h2 class="choco-cinema-title">SCMC Chocolaterie</h2>
-                        <p class="choco-cinema-desc">La vidéo devra montrer cacao, chocolat fondu, tablettes, emballage, dégustation, coffrets, artisans et marque.</p>
+                        <p class="choco-cinema-desc">Du cacao durable ivoirien aux produits chocolat&eacute;s premium &mdash; d&eacute;couvrez nos marques YUA, L'Or Brun et Sustainable Chocolate.</p>
                         <div class="choco-cinema-play-wrap">
-                            <button class="choco-cinema-play" id="chocoPlayBtn">
-                                <span class="choco-play-ring"></span>
-                                <span class="choco-play-ring choco-play-ring-2"></span>
-                                <i class="fa-solid fa-play"></i>
-                            </button>
-                            <span class="choco-cinema-play-label">Découvrir la vidéo</span>
+                            <button class="choco-cinema-play" id="chocoPlayBtn"><span class="choco-play-ring"></span><span class="choco-play-ring choco-play-ring-2"></span><i class="fa-solid fa-play"></i></button>
+                            <span class="choco-cinema-play-label">D&eacute;couvrir la vid&eacute;o</span>
                         </div>
                         <div class="choco-cinema-stats">
-                            <div class="choco-stat-item">
-                                <strong>100%</strong>
-                                <span>Cacao traçable</span>
-                            </div>
+                            <div class="choco-stat-item"><strong>3</strong><span>Marques</span></div>
                             <div class="choco-stat-divider"></div>
-                            <div class="choco-stat-item">
-                                <strong>Premium</strong>
-                                <span>Qualité artisanale</span>
-                            </div>
+                            <div class="choco-stat-item"><strong>100%</strong><span>Cacao tra&ccedil;able</span></div>
                             <div class="choco-stat-divider"></div>
-                            <div class="choco-stat-item">
-                                <strong>Durable</strong>
-                                <span>Filière responsable</span>
+                            <div class="choco-stat-item"><strong>Fair Trade</strong><span>Certifi&eacute;</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="choco-cinema-scroll-hint" aria-hidden="true"><span></span></div>
+        </section>
+
+        <!-- 2. PRESENTATION -->
+        <section class="gbg-section gbg-reveal gbg-section-soft">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6">
+                        <span class="gbg-eyebrow">Identit&eacute; de marque</span>
+                        <h2 class="gbg-title">Un chocolat responsable, tra&ccedil;able et porteur de sens.</h2>
+                        <p class="gbg-lead">SCMC Chocolaterie transforme le cacao durable en produits chocolat&eacute;s d&eacute;sirables et accessibles &mdash; poudre de cacao, beurre de cacao, chocolat en poudre &mdash; sous trois marques distinctes.</p>
+                        <p class="gbg-text">Filiale du groupe GBG, SCMC Chocolaterie porte l'identit&eacute; commerciale du cacao ivoirien durable jusqu'au consommateur. Chaque produit incarne la qualit&eacute;, l'origine C&ocirc;te d'Ivoire, la tra&ccedil;abilit&eacute; compl&egrave;te et le savoir-faire africain.</p>
+                        <div class="gbg-actions mt-4"><a href="#choco-marques" class="gbg-btn">Nos marques</a><a href="#choco-produits" class="gbg-btn gbg-btn-outline">Catalogue</a></div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="choco-presentation-img gbg-reveal-scale"><img src="assets/img/scmc chocolaterie/WhatsApp Image 2025-10-27 at 16.49.50.jpeg" alt="Beurre de Cacao YUA 250g"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. MISSION / VISION -->
+        <section class="gbg-section gbg-reveal">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-lg-6"><div class="gbg-card gbg-reveal p-5 h-100"><span class="gbg-eyebrow">Mission</span><h3>Cr&eacute;er et valoriser un chocolat responsable.</h3><p class="gbg-text">D&eacute;velopper des produits chocolat&eacute;s issus d'un cacao durable, en mettant en avant la qualit&eacute;, l'origine, la tra&ccedil;abilit&eacute; et le savoir-faire africain.</p></div></div>
+                    <div class="col-lg-6"><div class="gbg-card gbg-reveal p-5 h-100"><span class="gbg-eyebrow">Vision</span><h3>La r&eacute;f&eacute;rence chocolat&eacute;e durable d'Afrique.</h3><p class="gbg-text">Faire de SCMC Chocolaterie l'entit&eacute; de r&eacute;f&eacute;rence dans la valorisation du cacao durable &agrave; travers des produits accessibles, responsables et de qualit&eacute;.</p></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. NOS MARQUES -->
+        <section class="gbg-section gbg-reveal gbg-section-soft" id="choco-marques">
+            <div class="container">
+                <div class="row justify-content-center mb-5">
+                    <div class="col-lg-8 text-center">
+                        <span class="gbg-eyebrow">Nos marques</span>
+                        <h2 class="gbg-title">Trois identit&eacute;s, une m&ecirc;me exigence.</h2>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="choco-brand-card gbg-reveal" style="--accent:#c9a45c">
+                            <div class="choco-brand-img"><img src="assets/img/scmc chocolaterie/WhatsApp Image 2025-10-27 at 16.49.51.jpeg" alt="YUA Beurre de Cacao"></div>
+                            <div class="choco-brand-body">
+                                <h3>YUA</h3>
+                                <span class="choco-brand-tag">Puret&eacute; &amp; Tradition</span>
+                                <p>Beurre et poudre de cacao premium en format consommateur. Packaging &eacute;l&eacute;gant, certification Fair Trade, 100&nbsp;% pur cacao naturel.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="choco-brand-card gbg-reveal" style="--accent:#8B5E3C">
+                            <div class="choco-brand-img"><img src="assets/img/scmc chocolaterie/WhatsApp Image 2025-10-27 at 16.55.48.jpeg" alt="L'Or Brun Cocoa Powder"></div>
+                            <div class="choco-brand-body">
+                                <h3>L'Or Brun</h3>
+                                <span class="choco-brand-tag">Excellence au quotidien</span>
+                                <p>Poudre de cacao et beurre de cacao du format mono-dose 5&nbsp;g au sac professionnel 25&nbsp;kg. La gamme compl&egrave;te pour artisans et industriels.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="choco-brand-card gbg-reveal" style="--accent:#b8860b">
+                            <div class="choco-brand-img"><img src="assets/img/scmc chocolaterie/WhatsApp Image 2025-10-27 at 16.53.01.jpeg" alt="Sustainable Chocolate"></div>
+                            <div class="choco-brand-body">
+                                <h3>Sustainable Chocolate</h3>
+                                <span class="choco-brand-tag">Le go&ucirc;t responsable</span>
+                                <p>Chocolat en poudre accessible et ludique pour toute la famille. Riche en cacao, enrichi en vitamines et min&eacute;raux essentiels.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="choco-cinema-scroll-hint" aria-hidden="true">
-                <span></span>
-            </div>
         </section>
 
-        <section class="gbg-section gbg-reveal">
+        <!-- 5. CATALOGUE PRODUITS -->
+        <section class="gbg-section gbg-reveal" id="choco-produits">
             <div class="container">
-                <div class="row justify-content-center mb-5"><div class="col-lg-8 text-center"><span class="gbg-eyebrow">Valeurs produit</span><h2 class="gbg-title">Les marqueurs d'un chocolat durable.</h2></div></div>
-                <div class="sensory-grid">
-                    <div class="sensory-item gbg-reveal">Origine</div>
-                    <div class="sensory-item gbg-reveal">Goût</div>
-                    <div class="sensory-item gbg-reveal">Texture</div>
-                    <div class="sensory-item gbg-reveal">Traçabilité</div>
-                    <div class="sensory-item gbg-reveal">Responsabilité</div>
+                <div class="row justify-content-center mb-5">
+                    <div class="col-lg-8 text-center">
+                        <span class="gbg-eyebrow">Catalogue</span>
+                        <h2 class="gbg-title">Notre gamme de produits.</h2>
+                        <p class="gbg-lead">Du sachet individuel au conditionnement professionnel, une offre compl&egrave;te pour chaque march&eacute;.</p>
+                    </div>
+                </div>
+                <div class="choco-product-grid">
+                    <div class="choco-prod-card gbg-reveal">
+                        <div class="choco-prod-img"><img src="assets/img/scmc chocolaterie/WhatsApp Image 2025-10-27 at 16.49.50.jpeg" alt="Beurre de Cacao YUA 250g"></div>
+                        <div class="choco-prod-info"><span class="choco-prod-brand">YUA</span><h4>Beurre de Cacao</h4><span class="choco-prod-size">250g</span></div>
+                    </div>
+                    <div class="choco-prod-card gbg-reveal">
+                        <div class="choco-prod-img"><img src="assets/img/scmc chocolaterie/WhatsApp Image 2025-10-27 at 16.49.54.jpeg" alt="Poudre de Cacao YUA 1kg"></div>
+                        <div class="choco-prod-info"><span class="choco-prod-brand">YUA</span><h4>Poudre de Cacao</h4><span class="choco-prod-size">1kg</span></div>
+                    </div>
+                    <div class="choco-prod-card gbg-reveal">
+                        <div class="choco-prod-img"><img src="assets/img/scmc chocolaterie/WhatsApp Image 2025-10-27 at 16.55.52.jpeg" alt="Cocoa Powder L'Or Brun 5g"></div>
+                        <div class="choco-prod-info"><span class="choco-prod-brand">L'Or Brun</span><h4>Cocoa Powder</h4><span class="choco-prod-size">5g stick</span></div>
+                    </div>
+                    <div class="choco-prod-card gbg-reveal">
+                        <div class="choco-prod-img"><img src="assets/img/scmc chocolaterie/WhatsApp Image 2025-10-27 at 17.00.20.jpeg" alt="Cocoa Powder L'Or Brun 500g"></div>
+                        <div class="choco-prod-info"><span class="choco-prod-brand">L'Or Brun</span><h4>Cocoa Powder</h4><span class="choco-prod-size">500g</span></div>
+                    </div>
+                    <div class="choco-prod-card gbg-reveal">
+                        <div class="choco-prod-img"><img src="assets/img/scmc chocolaterie/WhatsApp Image 2025-10-27 at 17.00.21 (1).jpeg" alt="Cocoa Butter L'Or Brun 500g"></div>
+                        <div class="choco-prod-info"><span class="choco-prod-brand">L'Or Brun</span><h4>Cocoa Butter</h4><span class="choco-prod-size">500g</span></div>
+                    </div>
+                    <div class="choco-prod-card gbg-reveal">
+                        <div class="choco-prod-img"><img src="assets/img/scmc chocolaterie/WhatsApp Image 2025-10-27 at 16.49.52.jpeg" alt="Cocoa Powder L'Or Brun 25kg"></div>
+                        <div class="choco-prod-info"><span class="choco-prod-brand">L'Or Brun</span><h4>Cocoa Powder</h4><span class="choco-prod-size">25kg</span></div>
+                    </div>
+                    <div class="choco-prod-card gbg-reveal">
+                        <div class="choco-prod-img"><img src="assets/img/scmc chocolaterie/WhatsApp Image 2025-10-27 at 16.53.02.jpeg" alt="Chocolat en Poudre 20g"></div>
+                        <div class="choco-prod-info"><span class="choco-prod-brand">Sustainable</span><h4>Chocolat en Poudre</h4><span class="choco-prod-size">20g</span></div>
+                    </div>
+                    <div class="choco-prod-card gbg-reveal">
+                        <div class="choco-prod-img"><img src="assets/img/scmc chocolaterie/WhatsApp Image 2025-10-27 at 16.55.49.jpeg" alt="Poudre de Cacao Sustainable 500g"></div>
+                        <div class="choco-prod-info"><span class="choco-prod-brand">Sustainable</span><h4>Poudre de Cacao</h4><span class="choco-prod-size">500g &bull; 52%</span></div>
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- 6. DE LA FEVE AU CHOCOLAT -->
         <section class="gbg-section gbg-reveal gbg-section-dark">
-            <div class="container"><div class="row g-4 align-items-center"><div class="col-lg-8"><h2 class="gbg-title">Vous êtes distributeur, partenaire, artisan ou consommateur intéressé par un chocolat durable ?</h2><p class="gbg-lead">Découvrez l'univers SCMC Chocolaterie.</p></div><div class="col-lg-4 text-lg-end"><a href="contact.html" class="gbg-btn">Contacter SCMC Chocolaterie</a></div></div></div>
+            <div class="container">
+                <div class="row justify-content-center mb-5"><div class="col-lg-8 text-center"><span class="gbg-eyebrow">Processus</span><h2 class="gbg-title">De la f&egrave;ve au chocolat.</h2></div></div>
+                <div class="gbg-chain">
+                    <div class="gbg-chain-step" style="--i:1"><span>01</span>Cacao durable</div>
+                    <div class="gbg-chain-step" style="--i:2"><span>02</span>Tra&ccedil;abilit&eacute;</div>
+                    <div class="gbg-chain-step" style="--i:3"><span>03</span>Transformation</div>
+                    <div class="gbg-chain-step" style="--i:4"><span>04</span>Cr&eacute;ation de recettes</div>
+                    <div class="gbg-chain-step" style="--i:5"><span>05</span>Packaging</div>
+                    <div class="gbg-chain-step" style="--i:6"><span>06</span>Distribution</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. GALERIE VIDEO -->
+        <section class="gbg-section gbg-reveal" id="choco-videos">
+            <div class="container">
+                <div class="row justify-content-center mb-5">
+                    <div class="col-lg-8 text-center">
+                        <span class="gbg-eyebrow">Nos vid&eacute;os</span>
+                        <h2 class="gbg-title">L'univers SCMC Chocolaterie en images.</h2>
+                        <p class="gbg-lead">D&eacute;couvrez nos processus, nos produits et notre savoir-faire &agrave; travers nos vid&eacute;os.</p>
+                    </div>
+                </div>
+
+                <!-- Video principale (grande) -->
+                <div class="choco-vid-hero gbg-reveal">
+                    <div class="choco-vid-hero-frame">
+                        <!--
+                            YOUTUBE : Quand votre vid&eacute;o sera sur YouTube, remplacez data-yt="" par l'ID YouTube.
+                            Exemple : data-yt="dQw4w9WgXcQ"
+                            Le placeholder sera remplac&eacute; automatiquement par l'embed YouTube au clic.
+                        -->
+                        <video class="choco-local-video" preload="none" poster="assets/img/scmc chocolaterie/WhatsApp Image 2025-10-27 at 16.53.04.jpeg" data-yt="">
+                            <source src="assets/img/scmc chocolaterie/WhatsApp Video 2025-10-27 at 17.01.49.mp4" type="video/mp4">
+                        </video>
+                        <div class="choco-vid-placeholder">
+                            <img src="assets/img/scmc chocolaterie/WhatsApp Image 2025-10-27 at 16.53.04.jpeg" alt="Vid&eacute;o SCMC Chocolaterie">
+                            <div class="choco-vid-play-overlay">
+                                <div class="choco-vid-play-btn"><i class="fa-solid fa-play"></i></div>
+                                <span>Regarder la vid&eacute;o</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="choco-vid-hero-info">
+                        <span class="choco-vid-badge"><i class="fa-solid fa-play-circle"></i> Vid&eacute;o</span>
+                        <h3>Production &amp; Packaging</h3>
+                        <p>De la f&egrave;ve de cacao au produit fini : d&eacute;couvrez les coulisses de notre cha&icirc;ne de production.</p>
+                    </div>
+                </div>
+
+                <!-- 4 videos secondaires -->
+                <div class="choco-vid-grid">
+                    <div class="choco-vid-card gbg-reveal">
+                        <div class="choco-vid-card-frame">
+                            <video class="choco-local-video" preload="none" poster="assets/img/scmc chocolaterie/WhatsApp Image 2025-10-27 at 16.49.50.jpeg" data-yt="">
+                                <source src="assets/img/scmc chocolaterie/WhatsApp Video 2025-10-27 at 17.03.14.mp4" type="video/mp4">
+                            </video>
+                            <div class="choco-vid-placeholder">
+                                <img src="assets/img/scmc chocolaterie/WhatsApp Image 2025-10-27 at 16.49.50.jpeg" alt="Fabrication">
+                                <div class="choco-vid-play-overlay"><div class="choco-vid-play-btn choco-vid-play-sm"><i class="fa-solid fa-play"></i></div></div>
+                            </div>
+                        </div>
+                        <div class="choco-vid-card-info">
+                            <span class="choco-vid-badge-sm"><i class="fa-solid fa-play"></i></span>
+                            <div><h4>Fabrication</h4><p>Le processus de transformation du cacao.</p></div>
+                        </div>
+                    </div>
+                    <div class="choco-vid-card gbg-reveal">
+                        <div class="choco-vid-card-frame">
+                            <video class="choco-local-video" preload="none" poster="assets/img/scmc chocolaterie/WhatsApp Image 2025-10-27 at 16.55.49.jpeg" data-yt="">
+                                <source src="assets/img/scmc chocolaterie/WhatsApp Video 2025-10-27 at 17.03.14 (1).mp4" type="video/mp4">
+                            </video>
+                            <div class="choco-vid-placeholder">
+                                <img src="assets/img/scmc chocolaterie/WhatsApp Image 2025-10-27 at 16.55.49.jpeg" alt="Nos produits">
+                                <div class="choco-vid-play-overlay"><div class="choco-vid-play-btn choco-vid-play-sm"><i class="fa-solid fa-play"></i></div></div>
+                            </div>
+                        </div>
+                        <div class="choco-vid-card-info">
+                            <span class="choco-vid-badge-sm"><i class="fa-solid fa-play"></i></span>
+                            <div><h4>Nos produits</h4><p>La gamme compl&egrave;te SCMC Chocolaterie.</p></div>
+                        </div>
+                    </div>
+                    <div class="choco-vid-card gbg-reveal">
+                        <div class="choco-vid-card-frame">
+                            <video class="choco-local-video" preload="none" poster="assets/img/scmc chocolaterie/WhatsApp Image 2025-10-27 at 17.00.21 (1).jpeg" data-yt="">
+                                <source src="assets/img/scmc chocolaterie/WhatsApp Video 2025-10-27 at 17.03.17.mp4" type="video/mp4">
+                            </video>
+                            <div class="choco-vid-placeholder">
+                                <img src="assets/img/scmc chocolaterie/WhatsApp Image 2025-10-27 at 17.00.21 (1).jpeg" alt="Processus">
+                                <div class="choco-vid-play-overlay"><div class="choco-vid-play-btn choco-vid-play-sm"><i class="fa-solid fa-play"></i></div></div>
+                            </div>
+                        </div>
+                        <div class="choco-vid-card-info">
+                            <span class="choco-vid-badge-sm"><i class="fa-solid fa-play"></i></span>
+                            <div><h4>Processus</h4><p>De la f&egrave;ve au beurre de cacao.</p></div>
+                        </div>
+                    </div>
+                    <div class="choco-vid-card gbg-reveal">
+                        <div class="choco-vid-card-frame">
+                            <video class="choco-local-video" preload="none" poster="assets/img/scmc chocolaterie/WhatsApp Image 2025-10-27 at 16.53.01.jpeg" data-yt="">
+                                <source src="assets/img/scmc chocolaterie/WhatsApp Video 2025-10-27 at 17.05.22.mp4" type="video/mp4">
+                            </video>
+                            <div class="choco-vid-placeholder">
+                                <img src="assets/img/scmc chocolaterie/WhatsApp Image 2025-10-27 at 16.53.01.jpeg" alt="Sustainable Chocolate">
+                                <div class="choco-vid-play-overlay"><div class="choco-vid-play-btn choco-vid-play-sm"><i class="fa-solid fa-play"></i></div></div>
+                            </div>
+                        </div>
+                        <div class="choco-vid-card-info">
+                            <span class="choco-vid-badge-sm"><i class="fa-solid fa-play"></i></span>
+                            <div><h4>Sustainable Chocolate</h4><p>Notre marque accessible et durable.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. RESTAURANT L'OR BRUN -->
+        <section class="gbg-section gbg-reveal choco-restaurant-section">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6">
+                        <div class="choco-restaurant-img gbg-reveal-scale"><img src="assets/img/scmc chocolaterie/WhatsApp Image 2025-12-16 at 16.49.06.jpeg" alt="Restaurant L'Or Brun - Cuisine et Terroir"></div>
+                    </div>
+                    <div class="col-lg-6">
+                        <span class="gbg-eyebrow">Exp&eacute;rience culinaire</span>
+                        <h2 class="gbg-title">L'Or Brun &mdash; Cuisine &amp; Terroir</h2>
+                        <p class="gbg-lead">Un lieu o&ugrave; le chocolat rencontre la gastronomie africaine. D&eacute;couvrez notre restaurant terroir au c&oelig;ur d'Abidjan, o&ugrave; chaque plat c&eacute;l&egrave;bre les saveurs du cacao et du terroir ivoirien.</p>
+                        <ul class="choco-restaurant-features">
+                            <li><i class="fa-solid fa-utensils"></i> Cuisine au cacao et produits locaux</li>
+                            <li><i class="fa-solid fa-mug-hot"></i> D&eacute;gustations de chocolat chaud artisanal</li>
+                            <li><i class="fa-solid fa-store"></i> Vente directe de nos produits</li>
+                            <li><i class="fa-solid fa-leaf"></i> Ambiance terroir authentique</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. CERTIFICATIONS -->
+        <section class="gbg-section gbg-reveal gbg-section-soft">
+            <div class="container">
+                <div class="row justify-content-center mb-5">
+                    <div class="col-lg-8 text-center">
+                        <span class="gbg-eyebrow">Certifications</span>
+                        <h2 class="gbg-title">Des produits certifi&eacute;s et tra&ccedil;ables.</h2>
+                    </div>
+                </div>
+                <div class="row g-4 justify-content-center">
+                    <div class="col-md-5">
+                        <div class="choco-certif-card gbg-reveal text-center">
+                            <img src="assets/img/logo/certification.jpg" alt="Diversification Package GBCC" class="choco-certif-badge">
+                            <h4>Diversification Package</h4>
+                            <p>Programme de diversification v&eacute;rifi&eacute; par GBCC, garantissant un revenu durable aux producteurs de cacao.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="choco-certif-card gbg-reveal text-center">
+                            <div class="choco-certif-badge choco-certif-ft"><i class="fa-solid fa-certificate" style="font-size:60px;color:#4a9e3f;"></i></div>
+                            <h4>Fair Trade Certified</h4>
+                            <p>Tous nos produits portent le label Fair Trade, garantissant des conditions commerciales &eacute;quitables pour les producteurs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. CTA -->
+        <section class="gbg-section gbg-reveal gbg-section-dark">
+            <div class="container">
+                <div class="row g-4 align-items-center">
+                    <div class="col-lg-8">
+                        <h2 class="gbg-title">Distributeur, artisan, partenaire ou consommateur&nbsp;?</h2>
+                        <p class="gbg-lead">D&eacute;couvrez nos produits et rejoignez l'aventure du chocolat durable ivoirien.</p>
+                    </div>
+                    <div class="col-lg-4 text-lg-end"><a href="contact.html" class="gbg-btn">Contacter SCMC Chocolaterie</a></div>
+                </div>
+            </div>
         </section>
 
         <footer class="gbg-footer">
@@ -1075,27 +1975,31 @@
     </script>
     <script>
     (function(){
-        // Video modal
         var modal = document.createElement('div');
         modal.className = 'choco-video-modal';
-        modal.innerHTML = '<button class="choco-video-close"><i class="fa-solid fa-times"></i></button><video controls><source src="assets/img/scmc chocolaterie/WhatsApp Video 2025-10-27 at 17.01.49.mp4" type="video/mp4"></video>';
+        modal.innerHTML = '<button class="choco-video-close"><i class="fa-solid fa-times"></i></button><div class="choco-modal-content"></div>';
         document.body.appendChild(modal);
 
-        var modalVideo = modal.querySelector('video');
+        var modalContent = modal.querySelector('.choco-modal-content');
         var playBtn = document.getElementById('chocoPlayBtn');
         var closeBtn = modal.querySelector('.choco-video-close');
 
         if (playBtn) {
             playBtn.addEventListener('click', function(){
+                var heroVideo = document.querySelector('.choco-cinema-bg .choco-local-video, .choco-cinema-bg video');
+                var ytId = heroVideo ? heroVideo.getAttribute('data-yt') : '';
+                if (ytId && ytId.length > 3) {
+                    modalContent.innerHTML = '<iframe src="https://www.youtube.com/embed/' + ytId + '?autoplay=1&rel=0" style="width:100%;height:100%;border:none" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe>';
+                } else {
+                    modalContent.innerHTML = '<video controls autoplay style="width:100%;height:100%;object-fit:contain"><source src="assets/img/scmc chocolaterie/WhatsApp Video 2025-10-27 at 17.01.49.mp4" type="video/mp4"></video>';
+                }
                 modal.classList.add('is-open');
-                modalVideo.play();
             });
         }
 
         function closeModal() {
             modal.classList.remove('is-open');
-            modalVideo.pause();
-            modalVideo.currentTime = 0;
+            modalContent.innerHTML = '';
         }
 
         closeBtn.addEventListener('click', closeModal);
@@ -1115,6 +2019,33 @@
         }, { threshold: 0.15 });
         fRevEls.forEach(function(el) { fRevIO.observe(el); });
     }
+    </script>
+    <script>
+    (function(){
+        document.querySelectorAll('.choco-vid-placeholder').forEach(function(ph){
+            ph.addEventListener('click', function(){
+                var frame = ph.closest('.choco-vid-hero-frame, .choco-vid-card-frame');
+                if (!frame) return;
+                var video = frame.querySelector('.choco-local-video');
+                if (!video) return;
+                var ytId = video.getAttribute('data-yt');
+                if (ytId && ytId.length > 3) {
+                    var iframe = document.createElement('iframe');
+                    iframe.src = 'https://www.youtube.com/embed/' + ytId + '?autoplay=1&rel=0';
+                    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+                    iframe.setAttribute('allowfullscreen', '');
+                    iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:none;z-index:5';
+                    video.style.display = 'none';
+                    frame.appendChild(iframe);
+                    ph.style.display = 'none';
+                } else {
+                    video.controls = true;
+                    video.play();
+                    ph.style.display = 'none';
+                }
+            });
+        });
+    })();
     </script>
 </body>
 
