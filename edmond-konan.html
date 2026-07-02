@@ -17,12 +17,12 @@
     <meta property="og:title" content="Edmond Konan &mdash; Expert international en cacao durable, certification et cha&icirc;nes de valeur agricoles">
     <meta property="og:description" content="D&eacute;couvrez le portfolio de M. Edmond Konan, expert international en cacao durable, certification, normalisation, cha&icirc;nes de valeur agricoles et fondateur de Global Business Group SA.">
     <meta property="og:url" content="https://gbg-ci.com/edmond-konan.html">
-    <meta property="og:image" content="https://gbg-ci.com/assets/img/portfolio/edmond-konan-portrait.jpg">
+    <meta property="og:image" content="https://gbg-ci.com/assets/img/gbcc/DG.webp">
     <meta property="og:image:alt" content="Edmond Konan - Expert cacao durable">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Edmond Konan &mdash; Expert international en cacao durable">
     <meta name="twitter:description" content="D&eacute;couvrez le portfolio de M. Edmond Konan, expert international en cacao durable, certification, normalisation et fondateur de Global Business Group SA.">
-    <meta name="twitter:image" content="https://gbg-ci.com/assets/img/portfolio/edmond-konan-portrait.jpg">
+    <meta name="twitter:image" content="https://gbg-ci.com/assets/img/gbcc/DG.webp">
     <meta name="keywords" content="Edmond Konan, cacao durable, certification cacao, Global Business Group, fili&egrave;re cacao, C&ocirc;te d'Ivoire, durabilit&eacute; agricole, ICCO, Fairtrade, Rainforest Alliance, cha&icirc;ne de valeur cacao, conseil agricole, normalisation cacao">
     <script type="application/ld+json">
     {
@@ -37,6 +37,7 @@
           "url": "https://gbg-ci.com/edmond-konan.html",
           "email": "ekonan@yahoo.fr",
           "telephone": "+2250708565625",
+          "image": "https://gbg-ci.com/assets/img/gbcc/DG.webp",
           "knowsLanguage": ["fr", "en", "es"],
           "alumniOf": [
             { "@type": "EducationalOrganization", "name": "Massachusetts Institute of Technology" },
@@ -503,6 +504,61 @@
         margin: 0 0 10px !important;
         line-height: 1.35 !important;
     }
+    .ek-pub-link, .ek-proof-link {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        margin-top: 14px !important;
+        color: var(--ek-brown) !important;
+        font-size: 13px !important;
+        font-weight: 700 !important;
+        text-decoration: none !important;
+    }
+    .ek-pub-link:hover, .ek-proof-link:hover { color: var(--ek-gold) !important; }
+    .ek-proof-visual {
+        position: relative !important;
+        overflow: hidden !important;
+        border-radius: 16px !important;
+        min-height: 240px !important;
+        background: var(--ek-brown) !important;
+    }
+    .ek-proof-visual img {
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 240px !important;
+        object-fit: cover !important;
+        opacity: .82 !important;
+    }
+    .ek-proof-visual span {
+        position: absolute !important;
+        left: 16px !important;
+        right: 16px !important;
+        bottom: 16px !important;
+        padding: 10px 12px !important;
+        border-radius: 10px !important;
+        background: rgba(26,14,5,.72) !important;
+        color: #fff !important;
+        font-size: 12px !important;
+        font-weight: 700 !important;
+    }
+    .ek-logo-strip {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 14px !important;
+        margin-top: 28px !important;
+    }
+    .ek-logo-proof {
+        background: #fff !important;
+        border-radius: 14px !important;
+        padding: 14px !important;
+        min-height: 86px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        box-shadow: 0 6px 22px rgba(61,43,31,.05) !important;
+    }
+    .ek-logo-proof img { max-width: 100% !important; max-height: 56px !important; object-fit: contain !important; }
+    @media(max-width:767px) { .ek-logo-strip { grid-template-columns: repeat(2, 1fr) !important; } }
 
     /* ── FORMATION ── */
     .ek-formation-card {
@@ -738,6 +794,50 @@
         font-weight: 600 !important;
         color: var(--ek-brown) !important;
         margin-bottom: 6px !important;
+    }
+    .ek-contact-actions {
+        display: grid !important;
+        gap: 12px !important;
+    }
+    .ek-contact-action {
+        display: flex !important;
+        align-items: center !important;
+        gap: 14px !important;
+        padding: 16px 18px !important;
+        border-radius: 14px !important;
+        background: #fff !important;
+        color: var(--ek-brown) !important;
+        text-decoration: none !important;
+        box-shadow: 0 8px 26px rgba(61,43,31,.06) !important;
+        transition: transform .3s ease, box-shadow .3s ease !important;
+    }
+    .ek-contact-action:hover {
+        transform: translateY(-3px) !important;
+        box-shadow: 0 14px 36px rgba(61,43,31,.1) !important;
+        color: var(--ek-brown) !important;
+    }
+    .ek-contact-action i {
+        width: 42px !important;
+        height: 42px !important;
+        min-width: 42px !important;
+        border-radius: 12px !important;
+        background: linear-gradient(135deg,var(--ek-gold),#8b5a2b) !important;
+        color: #fff !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    .ek-contact-action strong { display:block !important; font-size: 14px !important; }
+    .ek-contact-action span { display:block !important; font-size: 12px !important; color:#7a6b5a !important; }
+    .ek-form-message {
+        margin-top: 14px !important;
+        font-size: 13px !important;
+        font-weight: 600 !important;
+    }
+    .ek-form-message.success { color: #1a6d3b !important; }
+    .ek-form-message.error { color: #b42318 !important; }
+    #ek-formation, #ek-conferences, #ek-distinctions, #ek-langues {
+        display: none !important;
     }
 
     /* ── Footer Inline Override (cache-bust) ── */
@@ -1025,6 +1125,7 @@
                         <div class="ek-hero-actions">
                             <a href="#ek-parcours" class="ek-btn ek-btn-primary">D&eacute;couvrir son parcours <i class="fa-solid fa-arrow-down"></i></a>
                             <a href="#ek-publications" class="ek-btn ek-btn-outline">Voir ses publications</a>
+                            <a href="mailto:ekonan@yahoo.fr?subject=Demande%20du%20profil%20institutionnel%20PDF%20-%20Edmond%20Konan" class="ek-btn ek-btn-outline">Profil institutionnel PDF</a>
                             <a href="#ek-contact" class="ek-btn ek-btn-outline">Le contacter</a>
                         </div>
                     </div>
@@ -1161,6 +1262,7 @@
                 <div class="col-lg-7 text-center ek-reveal">
                     <span class="ek-eyebrow">Publications</span>
                     <h2 class="ek-title">Publications et r&eacute;flexions sur la durabilit&eacute; du cacao.</h2>
+                    <p class="ek-lead">Demandez directement les ouvrages, notices bibliographiques ou extraits disponibles en attendant la mise en ligne de pages &eacute;diteur ou PDF publics.</p>
                 </div>
             </div>
             <div class="row g-4">
@@ -1169,7 +1271,7 @@
                         <div class="ek-pub-icon"><i class="fa-solid fa-book"></i></div>
                         <h3>Les D&eacute;fis d'une &eacute;conomie cacaoy&egrave;re mondiale durable</h3>
                         <p class="ek-text">Analyse approfondie des enjeux de durabilit&eacute;, de gouvernance et de cr&eacute;ation de valeur dans la fili&egrave;re cacao mondiale.</p>
-                        <p class="ek-text" style="margin-top:12px;font-style:italic;font-size:12px!important">Liens &agrave; confirmer</p>
+                        <a class="ek-pub-link" href="mailto:ekonan@yahoo.fr?subject=Demande%20ouvrage%20-%20Les%20Defis%20d%27une%20economie%20cacaoyere%20mondiale%20durable"><i class="fa-solid fa-envelope-open-text"></i> Demander l'ouvrage</a>
                     </div>
                 </div>
                 <div class="col-lg-4 ek-reveal">
@@ -1177,7 +1279,7 @@
                         <div class="ek-pub-icon"><i class="fa-solid fa-book-open"></i></div>
                         <h3>De l'&eacute;valuation de la certification au cadre r&eacute;glementaire</h3>
                         <p class="ek-text">R&eacute;flexion sur l'&eacute;volution des syst&egrave;mes de certification et leur int&eacute;gration dans les cadres r&eacute;glementaires.</p>
-                        <p class="ek-text" style="margin-top:12px;font-style:italic;font-size:12px!important">Liens &agrave; confirmer</p>
+                        <a class="ek-pub-link" href="mailto:ekonan@yahoo.fr?subject=Demande%20publication%20-%20Certification%20et%20cadre%20reglementaire"><i class="fa-solid fa-envelope-open-text"></i> Demander la publication</a>
                     </div>
                 </div>
                 <div class="col-lg-4 ek-reveal">
@@ -1185,9 +1287,38 @@
                         <div class="ek-pub-icon"><i class="fa-solid fa-globe"></i></div>
                         <h3>Les d&eacute;fis d'une &eacute;conomie mondiale</h3>
                         <p class="ek-text">Perspectives sur les transformations n&eacute;cessaires pour une &eacute;conomie cacaoy&egrave;re plus &eacute;quitable et durable.</p>
-                        <p class="ek-text" style="margin-top:12px;font-style:italic;font-size:12px!important">Liens &agrave; confirmer</p>
+                        <a class="ek-pub-link" href="mailto:ekonan@yahoo.fr?subject=Demande%20publication%20-%20Les%20defis%20d%27une%20economie%20mondiale"><i class="fa-solid fa-envelope-open-text"></i> Demander la notice</a>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ek-section ek-section-alt" id="ek-preuves">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center ek-reveal">
+                    <span class="ek-eyebrow">Preuves et r&eacute;f&eacute;rences</span>
+                    <h2 class="ek-title">Un parcours document&eacute; par des rep&egrave;res visuels.</h2>
+                    <p class="ek-lead">Les formations, interventions, distinctions et preuves terrain sont regroup&eacute;es pour rendre la page plus directe et plus lisible.</p>
+                </div>
+            </div>
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-4 ek-reveal"><div class="ek-proof-visual h-100"><img src="assets/img/gbcc/DG-01.jpg" alt="Edmond Konan en conf&eacute;rence internationale"><span>Conf&eacute;rence mondiale sur le cacao 2018 &mdash; Berlin</span></div></div>
+                <div class="col-lg-4 ek-reveal"><div class="ek-proof-visual h-100"><img src="assets/img/gbcc/DG sur terrain.jpeg" alt="Edmond Konan en mission terrain"><span>Missions terrain aupr&egrave;s des producteurs et coop&eacute;ratives</span></div></div>
+                <div class="col-lg-4 ek-reveal"><div class="ek-proof-visual h-100"><img src="assets/img/gbcc/DG-partenaire.jpg" alt="Edmond Konan avec des partenaires"><span>Rencontres partenaires et collaborations institutionnelles</span></div></div>
+            </div>
+            <div class="ek-logo-strip ek-reveal">
+                <div class="ek-logo-proof"><img src="assets/img/logo/GBCC.jpg" alt="GBCC"></div>
+                <div class="ek-logo-proof"><img src="assets/img/logo/certification.jpg" alt="Certification cacao durable"></div>
+                <div class="ek-logo-proof"><img src="assets/img/gbcc/partenaire-1.png" alt="Partenaire institutionnel"></div>
+                <div class="ek-logo-proof"><img src="assets/img/gbcc/partenaire4.webp" alt="Partenaire institutionnel"></div>
+            </div>
+            <div class="row g-4 mt-4">
+                <div class="col-lg-6 ek-reveal"><div class="ek-formation-card h-100"><div class="ek-formation-badge"><i class="fa-solid fa-graduation-cap"></i></div><div><h3>Formation internationale</h3><p>MIT, Harvard Business School, Harvard Law School, CEDS Paris, &Eacute;cole des Hautes &Eacute;tudes Internationales de Paris et Groupe ESG Paris.</p></div></div></div>
+                <div class="col-lg-6 ek-reveal"><div class="ek-formation-card h-100"><div class="ek-formation-badge"><i class="fa-solid fa-microphone-lines"></i></div><div><h3>Conf&eacute;rences et interventions</h3><p>Berlin 2018, Amsterdam 2014, Abidjan 2012, Accra, Kumasi, Denver, Las Vegas, Douala et R&eacute;publique dominicaine.</p><a class="ek-proof-link" href="https://www.youtube.com/@globalbusinessgroup-j8m" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i> Voir les contenus vid&eacute;o GBG</a></div></div></div>
+                <div class="col-lg-6 ek-reveal"><div class="ek-formation-card h-100"><div class="ek-formation-badge"><i class="fa-solid fa-award"></i></div><div><h3>Distinctions</h3><p>CACAOFESTI 2019, Prix du pionnier de la certification ICC 2014 et Prix de la meilleure image de marque, Trade Leaders Club Madrid 2008.</p></div></div></div>
+                <div class="col-lg-6 ek-reveal"><div class="ek-formation-card h-100"><div class="ek-formation-badge"><i class="fa-solid fa-language"></i></div><div><h3>Profil international</h3><p>Fran&ccedil;ais, anglais et espagnol, avec des missions en Afrique, Europe, &Eacute;tats-Unis et Am&eacute;rique Latine.</p></div></div></div>
             </div>
         </div>
     </section>
@@ -1379,6 +1510,12 @@
             </div>
             <div class="row g-5">
                 <div class="col-lg-4 ek-reveal">
+                    <div class="ek-contact-actions mb-4">
+                        <a class="ek-contact-action" href="mailto:ekonan@yahoo.fr?subject=Demande%20de%20mission%20-%20Edmond%20Konan"><i class="fa-solid fa-envelope"></i><span><strong>Email direct</strong><span>Envoyer une demande d&eacute;taill&eacute;e</span></span></a>
+                        <a class="ek-contact-action" href="https://wa.me/2250708565625?text=Bonjour%20M.%20Edmond%20Konan%2C%20je%20souhaite%20echanger%20avec%20vous%20au%20sujet%20d%27une%20mission." target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i><span><strong>WhatsApp</strong><span>Discussion rapide</span></span></a>
+                        <a class="ek-contact-action" href="https://www.linkedin.com/in/gb-group-40447841b/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i><span><strong>LinkedIn</strong><span>Profil et r&eacute;seau GBG</span></span></a>
+                        <a class="ek-contact-action" href="mailto:ekonan@yahoo.fr?subject=Demande%20de%20rendez-vous%20-%20Edmond%20Konan"><i class="fa-solid fa-calendar-check"></i><span><strong>Prise de rendez-vous</strong><span>Proposer une date d'&eacute;change</span></span></a>
+                    </div>
                     <div style="margin-bottom:28px">
                         <div class="d-flex align-items-center gap-3 mb-3"><div style="width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--ek-gold),#8b5a2b);display:flex;align-items:center;justify-content:center;color:#fff"><i class="fa-solid fa-location-dot"></i></div><div><strong style="font-size:14px;color:var(--ek-brown)">Adresse</strong><p class="ek-text mb-0">01 BP 10335 Abidjan 01</p></div></div>
                     </div>
@@ -1390,17 +1527,19 @@
                     </div>
                 </div>
                 <div class="col-lg-8 ek-reveal">
-                    <form onsubmit="return false;" style="background:#fff;border-radius:20px;padding:36px;box-shadow:0 10px 36px rgba(61,43,31,.06)">
+                    <form action="contact-submit.php" method="post" id="ek-contact-form" style="background:#fff;border-radius:20px;padding:36px;box-shadow:0 10px 36px rgba(61,43,31,.06)">
+                        <input type="hidden" name="entite" value="GBG">
                         <div class="row g-3">
-                            <div class="col-md-6"><div class="ek-form-group"><label>Nom</label><input type="text" placeholder="Votre nom"></div></div>
-                            <div class="col-md-6"><div class="ek-form-group"><label>Pr&eacute;nom</label><input type="text" placeholder="Votre pr&eacute;nom"></div></div>
-                            <div class="col-md-6"><div class="ek-form-group"><label>Organisation</label><input type="text" placeholder="Votre organisation"></div></div>
-                            <div class="col-md-6"><div class="ek-form-group"><label>Fonction</label><input type="text" placeholder="Votre fonction"></div></div>
-                            <div class="col-md-6"><div class="ek-form-group"><label>Email</label><input type="email" placeholder="Votre email"></div></div>
-                            <div class="col-md-6"><div class="ek-form-group"><label>T&eacute;l&eacute;phone</label><input type="tel" placeholder="Votre t&eacute;l&eacute;phone"></div></div>
-                            <div class="col-12"><div class="ek-form-group"><label>Objet</label><input type="text" placeholder="Objet de votre message"></div></div>
-                            <div class="col-12"><div class="ek-form-group"><label>Message</label><textarea placeholder="Votre message..."></textarea></div></div>
+                            <div class="col-md-6"><div class="ek-form-group"><label>Nom</label><input type="text" name="nom" placeholder="Votre nom" required></div></div>
+                            <div class="col-md-6"><div class="ek-form-group"><label>Pr&eacute;nom</label><input type="text" name="prenom" placeholder="Votre pr&eacute;nom"></div></div>
+                            <div class="col-md-6"><div class="ek-form-group"><label>Organisation</label><input type="text" name="organisation" placeholder="Votre organisation"></div></div>
+                            <div class="col-md-6"><div class="ek-form-group"><label>Fonction</label><input type="text" name="fonction" placeholder="Votre fonction"></div></div>
+                            <div class="col-md-6"><div class="ek-form-group"><label>Email</label><input type="email" name="email" placeholder="Votre email" required></div></div>
+                            <div class="col-md-6"><div class="ek-form-group"><label>T&eacute;l&eacute;phone</label><input type="tel" name="telephone" placeholder="Votre t&eacute;l&eacute;phone"></div></div>
+                            <div class="col-12"><div class="ek-form-group"><label>Objet</label><input type="text" name="objet" placeholder="Objet de votre message"></div></div>
+                            <div class="col-12"><div class="ek-form-group"><label>Message</label><textarea name="message" placeholder="Votre message..." required></textarea></div></div>
                             <div class="col-12"><button type="submit" class="ek-btn ek-btn-primary" style="width:100%;justify-content:center">Envoyer le message <i class="fa-solid fa-paper-plane"></i></button></div>
+                            <div class="col-12"><p class="ek-form-message" aria-live="polite"></p></div>
                         </div>
                     </form>
                 </div>
@@ -1628,6 +1767,55 @@
                 } else {
                     backBtn.style.opacity = '0.7';
                 }
+            });
+        }
+
+        var contactForm = document.getElementById('ek-contact-form');
+        if(contactForm){
+            var messageBox = contactForm.querySelector('.ek-form-message');
+            var submitButton = contactForm.querySelector('button[type="submit"]');
+            contactForm.addEventListener('submit', function(event){
+                event.preventDefault();
+                messageBox.textContent = '';
+                messageBox.className = 'ek-form-message';
+
+                if(!contactForm.checkValidity()){
+                    messageBox.textContent = 'Veuillez renseigner le nom, l\'email et le message.';
+                    messageBox.classList.add('error');
+                    contactForm.reportValidity();
+                    return;
+                }
+
+                var originalText = submitButton.innerHTML;
+                submitButton.disabled = true;
+                submitButton.innerHTML = 'Envoi en cours...';
+
+                fetch(contactForm.action, {
+                    method: 'POST',
+                    body: new FormData(contactForm),
+                    headers: { 'Accept': 'application/json' }
+                })
+                .then(function(response){
+                    return response.json().then(function(data){
+                        if(!response.ok || !data.ok){
+                            throw new Error(data.message || 'Le message n\'a pas pu etre envoye.');
+                        }
+                        return data;
+                    });
+                })
+                .then(function(data){
+                    messageBox.textContent = data.message || 'Votre message a bien ete envoye.';
+                    messageBox.classList.add('success');
+                    contactForm.reset();
+                })
+                .catch(function(error){
+                    messageBox.textContent = error.message || 'Erreur lors de l\'envoi du message.';
+                    messageBox.classList.add('error');
+                })
+                .finally(function(){
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = originalText;
+                });
             });
         }
     })();
