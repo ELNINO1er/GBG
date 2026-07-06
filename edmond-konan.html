@@ -202,8 +202,8 @@
         text-align: center !important;
     }
     .ek-hero-portrait img {
-        width: 340px !important;
-        height: 420px !important;
+        width: 420px !important;
+        height: 520px !important;
         object-fit: cover !important;
         object-position: top !important;
         border-radius: 24px !important;
@@ -223,6 +223,13 @@
         height: 30px !important;
         background: radial-gradient(ellipse, rgba(218,165,32,.15) 0%, transparent 70%) !important;
         border-radius: 50% !important;
+    }
+
+    @media(max-width:767px) {
+        .ek-hero-portrait img { width: 280px !important; height: 360px !important; }
+    }
+    @media(min-width:768px) and (max-width:991px) {
+        .ek-hero-portrait img { width: 360px !important; height: 450px !important; }
     }
 
     @keyframes ekFadeUp {
@@ -836,9 +843,6 @@
     }
     .ek-form-message.success { color: #1a6d3b !important; }
     .ek-form-message.error { color: #b42318 !important; }
-    #ek-formation, #ek-conferences, #ek-distinctions, #ek-langues {
-        display: none !important;
-    }
 
     /* ── Footer Inline Override (cache-bust) ── */
     .gbg-footer{padding:80px 0 0!important;background:linear-gradient(175deg,#0d2818 0%,#091a10 100%)!important;color:rgba(255,255,255,0.7)!important;position:relative!important;overflow:hidden!important}
@@ -1118,10 +1122,10 @@
             <div class="row align-items-center g-5">
                 <div class="col-lg-7">
                     <div class="ek-hero-content">
-                        <span class="ek-hero-eyebrow">Fondateur de Global Business Group SA</span>
+                        <span class="ek-hero-eyebrow">Fondateur &ndash; Expert international des fili&egrave;res agricoles durables</span>
                         <h1>Edmond Konan</h1>
-                        <p class="ek-hero-subtitle">Expert international en cacao durable, certification, normalisation et cha&icirc;nes de valeur agricoles.</p>
-                        <p class="ek-hero-text">Plus de deux d&eacute;cennies d'engagement au service de la durabilit&eacute; de l'&eacute;conomie cacaoy&egrave;re, de la certification, de la gouvernance agricole et de la cr&eacute;ation de valeur pour les producteurs africains.</p>
+                        <p class="ek-hero-subtitle">Entrepreneur et expert international reconnu dans le d&eacute;veloppement des cha&icirc;nes de valeur agricoles durables.</p>
+                        <p class="ek-hero-text">Depuis plus de vingt ans, il accompagne l'&eacute;volution des fili&egrave;res agricoles, en particulier celle du cacao, en mettant son expertise au service de la durabilit&eacute;, de la transformation industrielle, de la gouvernance et du commerce international.</p>
                         <div class="ek-hero-actions">
                             <a href="#ek-parcours" class="ek-btn ek-btn-primary">D&eacute;couvrir son parcours <i class="fa-solid fa-arrow-down"></i></a>
                             <a href="#ek-publications" class="ek-btn ek-btn-outline">Voir ses publications</a>
@@ -1149,12 +1153,12 @@
                 <div class="col-lg-7 ek-reveal-right">
                     <span class="ek-eyebrow">&Agrave; propos</span>
                     <h2 class="ek-title">&Agrave; propos de M. Edmond Konan</h2>
-                    <p class="ek-lead">M. Edmond Konan est un expert, consultant et sp&eacute;cialiste des cha&icirc;nes de valeur agricoles, avec une expertise reconnue dans la durabilit&eacute; de la fili&egrave;re cacao, la certification, la normalisation, la gouvernance et la structuration de mod&egrave;les &eacute;conomiques durables.</p>
-                    <p class="ek-text">Fondateur et dirigeant de Global Business Group SA, il accompagne depuis plusieurs ann&eacute;es des institutions, organisations internationales, entreprises, coop&eacute;ratives et acteurs publics dans la construction d'une &eacute;conomie cacaoy&egrave;re plus durable, plus &eacute;quitable et plus performante.</p>
-                    <p class="ek-text">Son parcours combine expertise terrain, conseil strat&eacute;gique, participation aux normes internationales, publications sp&eacute;cialis&eacute;es, conf&eacute;rences mondiales et actions concr&egrave;tes aupr&egrave;s des producteurs et coop&eacute;ratives.</p>
+                    <p class="ek-lead">Edmond Konan est un entrepreneur et expert international reconnu dans le d&eacute;veloppement des cha&icirc;nes de valeur agricoles durables. Depuis plus de vingt ans, il accompagne l'&eacute;volution des fili&egrave;res agricoles, en particulier celle du cacao, en mettant son expertise au service de la durabilit&eacute;, de la transformation industrielle, de la gouvernance et du commerce international.</p>
+                    <p class="ek-text">Son parcours se distingue par une double formation fran&ccedil;aise et am&eacute;ricaine, alliant management, relations internationales, strat&eacute;gie et d&eacute;veloppement durable. Il a notamment suivi des formations au sein de l'ESG Paris, du CEDS Paris, de Harvard University et du MIT Professional Education.</p>
+                    <p class="ek-text">&Agrave; travers ses entreprises et ses engagements institutionnels, il poursuit une ambition constante : faire de la transformation locale, de l'innovation et de la coop&eacute;ration internationale les moteurs d'une cr&eacute;ation de valeur durable au b&eacute;n&eacute;fice des producteurs, des industriels et des consommateurs.</p>
                     <div class="ek-about-badge">
                         <i class="fa-solid fa-user-tie"></i>
-                        <span>Expert &middot; Consultant &middot; Sp&eacute;cialiste cha&icirc;ne de valeur et cacao durable</span>
+                        <span>Entrepreneur &middot; Expert international &middot; Fili&egrave;res agricoles durables</span>
                     </div>
                 </div>
             </div>
@@ -1216,7 +1220,7 @@
 
                         <div class="ek-timeline-item"><div class="ek-timeline-dot"></div><div class="ek-timeline-date">2014</div><div class="ek-timeline-card"><h3>Pr&eacute;sident de la commission &laquo;&nbsp;Management&nbsp;&raquo;</h3><div class="ek-tl-org">CEN/ISO 415</div><p>Pr&eacute;sidence du groupe de travail charg&eacute; de la r&eacute;daction de la norme CEN/ISO 415 sur le cacao durable et tra&ccedil;able.</p></div></div>
 
-                        <div class="ek-timeline-item"><div class="ek-timeline-dot"></div><div class="ek-timeline-date">Depuis 2013</div><div class="ek-timeline-card"><h3>Membre de la commission consultative &amp; expert certification</h3><div class="ek-tl-org">Organisation Internationale du Cacao (ICCO)</div><p>Expertise sur les questions de certification, co&ucirc;ts et b&eacute;n&eacute;fices de la certification pour les producteurs.</p></div></div>
+                        <div class="ek-timeline-item"><div class="ek-timeline-dot"></div><div class="ek-timeline-date">Depuis 2013</div><div class="ek-timeline-card"><h3>Autorit&eacute; de nomination &mdash; Commission consultative sur l'&eacute;conomie cacaoy&egrave;re mondiale</h3><div class="ek-tl-org">Organisation Internationale du Cacao (ICCO)</div><p>Seule structure africaine &agrave; si&eacute;ger avec ce statut au sein de cette commission, l'une des instances techniques les plus prestigieuses de la fili&egrave;re cacao, r&eacute;unissant des experts internationaux pour formuler des recommandations strat&eacute;giques au Conseil de l'ICCO.</p></div></div>
 
                         <div class="ek-timeline-item"><div class="ek-timeline-dot"></div><div class="ek-timeline-date">Depuis 2010</div><div class="ek-timeline-card"><h3>Repr&eacute;sentant Afrique</h3><div class="ek-tl-org">Brandt Consolidated</div><p>Repr&eacute;sentation et d&eacute;veloppement des activit&eacute;s sur le continent africain.</p></div></div>
 
@@ -1241,15 +1245,15 @@
                 </div>
             </div>
             <div class="ek-contrib-grid">
-                <div class="ek-contrib-card ek-reveal"><div class="ek-contrib-icon"><i class="fa-solid fa-gavel"></i></div><p>Contribution &agrave; la structuration de la certification cacao en C&ocirc;te d'Ivoire.</p></div>
-                <div class="ek-contrib-card ek-reveal"><div class="ek-contrib-icon"><i class="fa-solid fa-scroll"></i></div><p>Participation aux travaux sur les normes nationales et internationales li&eacute;es au cacao durable.</p></div>
-                <div class="ek-contrib-card ek-reveal"><div class="ek-contrib-icon"><i class="fa-solid fa-file-shield"></i></div><p>Contribution &agrave; la norme CEN/ISO 415 sur le cacao durable et tra&ccedil;able.</p></div>
-                <div class="ek-contrib-card ek-reveal"><div class="ek-contrib-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div><p>Expertise aupr&egrave;s de l'ICCO sur les co&ucirc;ts et b&eacute;n&eacute;fices de la certification.</p></div>
-                <div class="ek-contrib-card ek-reveal"><div class="ek-contrib-icon"><i class="fa-solid fa-earth-americas"></i></div><p>Participation &agrave; la r&eacute;flexion sur la durabilit&eacute; de l'&eacute;conomie cacaoy&egrave;re mondiale.</p></div>
-                <div class="ek-contrib-card ek-reveal"><div class="ek-contrib-icon"><i class="fa-solid fa-toolbox"></i></div><p>D&eacute;veloppement d'outils d'impl&eacute;mentation des normes de certification.</p></div>
-                <div class="ek-contrib-card ek-reveal"><div class="ek-contrib-icon"><i class="fa-solid fa-clipboard-check"></i></div><p>Conception du Syst&egrave;me de Gestion Interne (SGI) pour les organisations de producteurs.</p></div>
-                <div class="ek-contrib-card ek-reveal"><div class="ek-contrib-icon"><i class="fa-solid fa-people-arrows"></i></div><p>Accompagnement de coop&eacute;ratives vers les certifications Commerce &Eacute;quitable et Rainforest Alliance.</p></div>
-                <div class="ek-contrib-card ek-reveal"><div class="ek-contrib-icon"><i class="fa-solid fa-chart-line"></i></div><p>Contribution au d&eacute;veloppement de mod&egrave;les &eacute;conomiques durables pour les producteurs.</p></div>
+                <div class="ek-contrib-card ek-reveal"><div class="ek-contrib-icon"><i class="fa-solid fa-clipboard-check"></i></div><p>D&eacute;veloppement du Syst&egrave;me de Gestion Interne (SGI) pour les organisations de petits producteurs &mdash; une innovation ayant permis &agrave; des centaines de milliers de producteurs d'Afrique de l'Ouest d'acc&eacute;der aux programmes de certification et aux march&eacute;s internationaux.</p></div>
+                <div class="ek-contrib-card ek-reveal"><div class="ek-contrib-icon"><i class="fa-solid fa-scroll"></i></div><p>Participation aux travaux techniques ayant conduit &agrave; l'&eacute;laboration de la norme r&eacute;gionale ARS 1000, devenue une r&eacute;f&eacute;rence pour la production durable de cacao en Afrique de l'Ouest.</p></div>
+                <div class="ek-contrib-card ek-reveal"><div class="ek-contrib-icon"><i class="fa-solid fa-landmark-dome"></i></div><p>Depuis 2013, seule structure africaine &agrave; si&eacute;ger avec le statut d'Autorit&eacute; de nomination au sein de la Commission consultative sur l'&eacute;conomie cacaoy&egrave;re mondiale de l'ICCO (Organisation internationale du cacao).</p></div>
+                <div class="ek-contrib-card ek-reveal"><div class="ek-contrib-icon"><i class="fa-solid fa-file-shield"></i></div><p>Contribution &agrave; la norme CEN/ISO 415 sur le cacao durable et tra&ccedil;able &mdash; pr&eacute;sidence du groupe de travail &laquo;&nbsp;Management&nbsp;&raquo;.</p></div>
+                <div class="ek-contrib-card ek-reveal"><div class="ek-contrib-icon"><i class="fa-solid fa-people-group"></i></div><p>Renforcement de la repr&eacute;sentation des producteurs africains dans les instances internationales de d&eacute;cision.</p></div>
+                <div class="ek-contrib-card ek-reveal"><div class="ek-contrib-icon"><i class="fa-solid fa-gavel"></i></div><p>Pr&eacute;sidence du comit&eacute; de r&eacute;daction de la norme nationale pour la durabilit&eacute; de la fili&egrave;re caf&eacute;-cacao en C&ocirc;te d'Ivoire.</p></div>
+                <div class="ek-contrib-card ek-reveal"><div class="ek-contrib-icon"><i class="fa-solid fa-people-arrows"></i></div><p>Accompagnement de coop&eacute;ratives vers les certifications Fairtrade, Rainforest Alliance et standards internationaux.</p></div>
+                <div class="ek-contrib-card ek-reveal"><div class="ek-contrib-icon"><i class="fa-solid fa-arrow-trend-up"></i></div><p>Restructuration et redressement de Coopaga &mdash; passage d'un d&eacute;ficit &agrave; un exc&eacute;dent financier.</p></div>
+                <div class="ek-contrib-card ek-reveal"><div class="ek-contrib-icon"><i class="fa-solid fa-chart-line"></i></div><p>Contribution au d&eacute;veloppement de mod&egrave;les &eacute;conomiques durables pour les producteurs et les industriels.</p></div>
                 <div class="ek-contrib-card ek-reveal"><div class="ek-contrib-icon"><i class="fa-solid fa-wheat-awn"></i></div><p>Cr&eacute;ation et pilotage du programme Diversification Package.</p></div>
             </div>
         </div>
@@ -1315,9 +1319,9 @@
                 <div class="ek-logo-proof"><img src="assets/img/gbcc/partenaire4.webp" alt="Partenaire institutionnel"></div>
             </div>
             <div class="row g-4 mt-4">
-                <div class="col-lg-6 ek-reveal"><div class="ek-formation-card h-100"><div class="ek-formation-badge"><i class="fa-solid fa-graduation-cap"></i></div><div><h3>Formation internationale</h3><p>MIT, Harvard Business School, Harvard Law School, CEDS Paris, &Eacute;cole des Hautes &Eacute;tudes Internationales de Paris et Groupe ESG Paris.</p></div></div></div>
+                <div class="col-lg-6 ek-reveal"><div class="ek-formation-card h-100"><div class="ek-formation-badge"><i class="fa-solid fa-graduation-cap"></i></div><div><h3>Formation internationale</h3><p>MIT Professional Education, Harvard University (Division of Continuing Education), CEDS Paris et ESG Paris.</p></div></div></div>
                 <div class="col-lg-6 ek-reveal"><div class="ek-formation-card h-100"><div class="ek-formation-badge"><i class="fa-solid fa-microphone-lines"></i></div><div><h3>Conf&eacute;rences et interventions</h3><p>Berlin 2018, Amsterdam 2014, Abidjan 2012, Accra, Kumasi, Denver, Las Vegas, Douala et R&eacute;publique dominicaine.</p><a class="ek-proof-link" href="https://www.youtube.com/@globalbusinessgroup-j8m" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i> Voir les contenus vid&eacute;o GBG</a></div></div></div>
-                <div class="col-lg-6 ek-reveal"><div class="ek-formation-card h-100"><div class="ek-formation-badge"><i class="fa-solid fa-award"></i></div><div><h3>Distinctions</h3><p>CACAOFESTI 2019, Prix du pionnier de la certification ICC 2014 et Prix de la meilleure image de marque, Trade Leaders Club Madrid 2008.</p></div></div></div>
+                <div class="col-lg-6 ek-reveal"><div class="ek-formation-card h-100"><div class="ek-formation-badge"><i class="fa-solid fa-award"></i></div><div><h3>Distinctions</h3><p>Chevalier dans l'Ordre du M&eacute;rite Commercial et Industriel de C&ocirc;te d'Ivoire, CACAOFESTI 2019, Prix du pionnier de la certification ICC 2014 et Trade Leaders Club Madrid 2008.</p></div></div></div>
                 <div class="col-lg-6 ek-reveal"><div class="ek-formation-card h-100"><div class="ek-formation-badge"><i class="fa-solid fa-language"></i></div><div><h3>Profil international</h3><p>Fran&ccedil;ais, anglais et espagnol, avec des missions en Afrique, Europe, &Eacute;tats-Unis et Am&eacute;rique Latine.</p></div></div></div>
             </div>
         </div>
@@ -1333,13 +1337,10 @@
                 </div>
             </div>
             <div class="row g-4">
-                <div class="col-lg-6 ek-reveal"><div class="ek-formation-card h-100"><div class="ek-formation-badge"><i class="fa-solid fa-atom"></i></div><div><h3>MIT &mdash; Massachusetts Institute of Technology</h3><p>Certificat sp&eacute;cialis&eacute; en Science de la Durabilit&eacute;.</p></div></div></div>
-                <div class="col-lg-6 ek-reveal"><div class="ek-formation-card h-100"><div class="ek-formation-badge"><i class="fa-solid fa-chart-bar"></i></div><div><h3>Harvard Business School</h3><p>Certificats sp&eacute;cialis&eacute;s en finance et communication de haut niveau.</p></div></div></div>
-                <div class="col-lg-6 ek-reveal"><div class="ek-formation-card h-100"><div class="ek-formation-badge"><i class="fa-solid fa-scale-balanced"></i></div><div><h3>Harvard Law School</h3><p>Certificat en n&eacute;gociations manag&eacute;riales.</p></div></div></div>
-                <div class="col-lg-6 ek-reveal"><div class="ek-formation-card h-100"><div class="ek-formation-badge"><i class="fa-solid fa-laptop-code"></i></div><div><h3>&Eacute;cole d'ing&eacute;nieurs et des Sciences appliqu&eacute;es de Harvard</h3><p>Certificat en sciences informatiques et traitement visuel des donn&eacute;es.</p></div></div></div>
-                <div class="col-lg-6 ek-reveal"><div class="ek-formation-card h-100"><div class="ek-formation-badge"><i class="fa-solid fa-graduation-cap"></i></div><div><h3>CEDS Paris</h3><p>Doctorat en sciences politiques (en cours) &mdash; th&egrave;me li&eacute; &agrave; la durabilit&eacute; de l'&eacute;conomie cacaoy&egrave;re mondiale.</p></div></div></div>
-                <div class="col-lg-6 ek-reveal"><div class="ek-formation-card h-100"><div class="ek-formation-badge"><i class="fa-solid fa-earth-europe"></i></div><div><h3>&Eacute;cole des Hautes &Eacute;tudes Internationales de Paris</h3><p>Relations internationales approfondies.</p></div></div></div>
-                <div class="col-lg-6 ek-reveal"><div class="ek-formation-card h-100"><div class="ek-formation-badge"><i class="fa-solid fa-briefcase"></i></div><div><h3>Groupe ESG Paris</h3><p>Dipl&ocirc;me en Gestion et Commerce International.</p></div></div></div>
+                <div class="col-lg-6 ek-reveal"><div class="ek-formation-card h-100"><div class="ek-formation-badge"><i class="fa-solid fa-briefcase"></i></div><div><h3>ESG &mdash; &Eacute;cole Sup&eacute;rieure de Gestion, Paris</h3><p>Management et strat&eacute;gie d'entreprise.</p></div></div></div>
+                <div class="col-lg-6 ek-reveal"><div class="ek-formation-card h-100"><div class="ek-formation-badge"><i class="fa-solid fa-graduation-cap"></i></div><div><h3>CEDS &mdash; Centre d'&Eacute;tudes Diplomatiques et Strat&eacute;giques, Paris</h3><p>Parcours doctoral en relations internationales.</p></div></div></div>
+                <div class="col-lg-6 ek-reveal"><div class="ek-formation-card h-100"><div class="ek-formation-badge"><i class="fa-solid fa-chart-bar"></i></div><div><h3>Harvard University &mdash; Division of Continuing Education</h3><p>Plusieurs programmes de perfectionnement professionnel.</p></div></div></div>
+                <div class="col-lg-6 ek-reveal"><div class="ek-formation-card h-100"><div class="ek-formation-badge"><i class="fa-solid fa-atom"></i></div><div><h3>MIT Professional Education</h3><p>Programme &laquo;&nbsp;Sustainability: Principles and Practice&nbsp;&raquo; &mdash; principes et pratiques du d&eacute;veloppement durable.</p></div></div></div>
             </div>
         </div>
     </section>
@@ -1392,6 +1393,7 @@
                 <div class="col-lg-6 ek-reveal"><div class="ek-distinction h-100"><div class="ek-distinction-icon"><i class="fa-solid fa-trophy"></i></div><div><h3>Prix sp&eacute;cial pour la durabilit&eacute; de l'&eacute;conomie cacaoy&egrave;re</h3><p>CACAOFESTI 2019 &mdash; Reconnaissance pour la contribution &agrave; une &eacute;conomie cacaoy&egrave;re durable.</p></div></div></div>
                 <div class="col-lg-6 ek-reveal"><div class="ek-distinction h-100"><div class="ek-distinction-icon"><i class="fa-solid fa-medal"></i></div><div><h3>Prix du pionnier de la certification</h3><p>Conf&eacute;rence internationale sur la certification ICC 2014 &mdash; Reconnaissance du r&ocirc;le pionnier dans la certification cacao.</p></div></div></div>
                 <div class="col-lg-6 ek-reveal"><div class="ek-distinction h-100"><div class="ek-distinction-icon"><i class="fa-solid fa-award"></i></div><div><h3>Prix de la meilleure image de marque</h3><p>Trade Leaders Club, Madrid, 2008.</p></div></div></div>
+                <div class="col-lg-6 ek-reveal"><div class="ek-distinction h-100"><div class="ek-distinction-icon"><i class="fa-solid fa-shield-halved"></i></div><div><h3>Chevalier dans l'Ordre du M&eacute;rite Commercial et Industriel</h3><p>R&eacute;publique de C&ocirc;te d'Ivoire &mdash; Distinction honorifique pour sa contribution au d&eacute;veloppement commercial et industriel du pays.</p></div></div></div>
                 <div class="col-lg-6 ek-reveal"><div class="ek-distinction h-100"><div class="ek-distinction-icon"><i class="fa-solid fa-heart-pulse"></i></div><div><h3>Engagement humanitaire</h3><p>Engagement &eacute;tudiant et volontaire aupr&egrave;s de M&eacute;decins Sans Fronti&egrave;res dans le cadre d'actions humanitaires, organisation laur&eacute;ate du prix Nobel de la paix en 1999.</p></div></div></div>
             </div>
         </div>
