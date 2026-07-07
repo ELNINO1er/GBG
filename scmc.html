@@ -445,6 +445,15 @@
     @media(max-width:991px){.scmc-values-grid{grid-template-columns:repeat(3,1fr);max-width:700px}}
     @media(max-width:767px){.scmc-values-grid{grid-template-columns:repeat(2,1fr);max-width:100%}}
     .gbg-drop-icon img { width:100% !important; height:100% !important; object-fit:cover !important; border-radius:inherit !important; }
+    .gbg-team-grid{display:grid!important;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))!important;gap:20px!important;margin-top:30px!important}
+    .gbg-team-member{background:#fff!important;border-radius:14px!important;overflow:hidden!important;border:1px solid rgba(34,139,34,.08)!important;box-shadow:0 4px 20px rgba(19,54,35,.05)!important;transition:transform .4s cubic-bezier(.16,1,.3,1),box-shadow .4s ease!important}
+    .gbg-team-member:hover{transform:translateY(-6px)!important;box-shadow:0 16px 40px rgba(19,54,35,.12)!important}
+    .gbg-team-member img{width:100%!important;height:240px!important;object-fit:cover!important;object-position:center top!important}
+    .gbg-team-info{padding:16px!important;text-align:center!important}
+    .gbg-team-info h3{font-size:16px!important;margin-bottom:4px!important;color:#173f2d!important}
+    .gbg-team-info p{font-size:13px!important;color:#667268!important;margin:0!important}
+    .gbg-team-placeholder{display:flex!important;align-items:center!important;justify-content:center!important;height:240px!important;background:linear-gradient(135deg,#e8f0e6,#d4e4d0)!important;color:#2a5e3a!important;font-size:3rem!important}
+    @media(max-width:575px){.gbg-team-member img,.gbg-team-placeholder{height:200px!important}}
     .mobile-menu .mean-nav ul li .submenu,.mobile-menu .mean-nav ul li .submenu.gbg-entity-dropdown{position:static!important;visibility:visible!important;opacity:1!important;transform:none!important;box-shadow:none!important;min-width:0!important;width:100%!important;background:transparent!important}
     .mobile-menu .mean-nav .submenu.gbg-entity-dropdown li{opacity:1!important;transform:none!important}
     .mobile-menu .mean-nav .submenu.gbg-entity-dropdown li a{display:flex!important;align-items:center!important;gap:10px!important;padding:8px 10%!important;font-size:14px!important}
@@ -988,6 +997,26 @@
                                 <li><strong>March&eacute;s :</strong> Afrique, Europe, Moyen-Orient, Asie et Am&eacute;riques</li>
                             </ul>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gbg-section gbg-reveal gbg-section-soft">
+            <div class="container">
+                <div class="row justify-content-center mb-4"><div class="col-lg-8 text-center"><span class="gbg-eyebrow">Équipe SCMC</span><h2 class="gbg-title">L'équipe qui fait tourner l'usine.</h2></div></div>
+                <div class="gbg-team-grid">
+                    <div class="gbg-team-member gbg-reveal">
+                        <div class="gbg-team-placeholder"><i class="fa-solid fa-user"></i></div>
+                        <div class="gbg-team-info"><h3>Mariam Touré</h3><p>Chargée Conformité & Qualité Usine</p></div>
+                    </div>
+                    <div class="gbg-team-member gbg-reveal">
+                        <div class="gbg-team-placeholder"><i class="fa-solid fa-user"></i></div>
+                        <div class="gbg-team-info"><h3>Tagro</h3><p>Chargé de la Production</p></div>
+                    </div>
+                    <div class="gbg-team-member gbg-reveal">
+                        <div class="gbg-team-placeholder"><i class="fa-solid fa-user"></i></div>
+                        <div class="gbg-team-info"><h3>Yao Kouakou</h3><p>Responsable Programme Diversification & Intrants</p></div>
                     </div>
                 </div>
             </div>
