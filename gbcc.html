@@ -383,6 +383,36 @@
     .gbg-footer-reveal.is-visible,.gbg-footer-reveal.is-footer-visible{opacity:1!important;transform:translateY(0)!important}
     @media(max-width:767px){.gbg-footer-bottom{flex-direction:column!important;text-align:center!important}.gbg-footer-bottom-links{justify-content:center!important}}
     .gbg-drop-icon img { width:100% !important; height:100% !important; object-fit:cover !important; border-radius:inherit !important; }
+    /* ── ICCO Consultative Board ── */
+    .icco-section { position:relative!important; overflow:hidden!important; background:linear-gradient(160deg,#0d1f15 0%,#1a3c28 40%,#0d1f15 100%)!important; padding:80px 0!important; }
+    .icco-section::before { content:''!important; position:absolute!important; top:-100px!important; right:-100px!important; width:400px!important; height:400px!important; background:radial-gradient(circle,rgba(218,165,32,.06) 0%,transparent 70%)!important; border-radius:50%!important; pointer-events:none!important; }
+    .icco-section::after { content:''!important; position:absolute!important; bottom:-80px!important; left:-80px!important; width:300px!important; height:300px!important; background:radial-gradient(circle,rgba(218,165,32,.04) 0%,transparent 70%)!important; border-radius:50%!important; pointer-events:none!important; }
+    .icco-badge-row { display:flex!important; align-items:center!important; justify-content:center!important; gap:14px!important; margin-bottom:20px!important; flex-wrap:wrap!important; }
+    .icco-badge { display:inline-flex!important; align-items:center!important; gap:8px!important; padding:8px 20px!important; border-radius:30px!important; font-size:12px!important; font-weight:700!important; text-transform:uppercase!important; letter-spacing:1.8px!important; }
+    .icco-badge.gold { background:linear-gradient(135deg,rgba(218,165,32,.15),rgba(218,165,32,.08))!important; color:#daa520!important; border:1px solid rgba(218,165,32,.25)!important; }
+    .icco-badge.unique { background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(255,255,255,.03))!important; color:#fff!important; border:1px solid rgba(255,255,255,.15)!important; }
+    .icco-title { color:#fff!important; font-size:42px!important; line-height:1.15!important; }
+    .icco-title em { font-style:normal!important; background:linear-gradient(135deg,#daa520,#f0d060)!important; -webkit-background-clip:text!important; -webkit-text-fill-color:transparent!important; }
+    .icco-lead { color:rgba(255,255,255,.75)!important; font-size:18px!important; max-width:700px!important; margin:0 auto!important; }
+    .icco-highlight-card { background:rgba(255,255,255,.04)!important; border:1px solid rgba(218,165,32,.15)!important; border-radius:20px!important; padding:40px!important; position:relative!important; overflow:hidden!important; backdrop-filter:blur(10px)!important; height:100%!important; }
+    .icco-highlight-card::before { content:''!important; position:absolute!important; top:0!important; left:0!important; right:0!important; height:3px!important; background:linear-gradient(90deg,transparent,#daa520,transparent)!important; }
+    .icco-highlight-card h3 { color:#daa520!important; font-size:22px!important; margin-bottom:10px!important; }
+    .icco-highlight-card p { color:rgba(255,255,255,.7)!important; font-size:15px!important; line-height:1.6!important; margin:0!important; }
+    .icco-stats { display:grid!important; grid-template-columns:repeat(3,1fr)!important; gap:20px!important; margin-top:36px!important; }
+    @media(max-width:767px) { .icco-stats { grid-template-columns:1fr!important; } .icco-title { font-size:28px!important; } }
+    .icco-stat { text-align:center!important; padding:28px 16px!important; border-radius:16px!important; background:rgba(255,255,255,.03)!important; border:1px solid rgba(255,255,255,.06)!important; transition:transform .4s cubic-bezier(.16,1,.3,1),border-color .4s ease!important; }
+    .icco-stat:hover { transform:translateY(-6px)!important; border-color:rgba(218,165,32,.3)!important; }
+    .icco-stat-num { font-size:40px!important; font-weight:800!important; background:linear-gradient(135deg,#daa520,#f0d060)!important; -webkit-background-clip:text!important; -webkit-text-fill-color:transparent!important; display:block!important; line-height:1!important; margin-bottom:8px!important; }
+    .icco-stat span:last-child { color:rgba(255,255,255,.6)!important; font-size:13px!important; font-weight:600!important; text-transform:uppercase!important; letter-spacing:1px!important; }
+    .icco-doc-btn { display:inline-flex!important; align-items:center!important; gap:10px!important; padding:14px 32px!important; border-radius:30px!important; background:linear-gradient(135deg,#daa520,#c49218)!important; color:#fff!important; font-weight:700!important; font-size:15px!important; text-decoration:none!important; transition:all .4s ease!important; box-shadow:0 8px 30px rgba(218,165,32,.25)!important; margin-top:28px!important; }
+    .icco-doc-btn:hover { transform:translateY(-3px)!important; box-shadow:0 14px 40px rgba(218,165,32,.35)!important; background:linear-gradient(135deg,#e8b930,#daa520)!important; }
+    .icco-doc-btn i { transition:transform .3s ease!important; }
+    .icco-doc-btn:hover i { transform:translateX(4px)!important; }
+    @keyframes iccoGlow { 0%,100%{box-shadow:0 0 20px rgba(218,165,32,.1)} 50%{box-shadow:0 0 40px rgba(218,165,32,.2)} }
+    .icco-glow { animation:iccoGlow 3s ease-in-out infinite!important; }
+    @keyframes iccoPulse { 0%,100%{opacity:.6} 50%{opacity:1} }
+    .icco-pulse { animation:iccoPulse 2s ease-in-out infinite!important; }
+
     .mobile-menu .mean-nav ul li .submenu,.mobile-menu .mean-nav ul li .submenu.gbg-entity-dropdown{position:static!important;visibility:visible!important;opacity:1!important;transform:none!important;box-shadow:none!important;min-width:0!important;width:100%!important;background:transparent!important}
     .mobile-menu .mean-nav .submenu.gbg-entity-dropdown li{opacity:1!important;transform:none!important}
     .mobile-menu .mean-nav .submenu.gbg-entity-dropdown li a{display:flex!important;align-items:center!important;gap:10px!important;padding:8px 10%!important;font-size:14px!important}
@@ -1126,6 +1156,58 @@
                     <a href="assets/img/gbcc/Screenshot-2024-12-07-at-15.22.59.png" class="img-popup">
                         <img src="assets/img/gbcc/Screenshot-2024-12-07-at-15.22.59.png" alt="Activit&eacute; GBCC">
                         <span>Activit&eacute;s et communication</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ICCO Consultative Board -->
+        <section class="icco-section" id="icco-recognition">
+            <div class="container position-relative" style="z-index:1!important">
+                <div class="row justify-content-center mb-4">
+                    <div class="col-lg-10 text-center gbcc-scroll-reveal">
+                        <div class="icco-badge-row">
+                            <span class="icco-badge gold icco-pulse"><i class="fa-solid fa-award"></i> Reconnaissance internationale</span>
+                            <span class="icco-badge unique"><i class="fa-solid fa-globe-africa"></i> Unique en Afrique</span>
+                        </div>
+                        <h2 class="icco-title">Membre de la <em>Commission consultative sur l'&eacute;conomie cacaoy&egrave;re mondiale</em> de l'ICCO</h2>
+                        <p class="icco-lead mt-3">GBCC si&egrave;ge au sein de la commission la plus prestigieuse au monde sur l'&eacute;conomie cacaoy&egrave;re durable &mdash; l'organe consultatif de l'Organisation Internationale du Cacao (ICCO).</p>
+                    </div>
+                </div>
+
+                <div class="row g-4 mt-3">
+                    <div class="col-lg-6 gbcc-scroll-reveal">
+                        <div class="icco-highlight-card icco-glow">
+                            <h3><i class="fa-solid fa-star" style="margin-right:8px"></i> Seule organisation africaine</h3>
+                            <p>GBCC est la <strong style="color:#daa520!important">seule organisation africaine</strong> dans la cat&eacute;gorie &laquo;&nbsp;Consultants / Research Institutions&nbsp;&raquo; des pays exportateurs, avec le <strong style="color:#daa520!important">pouvoir de nomination de son propre repr&eacute;sentant</strong>. Une distinction qui t&eacute;moigne de la cr&eacute;dibilit&eacute; et de l'expertise reconnue de GBCC &agrave; l'&eacute;chelle internationale.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 gbcc-scroll-reveal">
+                        <div class="icco-highlight-card">
+                            <h3><i class="fa-solid fa-landmark" style="margin-right:8px"></i> Commission consultative de l'ICCO</h3>
+                            <p>Le Consultative Board on World Cocoa Economy est l'organe qui r&eacute;unit les acteurs les plus influents de la fili&egrave;re cacao mondiale &mdash; gouvernements, industries, ONG, centres de recherche &mdash; pour orienter les politiques internationales en mati&egrave;re de durabilit&eacute;, tra&ccedil;abilit&eacute; et &eacute;conomie cacaoy&egrave;re.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="icco-stats gbcc-scroll-reveal">
+                    <div class="icco-stat">
+                        <span class="icco-stat-num">50+</span>
+                        <span>Membres dans le monde</span>
+                    </div>
+                    <div class="icco-stat">
+                        <span class="icco-stat-num">N&deg;22</span>
+                        <span>Position de GBCC (pays exportateurs)</span>
+                    </div>
+                    <div class="icco-stat">
+                        <span class="icco-stat-num">1</span>
+                        <span>Seule organisation africaine &mdash; Recherche</span>
+                    </div>
+                </div>
+
+                <div class="text-center gbcc-scroll-reveal">
+                    <a href="assets/img/gbcc/Annex%20-%20Membership%20of%20the%20Consultative%20Board%202024-25%20and%202025-26.pdf" target="_blank" rel="noopener" class="icco-doc-btn">
+                        <i class="fa-solid fa-file-pdf"></i> Consulter le document officiel ICCO <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
             </div>
