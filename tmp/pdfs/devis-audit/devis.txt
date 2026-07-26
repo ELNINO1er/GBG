@@ -1,0 +1,284 @@
+DEVIS  |  SITE E-COMMERCE
+DEV-ECOM-2026-0714
+Devis valable 30 jours - Hébergement fourni par le client
+Page 1
+PROPOSITION COMMERCIALE
+Développement d'un
+site e-commerce complet
+Une boutique indépendante, moderne et sécurisée, pensée pour la vente en Côte d'Ivoire.
+BUDGET TOTAL
+450 000 FCFA
+DÉLAI
+2 semaines
+VALIDITÉ
+30 jours
+CLIENT
+[Nom du client / Entreprise]
+PRESTATAIRE
+[Nom / Entreprise du prestataire]
+PROJET
+Création d'une boutique e-commerce indépendante
+SERVEUR
+Fourni par le client - non facturé
+DATE D'ÉMISSION
+14 juillet 2026
+Objectif du projet
+Mettre en ligne, en deux semaines, une boutique e-commerce complète permettant de présenter les produits, encaisser les 
+paiements, gérer la livraison, suivre les commandes et administrer l'activité sans abonnement Shopify.
+Condition de délai : le planning de 2 semaines suppose la remise des accès serveur, contenus, visuels, tarifs de livraison et 
+identifiants de paiement dès le démarrage.
+
+
+DEVIS  |  SITE E-COMMERCE
+DEV-ECOM-2026-0714
+Devis valable 30 jours - Hébergement fourni par le client
+Page 2
+01 - PÉRIMÈTRE BUDGÉTAIRE
+Détail des prestations
+N°
+PRESTATIONS ET FONCTIONNALITÉS
+MONTANT
+1
+Conception de l'identité visuelle du site : 
+couleurs, typographies, mise en page et 
+interface adaptée aux téléphones
+50 000 FCFA
+2
+Installation et configuration de la plateforme 
+e-commerce sur le serveur du client
+40 000 FCFA
+3
+Catalogue produits : catégories, photos, prix, 
+descriptions, stock, formats et variantes
+60 000 FCFA
+4
+Panier, commande rapide et tunnel de 
+paiement optimisé
+45 000 FCFA
+5
+Intégration des paiements : Mobile Money, 
+carte bancaire, virement et paiement à la 
+livraison
+80 000 FCFA
+6
+Gestion de la livraison par commune, ville ou 
+zone avec tarifs personnalisés
+40 000 FCFA
+7
+Comptes clients, historique des commandes, 
+gestion administrative et statistiques de 
+ventes
+45 000 FCFA
+8
+Notifications de commande par e-mail et 
+intégration d'un bouton WhatsApp
+25 000 FCFA
+9
+Sécurisation du site, rôles administrateurs, 
+sauvegardes et protection contre les 
+connexions frauduleuses
+25 000 FCFA
+10
+Référencement naturel de base, Google 
+Analytics et connexion aux réseaux sociaux
+20 000 FCFA
+11
+Tests, mise en ligne, formation à l'utilisation 
+et assistance après livraison
+20 000 FCFA
+TOTAL GÉNÉRAL
+450 000 FCFA
+Planning de réalisation - 2 semaines
+PÉRIODE
+TRAVAUX PRINCIPAUX
+LIVRABLE / VALIDATION
+Jours 1-2
+Cadrage, architecture, identité visuelle et 
+maquette
+Validation de la maquette
+Jours 3-5
+Installation, catalogue, comptes clients et 
+administration
+Boutique administrable
+Jours 6-8
+Panier, paiements, livraison, notifications et 
+WhatsApp
+Parcours de commande fonctionnel
+Jours 9-11
+Sécurité, SEO, analytics, contenus et tests
+Version de préproduction
+Jours 12-14
+Corrections, mise en ligne, formation et 
+remise
+Mise en production et procès-verbal
+
+
+DEVIS  |  SITE E-COMMERCE
+DEV-ECOM-2026-0714
+Devis valable 30 jours - Hébergement fourni par le client
+Page 3
+02 - FONCTIONNALITÉS INCLUSES
+Expérience de vente et gestion des commandes
+Boutique et produits
+• Page d'accueil professionnelle
+• Catalogue avec catégories et sous-catégories
+• Recherche de produits et filtres par prix, catégorie ou disponibilité
+• Produits simples et produits avec variantes
+• Gestion des formats : 250 g, 500 g, 1 kg ou autres
+• Promotions, produits similaires et lots de produits
+• Gestion automatique ou manuelle du stock
+• Alertes de rupture de stock et codes promotionnels
+Commandes et paiements
+• Panier d'achat et tunnel de commande optimisé
+• Commande avec ou sans création de compte
+• Paiement Mobile Money
+• Intégration possible de CinetPay, PayDunya ou Flutterwave
+• Paiement par carte bancaire selon le prestataire choisi
+• Paiement par virement bancaire ou à la livraison
+• Confirmation automatique des commandes
+• Statuts : payée, en attente, annulée, expédiée ou livrée
+• Génération de factures simples et historique des transactions
+Livraison
+• Tarifs configurables par commune, ville ou zone
+• Tarifs distincts pour Abidjan et l'intérieur du pays
+• Livraison gratuite à partir d'un montant défini
+• Retrait sur place et choix du mode de livraison
+• Informations de suivi saisies par l'administrateur
+• Estimation des délais de livraison
+Espace client
+• Création de compte et connexion sécurisée
+• Récupération du mot de passe
+• Gestion de plusieurs adresses
+• Consultation de l'historique des commandes
+• Téléchargement des factures
+• Commande possible sans compte
+• Formulaire de contact et bouton WhatsApp
+
+
+DEVIS  |  SITE E-COMMERCE
+DEV-ECOM-2026-0714
+Devis valable 30 jours - Hébergement fourni par le client
+Page 4
+03 - PILOTAGE, VISIBILITÉ ET SÉCURITÉ
+Outils d'administration et croissance
+Administration
+• Tableau de bord sécurisé
+• Gestion des produits, stocks, clients et commandes
+• Gestion des promotions et codes de réduction
+• Statistiques de ventes et produits les plus vendus
+• Export des commandes en CSV ou Excel
+• Plusieurs comptes administrateurs avec rôles distincts
+Marketing et visibilité
+• Référencement SEO de base
+• Titres et descriptions pour Google
+• Connexion à Google Analytics
+• Intégration de Facebook, Instagram et TikTok
+• Partage des produits sur les réseaux sociaux
+• Collecte d'adresses e-mail
+• Témoignages, avis clients, recettes ou actualités
+• Bannière promotionnelle
+• Préparation pour Facebook Pixel et Google Ads
+Sécurité
+• Installation du certificat SSL s'il est disponible sur le serveur
+• Protection de l'administration
+• Limitation des tentatives de connexion
+• Gestion des rôles et permissions
+• Sauvegarde de la base de données
+• Protection antispam
+• Mise à jour des composants installés
+• Journalisation des principales actions administratives
+Pages incluses
+ 
+✓Accueil
+ 
+✓Boutique
+ 
+✓Détail du produit
+ 
+✓Panier
+ 
+✓Paiement
+ 
+✓Mon compte
+ 
+✓À propos
+ 
+✓Contact
+ 
+✓Questions fréquentes
+ 
+✓Livraison
+ 
+✓Retours et remboursements
+ 
+✓Conditions générales de vente
+ 
+✓Politique de confidentialité
+ 
+✓Recettes ou blog
+
+
+DEVIS  |  SITE E-COMMERCE
+DEV-ECOM-2026-0714
+Devis valable 30 jours - Hébergement fourni par le client
+Page 5
+04 - SOLUTION TECHNIQUE ET CONDITIONS
+Cadre de réalisation
+PLATEFORME
+WordPress + WooCommerce
+BASE DE DONNÉES
+MySQL / MariaDB
+DÉPLOIEMENT
+Serveur du client
+Éléments à fournir par le client
+• Accès au serveur, au domaine et au panneau d'administration
+• Logo, couleurs de marque et informations de contact
+• Photos, descriptions, prix, stocks et variantes des produits
+• Tarifs et zones de livraison
+• Documents légaux et politiques commerciales
+• Compte marchand et identifiants techniques de la passerelle de paiement
+• Validation des maquettes et retours dans les délais convenus
+Prestations non incluses
+• Hébergement, serveur et renouvellement du nom de domaine
+• Frais de transaction Mobile Money ou carte bancaire
+• Abonnements et frais propres aux passerelles de paiement
+• Achat d'extensions premium non prévues dans le devis
+• Photographie professionnelle, création complète du logo et rédaction de contenus
+• Saisie initiale de plus de 20 produits
+• Application mobile Android / iOS et marketplace multi-vendeurs
+• Maintenance évolutive après la période d'assistance incluse
+Conditions de paiement
+ÉTAPE
+ÉCHÉANCE
+TAUX
+MONTANT
+1
+À la validation du devis
+40 %
+180 000 FCFA
+2
+Après validation de la maquette 
+et du parcours de commande
+40 %
+180 000 FCFA
+3
+Après tests, avant mise en 
+production
+20 %
+90 000 FCFA
+TOTAL
+450 000 FCFA
+Assistance et garantie
+Une assistance corrective de 30 jours après la mise en ligne est incluse. Elle couvre les anomalies liées aux fonctionnalités 
+prévues dans le présent devis. Les nouvelles fonctionnalités, modifications de périmètre ou interventions liées au serveur feront 
+l'objet d'une estimation séparée.
+BON POUR ACCORD
+La signature du présent devis vaut acceptation du périmètre, du budget, du planning et des conditions ci-dessus.
+Pour le client
+Pour le prestataire
+Nom : __________________________
+Nom : __________________________
+Date : __________________________
+Date : __________________________
+Signature et cachet :
+Signature et cachet :
