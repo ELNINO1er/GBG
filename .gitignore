@@ -6,6 +6,7 @@ contact-config.php
 *.xlsx
 *.xls
 *.csv
+*.zip
 
 # Divers
 tmp/
