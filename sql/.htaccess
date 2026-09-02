@@ -1,0 +1,2 @@
+# Le dossier sql/ ne doit pas etre accessible via le web.
+Require all denied

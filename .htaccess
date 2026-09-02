@@ -4,6 +4,14 @@ DirectoryIndex index.html
   Require all denied
 </FilesMatch>
 
+# Fichiers sensibles : config locale, donnees sources, exports
+<FilesMatch "\.(sql|xlsx|xls|csv)$">
+  Require all denied
+</FilesMatch>
+<FilesMatch "^config\.local\.php$">
+  Require all denied
+</FilesMatch>
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
 

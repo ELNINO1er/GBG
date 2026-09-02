@@ -1,0 +1,11 @@
+# Secrets / config locale
+inc/config.local.php
+contact-config.php
+
+# Donnees sources et exports
+*.xlsx
+*.xls
+*.csv
+
+# Divers
+tmp/

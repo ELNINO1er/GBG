@@ -1,0 +1,2 @@
+# Le dossier inc/ ne doit jamais etre accessible directement via le web.
+Require all denied
