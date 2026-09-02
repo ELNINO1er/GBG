@@ -1,12 +1,8 @@
 -- =====================================================================
 --  GBG - Base de communication avec les cooperatives (Phase 1)
 --  Encodage : utf8mb4 / InnoDB
+--  Importer ce fichier apres avoir selectionne la base cible dans phpMyAdmin.
 -- =====================================================================
-
-CREATE DATABASE IF NOT EXISTS `gbg_coop`
-  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-
-USE `gbg_coop`;
 
 -- ---------------------------------------------------------------------
 --  Comptes administrateurs du back-office GBG

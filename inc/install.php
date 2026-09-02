@@ -6,7 +6,7 @@ declare(strict_types=1);
  * Usage CLI :
  *   php inc/install.php [username_admin] [motdepasse_admin]
  *
- * - Cree la base et les tables (idempotent).
+ * - Cree les tables dans la base configuree (idempotent).
  * - Cree un compte admin s'il n'en existe aucun.
  */
 
@@ -14,9 +14,9 @@ require_once __DIR__ . '/db.php';
 
 $c = gbg_config();
 
-// 1) Connexion sans base pour la creer
+// 1) Connexion a la base configuree (elle doit deja exister chez l'hebergeur)
 $pdo = new PDO(
-    sprintf('mysql:host=%s;charset=%s', $c['db_host'], $c['db_charset']),
+    sprintf('mysql:host=%s;dbname=%s;charset=%s', $c['db_host'], $c['db_name'], $c['db_charset']),
     $c['db_user'],
     $c['db_pass'],
     [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
@@ -38,7 +38,7 @@ foreach (array_filter(array_map('trim', explode(';', $schema))) as $stmt) {
     }
     $pdo->exec($stmt);
 }
-echo "Base et tables OK ({$c['db_name']}).\n";
+echo "Tables OK ({$c['db_name']}).\n";
 
 // 2) Compte admin par defaut
 $db = gbg_db();
