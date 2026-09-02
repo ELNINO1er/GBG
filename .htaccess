@@ -5,7 +5,7 @@ DirectoryIndex index.html
 </FilesMatch>
 
 # Fichiers sensibles : config locale, donnees sources, exports
-<FilesMatch "\.(sql|xlsx|xls|csv)$">
+<FilesMatch "\.(sql|xlsx|xls|csv|zip)$">
   Require all denied
 </FilesMatch>
 <FilesMatch "^config\.local\.php$">
