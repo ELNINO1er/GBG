@@ -7,6 +7,7 @@ require_once __DIR__ . '/../inc/campaign.php';
 
 admin_require();
 $db = gbg_db();
+gbg_ensure_campaign_targeting_schema();
 
 $camps = $db->query(
     'SELECT * FROM campagnes ORDER BY id DESC'
@@ -33,7 +34,7 @@ admin_header('Campagnes', 'campagnes.php');
     <tr>
       <td><strong><?= e($c['sujet']) ?></strong></td>
       <td><span class="badge grey"><?= e($c['canal']) ?></span></td>
-      <td><?= e(gbg_campaign_regions_label($c)) ?></td>
+      <td><?= gbg_campaign_cooperative_ids($c) ? count(gbg_campaign_cooperative_ids($c)) . ' cooperative(s) precise(s)' : e(gbg_campaign_regions_label($c)) ?></td>
       <td>
         <?php if ($c['statut'] === 'envoyee'): ?>
           <span class="badge ok">Envoyee</span>

@@ -8,15 +8,7 @@ require_once __DIR__ . '/../inc/campaign.php';
 $admin = admin_require();
 $db = gbg_db();
 
-// Migration legere pour autoriser plusieurs regions sur les installations existantes.
-try {
-    $column = $db->query("SHOW COLUMNS FROM campagnes LIKE 'filtre_region'")->fetch();
-    if ($column && strtolower((string)$column['Type']) !== 'text') {
-        $db->exec("ALTER TABLE campagnes MODIFY filtre_region TEXT NOT NULL");
-    }
-} catch (Throwable $e) {
-    // Le champ VARCHAR existant reste utilisable pour quelques regions si ALTER est interdit.
-}
+gbg_ensure_campaign_targeting_schema();
 
 $id = (int)($_GET['id'] ?? 0);
 $camp = null;
@@ -43,6 +35,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         (array)($_POST['filtre_regions'] ?? [])
     ))));
     $region  = implode('|', $regionsSelected);
+    $cooperativeIds = array_values(array_filter(array_unique(array_map(
+        'intval', (array)($_POST['filtre_cooperatives'] ?? [])
+    )), static fn($value) => $value > 0));
+    $cooperativeFilter = implode('|', $cooperativeIds);
     $canaux  = $_POST['canal'] ?? [];
     $publiee = in_array('espace', (array)$canaux, true) ? 1 : 0;
     $canal   = implode('+', array_intersect(['email', 'espace'], (array)$canaux)) ?: 'email';
@@ -52,15 +48,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         flash('Le sujet et le contenu sont obligatoires.', 'error');
     } elseif ($camp) {
         $db->prepare(
-            'UPDATE campagnes SET sujet=?, contenu=?, canal=?, publiee=?, filtre_region=? WHERE id=?'
-        )->execute([$sujet, $contenu, $canal, $publiee, $region, $id]);
+            'UPDATE campagnes SET sujet=?, contenu=?, canal=?, publiee=?, filtre_region=?, filtre_cooperatives=? WHERE id=?'
+        )->execute([$sujet, $contenu, $canal, $publiee, $region, $cooperativeFilter, $id]);
         flash('Brouillon enregistre.', 'success');
         redirect('campagne-view.php?id=' . $id);
     } else {
         $db->prepare(
-            'INSERT INTO campagnes (sujet, contenu, canal, publiee, filtre_region, statut, created_by, created_at)
-             VALUES (?,?,?,?,?,\'brouillon\',?,?)'
-        )->execute([$sujet, $contenu, $canal, $publiee, $region, $admin['id'], $now]);
+            'INSERT INTO campagnes (sujet, contenu, canal, publiee, filtre_region, filtre_cooperatives, statut, created_by, created_at)
+             VALUES (?,?,?,?,?,?,\'brouillon\',?,?)'
+        )->execute([$sujet, $contenu, $canal, $publiee, $region, $cooperativeFilter, $admin['id'], $now]);
         flash('Brouillon cree. Verifiez puis lancez l\'envoi.', 'success');
         redirect('campagne-view.php?id=' . $db->lastInsertId());
     }
@@ -69,10 +65,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $regions = $db->query(
     "SELECT region, COUNT(*) n FROM cooperatives WHERE region <> '' AND actif=1 GROUP BY region ORDER BY region"
 )->fetchAll();
+$cooperatives = $db->query(
+    "SELECT id, nom_cooperative, region FROM cooperatives WHERE actif=1 ORDER BY nom_cooperative"
+)->fetchAll();
 
 $v = static fn(string $k) => e($camp[$k] ?? '');
 $canalArr = $camp ? explode('+', $camp['canal']) : ['email'];
 $selectedRegions = $camp ? gbg_campaign_regions($camp) : [];
+$selectedCooperatives = $camp ? gbg_campaign_cooperative_ids($camp) : [];
 
 admin_header($camp ? 'Modifier campagne' : 'Nouvelle campagne', 'campagnes.php');
 ?>
@@ -104,6 +104,16 @@ admin_header($camp ? 'Modifier campagne' : 'Nouvelle campagne', 'campagnes.php')
       <?php endforeach; ?>
     </select>
     <p class="muted" style="margin-top:10px">Ne selectionnez aucune region pour cibler toutes les regions. Vous pouvez rechercher puis choisir plusieurs regions.</p>
+
+    <label style="margin-top:20px">Cibler une ou plusieurs cooperatives precises <span class="muted">(optionnel)</span></label>
+    <select name="filtre_cooperatives[]" multiple data-placeholder="Aucune cooperative precise">
+      <?php foreach ($cooperatives as $c): ?>
+        <option value="<?= (int)$c['id'] ?>" <?= in_array((int)$c['id'], $selectedCooperatives, true) ? 'selected' : '' ?>>
+          <?= e($c['nom_cooperative']) ?><?= $c['region'] !== '' ? ' — ' . e($c['region']) : '' ?>
+        </option>
+      <?php endforeach; ?>
+    </select>
+    <p class="muted" style="margin-top:10px">Si vous selectionnez ici des cooperatives, elles seules recevront la campagne, quels que soient les choix de regions ci-dessus.</p>
   </div>
 
   <p><button class="btn" type="submit">Enregistrer le brouillon</button></p>

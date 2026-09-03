@@ -4,6 +4,26 @@ declare(strict_types=1);
 require_once __DIR__ . '/db.php';
 require_once __DIR__ . '/helpers.php';
 
+/** Met a niveau les colonnes de ciblage sur une installation existante. */
+function gbg_ensure_campaign_targeting_schema(): void
+{
+    $db = gbg_db();
+    try {
+        $column = $db->query("SHOW COLUMNS FROM campagnes LIKE 'filtre_region'")->fetch();
+        if ($column && strtolower((string)$column['Type']) !== 'text') {
+            $db->exec("ALTER TABLE campagnes MODIFY filtre_region TEXT NOT NULL");
+        }
+        $coopColumn = $db->query("SHOW COLUMNS FROM campagnes LIKE 'filtre_cooperatives'")->fetch();
+        if (!$coopColumn) {
+            $db->exec("ALTER TABLE campagnes ADD filtre_cooperatives TEXT NULL AFTER filtre_region");
+            $db->exec("UPDATE campagnes SET filtre_cooperatives='' WHERE filtre_cooperatives IS NULL");
+            $db->exec("ALTER TABLE campagnes MODIFY filtre_cooperatives TEXT NOT NULL");
+        }
+    } catch (Throwable $e) {
+        throw new RuntimeException('Mise a jour du ciblage impossible : ' . $e->getMessage(), 0, $e);
+    }
+}
+
 /**
  * Destinataires email d'une campagne : cooperatives actives, email valide,
  * eventuellement filtrees par region.
@@ -17,8 +37,12 @@ function gbg_campaign_recipients(array $camp): array
             FROM cooperatives
             WHERE actif = 1 AND email_valide = 1';
     $params = [];
+    $coopIds = gbg_campaign_cooperative_ids($camp);
     $regions = gbg_campaign_regions($camp);
-    if ($regions) {
+    if ($coopIds) {
+        $sql .= ' AND id IN (' . implode(',', array_fill(0, count($coopIds), '?')) . ')';
+        array_push($params, ...$coopIds);
+    } elseif ($regions) {
         $sql .= ' AND region IN (' . implode(',', array_fill(0, count($regions), '?')) . ')';
         array_push($params, ...$regions);
     }
@@ -34,8 +58,12 @@ function gbg_campaign_audience_count(array $camp): int
     $db = gbg_db();
     $sql = 'SELECT COUNT(*) FROM cooperatives WHERE actif = 1';
     $params = [];
+    $coopIds = gbg_campaign_cooperative_ids($camp);
     $regions = gbg_campaign_regions($camp);
-    if ($regions) {
+    if ($coopIds) {
+        $sql .= ' AND id IN (' . implode(',', array_fill(0, count($coopIds), '?')) . ')';
+        array_push($params, ...$coopIds);
+    } elseif ($regions) {
         $sql .= ' AND region IN (' . implode(',', array_fill(0, count($regions), '?')) . ')';
         array_push($params, ...$regions);
     }
@@ -58,6 +86,16 @@ function gbg_campaign_regions_label(array $camp): string
 {
     $regions = gbg_campaign_regions($camp);
     return $regions ? implode(', ', $regions) : 'Toutes les regions';
+}
+
+/** @return array<int,int> Identifiants des cooperatives ciblees precisement. */
+function gbg_campaign_cooperative_ids(array $camp): array
+{
+    $raw = trim((string)($camp['filtre_cooperatives'] ?? ''));
+    if ($raw === '') {
+        return [];
+    }
+    return array_values(array_filter(array_unique(array_map('intval', explode('|', $raw))), static fn($id) => $id > 0));
 }
 
 /**

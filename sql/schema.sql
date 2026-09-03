@@ -64,6 +64,7 @@ CREATE TABLE IF NOT EXISTS `campagnes` (
   `statut`      VARCHAR(20)  NOT NULL DEFAULT 'brouillon',
   `publiee`     TINYINT(1)   NOT NULL DEFAULT 0,
   `filtre_region` TEXT NOT NULL,
+  `filtre_cooperatives` TEXT NOT NULL,
   `nb_destinataires` INT UNSIGNED NOT NULL DEFAULT 0,
   `nb_envoyes`  INT UNSIGNED NOT NULL DEFAULT 0,
   `nb_echecs`   INT UNSIGNED NOT NULL DEFAULT 0,

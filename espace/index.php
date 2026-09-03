@@ -6,16 +6,21 @@ require_once __DIR__ . '/../inc/campaign.php';
 
 $coop = coop_require();
 $db = gbg_db();
+gbg_ensure_campaign_targeting_schema();
 
 // Bulletins publies concernant cette cooperative (sa region ou toutes regions)
 $stmt = $db->prepare(
-    'SELECT id, sujet, contenu, sent_at, created_at, filtre_region
+    'SELECT id, sujet, contenu, sent_at, created_at, filtre_region, filtre_cooperatives
      FROM campagnes
      WHERE publiee = 1 AND statut = \'envoyee\'
-       AND (filtre_region = \'\' OR FIND_IN_SET(?, REPLACE(filtre_region, \'|\', \',\')) > 0)
+       AND (
+         (filtre_cooperatives <> \'\' AND FIND_IN_SET(?, REPLACE(filtre_cooperatives, \'|\', \',\')) > 0)
+         OR
+         (filtre_cooperatives = \'\' AND (filtre_region = \'\' OR FIND_IN_SET(?, REPLACE(filtre_region, \'|\', \',\')) > 0))
+       )
      ORDER BY COALESCE(sent_at, created_at) DESC'
 );
-$stmt->execute([$coop['region']]);
+$stmt->execute([$coop['id'], $coop['region']]);
 $bulletins = $stmt->fetchAll();
 ?><!DOCTYPE html>
 <html lang="fr">
@@ -59,7 +64,8 @@ h1{font-size:22px;margin:0 0 4px}
     <?php foreach ($bulletins as $b): ?>
       <article class="bulletin">
         <h2><?= e($b['sujet']) ?>
-          <?php if ($b['filtre_region'] === ''): ?><span class="tag">Toutes cooperatives</span>
+          <?php if ($b['filtre_cooperatives'] !== ''): ?><span class="tag">Message cible</span>
+          <?php elseif ($b['filtre_region'] === ''): ?><span class="tag">Toutes cooperatives</span>
           <?php else: ?><span class="tag"><?= e(gbg_campaign_regions_label($b)) ?></span><?php endif; ?>
         </h2>
         <div class="date"><?= e(date('d/m/Y', strtotime($b['sent_at'] ?: $b['created_at']))) ?></div>

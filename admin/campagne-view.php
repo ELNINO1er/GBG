@@ -7,6 +7,7 @@ require_once __DIR__ . '/../inc/campaign.php';
 
 admin_require();
 $db = gbg_db();
+gbg_ensure_campaign_targeting_schema();
 
 $id = (int)($_GET['id'] ?? 0);
 $stmt = $db->prepare('SELECT * FROM campagnes WHERE id = ?');
@@ -20,6 +21,16 @@ if (!$camp) {
 $enCours = $camp['statut'] === 'en_cours';
 $isSent = in_array($camp['statut'], ['envoyee', 'en_cours'], true);
 $canaux = explode('+', $camp['canal']);
+$targetCoopIds = gbg_campaign_cooperative_ids($camp);
+$targetCoopNames = [];
+if ($targetCoopIds) {
+    $targetStmt = $db->prepare('SELECT nom_cooperative FROM cooperatives WHERE id IN (' . implode(',', array_fill(0, count($targetCoopIds), '?')) . ') ORDER BY nom_cooperative');
+    $targetStmt->execute($targetCoopIds);
+    $targetCoopNames = $targetStmt->fetchAll(PDO::FETCH_COLUMN);
+}
+$targetLabel = $targetCoopNames
+    ? implode(', ', $targetCoopNames)
+    : gbg_campaign_regions_label($camp);
 
 // Aperçu des destinataires (avant envoi) ou resultats (apres)
 if ($isSent) {
@@ -39,7 +50,7 @@ admin_header('Campagne', 'campagnes.php');
 <p class="sub">
   <a href="campagnes.php">&larr; Campagnes</a> &nbsp;|&nbsp;
   Canal : <strong><?= e($camp['canal']) ?></strong> &nbsp;|&nbsp;
-  Cible : <strong><?= e(gbg_campaign_regions_label($camp)) ?></strong> &nbsp;|&nbsp;
+  Cible : <strong><?= e($targetLabel) ?></strong> &nbsp;|&nbsp;
   <?= $enCours ? '<span class="badge grey">Envoi en cours</span>' : ($isSent ? '<span class="badge ok">Envoyee</span>' : '<span class="badge grey">Brouillon</span>') ?>
 </p>
 
@@ -72,7 +83,7 @@ admin_header('Campagne', 'campagnes.php');
           <div class="stat"><div class="n"><?= (int)$camp['nb_destinataires'] ?></div><div class="l">Destinataires</div></div>
         </div>
       <?php else: ?>
-        <p><strong><?= count($lignes) ?></strong> cooperative(s) recevront l'email (actives, email valide<?= $camp['filtre_region'] !== '' ? ', regions : ' . e(gbg_campaign_regions_label($camp)) : '' ?>).</p>
+        <p><strong><?= count($lignes) ?></strong> cooperative(s) recevront l'email (actives et avec email valide).</p>
       <?php endif; ?>
     <?php endif; ?>
     <?php if (in_array('espace', $canaux, true)): ?>
