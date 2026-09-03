@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../inc/auth.php';
 require_once __DIR__ . '/../inc/layout.php';
+require_once __DIR__ . '/../inc/campaign.php';
 
 admin_require();
 $db = gbg_db();
@@ -32,7 +33,7 @@ admin_header('Campagnes', 'campagnes.php');
     <tr>
       <td><strong><?= e($c['sujet']) ?></strong></td>
       <td><span class="badge grey"><?= e($c['canal']) ?></span></td>
-      <td><?= $c['filtre_region'] !== '' ? e($c['filtre_region']) : 'Toutes' ?></td>
+      <td><?= e(gbg_campaign_regions_label($c)) ?></td>
       <td>
         <?php if ($c['statut'] === 'envoyee'): ?>
           <span class="badge ok">Envoyee</span>

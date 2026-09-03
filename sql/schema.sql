@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `campagnes` (
   `canal`       VARCHAR(30)  NOT NULL DEFAULT 'email',
   `statut`      VARCHAR(20)  NOT NULL DEFAULT 'brouillon',
   `publiee`     TINYINT(1)   NOT NULL DEFAULT 0,
-  `filtre_region` VARCHAR(120) NOT NULL DEFAULT '',
+  `filtre_region` TEXT NOT NULL,
   `nb_destinataires` INT UNSIGNED NOT NULL DEFAULT 0,
   `nb_envoyes`  INT UNSIGNED NOT NULL DEFAULT 0,
   `nb_echecs`   INT UNSIGNED NOT NULL DEFAULT 0,

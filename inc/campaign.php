@@ -17,9 +17,10 @@ function gbg_campaign_recipients(array $camp): array
             FROM cooperatives
             WHERE actif = 1 AND email_valide = 1';
     $params = [];
-    if (trim((string)$camp['filtre_region']) !== '') {
-        $sql .= ' AND region = ?';
-        $params[] = $camp['filtre_region'];
+    $regions = gbg_campaign_regions($camp);
+    if ($regions) {
+        $sql .= ' AND region IN (' . implode(',', array_fill(0, count($regions), '?')) . ')';
+        array_push($params, ...$regions);
     }
     $sql .= ' ORDER BY nom_cooperative';
     $stmt = $db->prepare($sql);
@@ -33,13 +34,30 @@ function gbg_campaign_audience_count(array $camp): int
     $db = gbg_db();
     $sql = 'SELECT COUNT(*) FROM cooperatives WHERE actif = 1';
     $params = [];
-    if (trim((string)$camp['filtre_region']) !== '') {
-        $sql .= ' AND region = ?';
-        $params[] = $camp['filtre_region'];
+    $regions = gbg_campaign_regions($camp);
+    if ($regions) {
+        $sql .= ' AND region IN (' . implode(',', array_fill(0, count($regions), '?')) . ')';
+        array_push($params, ...$regions);
     }
     $stmt = $db->prepare($sql);
     $stmt->execute($params);
     return (int)$stmt->fetchColumn();
+}
+
+/** @return array<int,string> Regions ciblees ; tableau vide = toutes les regions. */
+function gbg_campaign_regions(array $camp): array
+{
+    $raw = trim((string)($camp['filtre_region'] ?? ''));
+    if ($raw === '') {
+        return [];
+    }
+    return array_values(array_filter(array_unique(array_map('trim', explode('|', $raw)))));
+}
+
+function gbg_campaign_regions_label(array $camp): string
+{
+    $regions = gbg_campaign_regions($camp);
+    return $regions ? implode(', ', $regions) : 'Toutes les regions';
 }
 
 /**

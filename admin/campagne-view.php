@@ -39,7 +39,7 @@ admin_header('Campagne', 'campagnes.php');
 <p class="sub">
   <a href="campagnes.php">&larr; Campagnes</a> &nbsp;|&nbsp;
   Canal : <strong><?= e($camp['canal']) ?></strong> &nbsp;|&nbsp;
-  Cible : <strong><?= $camp['filtre_region'] !== '' ? e($camp['filtre_region']) : 'Toutes regions' ?></strong> &nbsp;|&nbsp;
+  Cible : <strong><?= e(gbg_campaign_regions_label($camp)) ?></strong> &nbsp;|&nbsp;
   <?= $enCours ? '<span class="badge grey">Envoi en cours</span>' : ($isSent ? '<span class="badge ok">Envoyee</span>' : '<span class="badge grey">Brouillon</span>') ?>
 </p>
 
@@ -72,7 +72,7 @@ admin_header('Campagne', 'campagnes.php');
           <div class="stat"><div class="n"><?= (int)$camp['nb_destinataires'] ?></div><div class="l">Destinataires</div></div>
         </div>
       <?php else: ?>
-        <p><strong><?= count($lignes) ?></strong> cooperative(s) recevront l'email (actives, email valide<?= $camp['filtre_region'] !== '' ? ', region ' . e($camp['filtre_region']) : '' ?>).</p>
+        <p><strong><?= count($lignes) ?></strong> cooperative(s) recevront l'email (actives, email valide<?= $camp['filtre_region'] !== '' ? ', regions : ' . e(gbg_campaign_regions_label($camp)) : '' ?>).</p>
       <?php endif; ?>
     <?php endif; ?>
     <?php if (in_array('espace', $canaux, true)): ?>

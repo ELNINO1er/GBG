@@ -3,9 +3,20 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../inc/auth.php';
 require_once __DIR__ . '/../inc/layout.php';
+require_once __DIR__ . '/../inc/campaign.php';
 
 $admin = admin_require();
 $db = gbg_db();
+
+// Migration legere pour autoriser plusieurs regions sur les installations existantes.
+try {
+    $column = $db->query("SHOW COLUMNS FROM campagnes LIKE 'filtre_region'")->fetch();
+    if ($column && strtolower((string)$column['Type']) !== 'text') {
+        $db->exec("ALTER TABLE campagnes MODIFY filtre_region TEXT NOT NULL");
+    }
+} catch (Throwable $e) {
+    // Le champ VARCHAR existant reste utilisable pour quelques regions si ALTER est interdit.
+}
 
 $id = (int)($_GET['id'] ?? 0);
 $camp = null;
@@ -27,7 +38,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     csrf_check();
     $sujet   = trim((string)$_POST['sujet']);
     $contenu = trim((string)$_POST['contenu']);
-    $region  = trim((string)$_POST['filtre_region']);
+    $regionsSelected = array_values(array_unique(array_filter(array_map(
+        static fn($value) => str_replace('|', '', trim((string)$value)),
+        (array)($_POST['filtre_regions'] ?? [])
+    ))));
+    $region  = implode('|', $regionsSelected);
     $canaux  = $_POST['canal'] ?? [];
     $publiee = in_array('espace', (array)$canaux, true) ? 1 : 0;
     $canal   = implode('+', array_intersect(['email', 'espace'], (array)$canaux)) ?: 'email';
@@ -57,6 +72,7 @@ $regions = $db->query(
 
 $v = static fn(string $k) => e($camp[$k] ?? '');
 $canalArr = $camp ? explode('+', $camp['canal']) : ['email'];
+$selectedRegions = $camp ? gbg_campaign_regions($camp) : [];
 
 admin_header($camp ? 'Modifier campagne' : 'Nouvelle campagne', 'campagnes.php');
 ?>
@@ -79,16 +95,15 @@ admin_header($camp ? 'Modifier campagne' : 'Nouvelle campagne', 'campagnes.php')
     <label style="font-weight:400"><input type="checkbox" name="canal[]" value="email" style="width:auto" <?= in_array('email', $canalArr, true) ? 'checked' : '' ?>> Envoyer par email aux cooperatives joignables</label>
     <label style="font-weight:400"><input type="checkbox" name="canal[]" value="espace" style="width:auto" <?= in_array('espace', $canalArr, true) ? 'checked' : '' ?>> Publier dans l'espace cooperatives</label>
 
-    <label style="margin-top:16px">Cibler une region (optionnel)</label>
-    <select name="filtre_region">
-      <option value="">Toutes les regions</option>
+    <label style="margin-top:16px">Cibler une ou plusieurs regions <span class="muted">(optionnel)</span></label>
+    <select name="filtre_regions[]" multiple data-placeholder="Toutes les regions">
       <?php foreach ($regions as $r): ?>
-        <option value="<?= e($r['region']) ?>" <?= ($camp['filtre_region'] ?? '') === $r['region'] ? 'selected' : '' ?>>
+        <option value="<?= e($r['region']) ?>" <?= in_array($r['region'], $selectedRegions, true) ? 'selected' : '' ?>>
           <?= e($r['region']) ?> (<?= (int)$r['n'] ?>)
         </option>
       <?php endforeach; ?>
     </select>
-    <p class="muted" style="margin-top:10px">L'envoi email ne concerne que les cooperatives actives disposant d'un email valide.</p>
+    <p class="muted" style="margin-top:10px">Ne selectionnez aucune region pour cibler toutes les regions. Vous pouvez rechercher puis choisir plusieurs regions.</p>
   </div>
 
   <p><button class="btn" type="submit">Enregistrer le brouillon</button></p>

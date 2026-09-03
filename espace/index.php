@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 require_once __DIR__ . '/../inc/auth.php';
+require_once __DIR__ . '/../inc/campaign.php';
 
 $coop = coop_require();
 $db = gbg_db();
@@ -11,7 +12,7 @@ $stmt = $db->prepare(
     'SELECT id, sujet, contenu, sent_at, created_at, filtre_region
      FROM campagnes
      WHERE publiee = 1 AND statut = \'envoyee\'
-       AND (filtre_region = \'\' OR filtre_region = ?)
+       AND (filtre_region = \'\' OR FIND_IN_SET(?, REPLACE(filtre_region, \'|\', \',\')) > 0)
      ORDER BY COALESCE(sent_at, created_at) DESC'
 );
 $stmt->execute([$coop['region']]);
@@ -59,7 +60,7 @@ h1{font-size:22px;margin:0 0 4px}
       <article class="bulletin">
         <h2><?= e($b['sujet']) ?>
           <?php if ($b['filtre_region'] === ''): ?><span class="tag">Toutes cooperatives</span>
-          <?php else: ?><span class="tag"><?= e($b['filtre_region']) ?></span><?php endif; ?>
+          <?php else: ?><span class="tag"><?= e(gbg_campaign_regions_label($b)) ?></span><?php endif; ?>
         </h2>
         <div class="date"><?= e(date('d/m/Y', strtotime($b['sent_at'] ?: $b['created_at']))) ?></div>
         <div class="body"><?= $b['contenu'] /* HTML valide par l'admin */ ?></div>
