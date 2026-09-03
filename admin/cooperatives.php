@@ -25,9 +25,9 @@ if ($region !== '') {
     $params[] = $region;
 }
 if ($q !== '') {
-    $where[] = '(nom_cooperative LIKE ? OR pca_nom LIKE ? OR localite LIKE ? OR email LIKE ?)';
+    $where[] = '(nom_cooperative LIKE ? OR pca_nom LIKE ? OR localite LIKE ? OR email LIKE ? OR login_username LIKE ?)';
     $like = '%' . $q . '%';
-    array_push($params, $like, $like, $like, $like);
+    array_push($params, $like, $like, $like, $like, $like);
 }
 $sql = 'SELECT * FROM cooperatives WHERE ' . implode(' AND ', $where)
      . ' ORDER BY nom_cooperative ASC';
@@ -79,7 +79,7 @@ admin_header('Cooperatives', 'cooperatives.php');
 <div class="tablewrap">
 <table>
   <thead><tr>
-    <th>Cooperative</th><th>PCA</th><th>Region</th><th>Email</th><th>Contact</th><th>Espace</th><th></th>
+    <th>Cooperative</th><th>PCA</th><th>Region</th><th>Email</th><th>Contact</th><th>Identifiant</th><th>Espace</th><th></th>
   </tr></thead>
   <tbody>
   <?php foreach ($coops as $c): ?>
@@ -102,6 +102,11 @@ admin_header('Cooperatives', 'cooperatives.php');
       <td><?= e($c['contact_pca'] ?: $c['contact']) ?></td>
       <td>
         <?php if ($c['login_username']): ?>
+          <span style="display:flex;align-items:center;gap:7px"><code><?= e($c['login_username']) ?></code><button class="btn sm sec copy-login" type="button" data-value="<?= e($c['login_username']) ?>">Copier</button></span>
+        <?php else: ?><span class="muted">Non cree</span><?php endif; ?>
+      </td>
+      <td>
+        <?php if ($c['login_username']): ?>
           <span class="badge ok">actif</span>
         <?php else: ?>
           <span class="badge grey">non</span>
@@ -111,7 +116,7 @@ admin_header('Cooperatives', 'cooperatives.php');
     </tr>
   <?php endforeach; ?>
   <?php if (!$coops): ?>
-    <tr><td colspan="7" class="muted">Aucune cooperative ne correspond.</td></tr>
+    <tr><td colspan="8" class="muted">Aucune cooperative ne correspond.</td></tr>
   <?php endif; ?>
   </tbody>
 </table>
@@ -119,6 +124,7 @@ admin_header('Cooperatives', 'cooperatives.php');
 </div>
 <script>
 (function(){var input=document.getElementById('coop-search'),form=input.form,timer;input.addEventListener('input',function(){clearTimeout(timer);timer=setTimeout(function(){form.requestSubmit()},450)});})();
+document.querySelectorAll('.copy-login').forEach(function(button){button.addEventListener('click',function(){navigator.clipboard.writeText(button.dataset.value).then(function(){var old=button.textContent;button.textContent='Copie';setTimeout(function(){button.textContent=old},1200)});});});
 </script>
 <?php
 admin_footer();
