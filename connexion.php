@@ -4,14 +4,13 @@ declare(strict_types=1);
 require_once __DIR__ . '/inc/auth.php';
 
 gbg_session();
-if (admin_current()) {
+$role = (($_GET['role'] ?? $_POST['role'] ?? '') === 'admin') ? 'admin' : 'cooperative';
+if ($role === 'admin' && admin_current()) {
     redirect('admin/index.php');
 }
-if (coop_current()) {
+if ($role === 'cooperative' && coop_current()) {
     redirect('espace/index.php');
 }
-
-$role = (($_GET['role'] ?? $_POST['role'] ?? '') === 'admin') ? 'admin' : 'cooperative';
 $error = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     csrf_check();
@@ -21,6 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ? admin_login($username, $password)
         : coop_login($username, $password);
     if ($ok) {
+        // Un navigateur ne conserve qu'un espace actif a la fois.
+        unset($_SESSION[$role === 'admin' ? 'coop' : 'admin']);
         redirect($role === 'admin' ? 'admin/index.php' : 'espace/index.php');
     }
     $error = 'Identifiant ou mot de passe incorrect pour cet espace.';
