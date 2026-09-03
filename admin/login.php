@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../inc/auth.php';
 
+redirect('../connexion.php?role=admin');
+
 gbg_session();
 if (admin_current()) {
     redirect('index.php');

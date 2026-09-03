@@ -28,24 +28,25 @@ $bulletins = $stmt->fetchAll();
 :root{--vert:#143c28;--vert2:#1f5c3d;--or:#c8a24b;--bg:#f4f6f4;--txt:#1c2a22;--muted:#6b7a70;--line:#e2e8e3;}
 *{box-sizing:border-box}
 body{margin:0;font-family:'Segoe UI',system-ui,Arial,sans-serif;background:var(--bg);color:var(--txt)}
-.topbar{background:var(--vert);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:62px}
-.topbar .brand{font-weight:700}.topbar .brand span{color:var(--or)}
-.topbar .who{font-size:13px;color:#cdd8d1}.topbar .who a{color:var(--or);margin-left:14px;text-decoration:none}
+.topbar{background:linear-gradient(110deg,#0a3021,var(--vert));color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:72px;box-shadow:0 5px 18px rgba(13,59,41,.16)}
+.topbar .brand img{width:176px;height:44px;object-fit:contain;display:block}
+.topbar .who{font-size:13px;color:#dce8e0;display:flex;align-items:center;gap:14px}.topbar .who a{color:#fff;background:#a64035;padding:9px 13px;border-radius:9px;text-decoration:none;font-weight:700}
 .wrap{max-width:820px;margin:28px auto;padding:0 20px}
 h1{font-size:22px;margin:0 0 4px}
 .sub{color:var(--muted);font-size:14px;margin:0 0 24px}
-.bulletin{background:#fff;border:1px solid var(--line);border-radius:10px;padding:24px;margin-bottom:18px;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+.bulletin{background:#fff;border:1px solid var(--line);border-radius:15px;padding:26px;margin-bottom:18px;box-shadow:0 7px 24px rgba(20,61,43,.055)}
 .bulletin h2{font-size:18px;color:var(--vert);margin:0 0 6px}
 .bulletin .date{font-size:12px;color:var(--muted);margin-bottom:14px}
 .bulletin .body{font-size:15px;line-height:1.65}
 .empty{background:#fff;border:1px dashed var(--line);border-radius:10px;padding:40px;text-align:center;color:var(--muted)}
 .tag{display:inline-block;font-size:11px;background:#eef3f0;color:var(--vert2);padding:2px 10px;border-radius:20px;margin-left:8px}
+@media(max-width:640px){.topbar{height:auto;min-height:68px;padding:12px 16px}.topbar .brand img{width:145px}.topbar .who{font-size:0}.wrap{margin-top:22px}}
 </style>
 </head>
 <body>
 <div class="topbar">
-  <div class="brand">GLOBAL BUSINESS <span>GROUP</span></div>
-  <div class="who"><?= e($coop['nom']) ?><a href="logout.php">Deconnexion</a></div>
+  <a class="brand" href="index.php"><img src="../assets/img/logo/logo-light.svg" alt="Global Business Group"></a>
+  <div class="who"><?= e($coop['nom']) ?><a href="logout.php">Déconnexion</a></div>
 </div>
 <div class="wrap">
   <h1>Bonjour, <?= e($coop['nom']) ?></h1>

@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../inc/auth.php';
 
+redirect('../connexion.php?role=cooperative');
+
 gbg_session();
 if (coop_current()) {
     redirect('index.php');
