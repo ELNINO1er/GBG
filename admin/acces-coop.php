@@ -95,7 +95,7 @@ admin_header('Acces cooperatives', 'cooperatives.php');
         Generer les <?= $sansAcces ?> acces manquants + telecharger CSV
       </button>
     </form>
-    <form method="post" action="acces-coop.php" onsubmit="return confirm('Regenerer TOUS les mots de passe ? Les anciens ne fonctionneront plus.');">
+    <form method="post" action="acces-coop.php" data-confirm="Tous les anciens mots de passe cesseront de fonctionner. Générer de nouveaux accès ?">
       <?= csrf_field() ?>
       <input type="hidden" name="op" value="regenerate_all">
       <button class="btn sec" type="submit">Tout regenerer (nouveaux mots de passe)</button>

@@ -48,7 +48,7 @@ admin_header('Cooperatives', 'cooperatives.php');
   <form method="get" action="cooperatives.php" class="row" style="flex:1;align-items:flex-end">
     <div style="max-width:280px">
       <label>Recherche</label>
-      <input name="q" value="<?= e($q) ?>" placeholder="Nom, PCA, localite, email...">
+      <input name="q" id="coop-search" value="<?= e($q) ?>" placeholder="Nom, PCA, localite, email..." autocomplete="off">
     </div>
     <div style="max-width:220px">
       <label>Region</label>
@@ -61,7 +61,7 @@ admin_header('Cooperatives', 'cooperatives.php');
         <?php endforeach; ?>
       </select>
     </div>
-    <div style="max-width:120px"><button class="btn" type="submit">Filtrer</button></div>
+    <input type="hidden" name="filtre" value="<?= e($filtre) ?>">
   </form>
   <a class="btn sec" href="acces-coop.php">Acces coop</a>
   <a class="btn sec" href="import.php">Importer</a>
@@ -117,5 +117,8 @@ admin_header('Cooperatives', 'cooperatives.php');
 </table>
 </div>
 </div>
+<script>
+(function(){var input=document.getElementById('coop-search'),form=input.form,timer;input.addEventListener('input',function(){clearTimeout(timer);timer=setTimeout(function(){form.requestSubmit()},450)});})();
+</script>
 <?php
 admin_footer();

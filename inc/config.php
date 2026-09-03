@@ -51,4 +51,13 @@ if (is_file($localConfig)) {
     }
 }
 
+// Configuration SMTP saisie depuis le back-office (non versionnee)
+$smtpLocalConfig = __DIR__ . '/smtp.local.php';
+if (is_file($smtpLocalConfig)) {
+    $loaded = require $smtpLocalConfig;
+    if (is_array($loaded)) {
+        $config = array_merge($config, $loaded);
+    }
+}
+
 return $config;

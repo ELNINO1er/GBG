@@ -33,6 +33,11 @@ $canaux = explode('+', $camp['canal']);
 $doEmail  = in_array('email', $canaux, true);
 $doEspace = in_array('espace', $canaux, true);
 
+if ($doEmail && trim((string)($config['smtp_password'] ?? '')) === '') {
+    flash('Configurez d’abord le mot de passe SMTP dans Parametres, ou modifiez la campagne pour publier uniquement dans l’espace cooperatives.', 'error');
+    redirect('campagne-view.php?id=' . $id);
+}
+
 // --- Publication espace : immediate au 1er lancement ---
 $publiee = $doEspace ? 1 : (int)$camp['publiee'];
 

@@ -89,7 +89,7 @@ admin_header('Campagne', 'campagnes.php');
       </form>
     <?php elseif (!$isSent): ?>
       <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap">
-        <form method="post" action="campagne-send.php" onsubmit="return confirm('Lancer la diffusion de cette campagne ?');">
+        <form method="post" action="campagne-send.php" data-confirm="La diffusion sera lancée vers les destinataires indiqués. Voulez-vous continuer ?">
           <?= csrf_field() ?>
           <input type="hidden" name="id" value="<?= $id ?>">
           <button class="btn" type="submit">Lancer la diffusion</button>
@@ -112,7 +112,7 @@ admin_header('Campagne', 'campagnes.php');
           <td><?= e($l['nom_cooperative']) ?></td>
           <td><?= e($l['email']) ?></td>
           <?php if ($isSent): ?>
-            <td><?= $l['statut'] === 'envoye' ? '<span class="badge ok">envoye</span>' : '<span class="badge no">echec</span>' ?></td>
+            <td><?php if ($l['statut'] === 'envoye'): ?><span class="badge ok">envoye</span><?php elseif ($l['statut'] === 'echec'): ?><span class="badge no">echec</span><?php else: ?><span class="badge grey">en attente</span><?php endif; ?></td>
             <td class="muted"><?= e($l['message_erreur']) ?></td>
           <?php else: ?>
             <td><?= e($l['region']) ?></td>

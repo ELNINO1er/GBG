@@ -30,7 +30,7 @@ $bulletins = $stmt->fetchAll();
 body{margin:0;font-family:'Segoe UI',system-ui,Arial,sans-serif;background:var(--bg);color:var(--txt)}
 .topbar{background:linear-gradient(110deg,#0a3021,var(--vert));color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:72px;box-shadow:0 5px 18px rgba(13,59,41,.16)}
 .topbar .brand img{width:176px;height:44px;object-fit:contain;display:block}
-.topbar .who{font-size:13px;color:#dce8e0;display:flex;align-items:center;gap:14px}.topbar .who a{color:#fff;background:#a64035;padding:9px 13px;border-radius:9px;text-decoration:none;font-weight:700}
+.topbar .who{font-size:13px;color:#dce8e0;display:flex;align-items:center;gap:12px}.topbar .who a{color:#fff;padding:9px 12px;border-radius:9px;text-decoration:none;font-weight:700}.topbar .who .account{background:rgba(255,255,255,.12)}.topbar .who .logout{background:#a64035}
 .wrap{max-width:820px;margin:28px auto;padding:0 20px}
 h1{font-size:22px;margin:0 0 4px}
 .sub{color:var(--muted);font-size:14px;margin:0 0 24px}
@@ -46,7 +46,7 @@ h1{font-size:22px;margin:0 0 4px}
 <body>
 <div class="topbar">
   <a class="brand" href="index.php"><img src="../assets/img/logo/logo-light.svg" alt="Global Business Group"></a>
-  <div class="who"><?= e($coop['nom']) ?><a href="logout.php">Déconnexion</a></div>
+  <div class="who"><?= e($coop['nom']) ?><a class="account" href="compte.php">Mon compte</a><a class="logout" href="logout.php">Déconnexion</a></div>
 </div>
 <div class="wrap">
   <h1>Bonjour, <?= e($coop['nom']) ?></h1>

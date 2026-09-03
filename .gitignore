@@ -1,5 +1,6 @@
 # Secrets / config locale
 inc/config.local.php
+inc/smtp.local.php
 contact-config.php
 
 # Donnees sources et exports

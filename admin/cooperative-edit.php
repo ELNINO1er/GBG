@@ -38,6 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $contact  = trim((string)$_POST['contact']);
     $emailRaw = trim((string)$_POST['email']);
     $actif    = isset($_POST['actif']) ? 1 : 0;
+    $loginUsername = trim((string)($_POST['login_username'] ?? ''));
+    $loginPassword = (string)($_POST['login_password'] ?? '');
 
     $parsed = parse_emails($emailRaw);
     $email = $parsed['primary'];
@@ -45,8 +47,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $emailValide = $email !== '' ? 1 : 0;
     $now = date('Y-m-d H:i:s');
 
+    $loginError = '';
+    if (!$coop && (($loginUsername === '') xor ($loginPassword === ''))) {
+        $loginError = 'Pour creer un acces, renseignez a la fois l’identifiant et le mot de passe.';
+    } elseif (!$coop && $loginPassword !== '' && strlen($loginPassword) < 8) {
+        $loginError = 'Le mot de passe cooperateur doit contenir au moins 8 caracteres.';
+    } elseif (!$coop && $loginUsername !== '') {
+        $chk = $db->prepare('SELECT COUNT(*) FROM cooperatives WHERE login_username = ?');
+        $chk->execute([$loginUsername]);
+        if ((int)$chk->fetchColumn() > 0) {
+            $loginError = 'Cet identifiant cooperateur est deja utilise.';
+        }
+    }
+
     if ($nom === '') {
         flash('Le nom de la cooperative est obligatoire.', 'error');
+    } elseif ($loginError !== '') {
+        flash($loginError, 'error');
     } elseif ($coop) {
         $upd = $db->prepare(
             'UPDATE cooperatives SET nom_cooperative=?, pca_nom=?, localite=?, region=?,
@@ -60,13 +77,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         $ins = $db->prepare(
             'INSERT INTO cooperatives (nom_cooperative, pca_nom, localite, region, contact_pca,
-                dr_adg, contact, email, emails_extra, email_valide, actif, created_at)
-             VALUES (?,?,?,?,?,?,?,?,?,?,?,?)'
+                dr_adg, contact, email, emails_extra, email_valide, actif, login_username,
+                login_password_hash, created_at)
+             VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)'
         );
         $ins->execute([$nom, $pca, $localite, $region, $contactPca, $drAdg, $contact,
-            $email, $extra, $emailValide, $actif, $now]);
-        flash('Cooperative ajoutee.', 'success');
-        redirect('cooperative-edit.php?id=' . $db->lastInsertId());
+            $email, $extra, $emailValide, $actif,
+            $loginUsername !== '' ? $loginUsername : null,
+            $loginPassword !== '' ? password_hash($loginPassword, PASSWORD_DEFAULT) : null,
+            $now]);
+        flash('Cooperative ajoutee' . ($loginUsername !== '' ? ' avec son acces de connexion.' : '.') , 'success');
+        redirect('cooperatives.php');
     }
     // recharge en cas d'erreur
     $stmt = $db->prepare('SELECT * FROM cooperatives WHERE id = ?');
@@ -74,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $coop = $stmt->fetch() ?: null;
 }
 
-$v = static fn(string $k) => e($coop[$k] ?? '');
+$v = static fn(string $k) => e($coop[$k] ?? $_POST[$k] ?? '');
 admin_header($coop ? 'Editer cooperative' : 'Nouvelle cooperative', 'cooperatives.php');
 ?>
 <h1><?= $coop ? e($coop['nom_cooperative']) : 'Nouvelle cooperative' ?></h1>
@@ -107,9 +128,21 @@ admin_header($coop ? 'Editer cooperative' : 'Nouvelle cooperative', 'cooperative
       <p class="muted">&#9888; Aucun email valide : cette cooperative est exclue des envois email.</p>
     <?php endif; ?>
     <label style="margin-top:16px"><input type="checkbox" name="actif" value="1" style="width:auto" <?= (!$coop || $coop['actif']) ? 'checked' : '' ?>> Cooperative active</label>
+    <?php if (!$coop): ?>
+      <div style="margin-top:22px;padding-top:20px;border-top:1px solid var(--line)">
+        <h2>Acces au portail <span class="muted">(optionnel)</span></h2>
+        <p class="muted">Vous pouvez creer l'acces maintenant, ou le generer plus tard depuis la liste des acces.</p>
+        <div class="row">
+          <div><label>Identifiant cooperateur</label><input name="login_username" value="<?= e($_POST['login_username'] ?? '') ?>" autocomplete="off" placeholder="Ex. romaric.bombade"></div>
+          <div><label>Mot de passe initial</label><input id="coop-password" name="login_password" type="text" value="<?= e($_POST['login_password'] ?? '') ?>" autocomplete="new-password" minlength="8" placeholder="8 caracteres minimum"></div>
+        </div>
+        <button class="btn sec sm" type="button" id="generate-password">Generer un mot de passe</button>
+      </div>
+    <?php endif; ?>
     <p style="margin-top:20px"><button class="btn" type="submit">Enregistrer</button></p>
   </div>
 </form>
+<?php if (!$coop): ?><script>document.getElementById('generate-password').onclick=function(){var chars='ABCDEFGHJKMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789@#';var out='';var values=new Uint32Array(12);crypto.getRandomValues(values);values.forEach(function(v){out+=chars[v%chars.length]});document.getElementById('coop-password').value=out;};</script><?php endif; ?>
 
 <?php if ($coop): ?>
   <div class="card">
@@ -128,14 +161,14 @@ admin_header($coop ? 'Editer cooperative' : 'Nouvelle cooperative', 'cooperative
         <?= $coop['login_username'] ? 'Regenerer le mot de passe' : 'Creer un acces' ?>
       </button>
       <?php if ($coop['login_username']): ?>
-        <button class="btn danger" type="submit" name="op" value="revoke" onclick="return confirm('Revoquer l\'acces de cette cooperative ?')">Revoquer l'acces</button>
+        <button class="btn danger" type="submit" name="op" value="revoke" data-confirm="Révoquer l'accès de cette coopérative ?">Revoquer l'acces</button>
       <?php endif; ?>
     </form>
   </div>
 
   <div class="card">
     <h2>Zone sensible</h2>
-    <form method="post" action="cooperative-edit.php?id=<?= $id ?>" onsubmit="return confirm('Supprimer definitivement cette cooperative ?')">
+    <form method="post" action="cooperative-edit.php?id=<?= $id ?>" data-confirm="Supprimer définitivement cette coopérative et ses données associées ?">
       <?= csrf_field() ?>
       <input type="hidden" name="action" value="delete">
       <button class="btn danger" type="submit">Supprimer la cooperative</button>
