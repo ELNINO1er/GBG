@@ -24,6 +24,17 @@ admin_header('Tableau de bord', 'index.php');
 <h1>Tableau de bord</h1>
 <p class="sub">Vue d'ensemble de la base cooperatives et des campagnes.</p>
 
+<div class="card" style="border-left:4px solid var(--or)">
+  <h2>Demarrage rapide</h2>
+  <p class="muted">Suivez ces etapes dans l'ordre pour publier votre premiere information.</p>
+  <div class="grid cols-4" style="margin-top:18px">
+    <div><span class="badge <?= $totCoop > 0 ? 'ok' : 'grey' ?>">1</span><h3 style="font-size:14px;margin:10px 0 5px">Importer les cooperatives</h3><p class="muted">Ajoutez le fichier Excel contenant leurs coordonnees.</p><a href="import.php">Commencer &rarr;</a></div>
+    <div><span class="badge <?= $avecLogin > 0 ? 'ok' : 'grey' ?>">2</span><h3 style="font-size:14px;margin:10px 0 5px">Creer leurs acces</h3><p class="muted">Generez les identifiants et mots de passe.</p><a href="acces-coop.php">Generer &rarr;</a></div>
+    <div><span class="badge <?= $totCamp > 0 ? 'ok' : 'grey' ?>">3</span><h3 style="font-size:14px;margin:10px 0 5px">Rediger l'information</h3><p class="muted">Choisissez « Espace » pour la rendre visible dans leur portail.</p><a href="campagne-edit.php">Publier &rarr;</a></div>
+    <div><span class="badge grey">4</span><h3 style="font-size:14px;margin:10px 0 5px">Transmettre les acces</h3><p class="muted">Envoyez a chaque cooperative sa ligne du CSV genere.</p><a href="../connexion.php?role=cooperative" target="_blank">Voir le portail &rarr;</a></div>
+  </div>
+</div>
+
 <div class="grid cols-4">
   <div class="stat"><div class="n"><?= $totCoop ?></div><div class="l">Cooperatives</div></div>
   <div class="stat"><div class="n"><?= $totEmail ?></div><div class="l">Joignables par email</div></div>

@@ -4,6 +4,7 @@ declare(strict_types=1);
 require_once __DIR__ . '/../inc/auth.php';
 require_once __DIR__ . '/../inc/layout.php';
 require_once __DIR__ . '/../inc/mailer.php';
+require_once __DIR__ . '/../inc/campaign.php';
 
 admin_require();
 $config = gbg_config();
@@ -12,7 +13,9 @@ $resultat = null;
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     csrf_check();
     $dest = trim((string)($_POST['destinataire'] ?? ''));
-    if (!filter_var($dest, FILTER_VALIDATE_EMAIL)) {
+    if (trim((string)$config['smtp_password']) === '') {
+        $resultat = ['ok' => false, 'msg' => 'Le mot de passe SMTP de la boite infos@gbg-ci.com doit etre ajoute dans inc/config.local.php avant ce test.'];
+    } elseif (!filter_var($dest, FILTER_VALIDATE_EMAIL)) {
         flash('Adresse email de test invalide.', 'error');
     } else {
         $html = gbg_email_template(
@@ -43,6 +46,9 @@ admin_header('Test SMTP', '');
     <tr><th>Mot de passe</th><td><?= $config['smtp_password'] !== '' ? '<span class="badge ok">defini</span>' : '<span class="badge no">non defini</span>' ?></td></tr>
   </table>
   <p class="muted" style="margin-top:10px">Ces valeurs proviennent de <code>inc/config.local.php</code>.</p>
+  <?php if ($config['smtp_password'] === ''): ?>
+    <div class="flash flash-info">Vous pouvez deja publier dans l'espace des cooperatives. Seul l'envoi par email attend la configuration du mot de passe SMTP.</div>
+  <?php endif; ?>
 </div>
 
 <div class="card" style="max-width:600px">
@@ -54,7 +60,7 @@ admin_header('Test SMTP', '');
     <?= csrf_field() ?>
     <label>Adresse email de destination</label>
     <input name="destinataire" type="email" placeholder="vous@exemple.com" required>
-    <p style="margin-top:18px"><button class="btn" type="submit">Envoyer le test</button></p>
+    <p style="margin-top:18px"><button class="btn" type="submit" <?= $config['smtp_password'] === '' ? 'disabled title="Configurez d’abord le mot de passe SMTP"' : '' ?>>Envoyer le test</button></p>
   </form>
 </div>
 <?php
