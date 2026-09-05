@@ -46,7 +46,15 @@ h1{font-size:22px;margin:0 0 4px}
 .bulletin .body{font-size:15px;line-height:1.65}
 .empty{background:#fff;border:1px dashed var(--line);border-radius:10px;padding:40px;text-align:center;color:var(--muted)}
 .tag{display:inline-block;font-size:11px;background:#eef3f0;color:var(--vert2);padding:2px 10px;border-radius:20px;margin-left:8px}
-@media(max-width:640px){.topbar{height:auto;min-height:68px;padding:12px 16px}.topbar .brand img{width:145px}.topbar .who{font-size:0}.wrap{margin-top:22px}}
+@media(max-width:640px){
+  .topbar{position:sticky;top:0;z-index:20;height:auto;min-height:64px;padding:10px 12px;gap:8px;flex-wrap:wrap}
+  .topbar .brand img{width:128px;height:36px}.topbar .who{width:100%;display:grid;grid-template-columns:1fr 1fr;gap:7px;font-size:0}
+  .topbar .who a{display:block;padding:10px 8px;text-align:center;font-size:12px}.topbar .who .account{background:rgba(255,255,255,.14)}
+  .wrap{margin:18px auto;padding:0 12px}h1{font-size:20px;line-height:1.25}.sub{font-size:13px;line-height:1.5;margin-bottom:16px}
+  .bulletin{padding:17px 15px;border-radius:12px;margin-bottom:12px}.bulletin h2{font-size:17px;line-height:1.35}.bulletin .body{font-size:14px;line-height:1.6;overflow-wrap:anywhere}
+  .bulletin .body img,.bulletin .body video,.bulletin .body iframe{max-width:100%;height:auto}.bulletin .body table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse}
+  .tag{display:table;margin:7px 0 0}.empty{padding:28px 18px;line-height:1.6}
+}
 </style>
 </head>
 <body>

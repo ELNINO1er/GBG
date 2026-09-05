@@ -87,7 +87,27 @@ label{display:block;font-size:13px;font-weight:600;margin:14px 0 6px;color:#3345
 .pill-filter a.on{background:var(--vert);color:#fff;border-color:var(--vert)}
 .smart-select{position:relative}.smart-select>select{display:none}.smart-trigger{width:100%;display:flex;justify-content:space-between;align-items:center;padding:11px 13px;border:1px solid #cfd8d1;border-radius:9px;background:#fff;color:var(--txt);font:inherit;cursor:pointer;text-align:left}.smart-trigger:after{content:'⌄';font-weight:800}.smart-select.open .smart-trigger{border-color:var(--vert2);box-shadow:0 0 0 3px rgba(31,92,61,.12)}.smart-panel{display:none;position:absolute;z-index:100;left:0;right:0;top:calc(100% + 6px);background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 18px 45px rgba(14,47,34,.18);padding:9px}.smart-select.open .smart-panel{display:block}.smart-search{margin-bottom:7px}.smart-options{max-height:245px;overflow:auto}.smart-option{display:block;width:100%;padding:9px 10px;border:0;border-radius:7px;background:#fff;text-align:left;cursor:pointer;font:inherit;color:var(--txt)}.smart-option:hover,.smart-option.selected{background:#eaf4ee;color:var(--vert);font-weight:700}.smart-select.multiple .smart-option:before{content:'□';display:inline-block;width:22px;color:var(--muted)}.smart-select.multiple .smart-option.selected:before{content:'✓';color:var(--ok)}
 .modal-backdrop{display:none;position:fixed;inset:0;z-index:1000;background:rgba(7,24,17,.62);padding:20px;place-items:center}.modal-backdrop.open{display:grid}.modal-box{width:min(430px,100%);background:#fff;border-radius:16px;padding:26px;box-shadow:0 24px 70px rgba(0,0,0,.3)}.modal-box h2{margin:0 0 8px}.modal-box p{color:var(--muted);line-height:1.55}.modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:22px}
-@media(max-width:720px){.topbar{height:auto;min-height:68px;padding:12px 16px;flex-wrap:wrap}.topbar .brand-logo img{width:145px;height:38px}.topbar nav{order:3;width:100%;margin:10px 0 0;overflow-x:auto}.topbar nav a{white-space:nowrap}.topbar .user .account{display:none}.grid.cols-4,.grid.cols-3,.grid.cols-2{grid-template-columns:1fr}.wrap{margin-top:22px}}
+@media(max-width:720px){
+  .topbar{height:auto;min-height:68px;padding:10px 12px;flex-wrap:wrap;gap:8px;position:sticky}
+  .topbar .brand-logo img{width:132px;height:36px}
+  .topbar .user{margin-left:auto;gap:6px}.topbar .user .account{display:none}.topbar .user .logout{padding:8px 10px;font-size:12px}
+  .topbar nav{order:3;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;width:100%;margin:2px 0 0;overflow:visible}
+  .topbar nav a{padding:9px 7px;white-space:normal;text-align:center;font-size:12px;background:rgba(255,255,255,.06)}
+  .wrap{margin:18px auto;padding:0 12px}
+  h1{font-size:21px}.sub{font-size:13px;margin-bottom:16px}
+  .card{padding:16px;border-radius:12px;margin-bottom:14px}.card h2{line-height:1.35}
+  .grid{gap:10px}.grid.cols-4{grid-template-columns:repeat(2,minmax(0,1fr))}.grid.cols-3,.grid.cols-2{grid-template-columns:1fr}
+  .stat{padding:15px 12px;min-width:0}.stat .n{font-size:24px}.stat .l{font-size:12px;line-height:1.35}
+  .card p>.btn{display:block;width:100%;padding:11px 12px;text-align:center}
+  .toolbar{align-items:stretch}.toolbar>*,.toolbar>div{width:100%}.toolbar .spacer{display:none}
+  .pill-filter{gap:6px}.pill-filter a{padding:6px 10px;font-size:12px}
+  .tablewrap{margin:0 -4px;padding-bottom:6px}.tablewrap table{min-width:680px}.tablewrap:after{content:'Faites glisser le tableau vers la gauche pour voir la suite';display:block;padding:8px 4px 0;color:var(--muted);font-size:11px}
+  th,td{padding:9px 10px}.row{gap:8px}.row>div{min-width:100%}
+  input,select,textarea,.smart-trigger{font-size:16px}
+  .smart-panel{position:fixed;left:12px;right:12px;top:auto;bottom:12px;max-height:70vh;overflow:auto;z-index:1200}
+  .modal-backdrop{padding:12px;align-items:end}.modal-box{padding:20px;border-radius:16px 16px 10px 10px}.modal-actions .btn{flex:1;text-align:center}
+}
+@media(max-width:390px){.grid.cols-4{grid-template-columns:1fr}.topbar nav a{font-size:11px}}
 </style>
 </head>
 <body>
