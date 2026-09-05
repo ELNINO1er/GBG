@@ -34,13 +34,12 @@ CSS TABLE OF CONTENTS
 			meanExpand: ['<i class="far fa-plus"></i>'],
 		});
 
-		// Le bouton du bandeau desktop est masque sur les petits ecrans.
-		// Ces deux liens evitent aussi d'ouvrir le mauvais type de compte.
-		var mobileRootMenu = $(".mobile-menu .mean-nav > ul").first();
-		if (mobileRootMenu.length && !mobileRootMenu.find(".mobile-space-access").length) {
-			mobileRootMenu.append(
-				'<li class="mobile-space-access mobile-space-access--coop"><a href="connexion.php?role=cooperative"><i class="fa-solid fa-people-group"></i> Connexion cooperative</a></li>' +
-				'<li class="mobile-space-access mobile-space-access--admin"><a href="connexion.php?role=admin"><i class="fa-solid fa-user-shield"></i> Connexion administration</a></li>'
+		// La connexion est unique : le bouton reste visible dans le panneau
+		// lateral mobile, juste apres les liens de navigation.
+		var mobilePanelMenu = $(".offcanvas__content .mobile-menu");
+		if (mobilePanelMenu.length && !$(".mobile-space-login").length) {
+			mobilePanelMenu.after(
+				'<a class="mobile-space-login" href="connexion.php"><i class="fa-solid fa-user"></i><span>Se connecter</span><i class="fa-solid fa-arrow-right"></i></a>'
 			);
 		}
 

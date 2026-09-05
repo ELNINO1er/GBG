@@ -147,27 +147,28 @@ a.meanmenu-reveal {
     display: none !important
 }
 
-.mean-container .mean-nav ul li.mobile-space-access a {
-    width: 86%;
-    margin: 8px 7%;
-    padding: 12px 14px;
-    border: 1px solid rgba(255, 255, 255, .35);
-    border-radius: 8px;
-    text-align: center;
-    font-weight: 700;
-    text-transform: none;
+.mobile-space-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    width: 100%;
+    margin: 8px 0 22px;
+    padding: 13px 16px;
+    border-radius: 9px;
+    color: #fff;
     background: #176344;
+    font-weight: 700;
+    text-decoration: none;
     box-sizing: border-box;
 }
 
-.mean-container .mean-nav ul li.mobile-space-access--admin a {
-    margin-top: 0;
-    margin-bottom: 14px;
-    color: #173b2b;
-    background: #e7c55e;
-    border-color: #e7c55e;
+.mobile-space-login .fa-arrow-right {
+    margin-left: auto;
 }
 
-.mean-container .mean-nav ul li.mobile-space-access a i {
-    margin-right: 7px;
+.mobile-space-login:hover,
+.mobile-space-login:focus {
+    color: #173b2b;
+    background: #e7c55e;
 }
