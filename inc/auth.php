@@ -14,6 +14,18 @@ require_once __DIR__ . '/helpers.php';
 
 // ---------------- ADMIN ----------------
 
+/**
+ * Normalise uniquement l'identifiant saisi.
+ * Les claviers mobiles et les copier-coller peuvent ajouter des espaces
+ * insecables ou modifier la casse sans que l'utilisateur le remarque.
+ */
+function auth_normalize_username(string $username): string
+{
+    $username = str_replace(["\u{00A0}", "\u{202F}", "\u{2007}"], ' ', $username);
+    $username = preg_replace('/\s+/u', ' ', trim($username)) ?? trim($username);
+    return mb_strtolower($username, 'UTF-8');
+}
+
 function admin_current(): ?array
 {
     gbg_session();
@@ -22,13 +34,28 @@ function admin_current(): ?array
 
 function admin_login(string $username, string $password): bool
 {
-    $stmt = gbg_db()->prepare(
-        'SELECT * FROM admin_users WHERE username = ? AND actif = 1 LIMIT 1'
-    );
-    $stmt->execute([$username]);
-    $user = $stmt->fetch();
+    $wantedUsername = auth_normalize_username($username);
+    $stmt = gbg_db()->query('SELECT * FROM admin_users WHERE actif = 1');
+    $user = null;
+    foreach ($stmt->fetchAll() as $candidate) {
+        if (hash_equals(auth_normalize_username((string)$candidate['username']), $wantedUsername)) {
+            $user = $candidate;
+            break;
+        }
+    }
 
-    if (!$user || !password_verify($password, $user['password_hash'])) {
+    if (!$user) {
+        return false;
+    }
+
+    // On essaie d'abord le mot de passe exact. Un espace exterieur ajoute
+    // involontairement par un copier-coller mobile est ignore en secours.
+    $passwordOk = password_verify($password, $user['password_hash']);
+    $trimmedPassword = trim($password);
+    if (!$passwordOk && $trimmedPassword !== $password) {
+        $passwordOk = password_verify($trimmedPassword, $user['password_hash']);
+    }
+    if (!$passwordOk) {
         return false;
     }
 

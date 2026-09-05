@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 .intro{padding:58px 52px;background:linear-gradient(150deg,#0d3b29,#176344);color:#fff;position:relative}.intro:after{content:"";position:absolute;width:220px;height:220px;border:1px solid rgba(255,255,255,.12);border-radius:50%;right:-70px;bottom:-80px}
 .logo{width:210px;height:auto;display:block;margin-bottom:52px}.eyebrow{color:#ead18b;font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}.intro h1{font-size:34px;line-height:1.15;margin:12px 0 16px}.intro p{color:#d9e7df;line-height:1.7;margin:0}.steps{display:grid;gap:14px;margin-top:34px}.step{display:flex;gap:12px;align-items:flex-start;font-size:14px;color:#eaf2ed}.step b{display:grid;place-items:center;flex:0 0 28px;height:28px;border-radius:50%;background:rgba(209,170,69,.2);color:#f3d986}
 .panel{padding:54px 48px}.panel h2{font-size:25px;margin:0 0 7px}.subtitle{color:var(--muted);font-size:14px;margin:0 0 26px}.roles{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}.role{border:1px solid var(--line);border-radius:12px;padding:13px 12px;text-decoration:none;color:var(--muted);font-weight:700;text-align:center;font-size:14px}.role.active{background:#eaf4ee;color:var(--green);border-color:#9cc5ae;box-shadow:inset 0 0 0 2px #79ad8f}.selected-role{margin:0 0 18px;padding:10px 12px;border-radius:9px;background:#f2f6f3;color:var(--green);font-size:13px;text-align:center}.selected-role strong{font-weight:800}
-label{display:block;font-size:13px;font-weight:700;margin:15px 0 7px}input{width:100%;padding:13px 14px;border:1px solid #cbd8d0;border-radius:10px;font-size:15px}input:focus{outline:none;border-color:var(--green2);box-shadow:0 0 0 4px rgba(23,99,68,.11)}button{width:100%;margin-top:22px;border:0;border-radius:10px;padding:14px;background:var(--green);color:#fff;font-weight:800;font-size:15px;cursor:pointer}button:hover{background:var(--green2)}.err,.notice{padding:11px 13px;border-radius:9px;font-size:13px;margin-bottom:15px}.err{background:#fbe9e7;color:#8c2820;border:1px solid #efc1bd}.notice{background:#e7f5eb;color:#236438;border:1px solid #badfc4}.back{display:block;text-align:center;margin-top:18px;color:var(--muted);font-size:13px;text-decoration:none}.hint{margin-top:18px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:12px;line-height:1.55}
+label{display:block;font-size:13px;font-weight:700;margin:15px 0 7px}input{width:100%;padding:13px 14px;border:1px solid #cbd8d0;border-radius:10px;font-size:15px}input:focus{outline:none;border-color:var(--green2);box-shadow:0 0 0 4px rgba(23,99,68,.11)}button{width:100%;margin-top:22px;border:0;border-radius:10px;padding:14px;background:var(--green);color:#fff;font-weight:800;font-size:15px;cursor:pointer}button:hover{background:var(--green2)}.password-option{display:flex;align-items:center;gap:8px;margin-top:10px;color:var(--muted);font-size:13px;cursor:pointer}.password-option input{width:18px;height:18px;margin:0;accent-color:var(--green2)}.err,.notice{padding:11px 13px;border-radius:9px;font-size:13px;margin-bottom:15px}.err{background:#fbe9e7;color:#8c2820;border:1px solid #efc1bd}.notice{background:#e7f5eb;color:#236438;border:1px solid #badfc4}.back{display:block;text-align:center;margin-top:18px;color:var(--muted);font-size:13px;text-decoration:none}.hint{margin-top:18px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:12px;line-height:1.55}
 @media(max-width:760px){body{display:block;padding:12px;min-height:100dvh}.shell{grid-template-columns:1fr;border-radius:18px;margin:0 auto}.intro{padding:24px}.intro h1{font-size:23px;margin-bottom:10px}.intro p{font-size:13px;line-height:1.5}.logo{margin-bottom:18px;width:155px}.steps{display:none}.panel{padding:26px 20px}.panel h2{font-size:23px}.roles{grid-template-columns:1fr}.role{padding:14px 12px;font-size:15px}input{font-size:16px}button{min-height:48px}}
 </style>
 </head>
@@ -75,12 +75,18 @@ label{display:block;font-size:13px;font-weight:700;margin:15px 0 7px}input{width
       <label for="username">Identifiant</label>
       <input id="username" name="username" autocomplete="username" autocapitalize="none" autocorrect="off" spellcheck="false" autofocus required>
       <label for="password">Mot de passe</label>
-      <input id="password" name="password" type="password" autocomplete="current-password" required>
+      <input id="password" name="password" type="password" autocomplete="current-password" enterkeyhint="go" required>
+      <label class="password-option"><input id="show-password" type="checkbox"> Afficher le mot de passe</label>
       <button type="submit">Se connecter à mon espace</button>
     </form>
     <div class="hint"><?= $role === 'admin' ? 'Accès réservé à l’équipe GBG chargée de gérer les coopératives et les publications.' : 'Votre identifiant est fourni par GBG lors de la création de votre accès coopérative.' ?></div>
     <a class="back" href="index.html">← Retour au site GBG</a>
   </section>
 </main>
+<script>
+document.getElementById('show-password').addEventListener('change', function () {
+  document.getElementById('password').type = this.checked ? 'text' : 'password';
+});
+</script>
 </body>
 </html>
