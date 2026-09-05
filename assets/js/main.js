@@ -34,6 +34,16 @@ CSS TABLE OF CONTENTS
 			meanExpand: ['<i class="far fa-plus"></i>'],
 		});
 
+		// Le bouton du bandeau desktop est masque sur les petits ecrans.
+		// Ces deux liens evitent aussi d'ouvrir le mauvais type de compte.
+		var mobileRootMenu = $(".mobile-menu .mean-nav > ul").first();
+		if (mobileRootMenu.length && !mobileRootMenu.find(".mobile-space-access").length) {
+			mobileRootMenu.append(
+				'<li class="mobile-space-access mobile-space-access--coop"><a href="connexion.php?role=cooperative"><i class="fa-solid fa-people-group"></i> Connexion cooperative</a></li>' +
+				'<li class="mobile-space-access mobile-space-access--admin"><a href="connexion.php?role=admin"><i class="fa-solid fa-user-shield"></i> Connexion administration</a></li>'
+			);
+		}
+
 		//>> Sidebar Toggle Js Start <<//
 		$(".offcanvas__close,.offcanvas__overlay").on("click", function () {
 			$(".offcanvas__info").removeClass("info-open");
