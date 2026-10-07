@@ -24,6 +24,129 @@ function gbg_ensure_campaign_targeting_schema(): void
     }
 }
 
+/** Cree la table des pieces jointes sur les installations deja en ligne. */
+function gbg_ensure_campaign_documents_schema(): void
+{
+    gbg_db()->exec("CREATE TABLE IF NOT EXISTS campagne_documents (
+      id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+      campagne_id INT UNSIGNED NOT NULL,
+      nom_original VARCHAR(255) NOT NULL,
+      nom_stockage VARCHAR(255) NOT NULL,
+      mime_type VARCHAR(120) NOT NULL,
+      taille_octets INT UNSIGNED NOT NULL DEFAULT 0,
+      created_at DATETIME NOT NULL,
+      PRIMARY KEY (id),
+      KEY idx_campdoc_campagne (campagne_id),
+      CONSTRAINT fk_campdoc_campagne FOREIGN KEY (campagne_id)
+        REFERENCES campagnes (id) ON DELETE CASCADE
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
+}
+
+function gbg_campaign_document_storage_dir(): string
+{
+    return dirname(__DIR__) . '/storage/campaign-documents';
+}
+
+/** @return array<int,array> */
+function gbg_campaign_documents(int $campaignId): array
+{
+    gbg_ensure_campaign_documents_schema();
+    $stmt = gbg_db()->prepare('SELECT * FROM campagne_documents WHERE campagne_id = ? ORDER BY id');
+    $stmt->execute([$campaignId]);
+    return $stmt->fetchAll();
+}
+
+/**
+ * Verifie puis enregistre jusqu'a cinq fichiers PDF, Word ou Excel.
+ * @return int Nombre de fichiers ajoutes.
+ */
+function gbg_campaign_store_documents(int $campaignId, array $uploads): int
+{
+    if (!isset($uploads['name']) || $uploads['name'] === '') {
+        return 0;
+    }
+    $names = is_array($uploads['name']) ? $uploads['name'] : [$uploads['name']];
+    $tmpNames = is_array($uploads['tmp_name'] ?? null) ? $uploads['tmp_name'] : [$uploads['tmp_name'] ?? ''];
+    $errors = is_array($uploads['error'] ?? null) ? $uploads['error'] : [$uploads['error'] ?? UPLOAD_ERR_NO_FILE];
+    $sizes = is_array($uploads['size'] ?? null) ? $uploads['size'] : [$uploads['size'] ?? 0];
+    $allowed = [
+        'pdf'  => ['application/pdf'],
+        'docx' => ['application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/zip'],
+        'xlsx' => ['application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/zip'],
+    ];
+    $mimeForExtension = [
+        'pdf' => 'application/pdf',
+        'docx' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+        'xlsx' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+    ];
+    $activeIndexes = array_values(array_filter(array_keys($names), static fn($i) => (int)($errors[$i] ?? UPLOAD_ERR_NO_FILE) !== UPLOAD_ERR_NO_FILE));
+    if (count($activeIndexes) > 5) {
+        throw new RuntimeException('Vous pouvez joindre au maximum 5 documents par enregistrement.');
+    }
+
+    $validated = [];
+    $totalSize = 0;
+    $finfo = new finfo(FILEINFO_MIME_TYPE);
+    foreach ($activeIndexes as $i) {
+        if ((int)$errors[$i] !== UPLOAD_ERR_OK) {
+            throw new RuntimeException('Un document n’a pas pu etre charge. Reessayez.');
+        }
+        $size = (int)$sizes[$i];
+        $totalSize += $size;
+        if ($size <= 0 || $size > 10 * 1024 * 1024) {
+            throw new RuntimeException('Chaque document doit avoir une taille inferieure a 10 Mo.');
+        }
+        $original = basename((string)$names[$i]);
+        $extension = strtolower(pathinfo($original, PATHINFO_EXTENSION));
+        $detectedMime = (string)$finfo->file((string)$tmpNames[$i]);
+        if (!isset($allowed[$extension]) || !in_array($detectedMime, $allowed[$extension], true)) {
+            throw new RuntimeException('Formats acceptes : PDF, Word (.docx) et Excel (.xlsx).');
+        }
+        if ($extension === 'pdf' && file_get_contents((string)$tmpNames[$i], false, null, 0, 5) !== '%PDF-') {
+            throw new RuntimeException('Le fichier PDF selectionne est invalide.');
+        }
+        $validated[] = [
+            'tmp' => (string)$tmpNames[$i], 'name' => $original, 'extension' => $extension,
+            'mime' => $mimeForExtension[$extension], 'size' => $size,
+        ];
+    }
+    if ($totalSize > 20 * 1024 * 1024) {
+        throw new RuntimeException('La taille totale des documents ne doit pas depasser 20 Mo.');
+    }
+    if (!$validated) {
+        return 0;
+    }
+
+    $dir = gbg_campaign_document_storage_dir();
+    if (!is_dir($dir) && !mkdir($dir, 0750, true) && !is_dir($dir)) {
+        throw new RuntimeException('Impossible de creer le dossier des documents.');
+    }
+    $db = gbg_db();
+    $insert = $db->prepare('INSERT INTO campagne_documents
+        (campagne_id, nom_original, nom_stockage, mime_type, taille_octets, created_at)
+        VALUES (?, ?, ?, ?, ?, ?)');
+    $storedPaths = [];
+    try {
+        foreach ($validated as $file) {
+            $storedName = bin2hex(random_bytes(20)) . '.' . $file['extension'];
+            $destination = $dir . '/' . $storedName;
+            if (!move_uploaded_file($file['tmp'], $destination)) {
+                throw new RuntimeException('Impossible d’enregistrer le document ' . $file['name'] . '.');
+            }
+            $storedPaths[] = $destination;
+            $insert->execute([$campaignId, $file['name'], $storedName, $file['mime'], $file['size'], date('Y-m-d H:i:s')]);
+        }
+    } catch (Throwable $e) {
+        foreach ($storedPaths as $path) {
+            if (is_file($path)) {
+                @unlink($path);
+            }
+        }
+        throw $e;
+    }
+    return count($validated);
+}
+
 /**
  * Destinataires email d'une campagne : cooperatives actives, email valide,
  * eventuellement filtrees par region.

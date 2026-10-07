@@ -112,7 +112,12 @@ admin_header('Cooperatives', 'cooperatives.php');
           <span class="badge grey">non</span>
         <?php endif; ?>
       </td>
-      <td><a class="btn sm sec" href="cooperative-edit.php?id=<?= (int)$c['id'] ?>">Editer</a></td>
+      <td>
+        <div class="table-actions">
+          <a class="btn sm sec" href="cooperative-documents.php?id=<?= (int)$c['id'] ?>">Documents</a>
+          <a class="btn sm sec" href="cooperative-edit.php?id=<?= (int)$c['id'] ?>">Editer</a>
+        </div>
+      </td>
     </tr>
   <?php endforeach; ?>
   <?php if (!$coops): ?>

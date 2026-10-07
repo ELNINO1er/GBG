@@ -80,12 +80,13 @@ function gbg_smtp_open(array $config)
     return $socket;
 }
 
-/** Envoie un message HTML sur une session SMTP deja ouverte. */
-function gbg_smtp_send($socket, array $config, string $to, string $subject, string $htmlBody): void
+/** Envoie un message HTML et, si besoin, ses pieces jointes. */
+function gbg_smtp_send($socket, array $config, string $to, string $subject, string $htmlBody, array $attachments = []): void
 {
     $fromEmail = (string)($config['from_email'] ?? $config['smtp_username'] ?? '');
     $fromName  = mailer_clean_header((string)($config['from_name'] ?? 'Global Business Group'));
-    $boundary  = 'gbg-' . bin2hex(random_bytes(8));
+    $alternativeBoundary = 'gbg-alt-' . bin2hex(random_bytes(8));
+    $mixedBoundary = 'gbg-mix-' . bin2hex(random_bytes(8));
 
     mailer_smtp_command($socket, 'RSET', [250]);
     mailer_smtp_command($socket, 'MAIL FROM:<' . $fromEmail . '>', [250]);
@@ -105,18 +106,36 @@ function gbg_smtp_send($socket, array $config, string $to, string $subject, stri
         'To: ' . $to,
         'Subject: ' . $subjectEnc,
         'MIME-Version: 1.0',
-        'Content-Type: multipart/alternative; boundary="' . $boundary . '"',
+        'Content-Type: multipart/mixed; boundary="' . $mixedBoundary . '"',
     ];
 
-    $body  = '--' . $boundary . "\r\n";
+    $body  = '--' . $mixedBoundary . "\r\n";
+    $body .= 'Content-Type: multipart/alternative; boundary="' . $alternativeBoundary . "\"\r\n\r\n";
+    $body .= '--' . $alternativeBoundary . "\r\n";
     $body .= "Content-Type: text/plain; charset=UTF-8\r\n";
     $body .= "Content-Transfer-Encoding: base64\r\n\r\n";
     $body .= chunk_split(base64_encode($textBody)) . "\r\n";
-    $body .= '--' . $boundary . "\r\n";
+    $body .= '--' . $alternativeBoundary . "\r\n";
     $body .= "Content-Type: text/html; charset=UTF-8\r\n";
     $body .= "Content-Transfer-Encoding: base64\r\n\r\n";
     $body .= chunk_split(base64_encode($htmlBody)) . "\r\n";
-    $body .= '--' . $boundary . "--\r\n";
+    $body .= '--' . $alternativeBoundary . "--\r\n";
+
+    foreach ($attachments as $attachment) {
+        $path = (string)($attachment['path'] ?? '');
+        if (!is_file($path) || !is_readable($path)) {
+            throw new RuntimeException('Une piece jointe est introuvable sur le serveur.');
+        }
+        $name = basename((string)($attachment['name'] ?? 'document'));
+        $mime = (string)($attachment['mime'] ?? 'application/octet-stream');
+        $encodedName = rawurlencode($name);
+        $body .= '--' . $mixedBoundary . "\r\n";
+        $body .= 'Content-Type: ' . $mime . '; name="document"' . "\r\n";
+        $body .= "Content-Transfer-Encoding: base64\r\n";
+        $body .= "Content-Disposition: attachment; filename=\"document\"; filename*=UTF-8''{$encodedName}\r\n\r\n";
+        $body .= chunk_split(base64_encode((string)file_get_contents($path))) . "\r\n";
+    }
+    $body .= '--' . $mixedBoundary . "--\r\n";
 
     $message = implode("\r\n", $headers) . "\r\n\r\n" . $body;
     // Protection "dot stuffing"

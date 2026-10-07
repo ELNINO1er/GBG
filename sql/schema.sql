@@ -51,6 +51,34 @@ CREATE TABLE IF NOT EXISTS `cooperatives` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ---------------------------------------------------------------------
+-- Documents et certifications rattaches aux cooperatives
+-- Le fichier est conserve sous un nom aleatoire et n'est telechargeable
+-- qu'apres authentification dans le back-office.
+-- ---------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `cooperative_documents` (
+  `id`                INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `cooperative_id`    INT UNSIGNED NOT NULL,
+  `type_document`     VARCHAR(80)  NOT NULL DEFAULT 'Autre document',
+  `titre`             VARCHAR(255) NOT NULL,
+  `numero_reference`  VARCHAR(120) NOT NULL DEFAULT '',
+  `produit`           VARCHAR(150) NOT NULL DEFAULT '',
+  `date_delivrance`   DATE NULL,
+  `date_expiration`   DATE NULL,
+  `statut`            VARCHAR(30)  NOT NULL DEFAULT 'valide',
+  `nom_original`      VARCHAR(255) NOT NULL,
+  `nom_stockage`      VARCHAR(255) NOT NULL,
+  `taille_octets`     INT UNSIGNED NOT NULL DEFAULT 0,
+  `mime_type`         VARCHAR(100) NOT NULL DEFAULT 'application/pdf',
+  `created_by`        INT UNSIGNED NULL,
+  `created_at`        DATETIME NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_doc_cooperative` (`cooperative_id`),
+  KEY `idx_doc_expiration` (`date_expiration`),
+  CONSTRAINT `fk_doc_cooperative` FOREIGN KEY (`cooperative_id`)
+    REFERENCES `cooperatives` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ---------------------------------------------------------------------
 --  Campagnes (bulletins / messages groupes)
 --  canal    : email | espace | email+espace
 --  statut   : brouillon | envoyee
@@ -74,6 +102,23 @@ CREATE TABLE IF NOT EXISTS `campagnes` (
   PRIMARY KEY (`id`),
   KEY `idx_camp_statut` (`statut`),
   KEY `idx_camp_publiee` (`publiee`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ---------------------------------------------------------------------
+-- Pieces jointes des campagnes (PDF, Word et Excel)
+-- ---------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `campagne_documents` (
+  `id`             INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `campagne_id`    INT UNSIGNED NOT NULL,
+  `nom_original`   VARCHAR(255) NOT NULL,
+  `nom_stockage`   VARCHAR(255) NOT NULL,
+  `mime_type`      VARCHAR(120) NOT NULL,
+  `taille_octets`  INT UNSIGNED NOT NULL DEFAULT 0,
+  `created_at`     DATETIME NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_campdoc_campagne` (`campagne_id`),
+  CONSTRAINT `fk_campdoc_campagne` FOREIGN KEY (`campagne_id`)
+    REFERENCES `campagnes` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ---------------------------------------------------------------------

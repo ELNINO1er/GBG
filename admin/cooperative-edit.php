@@ -99,7 +99,7 @@ $v = static fn(string $k) => e($coop[$k] ?? $_POST[$k] ?? '');
 admin_header($coop ? 'Editer cooperative' : 'Nouvelle cooperative', 'cooperatives.php');
 ?>
 <h1><?= $coop ? e($coop['nom_cooperative']) : 'Nouvelle cooperative' ?></h1>
-<p class="sub"><a href="cooperatives.php">&larr; Retour a la liste</a></p>
+<p class="sub"><a href="cooperatives.php">&larr; Retour a la liste</a><?php if ($coop): ?> &nbsp;·&nbsp; <a href="cooperative-documents.php?id=<?= $id ?>">Documents et certifications</a><?php endif; ?></p>
 
 <form method="post" action="cooperative-edit.php<?= $coop ? '?id=' . $id : '' ?>">
   <?= csrf_field() ?>

@@ -43,6 +43,7 @@ if ($isSent) {
     $lignes = gbg_campaign_recipients($camp);
 }
 $audience = gbg_campaign_audience_count($camp);
+$documents = gbg_campaign_documents($id);
 
 admin_header('Campagne', 'campagnes.php');
 ?>
@@ -62,6 +63,7 @@ admin_header('Campagne', 'campagnes.php');
         <strong>Objet :</strong> <?= e($camp['sujet']) ?>
       </div>
       <div style="font-size:15px;line-height:1.6"><?= $camp['contenu'] /* HTML admin */ ?></div>
+      <?php if ($documents): ?><div style="margin-top:16px;padding-top:12px;border-top:1px solid var(--line)"><strong>Pieces jointes :</strong><?php foreach ($documents as $document): ?> <a href="campaign-document.php?id=<?= (int)$document['id'] ?>" target="_blank" rel="noopener"><?= e($document['nom_original']) ?></a><?php endforeach; ?></div><?php endif; ?>
     </div>
   </div>
 

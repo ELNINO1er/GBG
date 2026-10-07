@@ -66,6 +66,13 @@ $budgetSecondes = 20;
 $debut = time();
 $traites = 0;
 $html = gbg_email_template($camp['sujet'], $camp['contenu']);
+$attachments = array_map(static function (array $document): array {
+    return [
+        'path' => gbg_campaign_document_storage_dir() . '/' . basename((string)$document['nom_stockage']),
+        'name' => (string)$document['nom_original'],
+        'mime' => (string)$document['mime_type'],
+    ];
+}, gbg_campaign_documents($id));
 
 $select = $db->prepare(
     'SELECT id, cooperative_id, email FROM envois
@@ -92,7 +99,7 @@ if ($socket !== null) {
         }
         foreach ($lot as $env) {
             try {
-                gbg_smtp_send($socket, $config, $env['email'], $camp['sujet'], $html);
+                gbg_smtp_send($socket, $config, $env['email'], $camp['sujet'], $html, $attachments);
                 $markOk->execute([date('Y-m-d H:i:s'), $env['id']]);
             } catch (Throwable $e) {
                 $markKo->execute([substr($e->getMessage(), 0, 480), $env['id']]);

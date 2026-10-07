@@ -7,6 +7,7 @@ require_once __DIR__ . '/../inc/campaign.php';
 $coop = coop_require();
 $db = gbg_db();
 gbg_ensure_campaign_targeting_schema();
+gbg_ensure_campaign_documents_schema();
 
 // Bulletins publies concernant cette cooperative (sa region ou toutes regions)
 $stmt = $db->prepare(
@@ -46,6 +47,7 @@ h1{font-size:22px;margin:0 0 4px}
 .bulletin .body{font-size:15px;line-height:1.65}
 .empty{background:#fff;border:1px dashed var(--line);border-radius:10px;padding:40px;text-align:center;color:var(--muted)}
 .tag{display:inline-block;font-size:11px;background:#eef3f0;color:var(--vert2);padding:2px 10px;border-radius:20px;margin-left:8px}
+.attachments{margin-top:18px;padding-top:14px;border-top:1px solid var(--line)}.attachments strong{display:block;font-size:13px;margin-bottom:8px}.attachment{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:9px 11px;margin-top:7px;border:1px solid var(--line);border-radius:9px;color:var(--vert2);text-decoration:none;background:#f9fbfa}.attachment:hover{background:#eef5f1}.attachment span:last-child{font-weight:700;white-space:nowrap}
 @media(max-width:640px){
   .topbar{position:sticky;top:0;z-index:20;height:auto;min-height:64px;padding:10px 12px;gap:8px;flex-wrap:wrap}
   .topbar .brand img{width:128px;height:36px}.topbar .who{width:100%;display:grid;grid-template-columns:1fr 1fr;gap:7px;font-size:0}
@@ -78,6 +80,11 @@ h1{font-size:22px;margin:0 0 4px}
         </h2>
         <div class="date"><?= e(date('d/m/Y', strtotime($b['sent_at'] ?: $b['created_at']))) ?></div>
         <div class="body"><?= $b['contenu'] /* HTML valide par l'admin */ ?></div>
+        <?php $documents = gbg_campaign_documents((int)$b['id']); if ($documents): ?>
+          <div class="attachments"><strong>Documents a telecharger</strong>
+            <?php foreach ($documents as $document): ?><a class="attachment" href="campaign-document.php?id=<?= (int)$document['id'] ?>"><span><?= e($document['nom_original']) ?></span><span>Telecharger</span></a><?php endforeach; ?>
+          </div>
+        <?php endif; ?>
       </article>
     <?php endforeach; ?>
   <?php endif; ?>

@@ -82,6 +82,7 @@ label{display:block;font-size:13px;font-weight:600;margin:14px 0 6px;color:#3345
 .toolbar .spacer{flex:1}
 .muted{color:var(--muted);font-size:13px}
 .tablewrap{overflow-x:auto}
+.table-actions{display:flex;gap:7px;align-items:center;white-space:nowrap}
 .pill-filter{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
 .pill-filter a{font-size:13px;padding:5px 12px;border:1px solid var(--line);border-radius:20px;text-decoration:none;color:var(--muted);background:#fff}
 .pill-filter a.on{background:var(--vert);color:#fff;border-color:var(--vert)}
@@ -102,6 +103,7 @@ label{display:block;font-size:13px;font-weight:600;margin:14px 0 6px;color:#3345
   .toolbar{align-items:stretch}.toolbar>*,.toolbar>div{width:100%}.toolbar .spacer{display:none}
   .pill-filter{gap:6px}.pill-filter a{padding:6px 10px;font-size:12px}
   .tablewrap{margin:0 -4px;padding-bottom:6px}.tablewrap table{min-width:680px}.tablewrap:after{content:'Faites glisser le tableau vers la gauche pour voir la suite';display:block;padding:8px 4px 0;color:var(--muted);font-size:11px}
+  .table-actions{align-items:stretch;flex-direction:column}.table-actions .btn{text-align:center}
   th,td{padding:9px 10px}.row{gap:8px}.row>div{min-width:100%}
   input,select,textarea,.smart-trigger{font-size:16px}
   .smart-panel{position:fixed;left:12px;right:12px;top:auto;bottom:12px;max-height:70vh;overflow:auto;z-index:1200}
