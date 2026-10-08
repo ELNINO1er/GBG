@@ -74,7 +74,7 @@
           "@id": "https://gbg-ci.com/gbcc.html#entrepot",
           "name": "GBCC ENTREPÔT",
           "alternateName": ["Entrepôt de GBG", "Entrepôt GBG", "Entrepôt GBCC"],
-          "description": "Entrepôt de Global Business Group exploité par GBCC à Bingerville, Côte d'Ivoire.",
+          "description": "Futur centre logistique de Global Business Group exploité par GBCC à Bingerville, actuellement en construction et dont l'ouverture est prévue au quatrième trimestre 2027.",
           "url": "https://gbg-ci.com/gbcc.html#gbcc-entrepot",
           "address": {
             "@type": "PostalAddress",
@@ -323,6 +323,15 @@
         .gbcc-opening-status i { margin-top:3px; color:#8f6b10; }
         .gbcc-opening-status strong,.gbcc-opening-status span { display:block; }
         .gbcc-opening-status span { margin-top:2px; color:#6f5c24; font-size:14px; }
+        .gbcc-project-steps { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:8px; margin:4px 0 22px; }
+        .gbcc-project-step { position:relative; padding-top:22px; color:#7a877f; font-size:12px; font-weight:700; text-align:center; }
+        .gbcc-project-step::before { content:""; position:absolute; top:6px; left:50%; width:11px; height:11px; border-radius:50%; background:#cbd5ce; transform:translateX(-50%); z-index:2; }
+        .gbcc-project-step::after { content:""; position:absolute; top:10px; left:-50%; width:100%; height:3px; background:#dce4de; }
+        .gbcc-project-step:first-child::after { display:none; }
+        .gbcc-project-step.is-complete,.gbcc-project-step.is-active { color:#173f2d; }
+        .gbcc-project-step.is-complete::before { background:#173f2d; box-shadow:0 0 0 4px #dce9e1; }
+        .gbcc-project-step.is-active::before { background:#fdd61f; box-shadow:0 0 0 4px #fff4b3; }
+        .gbcc-project-step.is-active::after { background:#173f2d; }
         .gbcc-location-details { display:grid; gap:12px; margin:22px 0; }
         .gbcc-location-detail { display:flex; align-items:flex-start; gap:12px; color:#52635a; line-height:1.5; }
         .gbcc-location-detail i { color:#8f6b10; width:18px; margin-top:4px; text-align:center; }
@@ -361,6 +370,10 @@
             .gbcc-r-hero h2, .gbcc-section h2 { font-size:32px; }
             .gbcc-identity-grid, .gbcc-service-grid, .gbcc-projects, .gbcc-team-grid, .gbcc-panel-row, .gbcc-method-grid, .gbcc-gallery-grid, .gbcc-footer-grid, .gbcc-clarity-grid, .gbcc-video-grid, .gbcc-impact-grid, .gbcc-testimonial-grid, .gbcc-sector-grid, .gbcc-theme-grid, .gbcc-mvv-grid, .gbcc-ecosystem { grid-template-columns:1fr; }
             .gbcc-location-card { padding:24px 20px; }
+            .gbcc-project-steps { grid-template-columns:1fr; gap:4px; }
+            .gbcc-project-step { padding:8px 8px 8px 30px; text-align:left; }
+            .gbcc-project-step::before { top:50%; left:9px; transform:translateY(-50%); }
+            .gbcc-project-step::after { top:-50%; left:8px; width:3px; height:100%; }
             .gbcc-map-frame,.gbcc-map-frame iframe { min-height:360px; }
             .gbcc-r-person img { height:380px; object-position:center 20%; }
             .gbcc-eco-cell:has(.gbcc-eco-connector) { display:none; }
@@ -1315,20 +1328,26 @@
                 <div class="gbcc-location-grid">
                     <div class="gbcc-location-card gbcc-fade-up">
                         <div class="gbcc-location-icon" aria-hidden="true"><i class="fa-solid fa-warehouse"></i></div>
-                        <span class="gbcc-kicker">Future implantation</span>
-                        <h2 id="gbcc-entrepot-title">GBCC ENTREPÔT</h2>
+                        <span class="gbcc-kicker">Centre logistique GBCC</span>
+                        <h2 id="gbcc-entrepot-title">Projet en développement</h2>
                         <div class="gbcc-opening-status" role="status">
                             <i class="fa-solid fa-helmet-safety" aria-hidden="true"></i>
-                            <div><strong>Entrepôt actuellement en construction</strong><span>Ouverture prévisionnelle : 8 octobre 2027</span></div>
+                            <div><strong>Construction en cours</strong><span>Ouverture prévisionnelle : 4<sup>e</sup> trimestre 2027</span></div>
                         </div>
-                        <p class="gbcc-lead">Découvrez la future implantation logistique de Global Business Group (GBG), exploitée par GBCC à Bingerville. Ce site accompagnera les activités agricoles, la traçabilité et la valorisation locale.</p>
+                        <p class="gbcc-lead">Implanté à Bingerville, le futur centre logistique GBCC renforcera les capacités de stockage, de traçabilité et de valorisation des produits agricoles de Global Business Group.</p>
+                        <div class="gbcc-project-steps" aria-label="Avancement prévisionnel du projet">
+                            <div class="gbcc-project-step is-complete">Études</div>
+                            <div class="gbcc-project-step is-active">Construction</div>
+                            <div class="gbcc-project-step">Aménagement</div>
+                            <div class="gbcc-project-step">Ouverture</div>
+                        </div>
                         <div class="gbcc-location-details">
                             <div class="gbcc-location-detail"><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span><strong>Bingerville, Côte d'Ivoire</strong><br>Plus Code : 84X9+58G Bingerville</span></div>
                             <div class="gbcc-location-detail"><i class="fa-solid fa-map-pin" aria-hidden="true"></i><span>Coordonnées GPS : 5.347942, -3.881682</span></div>
                         </div>
                         <div class="gbcc-location-actions">
                             <a class="gbcc-r-btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=5.347942,-3.881682" target="_blank" rel="noopener noreferrer">Obtenir l'itinéraire <i class="fa-solid fa-route" aria-hidden="true"></i></a>
-                            <a class="gbcc-r-btn secondary" href="https://maps.app.goo.gl/NryAT71q5J9UEJHw8" target="_blank" rel="noopener noreferrer">Ouvrir dans Google Maps</a>
+                            <a class="gbcc-r-btn secondary" href="#gbcc-contact">Suivre l'avancement</a>
                         </div>
                     </div>
                     <div class="gbcc-map-frame gbcc-fade-up gbcc-delay-1">
@@ -1339,7 +1358,7 @@
             </div>
         </section>
 
-        <section class="gbcc-contact-band">
+        <section class="gbcc-contact-band" id="gbcc-contact">
             <div class="container">
                 <div class="row g-4 align-items-center">
                     <div class="col-lg-6">
