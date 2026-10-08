@@ -68,6 +68,23 @@
           "inLanguage": "fr-CI",
           "isPartOf": { "@id": "https://gbg-ci.com/#website" },
           "about": { "@id": "https://gbg-ci.com/#organization" }
+        },
+        {
+          "@type": "Place",
+          "@id": "https://gbg-ci.com/gbcc.html#entrepot",
+          "name": "GBCC ENTREPÔT",
+          "description": "Entrepôt GBCC situé à Bingerville, Côte d'Ivoire.",
+          "url": "https://gbg-ci.com/gbcc.html#gbcc-entrepot",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Bingerville",
+            "addressCountry": "CI"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 5.347942,
+            "longitude": -3.881682
+          }
         }
       ]
     }
@@ -295,6 +312,17 @@
         .gbcc-contact-form input, .gbcc-contact-form textarea { width:100%; border:1px solid #dfe5d7; border-radius:6px; min-height:48px; padding:11px 13px; color:#173f2d; }
         .gbcc-contact-form textarea { min-height:118px; resize:vertical; }
         .gbcc-contact-form button { border:0; }
+        .gbcc-location { background:#eef3ec; }
+        .gbcc-location-grid { display:grid; grid-template-columns:minmax(300px,.85fr) minmax(420px,1.35fr); gap:28px; align-items:stretch; }
+        .gbcc-location-card { background:#fff; border:1px solid #dfe7dc; border-radius:14px; padding:34px; box-shadow:0 16px 42px rgba(23,63,45,.08); display:flex; flex-direction:column; justify-content:center; }
+        .gbcc-location-icon { width:54px; height:54px; border-radius:14px; display:grid; place-items:center; background:#173f2d; color:#fdd61f; font-size:22px; margin-bottom:20px; }
+        .gbcc-location-card h2 { margin-bottom:12px; }
+        .gbcc-location-details { display:grid; gap:12px; margin:22px 0; }
+        .gbcc-location-detail { display:flex; align-items:flex-start; gap:12px; color:#52635a; line-height:1.5; }
+        .gbcc-location-detail i { color:#8f6b10; width:18px; margin-top:4px; text-align:center; }
+        .gbcc-location-actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:6px; }
+        .gbcc-map-frame { min-height:460px; border-radius:14px; overflow:hidden; border:1px solid #dfe7dc; box-shadow:0 16px 42px rgba(23,63,45,.08); background:#dfe7dc; }
+        .gbcc-map-frame iframe { display:block; width:100%; height:100%; min-height:460px; border:0; }
         .gbcc-r-footer { background:#0f2b1e; color:#fff; padding:64px 0 26px; }
         .gbcc-footer-grid { display:grid; grid-template-columns:1.2fr .8fr .8fr .8fr; gap:28px; }
         .gbcc-footer-logo { width:82px; height:auto; margin-bottom:18px; background:#fff; border-radius:6px; padding:8px; }
@@ -309,6 +337,7 @@
         @media (max-width:991px){
             .gbcc-r-hero h2 { font-size:42px; }
             .gbcc-identity-grid, .gbcc-service-grid, .gbcc-team-grid, .gbcc-method-grid, .gbcc-footer-grid, .gbcc-clarity-grid, .gbcc-sector-grid, .gbcc-theme-grid, .gbcc-mvv-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+            .gbcc-location-grid { grid-template-columns:1fr; }
             .gbcc-r-person img { height:300px; }
             .gbcc-ecosystem { grid-template-columns:repeat(3,1fr); gap:14px; }
             .gbcc-eco-cell:has(.gbcc-eco-connector) { display:none; }
@@ -322,6 +351,8 @@
             .gbcc-r-hero { padding:72px 0 48px; }
             .gbcc-r-hero h2, .gbcc-section h2 { font-size:32px; }
             .gbcc-identity-grid, .gbcc-service-grid, .gbcc-projects, .gbcc-team-grid, .gbcc-panel-row, .gbcc-method-grid, .gbcc-gallery-grid, .gbcc-footer-grid, .gbcc-clarity-grid, .gbcc-video-grid, .gbcc-impact-grid, .gbcc-testimonial-grid, .gbcc-sector-grid, .gbcc-theme-grid, .gbcc-mvv-grid, .gbcc-ecosystem { grid-template-columns:1fr; }
+            .gbcc-location-card { padding:24px 20px; }
+            .gbcc-map-frame,.gbcc-map-frame iframe { min-height:360px; }
             .gbcc-r-person img { height:380px; object-position:center 20%; }
             .gbcc-eco-cell:has(.gbcc-eco-connector) { display:none; }
             .gbcc-ecosystem-item { opacity:1; transform:none; }
@@ -569,8 +600,8 @@
                                                     </a>
                                                     <ul class="submenu gbg-entity-dropdown">
                                                         <li><a href="gbcc.html"><div class="gbg-drop-icon gbg-drop-gbcc"><img src="assets/img/logo/GBCC.jpg" alt="GBCC"></div><div class="gbg-drop-text"><span>GBCC</span><small>Conseil &amp; Certification</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
-                                                        <li><a href="scmc.html"><div class="gbg-drop-icon gbg-drop-scmc"><img src="assets/img/logo/scmc.jpg" alt="SCMC"></div><div class="gbg-drop-text"><span>SCMC</span><small>Commercialisation durable</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
-                                                        <li><a href="kic.html"><div class="gbg-drop-icon gbg-drop-kic"><img src="assets/img/logo/KIC.jpg" alt="KIC"></div><div class="gbg-drop-text"><span>KIC</span><small>Transformation du cacao</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
+<li><a href="scmc.html"><div class="gbg-drop-icon gbg-drop-scmc"><img src="assets/img/logo/scmc.jpg" alt="SCMC"></div><div class="gbg-drop-text"><span>SCMC</span><small>Transformation &amp; négoce</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
+<li><a href="kic.html"><div class="gbg-drop-icon gbg-drop-kic"><img src="assets/img/logo/KIC.jpg" alt="KIC"></div><div class="gbg-drop-text"><span>KIC</span><small>Distribution en Europe</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
                                                         <li><a href="assiette-durable.html"><div class="gbg-drop-icon gbg-drop-ad"><img src="assets/img/logo/SCMC assiette durable.jpg" alt="Assiette Durable"></div><div class="gbg-drop-text"><span>Assiette Durable</span><small>Restauration responsable</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
                                                         <li><a href="scmc-chocolaterie.html"><div class="gbg-drop-icon gbg-drop-choc"><i class="fa-solid fa-candy-cane"></i></div><div class="gbg-drop-text"><span>SCMC Chocolaterie</span><small>Produits chocolatés</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
                                                     </ul>
@@ -1266,6 +1297,30 @@
                         <strong>Awa Coulibaly</strong>
                         <span>Responsable ONG ViVaFemmes</span>
                     </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="gbcc-section gbcc-location" id="gbcc-entrepot" aria-labelledby="gbcc-entrepot-title">
+            <div class="container">
+                <div class="gbcc-location-grid">
+                    <div class="gbcc-location-card gbcc-fade-up">
+                        <div class="gbcc-location-icon" aria-hidden="true"><i class="fa-solid fa-warehouse"></i></div>
+                        <span class="gbcc-kicker">Localisation</span>
+                        <h2 id="gbcc-entrepot-title">GBCC ENTREPÔT</h2>
+                        <p class="gbcc-lead">Retrouvez l'entrepôt GBCC à Bingerville et lancez votre itinéraire directement avec Google Maps.</p>
+                        <div class="gbcc-location-details">
+                            <div class="gbcc-location-detail"><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span><strong>Bingerville, Côte d'Ivoire</strong><br>Plus Code : 84X9+58G Bingerville</span></div>
+                            <div class="gbcc-location-detail"><i class="fa-solid fa-map-pin" aria-hidden="true"></i><span>Coordonnées GPS : 5.347942, -3.881682</span></div>
+                        </div>
+                        <div class="gbcc-location-actions">
+                            <a class="gbcc-r-btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=5.347942,-3.881682" target="_blank" rel="noopener noreferrer">Obtenir l'itinéraire <i class="fa-solid fa-route" aria-hidden="true"></i></a>
+                            <a class="gbcc-r-btn secondary" href="https://maps.app.goo.gl/NryAT71q5J9UEJHw8" target="_blank" rel="noopener noreferrer">Ouvrir dans Google Maps</a>
+                        </div>
+                    </div>
+                    <div class="gbcc-map-frame gbcc-fade-up gbcc-delay-1">
+                        <iframe src="https://www.google.com/maps?q=5.347942,-3.881682&amp;z=17&amp;output=embed" title="Carte Google Maps de GBCC ENTREPÔT à Bingerville" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+                    </div>
                 </div>
             </div>
         </section>

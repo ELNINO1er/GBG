@@ -60,6 +60,16 @@
           "inLanguage": "fr-CI"
         },
         {
+          "@type": "Organization",
+          "@id": "https://gbg-ci.com/scmc.html#organization",
+          "name": "Sustainable Commodities Marketing Company",
+          "alternateName": "SCMC",
+          "url": "https://gbg-ci.com/scmc.html",
+          "logo": "https://gbg-ci.com/assets/img/logo/scmc.jpg",
+          "parentOrganization": { "@id": "https://gbg-ci.com/#organization" },
+          "knowsAbout": ["transformation du cacao", "commercialisation agricole", "traçabilité", "agro-industrie durable"]
+        },
+        {
           "@type": "WebPage",
           "@id": "https://gbg-ci.com/scmc.html#webpage",
           "url": "https://gbg-ci.com/scmc.html",
@@ -67,7 +77,7 @@
           "description": "SCMC valorise et commercialise les produits agricoles durables, certifiés et traçables issus des filières responsables de Global Business Group SA.",
           "inLanguage": "fr-CI",
           "isPartOf": { "@id": "https://gbg-ci.com/#website" },
-          "about": { "@id": "https://gbg-ci.com/#organization" }
+          "about": { "@id": "https://gbg-ci.com/scmc.html#organization" }
         }
       ]
     }
@@ -95,6 +105,17 @@
     <link rel="stylesheet" href="assets/css/main.css?v=20260701-polish">
     <style>
     .wow { visibility: visible !important; }
+    .gbg-group-link{background:#0d2818;color:#fff;border-bottom:1px solid rgba(255,255,255,.12)}
+    .gbg-group-link .container{min-height:62px;display:flex;align-items:center;justify-content:space-between;gap:18px;padding-top:10px;padding-bottom:10px}
+    .gbg-group-brand{display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none;font-weight:700}
+    .gbg-group-brand img{width:82px;height:34px;object-fit:contain}
+    .gbg-group-brand small{display:block;color:rgba(255,255,255,.65);font-size:11px;font-weight:500}
+    .gbg-value-chain{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+    .gbg-value-chain a,.gbg-value-chain span{color:rgba(255,255,255,.78);font-size:12px;text-decoration:none;padding:6px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.14)}
+    .gbg-value-chain a:hover,.gbg-value-chain a:focus-visible{color:#fff;border-color:#62bd43;background:rgba(98,189,67,.14)}
+    .gbg-value-chain .is-current{color:#0d2818;background:#62bd43;border-color:#62bd43;font-weight:800}
+    .gbg-value-chain span[aria-hidden="true"]{border:0;padding:0;color:rgba(255,255,255,.4)}
+    @media(max-width:767px){.gbg-group-link .container{align-items:flex-start;flex-direction:column}.gbg-value-chain{justify-content:flex-start}.gbg-group-brand small{max-width:220px}}
 
     /* ── SCMC Enhanced Design ── */
     .scmc-market-page .gbg-card {
@@ -673,8 +694,8 @@
                                                     </a>
                                                     <ul class="submenu gbg-entity-dropdown">
                                                         <li><a href="gbcc.html"><div class="gbg-drop-icon gbg-drop-gbcc"><img src="assets/img/logo/GBCC.jpg" alt="GBCC"></div><div class="gbg-drop-text"><span>GBCC</span><small>Conseil &amp; Certification</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
-                                                        <li><a href="scmc.html"><div class="gbg-drop-icon gbg-drop-scmc"><img src="assets/img/logo/scmc.jpg" alt="SCMC"></div><div class="gbg-drop-text"><span>SCMC</span><small>Commercialisation durable</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
-                                                        <li><a href="kic.html"><div class="gbg-drop-icon gbg-drop-kic"><img src="assets/img/logo/KIC.jpg" alt="KIC"></div><div class="gbg-drop-text"><span>KIC</span><small>Transformation du cacao</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
+<li><a href="scmc.html"><div class="gbg-drop-icon gbg-drop-scmc"><img src="assets/img/logo/scmc.jpg" alt="SCMC"></div><div class="gbg-drop-text"><span>SCMC</span><small>Transformation &amp; négoce</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
+<li><a href="kic.html"><div class="gbg-drop-icon gbg-drop-kic"><img src="assets/img/logo/KIC.jpg" alt="KIC"></div><div class="gbg-drop-text"><span>KIC</span><small>Distribution en Europe</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
                                                         <li><a href="assiette-durable.html"><div class="gbg-drop-icon gbg-drop-ad"><img src="assets/img/logo/SCMC assiette durable.jpg" alt="Assiette Durable"></div><div class="gbg-drop-text"><span>Assiette Durable</span><small>Restauration responsable</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
                                                         <li><a href="scmc-chocolaterie.html"><div class="gbg-drop-icon gbg-drop-choc"><i class="fa-solid fa-candy-cane"></i></div><div class="gbg-drop-text"><span>SCMC Chocolaterie</span><small>Produits chocolatés</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
                                                     </ul>
@@ -749,7 +770,7 @@
                             <i class="fa-solid fa-angle-right"></i>
                         </li>
                         <li>
-                            <a href="#">Nos Entités</a>
+                            <a href="entites.html">Nos Entités</a>
                         </li>
                         <li>
                             <i class="fa-solid fa-angle-right"></i>
@@ -765,6 +786,18 @@
             </div>
         </div>
     </section>
+
+    <aside class="gbg-group-link" aria-label="Rattachement au groupe GBG">
+        <div class="container">
+            <a class="gbg-group-brand" href="index.html" aria-label="Retour à Global Business Group">
+                <img src="assets/img/logo/logo-light.svg" alt="Global Business Group">
+                <span>Une entité de GBG<small>Un écosystème intégré, de la filière au marché</small></span>
+            </a>
+            <nav class="gbg-value-chain" aria-label="Chaîne de valeur GBG">
+                <a href="index.html">GBG</a><span aria-hidden="true">→</span><span class="is-current">SCMC · Origine &amp; transformation</span><span aria-hidden="true">→</span><a href="kic.html">KIC · Marchés européens</a>
+            </nav>
+        </div>
+    </aside>
 
     <main class="gbg-entity-page scmc-market-page">
         <!-- Hero Section -->
