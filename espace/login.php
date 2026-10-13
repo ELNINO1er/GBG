@@ -55,7 +55,7 @@ button:hover{background:#1f5c3d}
   <label for="p">Mot de passe</label>
   <input id="p" name="password" type="password" autocomplete="current-password" required>
   <button type="submit">Se connecter</button>
-  <a class="home" href="../index.html">&larr; Retour au site GBG</a>
+  <a class="home" href="../">&larr; Retour au site GBG</a>
 </form>
 </body>
 </html>

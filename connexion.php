@@ -80,7 +80,7 @@ label{display:block;font-size:13px;font-weight:700;margin:15px 0 7px}input{width
       <button type="submit">Se connecter à mon espace</button>
     </form>
     <div class="hint"><?= $role === 'admin' ? 'Accès réservé à l’équipe GBG chargée de gérer les coopératives et les publications.' : 'Votre identifiant est fourni par GBG lors de la création de votre accès coopérative.' ?></div>
-    <a class="back" href="index.html">← Retour au site GBG</a>
+    <a class="back" href="/">← Retour au site GBG</a>
   </section>
 </main>
 <script>

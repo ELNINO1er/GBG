@@ -21,6 +21,20 @@ DirectoryIndex index.html
 
   RewriteCond %{HTTP_HOST} ^www\.gbg-ci\.com$ [NC]
   RewriteRule ^ https://gbg-ci.com%{REQUEST_URI} [L,R=301]
+
+  # URLs propres : masquer l'extension .html
+  # 1. index.html -> racine
+  RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+  RewriteRule ^ / [R=301,L]
+
+  # 2. Ancienne URL /page.html -> /page (301, pour le referencement)
+  RewriteCond %{THE_REQUEST} \s/+([^.\s?]+)\.html[\s?] [NC]
+  RewriteRule ^ /%1 [R=301,L]
+
+  # 3. /page -> servir le fichier page.html en interne
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.+?)/?$ $1.html [L]
 </IfModule>
 
 # Compression des ressources textuelles pour accélérer l'affichage et l'exploration.
