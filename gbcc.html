@@ -248,18 +248,7 @@
         .gbcc-theme-card h3 { color:#173f2d; font-size:23px; margin-bottom:10px; }
         .gbcc-theme-card p { color:#5b6b63; line-height:1.65; margin:0; }
         .gbcc-video-section { background:#fff; }
-        .gbcc-video-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; margin-top:34px; }
-        .gbcc-video-card { position:relative; min-height:360px; border-radius:8px; overflow:hidden; background:#173f2d; box-shadow:0 20px 48px rgba(29,54,38,.14); }
-        .gbcc-video-card img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform .45s ease; }
-        .gbcc-video-card:hover img { transform:scale(1.05); }
-        .gbcc-video-card:after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,.08),rgba(14,42,29,.86)); }
-        .gbcc-video-content { position:absolute; z-index:1; inset:auto 24px 24px 24px; color:#fff; }
-        .gbcc-video-content span { display:inline-flex; align-items:center; gap:8px; background:rgba(253,214,31,.92); color:#173f2d; font-weight:900; padding:8px 12px; border-radius:999px; margin-bottom:14px; }
-        .gbcc-video-content h3 { color:#fff; font-size:27px; margin-bottom:10px; }
-        .gbcc-video-content p { color:rgba(255,255,255,.84); line-height:1.6; margin:0; }
-        .gbcc-play-button { position:absolute; z-index:2; top:24px; right:24px; width:64px; height:64px; border-radius:50%; border:0; background:#fdd61f; color:#173f2d; display:flex; align-items:center; justify-content:center; font-size:20px; box-shadow:0 0 0 10px rgba(253,214,31,.18); cursor:default; }
-        .gbcc-play-button:before { content:""; position:absolute; inset:-10px; border-radius:50%; border:1px solid rgba(253,214,31,.45); animation:gbccPulse 1.8s ease-out infinite; }
-        @keyframes gbccPulse { from { transform:scale(.88); opacity:1; } to { transform:scale(1.2); opacity:0; } }
+        .gbcc-label-video { display:block; width:100%; max-width:300px; aspect-ratio:9 / 16; margin-inline:auto; border-radius:8px; background:#173f2d; }
         .gbcc-founder { background:#123826; color:#fff; }
         .gbcc-founder h2, .gbcc-founder h3 { color:#fff; }
         .gbcc-founder p, .gbcc-founder li { color:rgba(255,255,255,.84); }
@@ -292,12 +281,6 @@
         .gbcc-impact-card div { position:relative; z-index:2; }
         .gbcc-impact-card h3 { color:#fff; font-size:27px; margin-bottom:10px; }
         .gbcc-impact-card p { color:rgba(255,255,255,.84); line-height:1.65; margin:0; }
-        .gbcc-testimonial-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; margin-top:34px; }
-        .gbcc-testimonial { background:#fff; border:1px solid #e3e8de; border-radius:8px; padding:24px; position:relative; box-shadow:0 12px 30px rgba(29,54,38,.06); }
-        .gbcc-testimonial i { color:#fdd61f; font-size:32px; margin-bottom:18px; }
-        .gbcc-testimonial p { color:#5b6b63; line-height:1.68; margin-bottom:18px; }
-        .gbcc-testimonial strong { color:#173f2d; display:block; }
-        .gbcc-testimonial span { color:#7b877f; font-size:14px; }
         .gbcc-team-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:18px; margin-top:34px; }
         .gbcc-r-person { background:#fff; border:1px solid #e3e8de; border-radius:8px; overflow:hidden; }
         .gbcc-r-person img { width:100%; height:270px; object-fit:cover; object-position:center top; }
@@ -308,11 +291,6 @@
         .gbcc-contact-band h2 { color:#fff; margin:0; }
         .gbcc-contact-list { display:grid; gap:10px; color:rgba(255,255,255,.88); }
         .gbcc-contact-list a { color:#fff; text-decoration:none; }
-        .gbcc-contact-form { background:#fff; border-radius:8px; padding:24px; box-shadow:0 18px 42px rgba(0,0,0,.18); }
-        .gbcc-contact-form .row { --bs-gutter-y:14px; }
-        .gbcc-contact-form input, .gbcc-contact-form textarea { width:100%; border:1px solid #dfe5d7; border-radius:6px; min-height:48px; padding:11px 13px; color:#173f2d; }
-        .gbcc-contact-form textarea { min-height:118px; resize:vertical; }
-        .gbcc-contact-form button { border:0; }
         .gbcc-location { position:relative; overflow:hidden; background:linear-gradient(135deg,#eef3ec 0%,#f7f4e8 100%); }
         .gbcc-location::before { content:""; position:absolute; width:380px; height:380px; right:-160px; top:-190px; border-radius:50%; background:rgba(253,214,31,.14); pointer-events:none; }
         .gbcc-location-grid { position:relative; display:grid; grid-template-columns:minmax(320px,.85fr) minmax(420px,1.35fr); gap:28px; align-items:stretch; }
@@ -362,13 +340,12 @@
             .gbcc-ecosystem-item { opacity:1; transform:none; }
             .gbcc-stat-strip { grid-template-columns:repeat(2,minmax(0,1fr)); }
             .gbcc-gallery-grid, .gbcc-impact-grid { grid-template-columns:1fr 1fr; }
-            .gbcc-testimonial-grid { grid-template-columns:1fr; }
             .gbcc-gallery-grid a:first-child { grid-row:auto; grid-column:span 2; min-height:360px; }
         }
         @media (max-width:575px){
             .gbcc-r-hero { padding:72px 0 48px; }
             .gbcc-r-hero h2, .gbcc-section h2 { font-size:32px; }
-            .gbcc-identity-grid, .gbcc-service-grid, .gbcc-projects, .gbcc-team-grid, .gbcc-panel-row, .gbcc-method-grid, .gbcc-gallery-grid, .gbcc-footer-grid, .gbcc-clarity-grid, .gbcc-video-grid, .gbcc-impact-grid, .gbcc-testimonial-grid, .gbcc-sector-grid, .gbcc-theme-grid, .gbcc-mvv-grid, .gbcc-ecosystem { grid-template-columns:1fr; }
+            .gbcc-identity-grid, .gbcc-service-grid, .gbcc-projects, .gbcc-team-grid, .gbcc-panel-row, .gbcc-method-grid, .gbcc-gallery-grid, .gbcc-footer-grid, .gbcc-clarity-grid, .gbcc-impact-grid, .gbcc-sector-grid, .gbcc-theme-grid, .gbcc-mvv-grid, .gbcc-ecosystem { grid-template-columns:1fr; }
             .gbcc-location-card { padding:24px 20px; }
             .gbcc-project-steps { grid-template-columns:1fr; gap:4px; }
             .gbcc-project-step { padding:8px 8px 8px 30px; text-align:left; }
@@ -378,7 +355,6 @@
             .gbcc-r-person img { height:380px; object-position:center 20%; }
             .gbcc-eco-cell:has(.gbcc-eco-connector) { display:none; }
             .gbcc-ecosystem-item { opacity:1; transform:none; }
-            .gbcc-video-card { min-height:300px; }
             .gbcc-gallery-grid a:first-child { grid-column:auto; min-height:260px; }
             .gbcc-stat-strip { grid-template-columns:1fr; }
         }
@@ -622,8 +598,8 @@
                                                     </a>
                                                     <ul class="submenu gbg-entity-dropdown">
                                                         <li><a href="gbcc"><div class="gbg-drop-icon gbg-drop-gbcc"><img src="assets/img/logo/GBCC.jpg" alt="GBCC"></div><div class="gbg-drop-text"><span>GBCC</span><small>Conseil &amp; Certification</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
-<li><a href="scmc"><div class="gbg-drop-icon gbg-drop-scmc"><img src="assets/img/logo/scmc.jpg" alt="SCMC"></div><div class="gbg-drop-text"><span>SCMC</span><small>Transformation &amp; négoce</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
-<li><a href="kic"><div class="gbg-drop-icon gbg-drop-kic"><img src="assets/img/logo/KIC.jpg" alt="KIC"></div><div class="gbg-drop-text"><span>KIC</span><small>Distribution en Europe</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
+<li><a href="https://scmc-ci.com/"><div class="gbg-drop-icon gbg-drop-scmc"><img src="assets/img/logo/scmc.jpg" alt="SCMC"></div><div class="gbg-drop-text"><span>SCMC</span><small>Transformation &amp; négoce</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
+<li><a href="https://kic-fr.com/"><div class="gbg-drop-icon gbg-drop-kic"><img src="assets/img/logo/kic-konan.png" alt="" style="object-fit:contain!important"></div><div class="gbg-drop-text"><span>KIC</span><small>Distribution en Europe</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
                                                         <li><a href="assiette-durable"><div class="gbg-drop-icon gbg-drop-ad"><img src="assets/img/logo/SCMC assiette durable.jpg" alt="Assiette Durable"></div><div class="gbg-drop-text"><span>Assiette Durable</span><small>Restauration responsable</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
                                                         <li><a href="scmc-chocolaterie"><div class="gbg-drop-icon gbg-drop-choc"><i class="fa-solid fa-candy-cane"></i></div><div class="gbg-drop-text"><span>SCMC Chocolaterie</span><small>Produits chocolatés</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
                                                     </ul>
@@ -727,8 +703,8 @@
                             Depuis 2007, GBCC accompagne les producteurs, coopératives, institutions et partenaires priv&eacute;s dans la certification, la tra&ccedil;abilit&eacute;, la formation et la structuration durable des filières agricoles. Le cabinet intervient comme un partenaire technique complet : analyse terrain, mise en conformit&eacute;, suivi des organisations et ouverture vers les financements et les marchés.
                         </p>
                         <div class="gbcc-r-actions gbcc-fade-up gbcc-delay-3">
-                            <a href="#gbcc-redesign-services" class="gbcc-r-btn">Voir les expertises <i class="fa-solid fa-arrow-right"></i></a>
-                            <a href="mailto:infos@gbg-ci.com" class="gbcc-r-btn secondary">Contacter GBCC</a>
+                            <a href="#gbcc-redesign-services" class="gbcc-r-btn">Être accompagné par GBCC <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="#gbcc-label" class="gbcc-r-btn secondary">Découvrir le label GBCC</a>
                         </div>
                     </div>
                     <div class="col-lg-5">
@@ -821,7 +797,7 @@
                         <div class="gbcc-eco-connector"><div class="eco-line"></div><div class="eco-dot"><i class="fa-solid fa-arrow-right"></i></div></div>
                     </div>
                     <div class="gbcc-eco-cell">
-                        <div class="gbcc-ecosystem-item"><strong>KIC</strong><span>Transformation industrielle du cacao</span></div>
+                        <div class="gbcc-ecosystem-item"><strong>KIC</strong><span>Distribution en Europe de produits semi-finis</span></div>
                     </div>
                     <div class="gbcc-eco-cell">
                         <div class="gbcc-eco-connector"><div class="eco-line"></div><div class="eco-dot"><i class="fa-solid fa-arrow-right"></i></div></div>
@@ -1009,36 +985,22 @@
             </div>
         </section>
 
-        <section class="gbcc-section gbcc-video-section">
+        <section class="gbcc-section gbcc-video-section" id="gbcc-label" aria-labelledby="gbcc-label-title">
             <div class="container">
-                <span class="gbcc-kicker">Vidéos GBCC</span>
-                <h2>Deux espaces prêts pour vos contenus vidéo</h2>
-                <p class="gbcc-lead">
-                    Ces blocs sont pr&eacute;vus pour recevoir les vid&eacute;os officielles de GBCC afin de rester coh&eacute;rents avec les sections vid&eacute;o de la page d'accueil : une pr&eacute;sentation institutionnelle et une immersion terrain.
-                </p>
-                <div class="gbcc-video-grid">
-                    <article class="gbcc-video-card" data-yt="">
-                        <img src="assets/img/gbcc/DG-02.jpg" alt="Vid&eacute;o de pr&eacute;sentation GBCC">
-                        <button type="button" class="gbcc-play-button" aria-label="Vid&eacute;o institutionnelle &agrave; int&eacute;grer">
-                            <i class="fa-solid fa-play"></i>
-                        </button>
-                        <div class="gbcc-video-content">
-                            <span><i class="fa-solid fa-video"></i> Vid&eacute;o &agrave; int&eacute;grer</span>
-                            <h3>Pr&eacute;sentation institutionnelle de GBCC</h3>
-                            <p>Un format pour raconter l'histoire du cabinet, sa mission, son fondateur, ses expertises et sa contribution &agrave; la certification du cacao ivoirien.</p>
-                        </div>
-                    </article>
-                    <article class="gbcc-video-card" data-yt="">
-                        <img src="assets/img/gbcc/DG%20sortie.jpg" alt="Vid&eacute;o terrain GBCC">
-                        <button type="button" class="gbcc-play-button" aria-label="Vid&eacute;o terrain &agrave; int&eacute;grer">
-                            <i class="fa-solid fa-play"></i>
-                        </button>
-                        <div class="gbcc-video-content">
-                            <span><i class="fa-solid fa-video"></i> Vid&eacute;o &agrave; int&eacute;grer</span>
-                            <h3>Immersion terrain avec les producteurs</h3>
-                            <p>Un espace pour montrer la formation, les visites de plantations, le contr&ocirc;le interne, la tra&ccedil;abilit&eacute; et la proximit&eacute; avec les coopératives.</p>
-                        </div>
-                    </article>
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-7">
+                        <span class="gbcc-kicker">Label GBCC</span>
+                        <h2 id="gbcc-label-title">Du cacao ivoirien aux cultures vivrières</h2>
+                        <p class="gbcc-lead">Le label GBCC met en valeur le travail des producteurs ivoiriens. La vidéo présente la masse, le beurre et la poudre de cacao ainsi que les tomates, les piments et les aubergines.</p>
+                        <p>Vous êtes acheteur, transformateur ou distributeur ? Échangeons sur les possibilités de collaboration.</p>
+                        <a class="gbcc-r-btn mt-3" href="contact?entite=GBCC#contact-form">Échanger avec GBCC <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="col-lg-5">
+                        <video class="gbcc-label-video" controls playsinline preload="none" poster="assets/img/gbcc/gbcc-label-affiche.webp" aria-label="Présentation sous-titrée du label GBCC">
+                            <source src="assets/img/gbcc/gbcc-label-sous-titres.mp4" type="video/mp4">
+                            <a href="assets/img/gbcc/gbcc-label-sous-titres.mp4">Voir la vidéo du label GBCC</a>
+                        </video>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1165,7 +1127,7 @@
                 <span class="gbcc-kicker">Partenaires</span>
                 <h2>Un réseau de partenaires techniques, institutionnels et commerciaux</h2>
                 <p class="gbcc-lead">
-                    GBCC &eacute;volue avec des acteurs engag&eacute;s dans l'am&eacute;lioration de la production, la certification, l'appui aux producteurs et l'acc&egrave;s aux marchés. Cette section peut accueillir les logos d&eacute;finitifs d&egrave;s qu'ils sont valid&eacute;s.
+                    GBCC &eacute;volue avec des acteurs engag&eacute;s dans l'am&eacute;lioration de la production, la certification, l'appui aux producteurs et l'acc&egrave;s aux marchés.
                 </p>
                 <div class="gbcc-partner-strip">
                     <div class="gbcc-partner-track">
@@ -1293,36 +1255,6 @@
             </div>
         </section>
 
-        <section class="gbcc-section white">
-            <div class="container">
-                <span class="gbcc-kicker">T&eacute;moignages</span>
-                <h2>Ce que les partenaires retiennent de l'approche GBCC</h2>
-                <p class="gbcc-lead">
-                    Ces t&eacute;moignages structurent le discours de confiance autour de GBCC. Ils peuvent ensuite &ecirc;tre remplac&eacute;s par des citations valid&eacute;es et sign&eacute;es officiellement.
-                </p>
-                <div class="gbcc-testimonial-grid">
-                    <article class="gbcc-testimonial gbcc-fade-up">
-                        <i class="fa-solid fa-quote-left"></i>
-                        <p>GBCC nous aide &agrave; mieux comprendre les exigences de certification et &agrave; organiser le suivi des producteurs. L'accompagnement est concret, proche du terrain et orient&eacute; r&eacute;sultats.</p>
-                        <strong>Koffi Kouam&eacute;</strong>
-                        <span>Producteur de cacao &agrave; Soubr&eacute;</span>
-                    </article>
-                    <article class="gbcc-testimonial gbcc-fade-up gbcc-delay-1">
-                        <i class="fa-solid fa-quote-left"></i>
-                        <p>Le cabinet poss&egrave;de une vraie connaissance du cacao ivoirien. Sa capacit&eacute; &agrave; relier certification, qualit&eacute; et acc&egrave;s march&eacute; apporte une valeur forte aux acheteurs.</p>
-                        <strong>Marc Daniel</strong>
-                        <span>Directeur export, Chocolaterie &Eacute;thique</span>
-                    </article>
-                    <article class="gbcc-testimonial gbcc-fade-up gbcc-delay-2">
-                        <i class="fa-solid fa-quote-left"></i>
-                        <p>GBCC est un partenaire pr&eacute;cieux pour les programmes de sensibilisation, d'alphab&eacute;tisation et d'&eacute;mancipation des femmes dans les communaut&eacute;s agricoles.</p>
-                        <strong>Awa Coulibaly</strong>
-                        <span>Responsable ONG ViVaFemmes</span>
-                    </article>
-                </div>
-            </div>
-        </section>
-
         <section class="gbcc-section gbcc-location" id="gbcc-entrepot" aria-labelledby="gbcc-entrepot-title">
             <div class="container">
                 <div class="gbcc-location-grid">
@@ -1347,7 +1279,7 @@
                         </div>
                         <div class="gbcc-location-actions">
                             <a class="gbcc-r-btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=5.347942,-3.881682" target="_blank" rel="noopener noreferrer">Obtenir l'itinéraire <i class="fa-solid fa-route" aria-hidden="true"></i></a>
-                            <a class="gbcc-r-btn secondary" href="#gbcc-contact">Suivre l'avancement</a>
+                            <a class="gbcc-r-btn secondary" href="#gbcc-contact">Contacter GBCC au sujet du projet</a>
                         </div>
                     </div>
                     <div class="gbcc-map-frame gbcc-fade-up gbcc-delay-1">
@@ -1376,18 +1308,7 @@
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <form action="mailto:infos@gbg-ci.com" method="post" enctype="text/plain" class="gbcc-contact-form">
-                            <div class="row">
-                                <div class="col-md-6"><input type="text" name="nom" placeholder="Nom"></div>
-                                <div class="col-md-6"><input type="text" name="prenom" placeholder="Pr&eacute;nom"></div>
-                                <div class="col-md-6"><input type="text" name="organisation" placeholder="Organisation"></div>
-                                <div class="col-md-6"><input type="email" name="email" placeholder="Email"></div>
-                                <div class="col-md-6"><input type="tel" name="telephone" placeholder="T&eacute;l&eacute;phone"></div>
-                                <div class="col-md-6"><input type="text" name="sujet" placeholder="Sujet"></div>
-                                <div class="col-12"><textarea name="message" placeholder="Message"></textarea></div>
-                                <div class="col-12"><button type="submit" class="gbcc-r-btn">Envoyer la demande <i class="fa-solid fa-arrow-right"></i></button></div>
-                            </div>
-                        </form>
+                        <a href="contact?entite=GBCC#contact-form" class="gbcc-r-btn">Envoyer une demande à GBCC <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>
@@ -1411,8 +1332,8 @@
                         <h4>Nos entités</h4>
                         <ul class="gbg-footer-links">
                             <li><a href="gbcc">GBCC</a></li>
-                            <li><a href="scmc">SCMC</a></li>
-                            <li><a href="kic">KIC</a></li>
+                            <li><a href="https://scmc-ci.com/">SCMC</a></li>
+                            <li><a href="https://kic-fr.com/">KIC</a></li>
                             <li><a href="assiette-durable">Assiette Durable</a></li>
                             <li><a href="scmc-chocolaterie">SCMC Chocolaterie</a></li>
                         </ul>
@@ -1441,20 +1362,11 @@
                             <div class="gbg-footer-contact-icon"><i class="fa-solid fa-envelope"></i></div>
                             <span><a href="mailto:infos@gbg-ci.com">infos@gbg-ci.com</a></span>
                         </div>
-                        <div class="gbg-footer-newsletter">
-                            <h4 style="margin-top:8px;">Newsletter</h4>
-                            <form class="gbg-footer-newsletter-form" onsubmit="return false;">
-                                <input type="email" placeholder="Votre adresse email">
-                                <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
-                            </form>
-                        </div>
                     </div>
                 </div>
                 <div class="gbg-footer-bottom">
                     <p class="mb-0">&copy; Global Business Group <span id="gbgYear">2026</span>.<script>(function(){var y=document.getElementById("gbgYear");if(y)y.textContent=new Date().getFullYear();})();</script> Tous droits réservés.</p>
                     <ul class="gbg-footer-bottom-links">
-                        <li><a href="contact">Mentions légales</a></li>
-                        <li><a href="contact">Confidentialité</a></li>
                         <li><a href="contact">Contact</a></li>
                     </ul>
                 </div>
@@ -1488,7 +1400,7 @@
     <script src="assets/js/main.js?v=20260905b"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            var revealItems = document.querySelectorAll('.gbcc-scroll-reveal, .gbcc-r-service, .gbcc-r-project, .gbcc-testimonial, .gbcc-theme-card');
+            var revealItems = document.querySelectorAll('.gbcc-scroll-reveal, .gbcc-r-service, .gbcc-r-project, .gbcc-theme-card');
             if (!('IntersectionObserver' in window)) {
                 revealItems.forEach(function (item) { item.classList.add('is-visible'); });
                 return;
@@ -1533,18 +1445,6 @@
             }
         });
     </script>
-<script>
-(function(){
-    document.querySelectorAll('.gbcc-video-card[data-yt]').forEach(function(card){
-        card.style.cursor = 'pointer';
-        card.addEventListener('click', function(){
-            var ytId = card.getAttribute('data-yt');
-            if (!ytId || ytId.length < 3) return;
-            card.innerHTML = '<div style="position:relative;width:100%;height:100%;min-height:360px"><iframe src="https://www.youtube.com/embed/' + ytId + '?autoplay=1&rel=0" style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;border-radius:8px" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe></div>';
-        });
-    });
-})();
-</script>
 </body>
 
 </html>

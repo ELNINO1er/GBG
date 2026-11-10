@@ -64,8 +64,8 @@
           "@id": "https://gbg-ci.com/kic#organization",
           "name": "Konan Industrie et Chocolaterie",
           "alternateName": "KIC",
-          "url": "https://gbg-ci.com/kic",
-          "logo": "https://gbg-ci.com/assets/img/logo/KIC.jpg",
+          "url": "https://kic-fr.com/",
+          "logo": "https://gbg-ci.com/assets/img/logo/kic-konan.png",
           "parentOrganization": { "@id": "https://gbg-ci.com/#organization" },
           "knowsAbout": ["cacao durable", "produits agricoles semi-finis", "commercialisation en Europe"]
         },
@@ -351,92 +351,6 @@
         }
     }
 
-    /* Video grid */
-    .kic-video-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-    }
-    @media (max-width: 991px) { .kic-video-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 575px) { .kic-video-grid { grid-template-columns: 1fr; } }
-
-    .kic-vcard {
-        position: relative;
-        border-radius: 16px;
-        overflow: hidden;
-        background: #1a0e05;
-        cursor: pointer;
-        transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease;
-    }
-    .kic-vcard:hover, .kic-vcard.kic-v-active {
-        transform: translateY(-8px);
-        box-shadow: 0 20px 50px rgba(218,165,32,0.2);
-    }
-    .kic-vcard-thumb {
-        position: relative; height: 220px; overflow: hidden;
-    }
-    .kic-vcard-thumb img {
-        width: 100%; height: 100%; object-fit: cover;
-        transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
-    }
-    .kic-vcard:hover .kic-vcard-thumb img, .kic-vcard.kic-v-active .kic-vcard-thumb img {
-        transform: scale(1.1);
-    }
-    .kic-vcard-thumb::after {
-        content: ''; position: absolute; inset: 0;
-        background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.1) 60%, transparent 100%);
-        pointer-events: none;
-    }
-    .kic-vcard-play {
-        position: absolute; top: 50%; left: 50%;
-        transform: translate(-50%,-50%); width: 56px; height: 56px;
-        border-radius: 50%; background: linear-gradient(135deg, #daa520, #8b5a2b);
-        display: flex; align-items: center; justify-content: center; z-index: 2;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .kic-vcard-play i { color: #fff; font-size: 18px; margin-left: 3px; }
-    .kic-vcard:hover .kic-vcard-play, .kic-vcard.kic-v-active .kic-vcard-play {
-        transform: translate(-50%,-50%) scale(1.15);
-        box-shadow: 0 0 0 12px rgba(218,165,32,0.2);
-    }
-    .kic-vcard-play-ring {
-        position: absolute; top: 50%; left: 50%; width: 56px; height: 56px;
-        border-radius: 50%; border: 2px solid rgba(218,165,32,0.4);
-        transform: translate(-50%,-50%) scale(1); opacity: 0; z-index: 1; pointer-events: none;
-    }
-    .kic-vcard.kic-v-active .kic-vcard-play-ring {
-        animation: kic-play-ring 2s ease-out infinite;
-    }
-    @keyframes kic-play-ring {
-        0% { transform: translate(-50%,-50%) scale(1); opacity: 0.6; }
-        100% { transform: translate(-50%,-50%) scale(2.2); opacity: 0; }
-    }
-    .kic-vcard-info { padding: 16px 18px; }
-    .kic-vcard-info h4 { color: #fff; font-size: 0.95rem; font-weight: 700; margin: 0 0 4px; }
-    .kic-vcard-info p { color: rgba(255,255,255,0.55); font-size: 0.8rem; margin: 0; }
-    .kic-vcard-bar {
-        position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
-        background: linear-gradient(90deg, transparent, #daa520, #f0c040, #daa520, transparent);
-        opacity: 0; transition: opacity 0.4s ease;
-    }
-    .kic-vcard:hover .kic-vcard-bar, .kic-vcard.kic-v-active .kic-vcard-bar { opacity: 1; }
-    .kic-vcard-badge {
-        position: absolute; top: 12px; left: 12px;
-        background: rgba(139,90,43,0.85); color: #fff; font-size: 0.7rem;
-        font-weight: 600; padding: 4px 10px; border-radius: 20px; z-index: 3;
-        letter-spacing: 0.5px; backdrop-filter: blur(4px);
-    }
-    @keyframes kic-v-pulse {
-        0%, 100% { box-shadow: 0 0 0 0 rgba(218,165,32,0.3); }
-        50% { box-shadow: 0 0 0 10px rgba(218,165,32,0); }
-    }
-    .kic-vcard.kic-v-active { animation: kic-v-pulse 2s ease-in-out infinite; }
-    .kic-v-reveal {
-        opacity: 0; transform: translateY(24px);
-        transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1);
-    }
-    .kic-v-reveal.is-visible { opacity: 1; transform: translateY(0); }
-
     /* Gallery */
     .kic-industrial-page .gbg-gallery-item {
         border-radius: 18px !important;
@@ -670,8 +584,8 @@
                                                     </a>
                                                     <ul class="submenu gbg-entity-dropdown">
                                                         <li><a href="gbcc"><div class="gbg-drop-icon gbg-drop-gbcc"><img src="assets/img/logo/GBCC.jpg" alt="GBCC"></div><div class="gbg-drop-text"><span>GBCC</span><small>Conseil &amp; Certification</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
-<li><a href="scmc"><div class="gbg-drop-icon gbg-drop-scmc"><img src="assets/img/logo/scmc.jpg" alt="SCMC"></div><div class="gbg-drop-text"><span>SCMC</span><small>Transformation &amp; négoce</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
-<li><a href="kic"><div class="gbg-drop-icon gbg-drop-kic"><img src="assets/img/logo/KIC.jpg" alt="KIC"></div><div class="gbg-drop-text"><span>KIC</span><small>Distribution en Europe</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
+<li><a href="https://scmc-ci.com/"><div class="gbg-drop-icon gbg-drop-scmc"><img src="assets/img/logo/scmc.jpg" alt="SCMC"></div><div class="gbg-drop-text"><span>SCMC</span><small>Transformation &amp; négoce</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
+<li><a href="https://kic-fr.com/"><div class="gbg-drop-icon gbg-drop-kic"><img src="assets/img/logo/kic-konan.png" alt="" style="object-fit:contain!important"></div><div class="gbg-drop-text"><span>KIC</span><small>Distribution en Europe</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
                                                         <li><a href="assiette-durable"><div class="gbg-drop-icon gbg-drop-ad"><img src="assets/img/logo/SCMC assiette durable.jpg" alt="Assiette Durable"></div><div class="gbg-drop-text"><span>Assiette Durable</span><small>Restauration responsable</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
                                                         <li><a href="scmc-chocolaterie"><div class="gbg-drop-icon gbg-drop-choc"><i class="fa-solid fa-candy-cane"></i></div><div class="gbg-drop-text"><span>SCMC Chocolaterie</span><small>Produits chocolatés</small></div><i class="fa-solid fa-chevron-right gbg-drop-arrow"></i></a></li>
                                                     </ul>
@@ -770,7 +684,7 @@
                 <span>Une entité de GBG<small>Un écosystème intégré, de la filière au marché</small></span>
             </a>
             <nav class="gbg-value-chain" aria-label="Chaîne de valeur GBG">
-                <a href="/">GBG</a><span aria-hidden="true">→</span><a href="scmc">SCMC · Origine &amp; transformation</a><span aria-hidden="true">→</span><span class="is-current">KIC · Marchés européens</span>
+                <a href="/">GBG</a><span aria-hidden="true">→</span><a href="https://scmc-ci.com/">SCMC · Origine &amp; transformation</a><span aria-hidden="true">→</span><span class="is-current">KIC · Marchés européens</span>
             </nav>
         </div>
     </aside>
@@ -779,11 +693,11 @@
         <!-- H&eacute;ro -->
         <section class="gbg-entity-hero entity-kic">
             <div class="container">
-                <img src="assets/img/logo/KIC.jpg" alt="KIC" class="entity-hero-logo">
+                <a href="https://kic-fr.com/" aria-label="Visiter le site officiel de KIC"><img src="assets/img/logo/kic-konan.png" alt="KIC" class="entity-hero-logo"></a>
                 <span class="gbg-eyebrow">Konan Industrie et Chocolaterie &mdash; SAS France</span>
                 <h2 class="gbg-title">Approvisionnement et commercialisation de produits agricoles semi-finis issus de fili&egrave;res durables.</h2>
                 <p class="gbg-lead">Fond&eacute;e en mars 2026, KIC est une Soci&eacute;t&eacute; par Actions Simplifi&eacute;e (SAS) bas&eacute;e en France, qui rapproche les producteurs agricoles des artisans-transformateurs europ&eacute;ens en proposant des mati&egrave;res premi&egrave;res de haute qualit&eacute;, tra&ccedil;ables et conformes aux exigences des march&eacute;s internationaux.</p>
-                <div class="gbg-actions"><a href="#kic-produits" class="gbg-btn">D&eacute;couvrir nos produits</a><a href="contact" class="gbg-btn gbg-btn-outline">Contacter KIC</a></div>
+                <div class="gbg-actions"><a href="#kic-produits" class="gbg-btn">D&eacute;couvrir nos produits</a><a href="https://kic-fr.com/" class="gbg-btn gbg-btn-outline">Visiter le site KIC</a></div>
             </div>
         </section>
 
@@ -983,59 +897,6 @@
             </div>
         </section>
 
-        <!-- Vid&eacute;os -->
-        <section class="gbg-section gbg-section-soft" id="kic-videos">
-            <div class="container">
-                <div class="row justify-content-center mb-4">
-                    <div class="col-lg-8 text-center kic-v-reveal">
-                        <span class="gbg-eyebrow">Nos vid&eacute;os</span>
-                        <h2 class="gbg-title">Le cacao durable en mouvement.</h2>
-                    </div>
-                </div>
-                <div class="kic-video-grid">
-                    <div class="kic-vcard kic-v-reveal" style="--i:1" data-vid="0" data-yt="">
-                        <span class="kic-vcard-badge"><i class="fa-solid fa-play"></i>&nbsp; Vid&eacute;o</span>
-                        <div class="kic-vcard-thumb">
-                            <img src="assets/img/about/feature-video02.jpg" alt="Fili&egrave;re cacao">
-                            <div class="kic-vcard-play"><i class="fa-solid fa-play"></i></div>
-                            <div class="kic-vcard-play-ring"></div>
-                        </div>
-                        <div class="kic-vcard-info">
-                            <h4>La fili&egrave;re cacao</h4>
-                            <p>Du producteur au march&eacute; international.</p>
-                        </div>
-                        <div class="kic-vcard-bar"></div>
-                    </div>
-                    <div class="kic-vcard kic-v-reveal" style="--i:2" data-vid="1" data-yt="">
-                        <span class="kic-vcard-badge"><i class="fa-solid fa-play"></i>&nbsp; Vid&eacute;o</span>
-                        <div class="kic-vcard-thumb">
-                            <img src="assets/img/service/servicev3-3.jpg" alt="Produits cacao">
-                            <div class="kic-vcard-play"><i class="fa-solid fa-play"></i></div>
-                            <div class="kic-vcard-play-ring"></div>
-                        </div>
-                        <div class="kic-vcard-info">
-                            <h4>Nos produits semi-finis</h4>
-                            <p>Beurre, masse, poudre et &eacute;clats de cacao.</p>
-                        </div>
-                        <div class="kic-vcard-bar"></div>
-                    </div>
-                    <div class="kic-vcard kic-v-reveal" style="--i:3" data-vid="2" data-yt="">
-                        <span class="kic-vcard-badge"><i class="fa-solid fa-play"></i>&nbsp; Vid&eacute;o</span>
-                        <div class="kic-vcard-thumb">
-                            <img src="assets/img/gallery/feature6.jpg" alt="Distribution">
-                            <div class="kic-vcard-play"><i class="fa-solid fa-play"></i></div>
-                            <div class="kic-vcard-play-ring"></div>
-                        </div>
-                        <div class="kic-vcard-info">
-                            <h4>Trading &amp; distribution</h4>
-                            <p>Acc&egrave;s aux march&eacute;s professionnels internationaux.</p>
-                        </div>
-                        <div class="kic-vcard-bar"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Avantages commerciaux -->
         <section class="gbg-section gbg-reveal">
             <div class="container">
@@ -1115,7 +976,7 @@
                         <h2 class="gbg-title">Vous &ecirc;tes chocolatier, p&acirc;tissier, glacier ou biscuitier ?</h2>
                         <p class="gbg-lead">KIC vous facilite l'acc&egrave;s &agrave; des produits agricoles semi-finis durables, tra&ccedil;ables et de qualit&eacute; constante pour votre activit&eacute; artisanale.</p>
                     </div>
-                    <div class="col-lg-4 text-lg-end"><a href="contact" class="gbg-btn">Contacter KIC</a></div>
+                    <div class="col-lg-4 text-lg-end"><a href="https://kic-fr.com/" class="gbg-btn">Visiter le site KIC</a></div>
                 </div>
             </div>
         </section>
@@ -1138,8 +999,8 @@
                         <h4>Nos entités</h4>
                         <ul class="gbg-footer-links">
                             <li><a href="gbcc">GBCC</a></li>
-                            <li><a href="scmc">SCMC</a></li>
-                            <li><a href="kic">KIC</a></li>
+                            <li><a href="https://scmc-ci.com/">SCMC</a></li>
+                            <li><a href="https://kic-fr.com/">KIC</a></li>
                             <li><a href="assiette-durable">Assiette Durable</a></li>
                             <li><a href="scmc-chocolaterie">SCMC Chocolaterie</a></li>
                         </ul>
@@ -1168,20 +1029,11 @@
                             <div class="gbg-footer-contact-icon"><i class="fa-solid fa-envelope"></i></div>
                             <span><a href="mailto:infos@gbg-ci.com">infos@gbg-ci.com</a></span>
                         </div>
-                        <div class="gbg-footer-newsletter">
-                            <h4 style="margin-top:8px;">Newsletter</h4>
-                            <form class="gbg-footer-newsletter-form" onsubmit="return false;">
-                                <input type="email" placeholder="Votre adresse email">
-                                <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
-                            </form>
-                        </div>
                     </div>
                 </div>
                 <div class="gbg-footer-bottom">
                     <p class="mb-0">&copy; Global Business Group <span id="gbgYear">2026</span>.<script>(function(){var y=document.getElementById("gbgYear");if(y)y.textContent=new Date().getFullYear();})();</script> Tous droits réservés.</p>
                     <ul class="gbg-footer-bottom-links">
-                        <li><a href="contact">Mentions légales</a></li>
-                        <li><a href="contact">Confidentialité</a></li>
                         <li><a href="contact">Contact</a></li>
                     </ul>
                 </div>
@@ -1256,40 +1108,6 @@
             chainIO.observe(kicChain);
         }
 
-        // Video cards: reveal + auto-cycle
-        var kvRevEls = document.querySelectorAll('.kic-v-reveal');
-        var kvIO = new IntersectionObserver(function(entries){
-            entries.forEach(function(e){
-                if(e.isIntersecting){
-                    var d = parseInt(getComputedStyle(e.target).getPropertyValue('--i')) || 0;
-                    setTimeout(function(){ e.target.classList.add('is-visible'); }, d * 150);
-                    kvIO.unobserve(e.target);
-                }
-            });
-        }, {threshold: 0.15});
-        kvRevEls.forEach(function(el){ kvIO.observe(el); });
-
-        var kvCards = document.querySelectorAll('.kic-vcard');
-        if(kvCards.length){
-            var kvCur = -1, kvInt = null, kvPaused = false;
-            function kvActivate(i){ kvCards.forEach(function(c){c.classList.remove('kic-v-active');}); kvCards[i].classList.add('kic-v-active'); kvCur=i; }
-            function kvCycle(){ kvActivate((kvCur+1)%kvCards.length); }
-            function kvStart(){ if(kvInt)return; kvCycle(); kvInt=setInterval(kvCycle,2500); }
-            function kvStop(){ clearInterval(kvInt); kvInt=null; }
-            kvCards.forEach(function(c,i){
-                c.addEventListener('mouseenter',function(){kvPaused=true;kvStop();kvActivate(i);});
-                c.addEventListener('mouseleave',function(){kvPaused=false;kvStart();});
-            });
-            var kvSecIO = new IntersectionObserver(function(entries){
-                entries.forEach(function(e){
-                    if(e.isIntersecting&&!kvPaused)kvStart();
-                    else if(!e.isIntersecting)kvStop();
-                });
-            },{threshold:0.2});
-            var kvSec = document.getElementById('kic-videos');
-            if(kvSec)kvSecIO.observe(kvSec);
-        }
-
         // Footer reveal animation
         var fRevEls = document.querySelectorAll('.gbg-footer-reveal');
         if (fRevEls.length) {
@@ -1299,21 +1117,6 @@
             fRevEls.forEach(function(el) { fRevIO.observe(el); });
         }
     })();
-    </script>
-    <script>
-(function(){
-    document.querySelectorAll('.kic-vcard[data-yt]').forEach(function(card){
-        card.style.cursor = 'pointer';
-        card.addEventListener('click', function(){
-            var ytId = card.getAttribute('data-yt');
-            if (!ytId || ytId.length < 3) return;
-            var thumb = card.querySelector('.kic-vcard-thumb');
-            if (!thumb) return;
-            thumb.innerHTML = '<div style="position:relative;width:100%;height:100%"><iframe src="https://www.youtube.com/embed/' + ytId + '?autoplay=1&rel=0" style="position:absolute;top:0;left:0;width:100%;height:100%;border:none" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe></div>';
-            card.style.pointerEvents = 'none';
-        });
-    });
-})();
     </script>
 </body>
 
